@@ -119,24 +119,6 @@ pre{
     position: relative;
 }
 
-.selected-color {
-    --width: 4rem;
-    --skew: .5rem;
-    --tube-color: #fff;
-    --fill-color: red; 
-    --anim-duration: 1s;
-    width: var(--width);
-    aspect-ratio: 1/4.5;
-    margin-top: var(--skew);
-    border-top-left-radius: 50% var(--skew);
-    border-top-right-radius: 50% var(--skew);
-    border-bottom-left-radius: 50% var(--skew);
-    border-bottom-right-radius: 50% var(--skew);
-    display: grid;
-    grid-template-rows: max-content auto max-content;
-    position: relative;
-}
-
 .tube::before{
     --blur: 4px;
     content: '';
@@ -150,6 +132,58 @@ pre{
     border-radius: inherit;
     filter: blur(var(--blur));
 }
+
+.current-element {
+    --fill-color: red; 
+    --anim-duration: 1s;
+    
+}
+
+.cap-text{
+    width: 100%;
+    color: var(--fill-color);
+    background-color: rgb(0 0 0 / .1);
+    padding-top: calc(var(--skew) + var(--width) * .05);
+    padding-bottom: calc(var(--width) * .1);
+    display: grid;
+    place-content: center;
+    margin-top: calc(var(--skew) * -.5);
+    border-bottom-left-radius: 50% var(--skew);
+    border-bottom-right-radius: 50% var(--skew);
+    --mask-image: radial-gradient( ellipse 100% calc(var(--skew) * 2) at center top, transparent calc(50% - 1px), black calc(50% + 1px));
+    -webkit-mask-image: var(--mask-image);
+    mask-image: var(--mask-image);
+    font-size: x-large;
+    font-style: normal;
+}
+
+.current-element-text::before{
+    content: "arr[i]";  
+}
+
+.next-element{
+    --fill-color: blue;
+}
+
+.next-element-text::before{
+    content: "arr[i + 1]";  
+}
+
+.test{
+    animation: move-in-steps 8s infinite;
+}
+
+@keyframes move-in-steps {
+    0% {
+      left: 0;
+      background: blue;
+    }
+    100% {
+      left: 100%;
+      background: red;
+    }
+  }
+
 
 .cap{
     --cap-height: calc(var(--width) * .5);
@@ -174,24 +208,6 @@ pre{
     top: calc(var(--skew) * -1);
 }
 
-.cap-text{
-    width: 100%;
-    color: var(--fill-color);
-    background-color: rgb(0 0 0 / .1);
-    padding-top: calc(var(--skew) + var(--width) * .05);
-    padding-bottom: calc(var(--width) * .1);
-    display: grid;
-    place-content: center;
-    margin-top: calc(var(--skew) * -.5);
-    border-bottom-left-radius: 50% var(--skew);
-    border-bottom-right-radius: 50% var(--skew);
-    --mask-image: radial-gradient( ellipse 100% calc(var(--skew) * 2) at center top, transparent calc(50% - 1px), black calc(50% + 1px));
-    -webkit-mask-image: var(--mask-image);
-    mask-image: var(--mask-image);
-    font-size: x-large;
-    font-style: normal;
-}
-
 .base{
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
@@ -206,21 +222,7 @@ pre{
     overflow: hidden;
 }
 
-
 .text{
-    color: var(--fill-color);
-    font-family: sans-serif;
-    line-height: 1;
-    font-size: calc(var(--width) * .4);
-    position: relative;
-}
-
-.text > *{
-    position: absolute;
-    font-size: .5em;
-}
-
-.icon{
     width: 100%;
     color: var(--fill-color);
     background-color: rgb(0 0 0 / .1);
@@ -234,7 +236,10 @@ pre{
     --mask-image: radial-gradient( ellipse 100% calc(var(--skew) * 2) at center top, transparent calc(50% - 1px), black calc(50% + 1px));
     -webkit-mask-image: var(--mask-image);
     mask-image: var(--mask-image);
-    font-size: xx-large;
+    font-family: sans-serif;
+    line-height: 1;
+    font-size: calc(var(--width) * .4);
+    position: relative;
 }
 
 .fill{
@@ -305,4 +310,35 @@ pre{
 .tube {
   --width: calc(8vw + 0.6rem); 
   --skew: calc(1vw + 0.1rem);
+}
+
+/****************Though Bubble********************/
+
+.thought-bubble-container{
+    height: 5em;
+}
+
+.thought-bubble {
+    position: relative;
+    z-index: 1;
+	height: 100%;
+	width: 80%;
+	background: ivory;
+	border-radius: 20px;
+    margin: 0 auto;
+	margin-top: 5px;
+	font-size: 1.6em;
+	text-align: center;
+}
+
+.pointer {
+	height: 40px;
+	width: 40px;
+	background: ivory;
+	margin: 0 auto;
+	transform: rotate(45deg);
+	border-radius: 0 0 12px 0;
+	margin-top: -22px;
+	position: relative;
+	left: calc(0.5vw - 50px);
 }

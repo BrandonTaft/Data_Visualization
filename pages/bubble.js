@@ -1,19 +1,23 @@
-import React, { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import Highlighter from "react-highlight-words";
 import Method from './method';
 import randomArray from "./randomArray";
 import { ButtonBox, SortButton, RefreshButton, ArraySizeButton } from '../src/components/MyButtons.js';
 import Box from '@mui/material/Box';
 import styles from '../src/css/bubble.module.css';
 
-
 function Bubble() {
     const [speed, setSpeed] = useState(1000);
-    const [capText, setCapText] = useState("");
-    const [textTwo, setTextTwo] = useState([]);
-    const [bottomText, setBottomText] = useState([]);
-    const [bottomTextTwo, setBottomTextTwo] = useState([])
+    const [text, setText] = useState("");
+    const [explanation, setExplanation] = useState("")
     const { newRandomArray, setNewRandomArray, refresh, setRefresh, max, setMax } = randomArray();
-    const arri = useRef();
+
+    useEffect(() => {
+    setExplanation(`While checked is true the do block will run. The do block immediately sets checked to false, then runs
+        the for loop. As long as the for loop makes one change, it sets checked back to true. Since checked is true when the for loop completes
+        it runs the do block again. This continues until the for loop makes a pass through the array without making a change which keeps checked as false
+        which then breaks us out of the while loop.`)
+    }, [])
 
     async function bubbleSort() {
 
@@ -24,18 +28,18 @@ function Bubble() {
             checked = false
             for (let i = 0; i < arr.length; i++) {
                 await new Promise(resolve => setTimeout(resolve, speed));
-                document.getElementById(i).classList.toggle("selected-color");
-                document.getElementById(i).innerText = "arr[i]";
-                // document.getElementById(`caption${i}`).innerText = "<<<=== arr[i]"
-                // if (document.getElementById(i + 1) !== null) {
-                //     //document.getElementById(i + 1).style.backgroundColor = "white";
-                //     // document.getElementById(`caption${i + 1}`).innerText = "<<<=== arr[i + 1]";
-                // }
+                // document.getElementById(i).classList.toggle("test");
+                document.getElementById(i).classList.toggle("current-element");
+                document.getElementById(`cap${i}`).classList.toggle("current-element-text");
+                if (document.getElementById(i + 1) !== null) {
+                    document.getElementById(i + 1).classList.toggle("next-element");
+                    document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
+                }
+
                 if (arr[i] > arr[i + 1]) {
-                    // setText("If arr[i] is greater than arr[i + 1]")
+                    setExplanation("")
                     await new Promise(resolve => setTimeout(resolve, speed));
-                    setBottomText("They swap positions and the loop moves to the next element")
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    setText("Since arr[i] is greater than arr[i + 1] so they swap positions and the loop moves to the next element")
                     await new Promise(resolve => setTimeout(resolve, speed));
                     //Swap the elements in the array since element is less than the next element
                     let tmp = arr[i];
@@ -47,24 +51,17 @@ function Bubble() {
                     checked = true
 
                 } else {
+                    setText("Since arr[i] is less than arr[i + 1] They stay where they are and the loop continues to next element");
                     await new Promise(resolve => setTimeout(resolve, speed));
-                    setText("");
-                    setTextTwo("If arr[i] is less than arr[i + 1]");
-                    await new Promise(resolve => setTimeout(resolve, speed));
-                    setBottomTextTwo("They stay where they are and the loop continues to next element");
-                    await new Promise(resolve => setTimeout(resolve, speed));
-                }
-                document.getElementById(i).classList.toggle("selected-color");
-                // document.getElementById(`caption${i}`).innerText = "";
 
+                }
+                document.getElementById(i).classList.toggle("current-element");
+                document.getElementById(`cap${i}`).classList.toggle("current-element-text");
                 if (document.getElementById(i + 1) !== null) {
-                    // document.getElementById(i + 1).style.backgroundColor = "red";
-                    //document.getElementById(`caption${i + 1}`).innerText = "<<<=== arr[i]";
+                    document.getElementById(i + 1).classList.toggle("next-element");
+                    document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
                 }
                 setText("");
-                setTextTwo("");
-                setBottomText("");
-                setBottomTextTwo("");
                 setNewRandomArray([...arr]);
                 await new Promise(resolve => setTimeout(resolve, 500));
             }
@@ -72,14 +69,15 @@ function Bubble() {
             //Ensuring loop will not run on a sorted array more than once
         } while (checked)
     }
-    // <span id={`caption${index}`}></span>
+
+
     const display = newRandomArray.map((bar, index) => {
-        let cssProperties = {'--percent': `${bar * (100 / newRandomArray.length)}`}
+        let cssProperties = { '--percent': `${bar * (100 / newRandomArray.length)}` }
         return (
-            <div className="tube" style={cssProperties} key={index} id={`${index}`} >
-                <i className="cap"><span className='cap-text'>arr[i]</span></i><i className="fill" key={bar}></i>
+            <div className="tube" style={cssProperties} key={bar} id={`${index}`} >
+                <i className="cap"><span className="cap-text" id={`cap${index}`}></span></i><i className="fill" key={bar}></i>
                 <div className="base">
-                    <div className="icon text">{bar}</div>
+                    <div className="text">{bar}</div>
                 </div>
             </div>
         )
@@ -98,7 +96,23 @@ function Bubble() {
             <div className={styles.row}>
                 {display}
             </div>
-
+            <Box className="thought-bubble-container">
+                <div className="thought-bubble">
+                <Highlighter
+                        highlightClassName="YourHighlightClass"
+                        searchWords={["arr[i]", "arr[i + 1]"]}
+                        autoEscape={true}
+                        textToHighlight={explanation}
+                    />
+                    <Highlighter
+                        highlightClassName="YourHighlightClass"
+                        searchWords={["arr[i]", "arr[i + 1]"]}
+                        autoEscape={true}
+                        textToHighlight={text}
+                    />
+                </div>
+                <div className="pointer"></div>
+            </Box>
 
 
         </div>
