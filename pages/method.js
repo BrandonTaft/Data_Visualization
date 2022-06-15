@@ -29,7 +29,7 @@ function Method({ method}) {
 
     }
     return (
-        <Box sx={{width:"65%"}} className={style.method}>
+        <Box className={style.method}>
             <SyntaxHighlighter
                 language="javascript"
                 style={duotoneSpace}

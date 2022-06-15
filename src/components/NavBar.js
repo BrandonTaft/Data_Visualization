@@ -100,7 +100,7 @@ export default function PersistentDrawerLeft() {
                         <MenuIcon />
                     </IconButton>
 
-                    <h3>Sort Method Visualizer</h3>
+                    <h2>Sort Method Visualizer</h2>
 
                 </Toolbar>
             </AppBar>

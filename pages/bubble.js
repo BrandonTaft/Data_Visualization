@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Highlighter from "react-highlight-words";
 import Method from './method';
 import randomArray from "./randomArray";
-import { ButtonBox, SortButton, RefreshButton, ArraySizeButton } from '../src/components/MyButtons.js';
+import { ButtonBox, ButtonGrid } from '../src/components/MyButtons.js';
 import Box from '@mui/material/Box';
 import styles from '../src/css/bubble.module.css';
 
@@ -86,13 +86,22 @@ function Bubble() {
     return (
         <div>
 
-            <Box sx={{ display: "flex" }}>
-                <ButtonBox sortMethod={bubbleSort} refresh={refresh} setRefresh={setRefresh} setMax={setMax} speed={speed} setSpeed={setSpeed} />
+            <Box sx={{ display: "flex" , margin: "0 1em 0 1em"}}>
+            <Box className="thought-bubble">
+                <Highlighter
+                        highlightClassName="YourHighlightClass"
+                        searchWords={["arr[i]", "arr[i + 1]"]}
+                        autoEscape={true}
+                        textToHighlight={explanation}
+                    />
+                </Box>
+               
                 <Method method={"bubble"} />
             </Box>
-            <Box className={styles.newArray}>
+            {/* <Box className={styles.newArray}>
                 [{newRandomArray.toString()}]
-            </Box>
+            </Box> */}
+             <ButtonGrid sortMethod={bubbleSort} refresh={refresh} setRefresh={setRefresh} setMax={setMax} speed={speed} setSpeed={setSpeed} />
             <div className={styles.row}>
                 {display}
             </div>
@@ -103,12 +112,6 @@ function Bubble() {
                         searchWords={["arr[i]", "arr[i + 1]"]}
                         autoEscape={true}
                         textToHighlight={explanation}
-                    />
-                    <Highlighter
-                        highlightClassName="YourHighlightClass"
-                        searchWords={["arr[i]", "arr[i + 1]"]}
-                        autoEscape={true}
-                        textToHighlight={text}
                     />
                 </div>
                 <div className="pointer"></div>
