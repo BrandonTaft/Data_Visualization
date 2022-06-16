@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from '../src/components/Layout';
 import "../src/css/global.css";
-import "../src/fonts/fonts.css";
 
 export default function MyApp({ Component, pageProps }) {
   return (

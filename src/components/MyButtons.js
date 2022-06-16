@@ -8,6 +8,10 @@ import ListItemText from '@mui/material/ListItemText';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import Grid from '@mui/material/Grid';
 import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import MySlider from './MySlider';
 
 const SortButton = ({ sortMethod }) => (
@@ -35,29 +39,52 @@ function RefreshButton({ refresh, setRefresh }) {
   )
 }
 
-const ArraySwitch = ({max, setMax}) => {
+const ArraySwitch = ({ max, setMax }) => {
   // const [checked, setChecked] = React.useState(true);
 
   const handleChange = (event) => {
     setMax(event.target.value);
   };
   return (
-    <div>
-      <Radio
-        checked={max === '5'}
-        onChange={handleChange}
-        value="5"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': '5' }}
-      />
-      <Radio
-        checked={max === '10'}
-        onChange={handleChange}
-        value="10"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': '10' }}
-      />
-    </div>
+    <FormControl>
+      <FormLabel sx={{ color: "white", fontFamily: "'Fira Sans Condensed', sans-serif", "&.Mui-focused": { color: "white" } }} >Array Size</FormLabel>
+      <RadioGroup row>
+        <FormControlLabel
+          value="5"
+          control={
+            <Radio
+              sx={{
+                color: "white",
+                '&.Mui-checked': {
+                  color: "white",
+                },
+              }}
+            />
+          }
+          size="medium"
+          onChange={handleChange}
+          name="5"
+          inputProps={{ 'aria-label': '5' }}
+          label="5" />
+        <FormControlLabel
+          value="10"
+          control={
+            <Radio
+              sx={{
+                color: "white",
+                '&.Mui-checked': {
+                  color: "white",
+                },
+              }}
+            />
+          }
+          size="medium"
+          onChange={handleChange}
+          name="10"
+          inputProps={{ 'aria-label': '10' }}
+          label="10" />
+      </RadioGroup>
+    </FormControl>
   );
 }
 
@@ -76,19 +103,11 @@ const ArraySizeButton = ({ arraySize, setMax }) => (
 const ButtonGrid = ({ sortMethod, refresh, setRefresh, max, setMax, speed, setSpeed }) => (
   <Box className="button-grid">
     <Grid container spacing={2}>
-      {/* <Grid item xs={2}>
-          <ArraySizeButton arraySize={5} setMax={setMax} />
-      </Grid>
       <Grid item xs={2}>
-        <ArraySizeButton arraySize={10} setMax={setMax} />
-      </Grid> */}
-      <Grid item xs={1}>
-          <ArraySwitch max={max} setMax={setMax} />
+        <ArraySwitch max={max} setMax={setMax} />
       </Grid>
       <Grid item xs={1}>
         <SortButton sortMethod={sortMethod} />
-      </Grid>
-      <Grid item xs={1}>
         <RefreshButton refresh={refresh} setRefresh={setRefresh} />
       </Grid>
       <Grid item xs={4}>

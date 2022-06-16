@@ -98,9 +98,9 @@ function Bubble() {
                
                 <Method method={"bubble"} />
             </Box>
-            {/* <Box className={styles.newArray}>
+            <Box className={styles.newArray}>
                 [{newRandomArray.toString()}]
-            </Box> */}
+            </Box>
              <ButtonGrid sortMethod={bubbleSort} refresh={refresh} setRefresh={setRefresh} setMax={setMax} speed={speed} setSpeed={setSpeed} />
             <div className={styles.row}>
                 {display}
