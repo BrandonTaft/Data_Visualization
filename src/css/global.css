@@ -25,6 +25,16 @@ h1,h2,h3 {
     display: none;
 }
 
+.top-container{
+    display: flex;
+    margin: 0 1em 0 1em;
+    justify-content: space-around;
+}
+
+pre{
+    margin-top: 0;
+}
+
 /*******************Navbar******************/
 
 .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
@@ -56,15 +66,9 @@ h1,h2,h3 {
 .button-box{
     background-color: black;
     color: white;
-    width: 15em;
-    margin: auto;
-    padding: 10px;
+    height: fit-content;
+    width: 25%;
     border-radius: 10px;
-    border: 5px solid white
-}
-
-.buttonox:hover{
-    border: 5px solid white
 }
 
 .css-11qr2p8-MuiButtonBase-root-MuiButton-root{
@@ -319,31 +323,46 @@ h1,h2,h3 {
   --skew: calc(1vw + 0.1rem);
 }
 
-/****************Thought Bubble********************/
+.arrow {
+    margin-top: auto;
+    margin-bottom: auto;
+    border: solid black;
+    border-width: 0 8px 8px 0;
+    height:30px;
+    width: 30px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
 
-.thought-bubble-container{
-    height: 5em;
-}
+/****************Thought Bubble********************/
 
 .thought-bubble {
     position: relative;
     z-index: 1;
-	width: 50%;
-	background: ivory;
-	border-radius: 20px;
-    margin: 0.5em auto 1.5em auto;
+	background: #a3a5a6;
+	border-radius: 10px;
 	font-size: 1.15em;
 	text-align: center;
+    width: auto;
 }
 
 .pointer {
 	height: 40px;
 	width: 40px;
-	background: ivory;
+	background: #a3a5a6;
 	margin: 0 auto;
 	transform: rotate(45deg);
 	border-radius: 0 0 12px 0;
 	margin-top: -22px;
 	position: relative;
-	left: calc(0.5vw - 50px);
+	right: 20em
 }

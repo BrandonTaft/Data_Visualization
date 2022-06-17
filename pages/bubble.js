@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import Highlighter from "react-highlight-words";
 import Method from './method';
 import randomArray from "./randomArray";
-import { ButtonBox, ButtonGrid } from '../src/components/MyButtons.js';
+import { ButtonBox } from '../src/components/MyButtons.js';
 import Box from '@mui/material/Box';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import styles from '../src/css/bubble.module.css';
 
 function Bubble() {
@@ -13,10 +16,12 @@ function Bubble() {
     const { newRandomArray, setNewRandomArray, refresh, setRefresh, max, setMax } = randomArray();
 
     useEffect(() => {
-    setExplanation(`While checked is true the do block will run. The do block immediately sets checked to false, then runs
-        the for loop. As long as the for loop makes one change, it sets checked back to true. Since checked is true when the for loop completes
-        it runs the do block again. This continues until the for loop makes a pass through the array without making a change which keeps checked as false
-        which then breaks us out of the while loop.`)
+        setExplanation(`The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
+        if it is then it will swap the places of those two elements and sets checked to true. Once it finishes running, if a change was mae and checked is true
+        it will pass the condition set in the while statement so the block of code will run again. Starting by setting checked to false, so once the for loop 
+        runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
+        This will then break out of the code.
+       `)
     }, [])
 
     async function bubbleSort() {
@@ -74,49 +79,54 @@ function Bubble() {
     const display = newRandomArray.map((bar, index) => {
         let cssProperties = { '--percent': `${bar * (100 / newRandomArray.length)}` }
         return (
+            <>
             <div className="tube" style={cssProperties} key={bar} id={`${index}`} >
                 <i className="cap"><span className="cap-text" id={`cap${index}`}></span></i><i className="fill" key={bar}></i>
                 <div className="base">
                     <div className="text">{bar}</div>
                 </div>
             </div>
+            <i class="arrow left"></i>
+            </>
         )
     });
 
     return (
         <div>
-
-            <Box sx={{ display: "flex" , margin: "0 1em 0 1em"}}>
-            <Box className="thought-bubble">
-                <Highlighter
+            <Box className='top-container'>
+            <ButtonBox
+                newRandomArray={newRandomArray}
+                sortMethod={bubbleSort}
+                refresh={refresh}
+                setRefresh={setRefresh}
+                setMax={setMax}
+                speed={speed}
+                setSpeed={setSpeed}
+            />
+                
+            
+                <Method method={"bubble"} />
+            </Box>
+            
+            
+            <Box className="thought-bubble-container">
+                <Box className="thought-bubble">
+                    <Highlighter
                         highlightClassName="YourHighlightClass"
                         searchWords={["arr[i]", "arr[i + 1]"]}
                         autoEscape={true}
                         textToHighlight={explanation}
                     />
                 </Box>
-               
-                <Method method={"bubble"} />
+                <Box className="pointer"></Box>
             </Box>
-            <Box className={styles.newArray}>
-                [{newRandomArray.toString()}]
-            </Box>
-             <ButtonGrid sortMethod={bubbleSort} refresh={refresh} setRefresh={setRefresh} setMax={setMax} speed={speed} setSpeed={setSpeed} />
+        
+            
+                {/* [{newRandomArray.toString()}] */}
+            
             <div className={styles.row}>
                 {display}
             </div>
-            <Box className="thought-bubble-container">
-                <div className="thought-bubble">
-                <Highlighter
-                        highlightClassName="YourHighlightClass"
-                        searchWords={["arr[i]", "arr[i + 1]"]}
-                        autoEscape={true}
-                        textToHighlight={explanation}
-                    />
-                </div>
-                <div className="pointer"></div>
-            </Box>
-
 
         </div>
     )

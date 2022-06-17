@@ -1,18 +1,19 @@
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import Grid from '@mui/material/Grid';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import MySlider from './MySlider';
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import RefreshIcon from "@mui/icons-material/Refresh";
+import Grid from "@mui/material/Grid";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import MySlider from "./MySlider";
+
 
 const SortButton = ({ sortMethod }) => (
   <Button
@@ -46,43 +47,53 @@ const ArraySwitch = ({ max, setMax }) => {
     setMax(event.target.value);
   };
   return (
-    <FormControl>
-      <FormLabel sx={{ color: "white", fontFamily: "'Fira Sans Condensed', sans-serif", "&.Mui-focused": { color: "white" } }} >Array Size</FormLabel>
-      <RadioGroup row>
+    <FormControl sx={{ flexDirection: "row" }}>
+
+      <FormLabel
+        sx={{
+          margin: "auto",
+          color: "white",
+          fontFamily: "'Fira Sans Condensed', sans-serif",
+          "&.Mui-focused": { color: "white" }
+        }} >
+        Length
+      </FormLabel>
+
+      <RadioGroup row sx={{ marginLeft: "10px" }}>
+
         <FormControlLabel
           value="5"
-          control={
-            <Radio
-              sx={{
-                color: "white",
-                '&.Mui-checked': {
-                  color: "white",
-                },
-              }}
-            />
-          }
           size="medium"
           onChange={handleChange}
-          name="5"
-          inputProps={{ 'aria-label': '5' }}
-          label="5" />
+          label="5"
+          control={
+            <Radio
+              size="small"
+              sx={{
+                color: "white",
+                "&.Mui-checked": {
+                  color: "white"
+                },
+              }} />
+          } />
+
+
         <FormControlLabel
           value="10"
-          control={
-            <Radio
-              sx={{
-                color: "white",
-                '&.Mui-checked': {
-                  color: "white",
-                },
-              }}
-            />
-          }
           size="medium"
           onChange={handleChange}
-          name="10"
-          inputProps={{ 'aria-label': '10' }}
-          label="10" />
+          label="10"
+          control={
+            <Radio
+              size= "small"
+              sx={{
+                color: "white",
+                "&.Mui-checked": {
+                  color: "white"
+                },
+              }} />
+          } />
+
       </RadioGroup>
     </FormControl>
   );
@@ -100,49 +111,46 @@ const ArraySizeButton = ({ arraySize, setMax }) => (
   </Button>
 )
 
-const ButtonGrid = ({ sortMethod, refresh, setRefresh, max, setMax, speed, setSpeed }) => (
-  <Box className="button-grid">
-    <Grid container spacing={2}>
-      <Grid item xs={2}>
-        <ArraySwitch max={max} setMax={setMax} />
-      </Grid>
-      <Grid item xs={1}>
-        <SortButton sortMethod={sortMethod} />
-        <RefreshButton refresh={refresh} setRefresh={setRefresh} />
-      </Grid>
-      <Grid item xs={4}>
-        <MySlider speed={speed} setSpeed={setSpeed} />
-      </Grid>
-    </Grid>
-  </Box>
+const ButtonBox = ({sortMethod, refresh, setRefresh, max, setMax, speed, setSpeed }) => (
+
+  // <Box className="button-box" container row>
+  //   <Box>
+  //     <ArraySwitch max={max} setMax={setMax} />
+  //   </Box>
+  //   <Box>
+  //     <SortButton sortMethod={sortMethod} />
+  //     <RefreshButton refresh={refresh} setRefresh={setRefresh} />
+  //   </Box>
+  //   <Box>
+  //     <MySlider speed={speed} setSpeed={setSpeed} />
+  //   </Box>
+  // </Box>
+  
+    <Box className="button-box" >
+      <List sx={{ paddingBottom: "0" }}>
+        <ListItem >
+          <ListItemText children="Array Size" />
+          <ArraySizeButton arraySize={5} setMax={setMax} />
+        </ListItem>
+        <ListItem >
+          <ListItemText children="Array Size" />
+          <ArraySizeButton arraySize={10} setMax={setMax} />
+        </ListItem>
+        <ListItem >
+          <ListItemText children="Sort" />
+          <SortButton sortMethod={sortMethod} />
+        </ListItem>
+        <ListItem >
+          <ListItemText />
+          <RefreshButton refresh={refresh} setRefresh={setRefresh} />
+        </ListItem>
+        <ListItem >
+          <MySlider speed={speed} setSpeed={setSpeed} />
+        </ListItem>
+      </List>
+    </Box>
 
 )
 
-const ButtonBox = ({ sortMethod, refresh, setRefresh, setMax, speed, setSpeed }) => (
-  <Box className="button-box" >
-    <List sx={{ margin: 'auto' }}>
-      <ListItem >
-        <ListItemText children="Array Size" />
-        <ArraySizeButton arraySize={5} setMax={setMax} />
-      </ListItem>
-      <ListItem >
-        <ListItemText children="Array Size" />
-        <ArraySizeButton arraySize={10} setMax={setMax} />
-      </ListItem>
-      <ListItem >
-        <ListItemText children="Sort" />
-        <SortButton sortMethod={sortMethod} />
-      </ListItem>
-      <ListItem >
-        <ListItemText />
-        <RefreshButton refresh={refresh} setRefresh={setRefresh} />
-      </ListItem>
-      <ListItem >
-        <MySlider speed={speed} setSpeed={setSpeed} />
-      </ListItem>
-    </List>
-  </Box>
 
-)
-
-export { ButtonBox, ButtonGrid }
+export { ButtonBox}
