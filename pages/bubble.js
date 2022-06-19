@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import styles from "../src/css/bubble.module.css";
 
 function Bubble() {
-    const [speed, setSpeed] = useState(1000);
+    const [speed, setSpeed] = useState("2500");
     const [text, setText] = useState("");
     const [checked, setChecked] = useState("");
     const [explanation, setExplanation] = useState("")
@@ -31,7 +31,7 @@ function Bubble() {
             checked = false
             setChecked("False")
             for (let i = 0; i < arr.length; i++) {
-                console.log(i,arr[i],arr[i+1])
+                console.log(i, arr[i], arr[i + 1])
                 await new Promise(resolve => setTimeout(resolve, speed));
                 // document.getElementById(i).classList.toggle("test");
                 document.getElementById(i).classList.toggle("current-element");
@@ -75,20 +75,21 @@ function Bubble() {
 
 
     const display = newRandomArray.map((bar, index) => {
-        let cssProperties = { "--percent": `${bar * (100 / newRandomArray.length)}`, "--duration": `${speed / 1200}s` }
+        let cssProperties = { "--percent": `${bar * (100 / newRandomArray.length)}`, "--duration": `${speed / 500}s` }
         return (
-                <div className="tube" style={cssProperties} key={bar} id={`${index}`} >
-                    <i className="cap" id={`cap${index}`}></i><i className="fill" key={bar}></i>
-                    <div className="base">
-                        <div className="text">{bar}</div>
-                    </div>
-                </div>     
+            <div className="tube" style={cssProperties} key={bar} id={`${index}`} >
+                <i className="cap" id={`cap${index}`}></i><i className="fill" key={bar}></i>
+                <div className="base">
+                    <div className="text">{bar}</div>
+                </div>
+            </div>
         )
     });
 
     return (
         <div>
             <Box className="top-container">
+            <Box className="top-description">
                 <ButtonBox
                     newRandomArray={newRandomArray}
                     sortMethod={bubbleSort}
@@ -99,13 +100,7 @@ function Bubble() {
                     setSpeed={setSpeed}
                 />
 
-
-                <Method method={"bubble"} />
-            </Box>
-
-
-            <Box className="thought-bubble-container">
-                <Box className="thought-bubble">
+               
                     <Highlighter
                         highlightClassName="YourHighlightClass"
                         searchWords={["arr[i]", "arr[i + 1]"]}
@@ -113,13 +108,27 @@ function Bubble() {
                         textToHighlight={explanation}
                     />
                 </Box>
-                <Box className="pointer"></Box>
-                <Box className={"var-container"}>
-               <span className={"array-span"}>Array = [{newRandomArray.toString()}]</span>  <span className={"checked-span"}>Checked = {checked}</span>
-            </Box>
+
+                <Method method={"bubble"} />
             </Box>
 
-            
+
+            <Box className="thought-bubble-container">
+                {/* <Box className="thought-bubble">
+                    <Highlighter
+                        highlightClassName="YourHighlightClass"
+                        searchWords={["arr[i]", "arr[i + 1]"]}
+                        autoEscape={true}
+                        textToHighlight={explanation}
+                    />
+                </Box>
+                <Box className="pointer"></Box> */}
+                <Box className={"var-container"}>
+                    <span className={"array-span"}>Array = [{newRandomArray.toString()}]</span>  <span className={"checked-span"}>Checked = {checked}</span>
+                </Box>
+            </Box>
+
+
             <div className={styles.row}>
                 {display}
             </div>
