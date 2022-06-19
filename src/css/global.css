@@ -105,6 +105,10 @@ pre{
 
 /*********************Tubes********************/
 
+.tube-wrap{
+    display: flex;
+}
+
 .tubes { 
   margin-inline: auto; 
   display: flex; 
@@ -145,12 +149,6 @@ pre{
     filter: blur(var(--blur));
 }
 
-.current-element {
-    --fill-color: red; 
-    --anim-duration: 1s;
-    
-}
-
 .cap-text{
     width: 100%;
     color: var(--fill-color);
@@ -169,12 +167,25 @@ pre{
     font-style: normal;
 }
 
+.current-element {
+    --fill-color: red; 
+    --anim-duration: 1s;
+    animation-name: move;
+    animation-duration: var(--duration);
+}
+
+@keyframes move {
+    100%{top: 20px}
+}
+
 .current-element-text::before{
     content: "arr[i]";  
 }
 
 .next-element{
     --fill-color: blue;
+    animation-name: move;
+    animation-duration: var(--duration);
 }
 
 .next-element-text::before{
@@ -206,6 +217,11 @@ pre{
     background-image: linear-gradient(to right, rgb(0 0 0 / .25), transparent 50%);
     position: relative;
     z-index: 2;
+    color: var(--fill-color);
+    display: grid;
+    place-content: center;
+    font-size: x-large;
+    font-style: normal;
 }
 
 
@@ -323,26 +339,6 @@ pre{
   --skew: calc(1vw + 0.1rem);
 }
 
-.arrow {
-    margin-top: auto;
-    margin-bottom: auto;
-    border: solid black;
-    border-width: 0 8px 8px 0;
-    height:30px;
-    width: 30px;
-  }
-  
-  .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-  
-  .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-  }
-  
-
 /****************Thought Bubble********************/
 
 .thought-bubble {
@@ -365,4 +361,19 @@ pre{
 	margin-top: -22px;
 	position: relative;
 	right: 20em
+}
+
+.var-container{
+    font-size: x-large;
+    color: #fe8c52;
+    z-index: 5;
+    position: relative;
+    bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.array-span{
+    margin-right: 35px;
 }
