@@ -30,11 +30,12 @@ h1,h2,h3 {
 .top-container{
     display: flex;
     margin: 0 1em 0 1em;
-    justify-content: space-around;
+    
 }
 
 pre{
     margin-top: 0;
+    width: 80%;
 }
 
 /*******************Navbar******************/
@@ -61,12 +62,9 @@ pre{
     height: fit-content;
     position: relative;
     z-index: 1;
-	background: #a3a5a6;
-	border-radius: 10px;
 	font-size: 1.15em;
 	text-align: center;
-    width: 60%;
-    margin-top: 9px;
+    width: 40%;
     padding: 7px;
 }
 
@@ -86,7 +84,8 @@ pre{
     color: white;
     height: fit-content;
     border-radius: 10px;
-    margin-right: 22px;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .css-11qr2p8-MuiButtonBase-root-MuiButton-root{
@@ -201,16 +200,31 @@ pre{
 
 .current-element {
     --fill-color: red; 
-    --anim-duration: 1s;
-    animation-name: move-right;
-    animation-duration: var(--duration);
+    --anim-duration: 2s;
+    animation-name: move;
+    animation-duration: 5s;
 }
 
-@keyframes move-right{
-    100%{top: 20px}
+.swap-container{
+    z-index: 5;
+   position: absolute;
+   top: 80px;
+   left: 55px;
+   background-color: black;
+   width: inherit;text-align: center;
 }
 
-@keyframes move-left{
+.swap::before{
+   font-size: xx-large;
+   font-style: normal;
+   content: "SWAP";
+   color: white;
+   
+  
+}
+
+
+@keyframes move{
     100%{top: 20px}
 }
 
@@ -222,8 +236,8 @@ pre{
 
 .next-element{
     --fill-color: blue;
-    animation-name: move-left;
-    animation-duration: var(--duration) ;
+    animation-name: move;
+    animation-duration: 5s ;
 }
 
 .next-element-text::before{
@@ -231,22 +245,6 @@ pre{
     position: relative;
     top: 4px;
 }
-
-.test{
-    animation: move-in-steps 8s infinite;
-}
-
-@keyframes move-in-steps {
-    0% {
-      left: 0;
-      background: blue;
-    }
-    100% {
-      left: 100%;
-      background: red;
-    }
-  }
-
 
 .cap{
     --cap-height: calc(var(--width) * .4);

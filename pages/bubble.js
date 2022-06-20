@@ -31,9 +31,7 @@ function Bubble() {
             checked = false
             setChecked("False")
             for (let i = 0; i < arr.length; i++) {
-                console.log(i, arr[i], arr[i + 1])
                 await new Promise(resolve => setTimeout(resolve, speed));
-                // document.getElementById(i).classList.toggle("test");
                 document.getElementById(i).classList.toggle("current-element");
                 document.getElementById(`cap${i}`).classList.toggle("current-element-text");
                 if (document.getElementById(i + 1) !== null) {
@@ -42,9 +40,12 @@ function Bubble() {
                 }
 
                 if (arr[i] > arr[i + 1]) {
+                    // await new Promise(resolve => setTimeout(resolve, speed));
+                    // setText("Since arr[i] is greater than arr[i + 1] so they swap positions and the loop moves to the next element")
+                    await new Promise(resolve => setTimeout(resolve, speed / 2));
+                    document.getElementById(`swap${i}`).classList.toggle("swap");
                     await new Promise(resolve => setTimeout(resolve, speed));
-                    setText("Since arr[i] is greater than arr[i + 1] so they swap positions and the loop moves to the next element")
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    document.getElementById(`swap${i}`).classList.toggle("swap");
                     //Swap the elements in the array since element is less than the next element
                     let tmp = arr[i];
                     arr[i] = arr[i + 1];
@@ -53,8 +54,8 @@ function Bubble() {
                     checked = true
                     setChecked("True")
                 } else {
-                    setText("Since arr[i] is less than arr[i + 1] They stay where they are and the loop continues to next element");
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                   // setText("Since arr[i] is less than arr[i + 1] They stay where they are and the loop continues to next element");
+                     await new Promise(resolve => setTimeout(resolve, speed));
                 }
                 document.getElementById(i).classList.toggle("current-element");
                 document.getElementById(`cap${i}`).classList.toggle("current-element-text");
@@ -75,13 +76,15 @@ function Bubble() {
 
 
     const display = newRandomArray.map((bar, index) => {
-        let cssProperties = { "--percent": `${bar * (100 / newRandomArray.length)}`, "--duration": `${speed / 500}s` }
+        let cssProperties = { "--percent": `${bar * (100 / newRandomArray.length)}`, "--duration": `${speed / 1000}s` }
         return (
             <div className="tube" style={cssProperties} key={bar} id={`${index}`} >
-                <i className="cap" id={`cap${index}`}></i><i className="fill" key={bar}></i>
+                <i className="cap" id={`cap${index}`}></i>
+                <i className="fill" key={bar}></i>
                 <div className="base">
                     <div className="text">{bar}</div>
                 </div>
+                <i className="swap-container" id={`swap${index}`}></i>
             </div>
         )
     });
@@ -89,8 +92,7 @@ function Bubble() {
     return (
         <div>
             <Box className="top-container">
-            <Box className="top-description">
-                <ButtonBox
+            <ButtonBox
                     newRandomArray={newRandomArray}
                     sortMethod={bubbleSort}
                     refresh={refresh}
@@ -100,6 +102,8 @@ function Bubble() {
                     setSpeed={setSpeed}
                 />
 
+            <Box className="top-description">
+                
                
                     <Highlighter
                         highlightClassName="YourHighlightClass"
