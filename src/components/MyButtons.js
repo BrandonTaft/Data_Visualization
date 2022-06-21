@@ -116,19 +116,6 @@ const ArraySizeButton = ({ arraySize, setMax }) => (
 
 const ButtonBox = ({sortMethod, refresh, setRefresh, max, setMax, speed, setSpeed }) => (
 
-  // <Box className="button-box" container row>
-  //   <Box>
-  //     <ArraySwitch max={max} setMax={setMax} />
-  //   </Box>
-  //   <Box>
-  //     <SortButton sortMethod={sortMethod} />
-  //     <RefreshButton refresh={refresh} setRefresh={setRefresh} />
-  //   </Box>
-  //   <Box>
-  //     <MySlider speed={speed} setSpeed={setSpeed} />
-  //   </Box>
-  // </Box>
-  
     <Box className="button-box" >
       <List sx={{paddingBottom:"0", textAlign:"center"}}>
       <ListItemText children="Array Size" disableTypography />
