@@ -20,6 +20,7 @@ const SortButton = ({ sortMethod }) => (
     onClick={sortMethod}
     variant={"contained"}
     size={"small"}
+    aria-label={"Start Sorting Button"}
   >
     Sort
   </Button>
@@ -32,6 +33,7 @@ function RefreshButton({ refresh, setRefresh }) {
         refresh == "false" ? setRefresh("true") : setRefresh("false");
       }
       }
+      aria-label={"Refresh Button"}
       variant={"contained"}
       size={"small"}
     >
@@ -106,6 +108,7 @@ const ArraySizeButton = ({ arraySize, setMax }) => (
     }}
     variant={"contained"}
     size={"small"}
+    aria-label={"Set Array Size"}
   >
     {arraySize}
   </Button>

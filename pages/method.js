@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import {duotoneSpace} from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import {materialDark} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import style from '../src/css/method.module.css';
 import Box from '@mui/material/Box';
 
@@ -32,7 +32,7 @@ function Method({ method}) {
         <Box className={style.method}>
             <SyntaxHighlighter
                 language="javascript"
-                style={duotoneSpace}
+                style={materialDark}
                 customStyle={methodStyle}
                 wrapLongLines
                 >

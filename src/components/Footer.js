@@ -31,7 +31,7 @@ function Footer() {
                 <Image src="/images/black-logo.png" alt="logo" width={100} height={100}/>
                 
                 {/* <Image src="/https://d1a370nemizbjq.cloudfront.net/092d843b-f7a8-44b7-9f2e-e100abd56305.glb" alt="github-logo" width={25} height={10}/> */}
-                <p>&copy;2022 Brandon Taft</p>
+                {/* <p>&copy;2022 Brandon Taft</p> */}
         </div>
     )
 }

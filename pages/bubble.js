@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Highlighter from "react-highlight-words";
 import Method from "./method";
 import randomArray from "./randomArray";
 import { ButtonBox } from "../src/components/MyButtons.js";
@@ -10,18 +9,13 @@ function Bubble() {
     const [speed, setSpeed] = useState("2500");
     const [text, setText] = useState("");
     const [checked, setChecked] = useState("");
-    const [explanation, setExplanation] = useState("")
     const { newRandomArray, setNewRandomArray, refresh, setRefresh, max, setMax } = randomArray();
 
-    useEffect(() => {
-        setExplanation(`The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
-        if it is then it will swap the places of those two elements and sets checked to true. Once it finishes running, if a change was made and checked is true
-        it will pass the condition set in the while statement so the block of code will run again. Starting by setting checked to false, so once the for loop 
-        runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
-        This will then break out of the code.
-       `)
-    }, [])
-
+const explanation= `The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
+if it is then it will swap the places of those two elements and sets checked to true. Once it finishes running, if a change was made and checked is true
+it will pass the condition set in the while statement so the block of code will run again. Starting by setting checked to false, so once the for loop 
+runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
+This will then break out of the code.`
     async function bubbleSort() {
 
         const arr = newRandomArray;
@@ -103,14 +97,13 @@ function Bubble() {
                 />
 
             <Box className="top-description">
-                
-               
-                    <Highlighter
-                        highlightClassName="YourHighlightClass"
-                        searchWords={["arr[i]", "arr[i + 1]"]}
-                        autoEscape={true}
-                        textToHighlight={explanation}
-                    />
+                <p>The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
+if it is then it will swap the places of those two elements and sets checked to true.</p>
+<p>Once it finishes running, if a change was made and checked is true
+it will pass the condition set in the while statement so the block of code will run again.</p>
+<p> Starting by setting checked to false, so once the for loop 
+runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
+This will then break out of the code.</p>
                 </Box>
 
                 <Method method={"bubble"} />
