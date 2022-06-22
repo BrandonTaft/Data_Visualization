@@ -11,7 +11,7 @@ function Bubble() {
     const [checked, setChecked] = useState("");
     const { newRandomArray, setNewRandomArray, refresh, setRefresh, max, setMax } = randomArray();
 
-const explanation= `The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
+    const explanation = `The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
 if it is then it will swap the places of those two elements and sets checked to true. Once it finishes running, if a change was made and checked is true
 it will pass the condition set in the while statement so the block of code will run again. Starting by setting checked to false, so once the for loop 
 runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
@@ -48,8 +48,8 @@ This will then break out of the code.`
                     checked = true
                     setChecked("True")
                 } else {
-                   // setText("Since arr[i] is less than arr[i + 1] They stay where they are and the loop continues to next element");
-                     await new Promise(resolve => setTimeout(resolve, speed));
+                    // setText("Since arr[i] is less than arr[i + 1] They stay where they are and the loop continues to next element");
+                    await new Promise(resolve => setTimeout(resolve, speed));
                 }
                 document.getElementById(i).classList.toggle("current-element");
                 document.getElementById(`cap${i}`).classList.toggle("current-element-text");
@@ -86,50 +86,51 @@ This will then break out of the code.`
     return (
         <div>
             <Box className="top-container">
-            <ButtonBox
-                    newRandomArray={newRandomArray}
-                    sortMethod={bubbleSort}
-                    refresh={refresh}
-                    setRefresh={setRefresh}
-                    setMax={setMax}
-                    speed={speed}
-                    setSpeed={setSpeed}
-                />
 
-            <Box className="top-description">
-                <p>The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
-if it is then it will swap the places of those two elements and sets checked to true.</p>
-<p>Once it finishes running, if a change was made and checked is true
-it will pass the condition set in the while statement so the block of code will run again.</p>
-<p> Starting by setting checked to false, so once the for loop 
-runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
-This will then break out of the code.</p>
+                <Box className="top-description">
+                    <p>The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
+                        if it is then it will swap the places of those two elements and sets checked to true.</p>
+                    <p>Once it finishes running, if a change was made and checked is true
+                        it will pass the condition set in the while statement so the block of code will run again.</p>
+                    <p> Starting by setting checked to false, so once the for loop
+                        runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
+                        This will then break out of the code.</p>
                 </Box>
 
                 <Method method={"bubble"} />
             </Box>
+            <Box className="bottom-container">
 
-
-            <Box className="thought-bubble-container">
-                {/* <Box className="thought-bubble">
-                    <Highlighter
-                        highlightClassName="YourHighlightClass"
-                        searchWords={["arr[i]", "arr[i + 1]"]}
-                        autoEscape={true}
-                        textToHighlight={explanation}
+                <Box className="side-display">
+                    <ButtonBox
+                        newRandomArray={newRandomArray}
+                        sortMethod={bubbleSort}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                        setMax={setMax}
+                        speed={speed}
+                        setSpeed={setSpeed}
                     />
+                    <Box className={"var-container"}>
+                        <Box className="array-container">
+                            <h3>Array</h3>
+                            <span className={"array-span"}>
+                                [{newRandomArray.toString()}]
+                            </span>
+                        </Box>
+                        <Box className="checked-container">
+                            <h3>Checked</h3>
+                            <span className={"checked-span"}>
+                                {checked}
+                            </span>
+                        </Box>
+                    </Box>
+
                 </Box>
-                <Box className="pointer"></Box> */}
-                <Box className={"var-container"}>
-                    <span className={"array-span"}>Array = [{newRandomArray.toString()}]</span>  <span className={"checked-span"}>Checked = {checked}</span>
-                </Box>
+                <div className={styles.row}>
+                    {display}
+                </div>
             </Box>
-
-
-            <div className={styles.row}>
-                {display}
-            </div>
-
         </div>
     )
 }

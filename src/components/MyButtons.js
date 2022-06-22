@@ -117,18 +117,22 @@ const ArraySizeButton = ({ arraySize, setMax }) => (
 const ButtonBox = ({sortMethod, refresh, setRefresh, max, setMax, speed, setSpeed }) => (
 
     <Box className="button-box" >
-      <List sx={{paddingBottom:"0", textAlign:"center"}}>
-      <ListItemText children="Array Size" disableTypography />
+      <List sx={{padding:"0", textAlign:"center"}}>
+      {/* <ListItemText children="Array Size" disableTypography />
         <ListItem >
           <ArraySizeButton arraySize={5} setMax={setMax} />
           <ArraySizeButton arraySize={10} setMax={setMax} />
-        </ListItem>
+        </ListItem> */}
         <ListItem >
           <SortButton sortMethod={sortMethod} />
+        </ListItem>
+        <ListItem >
           <RefreshButton refresh={refresh} setRefresh={setRefresh} />
         </ListItem>
-        <ListItemText children="Speed" disableTypography/>
-        <ListItem >
+        <ListItem className="slider-label" >
+          Speed
+        </ListItem>
+        <ListItem className="slider">
           <MySlider speed={speed} setSpeed={setSpeed} />
         </ListItem>
       </List>

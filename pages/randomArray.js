@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function randomArray() {
     const [newRandomArray, setNewRandomArray] = useState([]);
-    const [max, setMax] = useState(5);
+    const [max, setMax] = useState(6);
     const [refresh, setRefresh] = useState("false");
     useEffect(() => {
         const getArray = () => {

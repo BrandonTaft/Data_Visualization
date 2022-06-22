@@ -1,6 +1,5 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {materialDark} from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import style from '../src/css/method.module.css';
 import Box from '@mui/material/Box';
 
 const methodStyle = {
@@ -29,7 +28,7 @@ function Method({ method}) {
 
     }
     return (
-        <Box className={style.method}>
+        <Box className={"method"}>
             <SyntaxHighlighter
                 language="javascript"
                 style={materialDark}

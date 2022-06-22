@@ -37,7 +37,7 @@ function Layout({ children }) {
             <div className="Content" style={contentStyle}>
                 {children}
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

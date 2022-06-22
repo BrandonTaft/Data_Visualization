@@ -33,15 +33,20 @@ h1,h2,h3 {
     
 }
 
-pre{
-    margin-top: 0;
-    width: 80%;
-}
-
 /*******************Navbar******************/
 
+.css-ciy9n4-MuiPaper-root-MuiAppBar-root{
+    background-color: #373131;
+}
+
+.css-jzk4qw-MuiPaper-root-MuiAppBar-root{
+    background-color: #373131;
+}
+
 .css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
-    background-color: white;
+    background-color: #8a7f7f;
+    color: white;
+    font-size: x-large;
     height: fit-content;
     width: fit-content;
 }
@@ -58,7 +63,6 @@ pre{
 /*******************Top Description**********************/
 
 .top-description {
-    display: flex;
     height: fit-content;
     position: relative;
     z-index: 1;
@@ -68,41 +72,79 @@ pre{
     padding: 7px;
 }
 
-/*******************Button**********************/
+/*******************Bottom Container**********************/
 
-.button-grid{
-    background-color: black;
-    color: white;
-    
-    margin: auto;
-    padding: 10px;
-    border-radius: 10px;
+.bottom-container{
+    display: flex;
 }
 
-.button-box{
-    background-color: black;
+/*******************Side-Display**********************/
+
+.side-display{
+    width: 30%;
+	display: flex;
+	background: radial-gradient(
+		60% 60% at 70% 20%,
+		#615959,
+		#221e1e 90%
+	);
+    border-style: groove;
+    border-radius: 3%;
+    margin-left: 2em;
+}
+
+.var-container{
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
     color: white;
-    height: fit-content;
-    border-radius: 10px;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+}
+
+.array-container{
+    height: 50%;
+}
+
+/*******************Button**********************/
+
+.button-box{
+	display: flex;
+    flex-direction: column;
+	color: white;
+    border-right-style: groove;
+    border-right-color: #919ca129;
 }
 
 .css-11qr2p8-MuiButtonBase-root-MuiButton-root{
     border-radius: 30px;
     background-color: white;
     color: #0d0c22;
-    margin-left: 3px;
+    margin-left: 6px;
     margin-right: 3px;
 }
 
 .css-1p823my-MuiListItem-root{
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 3.3em;
+    padding: 0 5px 0 5px;
+    margin: 9px 0 9px 0;
 }
 
 /*******************SLIDER******************/
+
+.slider{
+    height: 100%;
+    color: white;
+    margin-top: .5em;
+}
+
+.slider-label{
+    height: fit-content;
+    font-size: 20px;
+    text-align: center;
+    border-top-style: groove;
+    border-top-color: #919ca129;
+}
 
 .css-1aznpnh-MuiSlider-root{
     height: 14px;
@@ -113,13 +155,12 @@ pre{
     padding-top: 0;
 }
 
-.css-1gv0vcd-MuiSlider-track {
-    background-color: red;
+.css-ada0pd-MuiSlider-track{
+    width: 10px;
 }
 
-.css-14pt78w-MuiSlider-rail{
-    background-color: white;
-    opacity: 1;
+.css-qx5f9e-MuiSlider-rail{
+    width: 10px;
 }
 
 .css-eg0mwd-MuiSlider-thumb{
@@ -130,8 +171,29 @@ pre{
     color: white;
 }
 
-.css-1eoe787-MuiSlider-markLabel{
+.css-xxsb21-MuiSlider-markLabel{
     color: white;
+    left: 44px;
+}
+
+.css-19l5h75-MuiSlider-markLabel{
+    color: blue;
+    left: 44px;
+}
+
+/*********************Method********************/
+
+.method{
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+pre{
+    margin-top: 0;
+    width: 100%;
 }
 
 /*********************Tubes********************/
@@ -402,17 +464,4 @@ pre{
 	right: 20em
 }
 
-.var-container{
-    font-size: x-large;
-    color: #fe8c52;
-    z-index: 5;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 22px;
-    text-align: center;
-}
 
-.array-span{
-    margin-right: 35px;
-}
