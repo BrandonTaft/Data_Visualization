@@ -1,13 +1,6 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {materialDark} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Box from '@mui/material/Box';
-
-const methodStyle = {
-    margin: "0.5em 0px 1.5em 0px",
-    padding: "10px",
-    paddingBottom: "0px",
-    border: "2px solid #89DDff"
-};
 
 function Method({ method}) {
     let display;
@@ -32,7 +25,6 @@ function Method({ method}) {
             <SyntaxHighlighter
                 language="javascript"
                 style={materialDark}
-                customStyle={methodStyle}
                 wrapLongLines
                 >
                 {display}

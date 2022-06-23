@@ -23,16 +23,6 @@ function Layout({ children }) {
     return (
 
         <div className="Layout" style={layoutStyle}>
-            {/* <Image
-                className={"background"}
-                src="/images/background-image.jpg"
-                alt="Background Image"
-                layout="fill"
-                objectFit="fill"
-                objectPosition="center"
-                priority="true"
-                quality="100"
-            /> */}
             <NavBar />
             <div className="Content" style={contentStyle}>
                 {children}

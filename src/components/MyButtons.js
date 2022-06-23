@@ -1,12 +1,7 @@
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import Grid from "@mui/material/Grid";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -16,19 +11,19 @@ import MySlider from "./MySlider";
 
 
 const SortButton = ({ sortMethod }) => (
-  <Button
+  <button
     onClick={sortMethod}
     variant={"contained"}
     size={"small"}
     aria-label={"Start Sorting Button"}
   >
-    Sort
-  </Button>
+    SORT
+  </button>
 )
 
 function RefreshButton({ refresh, setRefresh }) {
   return (
-    <Button
+    <button
       onClick={() => {
         refresh == "false" ? setRefresh("true") : setRefresh("false");
       }
@@ -38,7 +33,7 @@ function RefreshButton({ refresh, setRefresh }) {
       size={"small"}
     >
       <RefreshIcon />
-    </Button>
+    </button>
   )
 }
 
@@ -102,7 +97,7 @@ const ArraySwitch = ({ max, setMax }) => {
 }
 
 const ArraySizeButton = ({ arraySize, setMax }) => (
-  <Button
+  <button
     onClick={() => {
       setMax(arraySize);
     }}
@@ -111,7 +106,7 @@ const ArraySizeButton = ({ arraySize, setMax }) => (
     aria-label={"Set Array Size"}
   >
     {arraySize}
-  </Button>
+  </button>
 )
 
 const ButtonBox = ({sortMethod, refresh, setRefresh, max, setMax, speed, setSpeed }) => (
