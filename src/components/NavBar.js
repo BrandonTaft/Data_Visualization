@@ -158,6 +158,42 @@ export default function PersistentDrawerLeft() {
                             </Grid>
                         </Link>
                     </ListItem>
+                    <ListItem disablePadding>
+                        <Link href="">
+                        <Grid container sx={{cursor:"pointer"}}>
+                                <Grid item>
+                                    <CalculateIcon />
+                                </Grid>
+                                <Grid item>
+                                    <span>Selection</span>
+                                </Grid>
+                            </Grid>
+                        </Link>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <Link href="">
+                        <Grid container sx={{cursor:"pointer"}}>
+                                <Grid item>
+                                    <CalculateIcon />
+                                </Grid>
+                                <Grid item>
+                                    <span>Insertion</span>
+                                </Grid>
+                            </Grid>
+                        </Link>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <Link href="">
+                        <Grid container sx={{cursor:"pointer"}}>
+                                <Grid item>
+                                    <CalculateIcon />
+                                </Grid>
+                                <Grid item>
+                                    <span>Merge</span>
+                                </Grid>
+                            </Grid>
+                        </Link>
+                    </ListItem>
                 </List>
                 <Divider />
             </Drawer>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Method from "./method";
 import randomArray from "./randomArray";
-import { ButtonBox } from "../src/components/MyButtons.js";
+import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import styles from "../src/css/bubble.module.css";
 
@@ -119,7 +119,7 @@ return (
                     </Box>
                     <Box className="checked-container">
                         <h3>Checked</h3>
-                        <span className={"checked-span"}>
+                        <span className="checked-span">
                             {checked}
                         </span>
                     </Box>
