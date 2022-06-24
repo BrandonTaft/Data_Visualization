@@ -238,12 +238,12 @@ button:active {
     border-top-style: groove;
     border-top-color: #919ca129;
     padding: .5em 0;
+    justify-content: space-evenly;
 }
 
 .slider{
     color: white;
     margin-top: .5em;
-    flex-grow: 1;
 }
 
 .slider-label{
@@ -256,7 +256,6 @@ button:active {
     text-orientation: upright;
     letter-spacing: 15px;
     margin-left: 0.5em;
-    width: 50%;
     padding-top: .5em;
 }
 
