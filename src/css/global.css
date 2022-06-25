@@ -1,7 +1,6 @@
 
 body{
     font-family: 'Fira Sans', sans-serif;
-    font-weight: bold;
     margin: 0;
 }
 
@@ -15,7 +14,8 @@ body{
 
 h1,h2,h3 {
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'Fira Sans', sans-serif;
     }
 
 .background{
@@ -43,7 +43,7 @@ h1,h2,h3 {
 
 .css-134qg7o-MuiButtonBase-root-MuiIconButton-root{
     background-color: #2f2f2f;
-    box-shadow: -14px -7px 20px 0px rgb(35, 33, 33) inset, 0 0 0 0 rgb(50, 49, 49);
+    box-shadow: 11px -3px 15px 0px rgb(22, 21, 21) inset, 0 0 0 0 black;
 }
 
 .css-78trlr-MuiButtonBase-root-MuiIconButton-root{
@@ -86,7 +86,7 @@ h1,h2,h3 {
     height: fit-content;
     position: relative;
     z-index: 1;
-	font-size: 1.15em;
+	font-size: 1.3em;
 	text-align: center;
     width: 40%;
     padding: 7px;
@@ -100,7 +100,6 @@ h1,h2,h3 {
 
 pre{
     margin: 0.5em 0px 1.5em 0px !important;
-    padding: 3em !important;
     padding-top: 10px !important;
     padding-bottom: 0px !important;  
     font-size: 1.1em !important;
@@ -115,9 +114,8 @@ pre{
 /*******************Side-Display**********************/
 
 .side-display{
-    width: 30%;
 	display: flex;
-	background: radial-gradient( 48% 75% at 37% 36%, #564f4f, #1e1a1a 90% );
+	background: radial-gradient( 70% 75% at 69% 35%, #3d3838, #1e1a1a 100% );
     border-radius: 3%;
     margin-left: 2em;
     border-style: groove;
@@ -170,7 +168,6 @@ pre{
 /*******************Button Box**********************/
 
 .button-box{
-    width: 40%;
 	display: flex;
     flex-direction: column;
 	color: white;
@@ -181,9 +178,9 @@ pre{
 
 .action-buttons{
     display: flex;
-    padding-bottom: .5em;
+    padding: .1em .5em .5em .5em;
     justify-content: space-evenly;
-    gap: 4px;
+    gap: 5px;
 }
 
 button{
@@ -202,18 +199,12 @@ button{
     font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
-    box-shadow: -14px -7px 20px 0px rgb(22, 21, 21) inset, 0 0 0 0 black;
+    box-shadow: 11px -3px 15px 0px rgb(22, 21, 21) inset, 0 0 0 0 black;
     transition: all 150ms ease-in-out;
 }
 
-button:hover{       
-    outline: 0;
-    /* box-shadow: -14px -7px 20px 0px rgb(22, 21, 21) inset, 10px 4px 20px 0px #1f1f1f;; */  
-}
-
-button:active {
-   
-    transform: translateY(3px);
+button:active {  
+    transform: translateY(2px);
   }
 
 .refresh-button{
@@ -238,7 +229,6 @@ button:active {
     border-top-style: groove;
     border-top-color: #919ca129;
     padding: .5em 0;
-    justify-content: space-evenly;
 }
 
 .slider{
@@ -249,19 +239,24 @@ button:active {
 .slider-label{
     font-size: 20px;
     display: flex;
-    color: #fd9170;
+    color: #fd9170white;
     text-align: center;
     flex-direction: column;
     writing-mode: vertical-lr;
     text-orientation: upright;
     letter-spacing: 15px;
-    margin-left: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: .5em;
 }
 
 .css-fk6q5t-MuiSlider-root{
+    color: #fd9170;
+    margin-right: 50px;
+}
+
+.css-y35fuw-MuiSlider-thumb{
     color: white;
-    border-radius: 0;
 }
 
 .css-ada0pd-MuiSlider-track{
@@ -277,24 +272,20 @@ button:active {
     background-color: white;
 }
 
-.css-ofrcno-MuiGrid-root>.MuiGrid-item{
-    color: white;
-}
-
 .css-xxsb21-MuiSlider-markLabel{
     color: white;
-    left: 44px;
+    left: 3em;
     font-size: 1rem;
 }
 
 .css-19l5h75-MuiSlider-markLabel{
     color: #fd9170;
-    left: 44px;
+    left: 3em;
     font-size: 1rem;
 }
 
 .css-1wdhkzz-MuiSlider-mark{
-    color: #fd9170;
+    color: white;
     width: 4px;
     height: 4px;
     border-radius: 50%;
@@ -336,12 +327,12 @@ button:active {
     --blur: 4px;
     content: '';
     position: absolute;
-    width: calc(100% + var(--width) * 0.25);
+    width: calc(100% + var(--width) * 1);
     z-index: -1;
     right: var(--blur);
-    bottom: 0;
+    bottom: 18px;
     height: calc(var(--skew) * 2);
-    background: rgb(0 0 0 / .25);
+    background: rgb(0 0 0 / .55);
     border-radius: inherit;
     filter: blur(var(--blur));
 }
@@ -371,24 +362,44 @@ button:active {
     animation-duration: 5s;
 }
 
-.swap-container{
+.thought-bubble {
+    position: absolute;
     z-index: 5;
-   position: absolute;
-   top: 80px;
-   left: 55px;
-   background-color: black;
-   width: inherit;text-align: center;
+	background: #a3a5a6;
+	border-radius: 35px;
+    padding: 5px 24px;
+	font-size: 1.15em;
+	text-align: center;
+    width: auto;
+    top: 80px;
+    left: 70px;
+    
 }
 
-.swap::before{
+.bubble-bottom-left:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 24px solid #a3a5a6;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #a3a5a6;
+    border-bottom: 20px solid transparent;
+    left: 14px;
+    bottom: -16px;
+    z-index: -1;
+  }
+
+/* .swap::before{
    font-size: xx-large;
    font-style: normal;
    content: "SWAP";
    color: white;
-   
-  
-}
+} */
 
+.swap{
+    display: none;
+}
 
 @keyframes move{
     100%{top: 20px}
@@ -542,27 +553,6 @@ button:active {
   --skew: calc(1vw + 0.1rem);
 }
 
-/****************Thought Bubble********************/
 
-.thought-bubble {
-    position: relative;
-    z-index: 1;
-	background: #a3a5a6;
-	border-radius: 10px;
-	font-size: 1.15em;
-	text-align: center;
-    width: auto;
-}
 
-.pointer {
-	height: 40px;
-	width: 40px;
-	background: #a3a5a6;
-	margin: 0 auto;
-	transform: rotate(45deg);
-	border-radius: 0 0 12px 0;
-	margin-top: -22px;
-	position: relative;
-	right: 20em
-}
 

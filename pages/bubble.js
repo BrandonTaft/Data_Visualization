@@ -4,9 +4,10 @@ import randomArray from "./randomArray";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import styles from "../src/css/bubble.module.css";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 function Bubble() {
-    const [speed, setSpeed] = useState("2500");
+    const [speed, setSpeed] = useState(2500);
     const [text, setText] = useState("");
     const [checked, setChecked] = useState("");
     const { newRandomArray, setNewRandomArray, refresh, setRefresh, max, setMax } = randomArray();
@@ -82,7 +83,12 @@ const display = newRandomArray.map((bar, index) => {
             <div className="base">
                 <div className="text">{bar}</div>
             </div>
-            <i className="swap-container" id={`swap${index}`}></i>
+            <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
+                <p>Swap</p>
+            <RefreshIcon />
+            </div>
+           
+           
         </div>
     )
 });
