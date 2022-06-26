@@ -2,6 +2,7 @@
 body{
     font-family: 'Fira Sans', sans-serif;
     margin: 0;
+    height: 100%;
 }
 
 .bgWrap {
@@ -25,6 +26,12 @@ h1,h2,h3 {
 
 .selected{
     display: none;
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 /*******************Navbar******************/
@@ -109,6 +116,8 @@ pre{
 
 .bottom-container{
     display: flex;
+    flex-grow: 1;
+    padding-bottom: 25px;
 }
 
 /*******************Side-Display**********************/
@@ -146,7 +155,7 @@ pre{
     margin-bottom: auto;
     margin-left: .33em;
     letter-spacing: .25em;
-    color: #fd9170
+    color: #fd5c39;
 }
 
 .checked-container{
@@ -162,7 +171,7 @@ pre{
     margin-bottom: auto;
     margin-left: .33em;
     letter-spacing: .3em;
-    color: #fd9170
+    color: #fd5c39;
 }
 
 /*******************Button Box**********************/
@@ -239,7 +248,7 @@ button:active {
 .slider-label{
     font-size: 20px;
     display: flex;
-    color: #fd9170white;
+    color: white;
     text-align: center;
     flex-direction: column;
     writing-mode: vertical-lr;
@@ -251,7 +260,7 @@ button:active {
 }
 
 .css-fk6q5t-MuiSlider-root{
-    color: #fd9170;
+    color: #fd5c39;;
     margin-right: 50px;
 }
 
@@ -279,7 +288,7 @@ button:active {
 }
 
 .css-19l5h75-MuiSlider-markLabel{
-    color: #fd9170;
+    color: #fd5c39;;
     left: 3em;
     font-size: 1rem;
 }
@@ -293,8 +302,13 @@ button:active {
 
 /*********************Tubes********************/
 
-.tube-wrap{
+.row{
     display: flex;
+    justify-content: center;
+    height: 19em;
+    width: 70%;
+    gap:1em;
+    margin-top: auto;
 }
 
 .tubes { 
@@ -306,11 +320,10 @@ button:active {
 }
 
 .tube {
-    --width: 4rem;
-    --skew: .5rem;
+    --width: calc(8vw + 0.6rem); 
+    --skew: calc(1vw + 0.1rem);
     --tube-color: #fff;
     --fill-color: black; 
-    --anim-duration: 1s;
     width: var(--width);
     aspect-ratio: 1/4.5;
     margin-top: var(--skew);
@@ -355,25 +368,60 @@ button:active {
     font-style: normal;
 }
 
+.current-element-text::before{
+    content: "arr[i]";  
+    position: relative;
+    top: 4px;
+}
+
+.next-element-text::before{
+    content: "arr[i + 1]"; 
+    position: relative;
+    top: 2px;
+}
+
 .current-element {
-    --fill-color: red; 
-   
-    animation-name: move;
-    animation-duration: 5s;
+    --fill-color: orangered;
+    bottom: 15px;
+}
+
+.next-element{
+    --fill-color: orangered;
+   bottom: 15px;
 }
 
 .thought-bubble {
     position: absolute;
     z-index: 5;
-	background: #a3a5a6;
+	background: rgb(255, 239, 224);
 	border-radius: 35px;
-    padding: 5px 24px;
+    padding: 10px 25px 10px;
 	font-size: 1.15em;
 	text-align: center;
     width: auto;
-    top: 80px;
-    left: 70px;
-    
+    top: 70px;
+    left: 68px;
+    border: solid black;
+}
+
+.thought-bubble p{
+    margin: 0px 0px 3px;
+    font-weight: bold;
+}
+
+.thought-bubble div{
+    margin: 0px 0px 7px;
+    font-weight: bold;
+}
+
+.greater{
+    color: orangered;
+    font-size: 20px;
+}
+
+.less{
+    color: orangered;
+    font-size: 20px;
 }
 
 .bubble-bottom-left:before {
@@ -381,47 +429,37 @@ button:active {
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 24px solid #a3a5a6;
+    border-left: 24px solid black;
     border-right: 12px solid transparent;
-    border-top: 12px solid #a3a5a6;
+    border-top: 12px solid black;
     border-bottom: 20px solid transparent;
     left: 14px;
-    bottom: -16px;
+    bottom: -21px;
     z-index: -1;
   }
 
-/* .swap::before{
-   font-size: xx-large;
-   font-style: normal;
-   content: "SWAP";
-   color: white;
-} */
+.bubble-bottom-left:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 24px solid rgb(255, 239, 224);
+    border-right: 12px solid transparent;
+    border-top: 12px solid rgb(255, 239, 224);
+    border-bottom: 20px solid transparent;
+    left: 17px;
+    bottom: -14px;
+    z-index: -1;
+  }
 
 .swap{
     display: none;
 }
 
-@keyframes move{
-    100%{top: 20px}
+.stay{
+    display: none;
 }
 
-.current-element-text::before{
-    content: "arr[i]";  
-    position: relative;
-    top: 4px;
-}
-
-.next-element{
-    --fill-color: blue;
-    animation-name: move;
-    animation-duration: 5s ;
-}
-
-.next-element-text::before{
-    content: "arr[i + 1]"; 
-    position: relative;
-    top: 4px;
-}
 
 .cap{
     --cap-height: calc(var(--width) * .4);
@@ -522,7 +560,7 @@ button:active {
             rgb(0 0 0 / .25), 
             transparent 50% 70%, 
             rgb(0 0 0 / .25));
-  animation: fill-before 2s linear forwards
+  animation: fill-before 1s linear forwards
 }
 
 .fill::after{
@@ -539,19 +577,11 @@ button:active {
     background-image: 
         var(--glas-gradient),
         linear-gradient(to left, rgb(0 0 0 / .25), transparent 50%);
-  animation: fill-after 2s linear forwards
+  animation: fill-after 1s linear forwards
 }
 
 @keyframes fill-before{ to { height: var(--fill-end)}}
 @keyframes fill-after { to { bottom: var(--fill-end)}}
-
-.tubes {
-  gap: calc(2vw + 0.2rem);
-}
-.tube {
-  --width: calc(8vw + 0.6rem); 
-  --skew: calc(1vw + 0.1rem);
-}
 
 
 

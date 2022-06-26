@@ -3,8 +3,7 @@ import Method from "./method";
 import randomArray from "./randomArray";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
-import styles from "../src/css/bubble.module.css";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
@@ -42,7 +41,7 @@ async function bubbleSort() {
             }
 
             if (arr[i] > arr[i + 1]) {
-                await new Promise(resolve => setTimeout(resolve, speed / 2));
+                
                 document.getElementById(`swap${i}`).classList.toggle("swap");
                 await new Promise(resolve => setTimeout(resolve, speed));
                 document.getElementById(`swap${i}`).classList.toggle("swap");
@@ -54,7 +53,13 @@ async function bubbleSort() {
                 checked = true
                 setChecked("True")
             } else {
+                
+                if (document.getElementById(i + 1) !== null) {
+                document.getElementById(`stay${i}`).classList.toggle("stay");
                 await new Promise(resolve => setTimeout(resolve, speed));
+                document.getElementById(`stay${i}`).classList.toggle("stay");
+                }
+                
             }
             document.getElementById(i).classList.toggle("current-element");
             document.getElementById(`cap${i}`).classList.toggle("current-element-text");
@@ -84,8 +89,13 @@ const display = newRandomArray.map((bar, index) => {
                 <div className="text">{bar}</div>
             </div>
             <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
+            <p className="greater">{bar} &gt; {bar + 1}</p>
                 <p>Swap</p>
-            <RefreshIcon />
+            <SwapIcon sx={{fontSize:40}}/>
+            </div>
+            <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
+                <p className="less" >{bar} &lt; {bar + 1}</p>
+                <div>No Swap</div>
             </div>
            
            
@@ -94,7 +104,7 @@ const display = newRandomArray.map((bar, index) => {
 });
 
 return (
-    <div>
+    <div className="page-container">
         <Box className="top-container">
 
             <Box className="top-description">
@@ -116,10 +126,10 @@ return (
                     speed={speed}
                     setSpeed={setSpeed}
                 />
-                <Box className={"var-container"}>
+                <Box className="var-container">
                     <Box className="array-container">
                         <h3>Array</h3>
-                        <span className={"array-span"}>
+                        <span className="array-span">
                             [{newRandomArray.toString()}]
                         </span>
                     </Box>
@@ -132,7 +142,7 @@ return (
                 </Box>
 
             </Box>
-            <div className={styles.row}>
+            <div className="row">
                 {display}
             </div>
         </Box>
