@@ -3,7 +3,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 const SortButton = ({ sortMethod }) => (
   <button
     onClick={sortMethod}
-    className= "sort-button"
+    className= "button sort-button"
     aria-label="Start Sorting Button"
   >
     SORT
@@ -16,7 +16,7 @@ function RefreshButton({ refresh, setRefresh }) {
       onClick={() => {
         refresh == "false" ? setRefresh("true") : setRefresh("false");
       }}
-      className= "refresh-button"
+      className= "button refresh-button"
       aria-label="Refresh Button"
     >
       <RefreshIcon size="small" />
