@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import style from '../css/footer.module.css';
 
 
 function Footer() {
@@ -26,7 +25,7 @@ function Footer() {
     }, [])
 
     return (
-        <div className={style.footer}>  
+        <div className="footer">  
                 <Image src="/images/fullpic.png" alt="Avatar" width={100} height={100}/>  
                 <Image src="/images/black-logo.png" alt="logo" width={100} height={100}/>
                 
