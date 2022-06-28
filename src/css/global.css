@@ -51,7 +51,7 @@ h1,h2,h3 {
 
 .css-j9wkuc-MuiAvatar-root{
     height: fit-content ;
-    width: 55px;
+    width: 70px;
     padding-top: 3px;
 }
 
@@ -164,15 +164,10 @@ h1,h2,h3 {
 
 /*********************Method********************/
 
- /* .method{
-    
-}  */
-
 pre{
     margin: 0.5em 0px 1.5em 0px !important;
     padding-top: 10px !important;
     padding-bottom: 0px !important;  
-    font-size: 1.1em !important;
 }
 
 /*******************Bottom Container**********************/
@@ -208,8 +203,6 @@ pre{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom-style: groove;
-    border-bottom-color: #919ca129;
 }
 
 .array-span{
@@ -244,7 +237,7 @@ pre{
     flex-direction: column;
 	color: white;
     border-right-style: groove;
-    border-right-color: #919ca129;
+    border-right-color: #919ca10d;
     padding: 10px 0px;
 }
 
@@ -258,34 +251,35 @@ pre{
 .button{
     box-sizing: border-box;
     appearance: none;
-    background-color: transparent;
+    background-color: #6e5b5b3d;
     border: none;
-    border-radius: 0.6em;
+    border-radius: 30%;
     color: white;
     cursor: pointer;
     display: flex;
     align-self: center;
-    padding: .5em .8em;
     text-decoration: none;
     text-align: center;
     font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
-    background: radial-gradient( 82% 100% at 64% 48%, #343232, #040404 90% );
-    transition: all 150ms ease-in-out;
+    transition: background-color 500ms;
 }
 
+.button:hover {  
+    background-color: #fd5c39;
+  }
+
 .button:active {  
-    transform: translateY(2px);
+    background-color: #6e5b5b3d;
   }
 
 .refresh-button{
-    padding: .7em .8em;
+    padding: .8em .8em;
 }
 
 .sort-button{
-    padding-top: .95em;
-    padding-bottom: .95em;
+    padding: 1.1em .4em;
 }
 
 .css-1p823my-MuiListItem-root{
@@ -298,10 +292,7 @@ pre{
 .slider-container{
     height: 80%;
     display: flex;
-    border-top-style: groove;
-    border-top-color: #919ca129;
-    padding: .5em 0;
-
+    padding-top: 1em;
 }
 
 .slider{
@@ -324,16 +315,17 @@ pre{
 }
 
 .css-fk6q5t-MuiSlider-root{
-    color: #fd5c39;;
-    margin-right: 50px;
+    color: white;
 }
 
 .css-y35fuw-MuiSlider-thumb{
-    color: white;
+    border: #fff solid;
+    color: #262424;
 }
 
 .css-ada0pd-MuiSlider-track{
     width: 10px;
+    color: white;
 }
 
 .css-qx5f9e-MuiSlider-rail{
@@ -347,20 +339,21 @@ pre{
 
 .css-xxsb21-MuiSlider-markLabel{
     color: white;
-    left: 3em;
+    left: 2.6em;
     font-size: 1rem;
 }
 
 .css-19l5h75-MuiSlider-markLabel{
     color: #fd5c39;;
-    left: 3em;
+    left: 2.6em;
     font-size: 1rem;
 }
 
 .css-1wdhkzz-MuiSlider-mark{
-    color: white;
-    width: 4px;
-    height: 4px;
+    color: transparent;
+    width: 6px;
+    height: 6px;
+    border: #fd5c39 solid 1px;
     border-radius: 50%;
 }
 
@@ -373,7 +366,7 @@ pre{
     width: 70%;
     gap:1em;
     margin-top: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .tubes { 

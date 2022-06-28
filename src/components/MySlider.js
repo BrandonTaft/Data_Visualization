@@ -36,7 +36,7 @@ function MySlider({ speed, setSpeed }) {
             label: '4s',
         },
         {
-            value: 4500
+            value: 4500,
         },
         {
             value: 5000,
@@ -56,8 +56,8 @@ function MySlider({ speed, setSpeed }) {
                     marks={marks}
                     defaultValue={2500}
                     max={5000}
-                    value={speed}
-                    valueLabelDisplay="auto"
+                   
+                    valueLabelDisplay="off"
                     orientation='vertical'
                     onChange={handleChange}
                 />

@@ -38,6 +38,8 @@ function Bubble() {
                 if (document.getElementById(i + 1) !== null) {
                     document.getElementById(i + 1).classList.toggle("next-element");
                     document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
+                }else{
+                    await new Promise(resolve => setTimeout(resolve, speed));
                 }
 
                 if (arr[i] > arr[i + 1]) {

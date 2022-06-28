@@ -119,7 +119,7 @@ export default function Navbar() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                        <Image src="/icons/icon.png" alt="logo" layout="intrinsic" width={40} height={40} />
+                        <Image src="/icons/myLogo.png" alt="logo" layout="fill" width={80} height={80} />
                     </Box>
 
                     <Typography
@@ -309,11 +309,11 @@ export default function Navbar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="About Me">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Brandon Taft" src="/images/me.png" variant="square" />
+                                <Avatar alt="Brandon Taft" src="/images/collar-full.png" variant="square" />
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ mt: '55px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
