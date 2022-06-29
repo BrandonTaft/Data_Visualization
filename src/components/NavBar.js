@@ -119,7 +119,7 @@ export default function Navbar() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                        <Image src="/icons/myLogo.png" alt="logo" layout="fill" width={80} height={80} />
+                        <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={50} height={50} />
                     </Box>
 
                     <Typography
@@ -225,7 +225,7 @@ export default function Navbar() {
                                     </Link>
                                 </ListItem>
                                 <ListItem disablePadding>
-                                    <Link href="">
+                                    <Link href="/insertion">
                                         <Grid container sx={{ cursor: "pointer" }}>
                                             <Grid item>
                                                 <CalculateIcon />
@@ -294,7 +294,7 @@ export default function Navbar() {
                                 </Link>
                             </Box>
                             <Box>
-                                <Link href="">
+                                <Link href="/insertion">
                                             <span>Insertion</span>
                                 </Link>
                             </Box>
