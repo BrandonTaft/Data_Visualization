@@ -4,19 +4,16 @@ import getArray from "./Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
-import {BubbleExplanation} from "../src/components/Explanations";
+import { BubbleExplanation } from "../src/components/Explanations";
 
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
-    const [text, setText] = useState("");
     const [checked, setChecked] = useState("");
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
 
     async function bubbleSort() {
-
         const arr = array;
         let checked;
-
         do {
             checked = false
             setChecked("False")
@@ -27,10 +24,9 @@ function Bubble() {
                 if (document.getElementById(i + 1) !== null) {
                     document.getElementById(i + 1).classList.toggle("next-element");
                     document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
-                }else{
+                } else {
                     await new Promise(resolve => setTimeout(resolve, speed));
                 }
-
                 if (arr[i] > arr[i + 1]) {
 
                     document.getElementById(`swap${i}`).classList.toggle("swap");
@@ -44,13 +40,11 @@ function Bubble() {
                     checked = true
                     setChecked("True")
                 } else {
-
                     if (document.getElementById(i + 1) !== null) {
                         document.getElementById(`stay${i}`).classList.toggle("stay");
                         await new Promise(resolve => setTimeout(resolve, speed));
                         document.getElementById(`stay${i}`).classList.toggle("stay");
                     }
-
                 }
                 document.getElementById(i).classList.toggle("current-element");
                 document.getElementById(`cap${i}`).classList.toggle("current-element-text");
@@ -58,15 +52,10 @@ function Bubble() {
                     document.getElementById(i + 1).classList.toggle("next-element");
                     document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
                 }
-
                 setArray([...arr]);
-                // await new Promise(resolve => setTimeout(resolve, 500));
             }
-            //If a swap is not made checked will not be true thus terminating the loop
-            //Ensuring loop will not run on a sorted array more than once
         } while (checked)
     }
-
 
     const display = array.map((tube, index) => {
         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
@@ -86,8 +75,6 @@ function Bubble() {
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
-
-
             </div>
         )
     });
@@ -95,12 +82,9 @@ function Bubble() {
     return (
         <div className="page-container">
             <Box className="top-container">
-
                 <Box className="explanation">
                     <BubbleExplanation />
                 </Box>
-
-
                 <Method method={"bubble"} />
             </Box>
             <Box className="bottom-container">
@@ -127,7 +111,6 @@ function Bubble() {
                             </span>
                         </Box>
                     </Box>
-
                 </Box>
                 <div className="row">
                     {display}
