@@ -14,6 +14,9 @@ function Insertion() {
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    useEffect(() => {
+        setSorted([])
+    }, [refresh]);
 
     const explanation = (
         <>
@@ -21,33 +24,74 @@ function Insertion() {
         </>
     )
 
+    function labelUnsorted(arr) {
+
+    }
+
     async function insertionSort() {
         const arr = array;
         const n = arr.length;
+        await new Promise(resolve => setTimeout(resolve, speed / 2));
+        document.getElementById(0).classList.toggle("sorted");
+        document.getElementById(`cap${0}`).classList.toggle("sorted-text");
+        document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         for (let i = 1; i < n; i++) {
             // Choosing the first element in our unsorted subarray
+
             let current = arr[i];
-            setSorted(arr.slice(0,i))
+            setSorted(arr.slice(0, i))
             setUnSorted(arr.slice(i))
+            await new Promise(resolve => setTimeout(resolve, speed / 2));
+            document.getElementById(i).classList.toggle("current");
+            document.getElementById(`cap${i}`).classList.toggle("current-text");
             await new Promise(resolve => setTimeout(resolve, speed));
             // The last element of our sorted subarray
             let j = i - 1;
+            // if ((j > -1) && (current > arr[j])) {
+            //     document.getElementById(`stay${i - 1}`).classList.toggle("stay");
+            //     await new Promise(resolve => setTimeout(resolve, speed));
+            //     document.getElementById(`stay${i - 1}`).classList.toggle("stay");
+            // }
+
             while ((j > -1) && (current < arr[j])) {
-                arr[j + 1] = arr[j];
+                document.getElementById(`swap${j}`).classList.toggle("swap");
+                // await new Promise(resolve => setTimeout(resolve, speed));
+
+
+                await new Promise(resolve => setTimeout(resolve, speed));
+                document.getElementById(`swap${j}`).classList.toggle("swap");
+                // arr[j + 1] = arr[j];
+                let tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+                setArray([...arr]);
+                await new Promise(resolve => setTimeout(resolve, speed));
+
                 j--;
             }
-            
-            // await new Promise(resolve => setTimeout(resolve, speed));
+            if(j > -1){
+            document.getElementById(`stay${j}`).classList.toggle("stay");
+            await new Promise(resolve => setTimeout(resolve, speed));
+            document.getElementById(`stay${j}`).classList.toggle("stay");
+            }
             arr[j + 1] = current;
-            //setCurrent(current)
-            // await new Promise(resolve => setTimeout(resolve, speed));
+            document.getElementById(j + 1).classList.toggle("current");
+            document.getElementById(`cap${j + 1}`).classList.toggle("current-text");
+            document.getElementById(j + 1).classList.toggle("sorted");
+            document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
+            setArray(arr);
+            await new Promise(resolve => setTimeout(resolve, speed));
+
         }
+
+        setUnSorted([])
+        setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
-        // setSorted(sorted => [...sorted, arr[j]])
-        
-        await new Promise(resolve => setTimeout(resolve, speed));
+        document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
+        document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
+        document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
         return arr;
-        await new Promise(resolve => setTimeout(resolve, speed));
+
     }
 
 
@@ -66,7 +110,7 @@ function Insertion() {
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
                 <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
-                    <p className="less" >{tube} &lt; {tube + 1}</p>
+                    <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
 
@@ -74,7 +118,6 @@ function Insertion() {
             </div>
         )
     });
-
 
     return (
         <div className="page-container">
@@ -99,19 +142,19 @@ function Insertion() {
                     />
                     <Box className="var-container">
                         <Box className="array-container">
-                            {/* <h4>Array</h4>
+                            <h4>Array</h4>
                             <span className="array-span">
                                 [{array.toString()}]
-                            </span> */}
+                            </span>
                         </Box>
                         <Box className="checked-container">
                             <h4>Unsorted</h4>
                             <span className="checked-span">
-                                [{unSorted}]
+                                [{unSorted.toString()}]
                             </span>
                             <h4>Sorted Array</h4>
                             <span className="checked-span">
-                                {sorted}
+                                [{sorted.toString()}]
                             </span>
                         </Box>
                     </Box>

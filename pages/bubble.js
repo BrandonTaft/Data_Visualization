@@ -77,13 +77,13 @@ function Bubble() {
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
+                <div className="swap thought-bubble bubble-bottom-left" key={tube} id={`swap${index}`}>
                     <p className="greater">{tube} &gt; {array[index + 1]}</p>
                     <p>Swap</p>
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
                 <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
-                    <p className="less" >{tube} &lt; {tube + 1}</p>
+                    <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
 

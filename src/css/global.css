@@ -685,5 +685,32 @@ pre{
 @keyframes fill-after { to { bottom: var(--fill-end)}}
 
 
+/****************Insertion Tubes******************/
+
+.unSorted-text::before{
+    content: "UnSorted";  
+    position: relative;
+    top: 4px;
+}
+
+.sorted{
+    --fill-color: orangered;
+}
+
+.sorted-text::before{
+    content: "Sorted";  
+    position: relative;
+    top: 4px;
+}
 
 
+
+.current{
+    --fill-color: blue;
+}
+    
+.current-text::before{
+    content: "Current";  
+    position: relative;
+    top: 4px;
+}
