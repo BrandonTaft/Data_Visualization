@@ -9,24 +9,13 @@ import { InsertionExplanation } from "../src/components/Explanations";
 function Insertion() {
 
     const [speed, setSpeed] = useState(2500);
-    const [text, setText] = useState("");
-    const [current, setCurrent] = useState("");
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+
     useEffect(() => {
         setSorted([])
     }, [refresh]);
-
-    const explanation = (
-        <>
-            <p>Insertion sort</p>
-        </>
-    )
-
-    function labelUnsorted(arr) {
-
-    }
 
     async function insertionSort() {
         const arr = array;
@@ -37,7 +26,6 @@ function Insertion() {
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         for (let i = 1; i < n; i++) {
             // Choosing the first element in our unsorted subarray
-
             let current = arr[i];
             setSorted(arr.slice(0, i))
             setUnSorted(arr.slice(i))
@@ -47,17 +35,8 @@ function Insertion() {
             await new Promise(resolve => setTimeout(resolve, speed));
             // The last element of our sorted subarray
             let j = i - 1;
-            // if ((j > -1) && (current > arr[j])) {
-            //     document.getElementById(`stay${i - 1}`).classList.toggle("stay");
-            //     await new Promise(resolve => setTimeout(resolve, speed));
-            //     document.getElementById(`stay${i - 1}`).classList.toggle("stay");
-            // }
-
             while ((j > -1) && (current < arr[j])) {
                 document.getElementById(`swap${j}`).classList.toggle("swap");
-                // await new Promise(resolve => setTimeout(resolve, speed));
-
-
                 await new Promise(resolve => setTimeout(resolve, speed));
                 document.getElementById(`swap${j}`).classList.toggle("swap");
                 // arr[j + 1] = arr[j];
@@ -66,13 +45,12 @@ function Insertion() {
                 arr[j + 1] = tmp;
                 setArray([...arr]);
                 await new Promise(resolve => setTimeout(resolve, speed));
-
                 j--;
             }
-            if(j > -1){
-            document.getElementById(`stay${j}`).classList.toggle("stay");
-            await new Promise(resolve => setTimeout(resolve, speed));
-            document.getElementById(`stay${j}`).classList.toggle("stay");
+            if (j > -1) {
+                document.getElementById(`stay${j}`).classList.toggle("stay");
+                await new Promise(resolve => setTimeout(resolve, speed));
+                document.getElementById(`stay${j}`).classList.toggle("stay");
             }
             arr[j + 1] = current;
             document.getElementById(j + 1).classList.toggle("current");
@@ -81,9 +59,7 @@ function Insertion() {
             document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
             setArray(arr);
             await new Promise(resolve => setTimeout(resolve, speed));
-
         }
-
         setUnSorted([])
         setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
@@ -91,9 +67,7 @@ function Insertion() {
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
         return arr;
-
     }
-
 
     const display = array.map((tube, index) => {
         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
@@ -113,8 +87,6 @@ function Insertion() {
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
-
-
             </div>
         )
     });
@@ -122,16 +94,12 @@ function Insertion() {
     return (
         <div className="page-container">
             <Box className="top-container">
-
                 <Box className="explanation">
                     <InsertionExplanation />
                 </Box>
-
-
                 <Method method={"insertion"} />
             </Box>
             <Box className="bottom-container">
-
                 <Box className="side-display">
                     <ButtonBox
                         sortMethod={insertionSort}
@@ -158,7 +126,6 @@ function Insertion() {
                             </span>
                         </Box>
                     </Box>
-
                 </Box>
                 <div className="row">
                     {display}
@@ -167,6 +134,5 @@ function Insertion() {
         </div>
     )
 }
-
 
 export default Insertion
