@@ -20,6 +20,14 @@ h1,h2,h3 {
     font-family: 'Fira Sans', sans-serif;
     }
 
+h4{
+    margin: 0;
+}
+
+p{
+    margin: 0;
+}
+
 .background{
     z-index: 0;
     opacity: 40%;
@@ -60,7 +68,7 @@ h1,h2,h3 {
     box-shadow: none;
 }
 
-.in-nav-container div{
+.in-nav-container span{
     cursor: pointer;
     margin-right: 1em;
 }
@@ -69,6 +77,32 @@ h1,h2,h3 {
     margin-right: 0px !important;
 }
 
+.css-6hp17o-MuiList-root-MuiMenu-list{
+    
+    color: white;
+}
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+    justify-content: space-evenly;
+}
+
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
+    background-color: #1d1d1d;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black;
+    color: white;
+    font-size: larger;
+    height: fit-content;
+    width: max-content;
+    
+}
+
+.css-h4y409-MuiList-root{
+    padding: 20px;
+}
+
+.css-1ab221l-MuiGrid-root{
+    margin: 5px;
+}
 /* .css-ciy9n4-MuiPaper-root-MuiAppBar-root{
     background-color: #1d1d1d;
     box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black;
@@ -111,18 +145,6 @@ h1,h2,h3 {
 .css-1ab221l-MuiGrid-root{
     margin-bottom: 10px;
 } */
-/*******************Header**********************/
-
-.header{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    padding-bottom: 1em;
-    font-family: 'Playfair Display', serif;
-    width: 100%;
-    height: fit-content;
-}
 
 /*******************Home**********************/
 
@@ -147,19 +169,40 @@ h1,h2,h3 {
 .top-container{
     display: flex;
     margin: 0 1em 0 1em;
-    justify-content: space-evenly;
 }
 
-/*******************Top Description**********************/
+/*******************Explanation**********************/
 
-.top-description {
-    height: fit-content;
-    position: relative;
-    z-index: 1;
-	font-size: 1.3em;
-	text-align: center;
-    width: 40%;
-    padding: 7px;
+.explanation-title{
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.explanation {
+	font-size: 1.2em;
+    width: 60%;
+}
+
+.explanation-list{
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  .explanation-list li::marker{
+    margin: 0;
+  }
+
+
+.checked-variable{
+    color: blue;
+}
+
+.array-index{
+    color: orangered;
+}
+
+.adjacent-element{
+    color: green;
 }
 
 /*********************Method********************/

@@ -1,10 +1,10 @@
-import Header from "../src/components/Header";
+
 
 function Home() {
   
   return (
   <div className="indexContainer">
-    <Header />
+    
       <p className="greeting">I have always been the type of person who needs to see something working for me to fully understand how it works. Unfortunately I also have a hard time visualizing things.
         So I searched the internet high and low to find visualizations of sorting methods and found alot of good information but I was never able to find exactly what I was looking for. 
         All I had to show for my research was 50 open tabs and a headache.  I did find a tutorial on making a sorting visualizer. It was extremely vague, it didnt have any code snippets or 

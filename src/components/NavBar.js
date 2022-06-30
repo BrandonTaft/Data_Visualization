@@ -34,65 +34,6 @@ const drawerWidth = 240;
 const pages = ['Bubble', 'Quick Sort', 'Insertion'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-
-// const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-//     ({ theme, open }) => ({
-//         flexGrow: 1,
-//         padding: theme.spacing(3),
-//         transition: theme.transitions.create('margin', {
-//             easing: theme.transitions.easing.sharp,
-//             duration: theme.transitions.duration.leavingScreen,
-//         }),
-//         marginLeft: `-${drawerWidth}px`,
-//         ...(open && {
-//             transition: theme.transitions.create('margin', {
-//                 easing: theme.transitions.easing.easeOut,
-//                 duration: theme.transitions.duration.enteringScreen,
-//             }),
-//             marginLeft: 0,
-//         }),
-//     }),
-// );
-
-// const AppBar = styled(MuiAppBar, {
-//     shouldForwardProp: (prop) => prop !== 'open',
-// })(({ theme, open }) => ({
-//     transition: theme.transitions.create(['margin', 'width'], {
-//         easing: theme.transitions.easing.sharp,
-//         duration: theme.transitions.duration.leavingScreen,
-//     }),
-//     ...(open && {
-//         width: `calc(100% - ${drawerWidth}px)`,
-//         marginLeft: `${drawerWidth}px`,
-//         transition: theme.transitions.create(['margin', 'width'], {
-//             easing: theme.transitions.easing.easeOut,
-//             duration: theme.transitions.duration.enteringScreen,
-//         }),
-//     }),
-// }));
-
-// const DrawerHeader = styled('div')(({ theme }) => ({
-//     display: 'flex',
-//     alignItems: 'center',
-//     padding: theme.spacing(0, 1),
-//     // necessary for content to be below app bar
-//     ...theme.mixins.toolbar,
-//     justifyContent: 'flex-end',
-// }));
-
-// export default function PersistentDrawerLeft() {
-//     const theme = useTheme();
-//     // const [open, setOpen] = React.useState(false);
-
-
-// const handleDrawerOpen = () => {
-//     setOpen(true);
-// };
-
-// const handleDrawerClose = () => {
-//     setOpen(false);
-// };
-
 export default function Navbar() {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -139,7 +80,7 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >
-             Sort Methods
+            Sorting Algorithm Visualizer
           </Typography>
 
 
@@ -255,54 +196,49 @@ export default function Navbar() {
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href=""
+                        // component="a"
+                        // href=""
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            fontFamily: 'monospace',
+                            
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
+                            letterSpacing: '.1rem',
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
-                        Sort Method Visualizer
+                        Sorting Visualizer
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
                         <Box className="in-nav-container">
-                            <Box className="home-link">
+                            
                                 <Link href="/">    
                                             <span>Home</span>
                                 </Link>
-                            </Box>
-                            <Box>
+                           
                                 <Link href="/bubble">
                                             <span>Bubble Sort</span>
                                 </Link>
-                            </Box>
-                            <Box>
+                           
                                 <Link href="">
                                             <span>Quick Sort</span>                                 
                                 </Link>
-                            </Box>
-                            <Box>
+                            
                                 <Link href="">
                                             <span>Selection</span>
                                 </Link>
-                            </Box>
-                            <Box>
+                            
                                 <Link href="/insertion">
                                             <span>Insertion</span>
                                 </Link>
-                            </Box>
-                            <Box>
+                            
                                 <Link href="">
                                             <span>Merge</span>
                                 </Link>
-                            </Box>
+                           
                         </Box>
                     </Box>
 
@@ -329,19 +265,31 @@ export default function Navbar() {
                             onClose={handleCloseUserMenu}
                         >
                             <MenuItem >
-                                <a href="https://github.com/BrandonTaft" target="_blank">
-                                    <Image src="/icons/github.svg" alt="github" layout="intrinsic" width={20} height={20} />
-                                </a>
+                                <div>Hello! Come on over!</div>
                             </MenuItem>
                             <MenuItem >
-                                <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank">
-                                    <Image src="/icons/github.svg" alt="github" layout="intrinsic" width={20} height={20} />
+                                <a href="https://github.com/BrandonTaft" target="_blank">
+                                    <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
                                 </a>
+                                <div className="contacts">My Github</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://www.brandontaft.net/" target="_blank">
-                                    <Image src="/icons/github.svg" alt="github" layout="intrinsic" width={20} height={20} />
+                                    <Image src="/icons/logo.png" alt="github" layout="intrinsic" width={20} height={20} />
                                 </a>
+                                <div className="contacts">My Portfolio</div>
+                            </MenuItem>
+                            <MenuItem >
+                                <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank">
+                                    <Image src="/icons/linked.png" alt="github" layout="intrinsic" width={20} height={20} />
+                                </a>
+                                <div className="contacts">My Linked In</div>
+                            </MenuItem>                           
+                            <MenuItem >
+                                <a href="mailto:btaftcan@gmail.com" >
+                                    <Image src="/icons/gmail-logo.png" alt="github" layout="intrinsic" width={20} height={20} />
+                                </a>
+                                <div className="contacts">Email Me</div>
                             </MenuItem>
                         </Menu>
                     </Box>

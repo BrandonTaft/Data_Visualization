@@ -1,6 +1,7 @@
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 
 const layoutStyle = {
@@ -18,12 +19,15 @@ const contentStyle = {
     zIndex:"0"
 };
 
-function Layout({ children }) {
 
+
+function Layout({ children }) {
+    const router = useRouter();
+    let title = router.pathname;
     return (
 
         <div className="Layout" style={layoutStyle}>
-            <NavBar />
+            <NavBar title={title}/>
             <div className="Content" style={contentStyle}>
                 {children}
             </div>

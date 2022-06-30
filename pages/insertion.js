@@ -4,6 +4,7 @@ import getArray from "./Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
+import { InsertionExplanation } from "../src/components/Explanations";
 
 function Insertion() {
 
@@ -11,6 +12,7 @@ function Insertion() {
     const [text, setText] = useState("");
     const [current, setCurrent] = useState("");
     const [sorted, setSorted] = useState([]);
+    const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
 
     const explanation = (
@@ -25,19 +27,24 @@ function Insertion() {
         for (let i = 1; i < n; i++) {
             // Choosing the first element in our unsorted subarray
             let current = arr[i];
+            setSorted(arr.slice(0,i))
+            setUnSorted(arr.slice(i))
+            await new Promise(resolve => setTimeout(resolve, speed));
             // The last element of our sorted subarray
             let j = i - 1;
-            
             while ((j > -1) && (current < arr[j])) {
                 arr[j + 1] = arr[j];
                 j--;
             }
-            //setSorted(sorted => [...sorted, arr[j]])
-            await new Promise(resolve => setTimeout(resolve, speed));
+            
+            // await new Promise(resolve => setTimeout(resolve, speed));
             arr[j + 1] = current;
             //setCurrent(current)
-            await new Promise(resolve => setTimeout(resolve, speed));
+            // await new Promise(resolve => setTimeout(resolve, speed));
         }
+        await new Promise(resolve => setTimeout(resolve, speed));
+        // setSorted(sorted => [...sorted, arr[j]])
+        
         await new Promise(resolve => setTimeout(resolve, speed));
         return arr;
         await new Promise(resolve => setTimeout(resolve, speed));
@@ -73,8 +80,8 @@ function Insertion() {
         <div className="page-container">
             <Box className="top-container">
 
-                <Box className="top-description">
-                    {explanation}
+                <Box className="explanation">
+                    <InsertionExplanation />
                 </Box>
 
 
@@ -92,15 +99,15 @@ function Insertion() {
                     />
                     <Box className="var-container">
                         <Box className="array-container">
-                            <h4>Unsorted Array</h4>
+                            {/* <h4>Array</h4>
                             <span className="array-span">
                                 [{array.toString()}]
-                            </span>
+                            </span> */}
                         </Box>
                         <Box className="checked-container">
-                            <h4>Current</h4>
+                            <h4>Unsorted</h4>
                             <span className="checked-span">
-                                {current}
+                                [{unSorted}]
                             </span>
                             <h4>Sorted Array</h4>
                             <span className="checked-span">

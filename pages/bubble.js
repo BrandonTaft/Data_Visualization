@@ -4,24 +4,13 @@ import getArray from "./Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
+import {BubbleExplanation} from "../src/components/Explanations";
 
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
     const [text, setText] = useState("");
     const [checked, setChecked] = useState("");
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
-
-    const explanation = (
-        <>
-            <p>The block of code containing the for loop will run through the array,checking if the current element is greater than the next,
-                if it is then it will swap the places of those two elements and sets checked to true.
-                Once it finishes running, if a change was made and checked is true
-                it will pass the condition set in the while statement so the block of code will run again.
-                Starting by setting checked to false, so once the for loop
-                runs through the whole array without making a change, checked will still be false and will not pass the condition in the while statement.
-                This will then break out of the code.</p>
-        </>
-    )
 
     async function bubbleSort() {
 
@@ -107,8 +96,8 @@ function Bubble() {
         <div className="page-container">
             <Box className="top-container">
 
-                <Box className="top-description">
-                    {explanation}
+                <Box className="explanation">
+                    <BubbleExplanation />
                 </Box>
 
 

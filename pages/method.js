@@ -10,9 +10,9 @@ function Method({ method}) {
             checked = false
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i] > arr[i + 1]) {
-                    let tmp = arr[i];
+                    let temp = arr[i];
                     arr[i] = arr[i + 1];
-                    arr[i + 1] = tmp;
+                    arr[i + 1] = temp;
                     checked = true
                 }
             }
