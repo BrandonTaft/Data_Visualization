@@ -20,26 +20,28 @@ function Method({ method}) {
     `;
 
     } else if (method === "insertion"){
-        display = `function insertionSort(inputArr) {
-            let n = inputArr.length;
-                for (let i = 1; i < n; i++) {
-                    let current = inputArr[i];
-                    let j = i-1; 
-                    while ((j > -1) && (current < inputArr[j])) {
-                        inputArr[j+1] = inputArr[j];
-                        j--;
-                    }
-                    inputArr[j+1] = current;
+        display = 
+        `function insertionSort(arr) {
+            let n = arr.length;
+            for (let i = 1; i < n; i++) {
+                let current = arr[i];
+                let j = i-1; 
+                while ((j > -1) && (current < arr[j])) {
+                    arr[j+1] = arr[j];
+                    j--;
                 }
-            return inputArr;
-        }`;
+                arr[j+1] = current;
+            }
+            return arr;
+        }
+        `;
     }
     return (
         <Box className={"method"}>
             <SyntaxHighlighter
                 language="javascript"
                 style={materialDark}
-                wrapLongLines
+               
                 >
                 {display}
             </SyntaxHighlighter>

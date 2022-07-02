@@ -108,18 +108,20 @@ function Insertion() {
                         speed={speed}
                         setSpeed={setSpeed}
                     />
-                    <Box className="var-container">
-                        <Box className="array-container">
+                    <Box className="var-container insertion">
+                        <Box className="array-container insertion">
                             <h4>Array</h4>
                             <span className="array-span">
                                 [{array.toString()}]
                             </span>
                         </Box>
-                        <Box className="checked-container">
+                        <Box className="checked-container insertion">
                             <h4>Unsorted</h4>
                             <span className="checked-span">
                                 [{unSorted.toString()}]
                             </span>
+                        </Box>
+                        <Box className="checked-container insertion">
                             <h4>Sorted Array</h4>
                             <span className="checked-span">
                                 [{sorted.toString()}]
@@ -127,7 +129,7 @@ function Insertion() {
                         </Box>
                     </Box>
                 </Box>
-                <div className="row">
+                <div className="row insertion">
                     {display}
                 </div>
             </Box>
