@@ -164,6 +164,25 @@ p{
    height: 100%;
 }
 
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin: 1em;
+}
+
+.card span{
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+.css-46bh2p-MuiCardContent-root {
+    padding: 5px 10px 0 10px;
+    font-family: 'fira sans';
+}
 
 /*******************Top Container**********************/
 
@@ -186,6 +205,7 @@ p{
 
 .insertion-explanation-heading{
     font-weight: 600;
+    font-size: 18px;
 }
 
 .explanation {
@@ -208,7 +228,7 @@ p{
     position: relative;
     top: 1px;
     content: "";
-    background: radial-gradient( 72% 75% at 67% 43%, #7f7a7a, #000 90% );
+    background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% );
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
@@ -219,7 +239,6 @@ p{
   
 .insertion-explanation-list{
     list-style: none;
-    margin: .5rem 0 0 0;
     padding-inline-start: 0px;
   }
 
@@ -234,7 +253,7 @@ p{
     position: relative;
     top: 1px;
     content: "";
-    background: radial-gradient( 72% 75% at 67% 43%, #7f7a7a, #000 90% );
+    background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% );
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
@@ -255,6 +274,22 @@ p{
     color: green;
 }
 
+.sorted-array{
+    color: green;
+}
+
+.unsorted-array{
+    color: orangered;
+}
+
+.current-element{
+    color: blue;
+}
+
+.j-element{
+    color: red;
+}
+
 /*********************Method********************/
 
 .method{
@@ -262,9 +297,8 @@ p{
 }
 
 pre{
-    margin: 0.5em 0px 1.5em 0px !important;
-    padding-top: 10px !important;
-    padding-bottom: 0px !important;  
+    margin: 01.5em 0px .5em 0px !important;
+    padding: 10px .5em 0 .5em !important;
 }
 
 /*******************Bottom Container**********************/
@@ -283,20 +317,22 @@ pre{
     margin-left: 2em;
     margin-bottom: 10px;
     padding: 1%;
+    height: 80%;
 }
 
 .var-container{
     display: flex;
     flex-direction: column;
-    font-size: x-large;
+    font-size: 1.3em;
     color: white;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 22px;
+    justify-content: space-between;
 }
 
-.var-container.insertion{
-    justify-content: space-between;
+.insertion-span{
+    margin-bottom: .7em;
 }
 
 .array-container{
@@ -385,7 +421,7 @@ pre{
   }
 
 .refresh-button{
-    padding: .8em .8em;
+    padding: .7em .8em;
 }
 
 .sort-button{
@@ -400,7 +436,6 @@ pre{
 /*******************SLIDER******************/
 
 .slider-container{
-    height: 80%;
     display: flex;
     padding-top: 1em;
 }
@@ -411,7 +446,7 @@ pre{
 }
 
 .slider-label{
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     color: white;
     text-align: center;
@@ -482,7 +517,7 @@ pre{
 
 .row.insertion{
     height: 18em;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
 .tubes { 
@@ -573,8 +608,8 @@ pre{
 	font-size: 1.15em;
 	text-align: center;
     width: auto;
-    top: 80px;
-    left: 70px;
+    top: 25%;
+    left: 65%;
     border: solid black;
 }
 
@@ -780,10 +815,10 @@ pre{
 
 .current{
     --fill-color: blue;
+    top: 10%;
 }
     
 .current-text::before{
     content: "Current";  
     position: relative;
-    top: 4px;
 }

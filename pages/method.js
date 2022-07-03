@@ -20,8 +20,7 @@ function Method({ method}) {
     `;
 
     } else if (method === "insertion"){
-        display = 
-        `function insertionSort(arr) {
+        display = `insertion(arr) {
             let n = arr.length;
             for (let i = 1; i < n; i++) {
                 let current = arr[i];
@@ -33,15 +32,14 @@ function Method({ method}) {
                 arr[j+1] = current;
             }
             return arr;
-        }
-        `;
+        }`;
     }
     return (
         <Box className={"method"}>
             <SyntaxHighlighter
                 language="javascript"
                 style={materialDark}
-               
+                codeTagProps={{style: {fontSize: '15px'} }}
                 >
                 {display}
             </SyntaxHighlighter>

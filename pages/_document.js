@@ -6,8 +6,8 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin = "anonymous"/>
-                    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Fira+Sans+Condensed&family=Lato&family=Playfair+Display&display=swap" rel="stylesheet" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Fira+Sans+Condensed&family=Lato&family=Playfair+Display&family=Source+Code+Pro&display=swap" rel="stylesheet" />
                 </Head>
                 <body>
                     <Main />

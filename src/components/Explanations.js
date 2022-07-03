@@ -25,17 +25,17 @@ export function InsertionExplanation() {
     return (
         <>
             <h3 className="explanation-title">Insertion Sort</h3>
-            <p className="insertion-explanation-heading">Insertion is compared to sorting a hand of cards as you draw from the top of the deck. The array is the deck and the first element is the first card.
-            It will go in your sorted hand. Each subsequent element is a new card that you draw from the top of the deck and add to your sorted hand. Then put your sorted hand in the correct order before drawing another 
+            <p className="insertion-explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of the deck. The array is the deck and the first element is your first card.
+            Each subsequent element is a new card that you draw and add to your hand. You then put your hand in the correct order before drawing another 
             card/element from the deck/original array.  </p>
             <ul className="insertion-explanation-list">
-                <li>The first element will be the first element in the sorted array.</li>
-                <li>The loop starts at the second element which is assigned the identifier current.</li>
-                <li>current is the first element in the unsorted array (a.k.a the top card of the deck).</li>
-                <li>The element in front of current is the last element in the sorted array and is tracked with j.</li>
-                <li>The while loop runs as long as current is less than the element in front of it ( j ).</li>
-                <li>It shifts larger elements to the right, leaving a space for current to be INSERTED in front.</li>
-                <li>The for loop starts over with the new current element and repeats the process.</li>
+                <li>The first element of the array will by default be the first element in the <span className="sorted-array">sorted array</span>.</li>
+                <li>The loop starts at the second element which is assigned the identifier <span className="current-element">current</span>.</li>
+                <li><span className="current-element">Current</span> is the first element in the <span className="unsorted-array">unsorted array</span> (a.k.a the top card of the deck).</li>
+                <li>The element in front of <span className="current-element">current</span> is the last element in the <span className="sorted-array">sorted array</span> and is tracked with <span className="j-element">j</span>.</li>
+                <li>The while loop runs as long as <span className="current-element">current</span> is less than the element in front of it ( <span className="j-element">which will be arr[ j ]</span>).</li>
+                <li>It shifts larger elements to the right, leaving a space for current to be <span className="inserted">INSERTED</span> in front.</li>
+                <li>The for loop starts over with the new  <span className="current-element">current</span> element and repeats the process.</li>
                 <li>Once the for loop completes its last iteration the  array will be completely sorted.</li>
             </ul>
         </>
