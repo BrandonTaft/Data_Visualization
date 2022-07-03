@@ -1,68 +1,125 @@
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import { BubbleCardContent, InsertionCardContent, SelectionCardContent } from './CardContent';
-import CardImage from './CardImage';
-
+import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent, MergeCardContent, BucketCardContent } from './CardContent';
 
 export function BubbleCard() {
-  
-  return (
+    const handleExpandClick = () => {
+        console.log("TEST");
+    };
 
-  <Card className="card" sx={{ maxWidth: 333 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="180"
-          object-fit="fill"
-          image="/images/tubes.png"
-          alt="Picture of tubes"
-        />
-        {/* <CardMedia>
+    return (
+
+        <Card className="card">
+            <CardActionArea onClick={handleExpandClick}>
+                <CardMedia
+                    component="img"
+                    height="180"
+                    image="/images/screen.png"
+                    alt="Picture of tubes"
+                />
+                {/* <CardMedia>
         <CardImage />
         </CardMedia> */}
-       <BubbleCardContent />
-      </CardActionArea>
-    </Card>
+                <BubbleCardContent />
+            </CardActionArea>
+        </Card>
 
-  )
+    )
 }
 
 export function InsertionCard() {
-  
-    return (
-  
-        <Card className="card" sx={{ maxWidth: 333 }}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height="180"
-            image="/images/tubes.png"
-            alt="Picture of tubes"
-          />
-         <InsertionCardContent />
-        </CardActionArea>
-      </Card>
-  
-    )
-  }
 
-  export function SelectionCard() {
-  
     return (
-  
-        <Card className="card" sx={{ maxWidth: 333 }}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height="180"
-            image="/images/tubes.png"
-            alt="Picture of tubes"
-          />
-         <SelectionCardContent />
-        </CardActionArea>
-      </Card>
-  
+
+        <Card className="card" >
+            <CardActionArea>
+                <CardMedia
+                    className="insertion-img"
+                    component="img"
+                    height="180"
+                    image="/images/software.png"
+                    alt="Picture of tubes"
+                />
+                <InsertionCardContent />
+            </CardActionArea>
+        </Card>
+
     )
-  }
+}
+
+export function SelectionCard() {
+
+    return (
+
+        <Card className="card light-blue" >
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="180"
+                    image="/images/laptop.png"
+                    alt="Picture of tubes"
+                />
+                <SelectionCardContent />
+            </CardActionArea>
+        </Card>
+
+    )
+}
+
+export function QuickCard() {
+
+    return (
+
+        <Card className="card" >
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="180"
+                    image="/images/laptop.png"
+                    alt="Picture of tubes"
+                />
+                <QuickCardContent />
+            </CardActionArea>
+        </Card>
+
+    )
+}
+
+export function BucketCard() {
+
+    return (
+
+        <Card className="card" >
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="180"
+                    image="/images/laptop.png"
+                    alt="Picture of tubes"
+                />
+                <BucketCardContent />
+            </CardActionArea>
+        </Card>
+
+    )
+}
+
+export function MergeCard() {
+
+    return (
+
+        <Card className="card" >
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="180"
+                    image="/images/laptop.png"
+                    alt="Picture of tubes"
+                />
+                <MergeCardContent />
+            </CardActionArea>
+        </Card>
+
+    )
+}

@@ -159,18 +159,16 @@ p{
     padding: 0 40px 0 40px;
 }
 
-.indexContainer{
-    position: relative;
-   height: 100%;
-}
-
 .card-container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .card{
+    display: flex;
     margin: 1em;
+    max-width: 25%;
 }
 
 .card span{
@@ -182,6 +180,38 @@ p{
 .css-46bh2p-MuiCardContent-root {
     padding: 5px 10px 0 10px;
     font-family: 'fira sans';
+    height: 100%;
+    color: white;
+}
+
+.css-o69gx8-MuiCardMedia-root{
+    width: fit-content;
+    margin: auto;
+}
+
+.red{
+    background-color: #fa4654;
+}
+
+.light-blue{
+    background-color: #29a3fb;
+}
+
+.insertion-img{
+    background-color: #1210ed;
+}
+
+.white{
+    color: #1210ed;
+}
+
+.selection-content{
+    background-color: white;
+    color: #1210ed;
+}
+
+.space-complexity{
+    margin-top: auto;
 }
 
 /*******************Top Container**********************/

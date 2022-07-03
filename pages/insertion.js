@@ -5,6 +5,7 @@ import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { InsertionExplanation } from "../src/components/Explanations";
+import Background from "../src/components/Background";
 
 function Insertion() {
 
@@ -93,6 +94,7 @@ function Insertion() {
 
     return (
         <div className="page-container">
+            <Background />
             <Box className="top-container">
                 <Box className="explanation">
                     <InsertionExplanation />

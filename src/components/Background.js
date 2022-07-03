@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Background = () => (
   <div>
-    <div className={"bgWrap"}>
+    <div className="bgWrap">
       <Image
         alt="Background Image"
         src="/images/it.jpg"

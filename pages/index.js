@@ -1,6 +1,6 @@
 
-import { BubbleCard, InsertionCard, SelectionCard } from "../src/components/Card";
-
+import { BubbleCard, BucketCard, InsertionCard, SelectionCard, MergeCard, QuickCard } from "../src/components/Card";
+import Background from "../src/components/Background";
 
 function Home() {
 
@@ -16,14 +16,16 @@ function Home() {
     //       have one place to see how all of the methods work. In the end I got that and a lot more, the knowledge I gained on sorting and DOM manipulation has been invaluable.
     //     </p>
     //     </div> 
+    <><Background />
     <div className="card-container">
       <BubbleCard />
       <InsertionCard />
       <SelectionCard />
-      <BubbleCard />
-      <InsertionCard />
-      <SelectionCard />
+      <BucketCard />
+      <MergeCard />
+      <QuickCard />
     </div>
+    </>
   )
 }
 

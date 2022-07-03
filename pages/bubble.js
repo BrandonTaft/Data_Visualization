@@ -5,6 +5,7 @@ import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { BubbleExplanation } from "../src/components/Explanations";
+import Background from "../src/components/Background";
 
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
@@ -81,6 +82,7 @@ function Bubble() {
 
     return (
         <div className="page-container">
+            <Background />
             <Box className="top-container">
                 <Box className="explanation">
                     <BubbleExplanation />
