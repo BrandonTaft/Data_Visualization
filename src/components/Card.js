@@ -35,10 +35,9 @@ export function InsertionCard() {
         <Card className="card" >
             <CardActionArea>
                 <CardMedia
-                    className="insertion-img"
                     component="img"
                     height="180"
-                    image="/images/software.png"
+                    image="/images/circle.png"
                     alt="Picture of tubes"
                 />
                 <InsertionCardContent />
@@ -52,7 +51,7 @@ export function SelectionCard() {
 
     return (
 
-        <Card className="card light-blue" >
+        <Card className="card" >
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -76,7 +75,7 @@ export function QuickCard() {
                 <CardMedia
                     component="img"
                     height="180"
-                    image="/images/laptop.png"
+                    image="/images/cell.png"
                     alt="Picture of tubes"
                 />
                 <QuickCardContent />
@@ -95,7 +94,7 @@ export function BucketCard() {
                 <CardMedia
                     component="img"
                     height="180"
-                    image="/images/laptop.png"
+                    image="/images/gears.png"
                     alt="Picture of tubes"
                 />
                 <BucketCardContent />
@@ -114,7 +113,7 @@ export function MergeCard() {
                 <CardMedia
                     component="img"
                     height="180"
-                    image="/images/laptop.png"
+                    image="/images/cell-laptop.png"
                     alt="Picture of tubes"
                 />
                 <MergeCardContent />

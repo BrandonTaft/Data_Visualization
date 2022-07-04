@@ -6,7 +6,7 @@ export function BubbleExplanation() {
             <h2 className="explanation-title">Bubble Sort</h2>
             <p className="explanation-heading">Bubble sort is a simple comparison-based sorting algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
             <ul className="explanation-list">
-                <li>First, <span className="checked-variable">checked</span> is initialized, then <span className="checked-variable">checked</span> is set to false once inside the while loop.</li>
+                <li>First, <span className="checked-variable">checked</span> is initialized, then it is set to false once inside the while loop.</li>
                 <li>The for loop determines if each pair of adjacent elements are in the correct order.</li>
                 <li>If <span className="array-index">arr[i]</span> is less than <span className="adjacent-element">arr[i+1]</span> the pair is already in order so it moves to the next pair.</li>
                 <li>If <span className="array-index">arr[i]</span> is greater than <span className="adjacent-element">arr[i+1]</span> they swap places before the loop moves to the next pair.</li>
@@ -24,7 +24,7 @@ export function BubbleExplanation() {
 export function InsertionExplanation() {
     return (
         <>
-            <h3 className="explanation-title">Insertion Sort</h3>
+            <h2 className="explanation-title">Insertion Sort</h2>
             <p className="insertion-explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of the deck. The array is the deck and the first element is your first card.
             Each subsequent element is a new card that you draw and add to your hand. You then put your hand in the correct order before drawing another 
             card/element from the deck/original array.  </p>

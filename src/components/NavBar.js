@@ -73,9 +73,9 @@ export default function Navbar() {
               ml:4,
               display: { xs: 'none', md: 'flex' },
               fontSize: "30px",
-              fontFamily: 'fira sans',
-              fontWeight: 500,
-              letterSpacing: '.2rem',
+              fontFamily: 'Playfair Display',
+              
+              
               color: 'inherit',
               textDecoration: 'none',
             }}
