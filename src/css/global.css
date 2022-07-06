@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
 
 body{
     font-family: 'Barlow', sans-serif;
@@ -24,8 +23,12 @@ h4{
     margin-bottom: 10px;
 }
 
+ul{
+    font-weight: 500;
+}
+
 p{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', sans-serif;
     margin: 0;
 }
 
@@ -63,14 +66,10 @@ p{
 }
 
 .content.home-background{
-    background-color: #211f1f;
+    background-color: #313133;
 }
 
 /*******************Navbar******************/
-
-/* .css-r6ewbb-MuiToolbar-root{
-    color: #fff8ba;
-} */
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root{
     background-color: #1d1d1d;
@@ -82,7 +81,7 @@ p{
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
-    font-size: larger;
+    font-size: large;
 }
 
 .css-j9wkuc-MuiAvatar-root{
@@ -209,6 +208,7 @@ p{
     max-width: 30%;
     /* background-color: #1d1d1d; */
     /* background-color: #3e3d40; */
+    /* background-color: #211f1f; */
     background-color: #313133;
     border-radius: 10%;
     transition: all .2s ease-in-out;
@@ -229,7 +229,7 @@ p{
 }
 
 .card span{
-    font-family: 'Barlow', sans-serif;
+    
     font-size: 17px;
     line-height: 1.5em;
     color: #fff8ba;
@@ -272,6 +272,7 @@ p{
 .top-container{
     display: flex;
     margin: 0 1em 0 1em;
+    justify-content: space-evenly;
 }
 
 /*******************Explanation**********************/
@@ -286,8 +287,7 @@ p{
 .insertion-explanation-heading{
     font-weight: 600;
     font-size: 18px;
-    margin-top: 1%;
-    margin-right: 2%;
+    margin: 2% 2% 2% 0;
     pointer-events: none;
 }
 
@@ -325,6 +325,7 @@ p{
     list-style: none;
     padding-inline-start: 0px;
     pointer-events: none;
+    margin: 0;
   }
 
 .insertion-explanation-list li{
@@ -353,7 +354,7 @@ p{
 }
 
 .array-index{
-    color: orange#533d4a;
+    color: orangered;
 }
 
 .adjacent-element{
@@ -365,26 +366,29 @@ p{
 }
 
 .unsorted-array{
-    color: orange#533d4a;
+    color: orangered;
 }
 
-.current-element{
+.current-explanation{
     color: blue;
 }
 
 .j-element{
-    color: #533d4a;
+    color: red;
 }
 
 /*********************Method********************/
 
 .method{
-    flex-grow: 1;
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    
 }
 
 pre{
-    margin: 01.5em 0px .5em 0px !important;
-    padding: 10px .5em 0 .5em !important;
+   
+    font-family: monospace !important;
 }
 
 /*******************Bottom Container**********************/
@@ -400,21 +404,20 @@ pre{
 	display: flex;
     background: radial-gradient( 68% 75% at 51% 43%, #343232, #000 90% );
     border-radius: 20%;
-    margin-left: 2em;
+    margin-left: 5em;
     margin-bottom: auto;
-    margin-top: auto;
+    margin-top: 22px;
     padding: 1%;
-    height: 80%;
-}
-
-.side-display.insertion{
-    padding-bottom: 2%;
+    padding-left: .6%;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .var-container{
     display: flex;
     flex-direction: column;
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: white;
     margin-left: auto;
     margin-right: auto;
@@ -460,14 +463,6 @@ pre{
     flex-grow: 0;
 }
 
-.checked-span{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: .33em;
-    letter-spacing: .3em;
-    color: #fd5c39;
-}
-
 /*******************Button Box**********************/
 
 .button-box{
@@ -483,7 +478,7 @@ pre{
     display: flex;
     padding: .1em .35em .5em .5em;
     justify-content: space-evenly;
-    gap: 5px;
+    gap: 6px;
 }
 
 .button{
@@ -498,10 +493,11 @@ pre{
     align-self: center;
     text-decoration: none;
     text-align: center;
-    font-family: 'Fira Sans', sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
     transition: background-color 500ms;
+    font-size: 15px;
+    font-family: 'Barlow', sans-serif;
 }
 
 .button:hover {  
@@ -517,7 +513,7 @@ pre{
 }
 
 .sort-button{
-    padding: 1.1em .4em;
+    padding: .9em .4em;
 }
 
 .css-1p823my-MuiListItem-root{
@@ -534,7 +530,6 @@ pre{
 
 .slider{
     color: white;
-    margin-top: .5em;
 }
 
 .slider-label{
@@ -548,7 +543,6 @@ pre{
     letter-spacing: 15px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: .5em;
     pointer-events: none;
 }
 
@@ -602,9 +596,13 @@ pre{
     flex-grow: 1;
     justify-content: center;
     height: 18em;
-    width: 70%;
+    
     gap:1em;
     margin-top: 2%;
+}
+
+.row.move-row{
+    margin-top: 1%;
 }
 
 .tubes { 
@@ -678,12 +676,12 @@ pre{
 }
 
 .current-element {
-    --fill-color: orange#533d4a;
+    --fill-color: orangered;
     bottom: 15px;
 }
 
 .next-element{
-    --fill-color: orange#533d4a;
+    --fill-color: orangered;
    bottom: 15px;
 }
 
@@ -692,35 +690,40 @@ pre{
     z-index: 5;
 	background: rgb(255, 239, 224);
 	border-radius: 35px;
-    padding: 10px 25px 10px;
+    padding: 10px 30px 10px;
 	font-size: 1.15em;
 	text-align: center;
     width: auto;
     top: 25%;
-    left: 65%;
+    left: 55%;
     border: solid black;
 }
 
 .thought-bubble p{
-    font-family: 'Barlow';
     margin: 0px 0px 3px;
-    font-weight: bold;
+    font-weight: 600;
+    pointer-events: none;
+    text-transform: uppercase;
 }
 
 .thought-bubble div{
     margin: 0px 0px 7px;
-    font-weight: bold;
+    font-weight: 600;
     pointer-events: none;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
 
 .greater{
-    color: orange#533d4a;
+    color: orangered;
     font-size: 20px;
+    font-family: sans-serif;
 }
 
 .less{
-    color: orange#533d4a;
+    color: orangered;
     font-size: 20px;
+    font-family: sans-serif;
 }
 
 .bubble-bottom-left:before {
@@ -751,6 +754,10 @@ pre{
     z-index: -1;
   }
 
+.move-the-bubble{
+    top: 33%;
+}
+
 .swap{
     display: none;
 }
@@ -765,7 +772,8 @@ pre{
 
 #finished2{
     font-size: 2.5em;
-    left: 15%;
+    left: 5%;
+    font-family: 'Playfair Display', serif;
 }
 
 .cap{
@@ -781,6 +789,7 @@ pre{
     display: grid;
     place-content: center;
     font-size: x-large;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -894,13 +903,13 @@ pre{
 /****************Insertion Tubes******************/
 
 .unSorted-text::before{
-    content: "UnSorted";  
+    content: "Unsorted";  
     position: relative;
     top: 4px;
 }
 
 .sorted{
-    --fill-color: orange#533d4a;
+    --fill-color: orangered;
 }
 
 .sorted-text::before{
@@ -913,7 +922,7 @@ pre{
 
 .current{
     --fill-color: blue;
-    top: 10%;
+    top: 8%;
 }
     
 .current-text::before{

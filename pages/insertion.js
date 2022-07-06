@@ -5,7 +5,6 @@ import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { InsertionExplanation } from "../src/components/Explanations";
-import Background from "../src/components/Background";
 
 function Insertion() {
 
@@ -76,21 +75,21 @@ function Insertion() {
         return (
             <div className="tube" style={cssProperties} key={tube} id={`${index}`} >
                 <i className="cap" id={`cap${index}`}></i>
-                <i className="fill" key={tube}></i>
+                <i className="fill" key={index}></i>
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
+                <div className="swap thought-bubble bubble-bottom-left move-the-bubble" id={`swap${index}`}>
                     <p className="greater">{tube} &gt; {array[index + 1]}</p>
                     <p>Swap</p>
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
-                <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
+                <div className="stay thought-bubble bubble-bottom-left move-the-bubble" id={`stay${index}`}>
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>   
-                    <div>Sorted!!!</div>
+                    <div>Sorted&nbsp;!!!</div>
                 </div>
             </div>
         )
@@ -98,7 +97,6 @@ function Insertion() {
 
     return (
         <div className="page-container">
-            <Background />
             <Box className="top-container">
                 <Box className="explanation">
                     <InsertionExplanation />
@@ -123,19 +121,19 @@ function Insertion() {
                         </Box>
                         <Box className="checked-container insertion">
                         <span className="insertion-span">Unsorted</span>
-                            <span className="checked-span">
+                            <span className="array-span">
                                 [{unSorted.toString()}]
                             </span>
                         </Box>
                         <Box className="checked-container insertion">
                         <span className="insertion-span">Sorted Array</span>
-                            <span className="checked-span">
+                            <span className="array-span">
                                 [{sorted.toString()}]
                             </span>
                         </Box>
                     </Box>
                 </Box>
-                <div className="row">
+                <div className="row move-row">
                     {display}
                 </div>
             </Box>

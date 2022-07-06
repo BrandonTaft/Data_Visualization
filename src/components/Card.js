@@ -1,17 +1,16 @@
+import Link from './Link';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent, MergeCardContent, BucketCardContent } from './CardContent';
 
 export function BubbleCard() {
-    const handleExpandClick = () => {
-        console.log("TEST");
-    };
-
+    
     return (
 
         <Card className="card">
-            <CardActionArea onClick={handleExpandClick}>
+            <Link href="/bubble">
+            <CardActionArea >
                 <CardMedia
                     component="img"
                     height="180"
@@ -23,6 +22,7 @@ export function BubbleCard() {
         </CardMedia> */}
                 <BubbleCardContent />
             </CardActionArea>
+            </Link>
         </Card>
 
     )
@@ -33,6 +33,7 @@ export function InsertionCard() {
     return (
 
         <Card className="card" >
+            <Link href="/insertion">
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -42,6 +43,7 @@ export function InsertionCard() {
                 />
                 <InsertionCardContent />
             </CardActionArea>
+            </Link>
         </Card>
 
     )
@@ -52,6 +54,7 @@ export function SelectionCard() {
     return (
 
         <Card className="card" >
+            <Link href="/selection">
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -61,6 +64,7 @@ export function SelectionCard() {
                 />
                 <SelectionCardContent />
             </CardActionArea>
+            </Link>
         </Card>
 
     )
@@ -71,6 +75,7 @@ export function QuickCard() {
     return (
 
         <Card className="card" >
+            <Link href="/quick">
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -80,6 +85,7 @@ export function QuickCard() {
                 />
                 <QuickCardContent />
             </CardActionArea>
+            </Link>
         </Card>
 
     )
@@ -90,6 +96,7 @@ export function BucketCard() {
     return (
 
         <Card className="card" >
+            <Link href="/bucket">
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -99,6 +106,7 @@ export function BucketCard() {
                 />
                 <BucketCardContent />
             </CardActionArea>
+            </Link>
         </Card>
 
     )
@@ -109,6 +117,7 @@ export function MergeCard() {
     return (
 
         <Card className="card" >
+            <Link href="/merge">
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -118,6 +127,7 @@ export function MergeCard() {
                 />
                 <MergeCardContent />
             </CardActionArea>
+            </Link>
         </Card>
 
     )

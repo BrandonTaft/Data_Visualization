@@ -14,6 +14,7 @@ function RefreshButton({ refresh, setRefresh }) {
   return (
     <button
       onClick={() => {
+        document.getElementById('finished2').classList.add("finished");
         refresh == "false" ? setRefresh("true") : setRefresh("false");
       }}
       className= "button refresh-button"

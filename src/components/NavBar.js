@@ -73,10 +73,8 @@ export default function Navbar({path}) {
               ml:4,
               display: { xs: 'none', md: 'flex' },
               fontSize: "30px",
-            //   fontFamily: 'Playfair Display',
-            fontFamily: 'Fjalla One',
-              
-              
+              fontFamily: 'Playfair Display',
+              letterSpacing: ".15em",  
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -203,7 +201,7 @@ export default function Navbar({path}) {
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            
+                            fontFamily: 'Playfair Display',
                             fontWeight: 700,
                             letterSpacing: '.1rem',
                             color: 'inherit',
@@ -212,7 +210,7 @@ export default function Navbar({path}) {
                     >
                        {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ fontFamily: 'Barlow',flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
                         <Box className="in-nav-container">
                             

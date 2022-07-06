@@ -63,11 +63,11 @@ function Bubble() {
         return (
             <div className="tube" style={cssProperties} key={tube} id={`${index}`} >
                 <i className="cap" id={`cap${index}`}></i>
-                <i className="fill" key={tube}></i>
+                <i className="fill" key={index}></i>
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="swap thought-bubble bubble-bottom-left" key={tube} id={`swap${index}`}>
+                <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
                     <p className="greater">{array[index]} &gt; {array[index + 1]}</p>
                     <p>Swap</p>
                     <SwapIcon sx={{ fontSize: 40 }} />
@@ -76,7 +76,7 @@ function Bubble() {
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
-                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>   
+                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
                     <div>Sorted!!!</div>
                 </div>
             </div>
@@ -110,7 +110,7 @@ function Bubble() {
                         </Box>
                         <Box className="checked-container">
                             <h3>Checked</h3>
-                            <span className="checked-span">
+                            <span className="array-span">
                                 {checked}
                             </span>
                         </Box>
