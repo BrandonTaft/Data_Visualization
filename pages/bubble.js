@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import Method from "./method";
-import getArray from "./Array";
+import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { BubbleExplanation } from "../src/components/Explanations";
-import Background from "../src/components/Background";
 
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
@@ -56,6 +55,7 @@ function Bubble() {
                 setArray([...arr]);
             }
         } while (checked)
+        document.getElementById('finished2').classList.toggle("finished");
     }
 
     const display = array.map((tube, index) => {
@@ -68,7 +68,7 @@ function Bubble() {
                     <div className="text">{tube}</div>
                 </div>
                 <div className="swap thought-bubble bubble-bottom-left" key={tube} id={`swap${index}`}>
-                    <p className="greater">{tube} &gt; {array[index + 1]}</p>
+                    <p className="greater">{array[index]} &gt; {array[index + 1]}</p>
                     <p>Swap</p>
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
@@ -76,13 +76,15 @@ function Bubble() {
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
+                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>   
+                    <div>Sorted!!!</div>
+                </div>
             </div>
         )
     });
 
     return (
         <div className="page-container">
-            <Background />
             <Box className="top-container">
                 <Box className="explanation">
                     <BubbleExplanation />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Method from "./method";
-import getArray from "./Array";
+import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
@@ -64,6 +64,7 @@ function Insertion() {
         setUnSorted([])
         setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
+        document.getElementById('finished2').classList.toggle("finished");
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
@@ -88,6 +89,9 @@ function Insertion() {
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
                     <div>No Swap</div>
                 </div>
+                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>   
+                    <div>Sorted!!!</div>
+                </div>
             </div>
         )
     });
@@ -102,7 +106,7 @@ function Insertion() {
                 <Method method={"insertion"} />
             </Box>
             <Box className="bottom-container">
-                <Box className="side-display">
+                <Box className="side-display insertion">
                     <ButtonBox
                         sortMethod={insertionSort}
                         refresh={refresh}
@@ -131,7 +135,7 @@ function Insertion() {
                         </Box>
                     </Box>
                 </Box>
-                <div className="row insertion">
+                <div className="row">
                     {display}
                 </div>
             </Box>

@@ -1,12 +1,13 @@
-
+import Header from "../src/components/Header";
 import { BubbleCard, BucketCard, InsertionCard, SelectionCard, MergeCard, QuickCard } from "../src/components/Card";
-import Background from "../src/components/Background";
 
 function Home() {
 
   return (
-    <><Background />
+  <>
+  <Header />
     <div className="card-container">
+      
       <BubbleCard />
       <InsertionCard />
       <SelectionCard />
@@ -14,7 +15,7 @@ function Home() {
       <MergeCard />
       <QuickCard />
     </div>
-    </>
+    </>  
   )
 }
 

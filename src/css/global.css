@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
 
 body{
     font-family: 'Barlow', sans-serif;
@@ -43,11 +44,33 @@ p{
     flex-grow: 1;
 }
 
+/*******************Layout******************/
+
+.layout{
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.content{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    
+}
+
+.content.home-background{
+    background-color: #211f1f;
+}
+
 /*******************Navbar******************/
 
-.css-r6ewbb-MuiToolbar-root{
+/* .css-r6ewbb-MuiToolbar-root{
     color: #fff8ba;
-}
+} */
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root{
     background-color: #1d1d1d;
@@ -59,6 +82,7 @@ p{
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
+    font-size: larger;
 }
 
 .css-j9wkuc-MuiAvatar-root{
@@ -107,48 +131,69 @@ p{
 .css-1ab221l-MuiGrid-root{
     margin: 5px;
 }
-/* .css-ciy9n4-MuiPaper-root-MuiAppBar-root{
-    background-color: #1d1d1d;
-    box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black;
-    position: relative;
+
+/*******************Header********************/
+.header{
+    display: flex;
+    justify-content: center;
 }
 
-.css-jzk4qw-MuiPaper-root-MuiAppBar-root{
-    background-color: #1d1d1d;
-    box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black;
-    position: relative;
-} */
-
-/* .css-134qg7o-MuiButtonBase-root-MuiIconButton-root{
-    background-color: #2f2f2f;
-    box-shadow: 11px -3px 15px 0px rgb(22, 21, 21) inset, 0 0 0 0 black;
-}
-
-.css-78trlr-MuiButtonBase-root-MuiIconButton-root{
-    color: white;
-}
-
-.css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
-    background-color: #373030;
-    box-shadow: 0px 0px 20px 0px rgb(22 21 21) inset, 0 0 0 0 black;
-    color: white;
-    font-size: x-large;
-    height: fit-content;
-    width: fit-content;
-}
-
-.css-1ab221l-MuiGrid-root:active {
-    transform: translateY(3px);
+.header-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom: 1%;
   }
 
-.css-h4y409-MuiList-root{
-    padding:15px 20px 15px;
-    font-size: 1em;
+.header-container h1{
+    color: #fff8ba;
+    text-transform: uppercase;
+    font-size: 48px;
+    margin: 0;
+    line-height: 45px;
+    letter-spacing: 5px;
+    position: relative;
+    text-shadow: 1px 1px #533d4a, 2px 2px #533d4a, 3px 3px #533d4a, 4px 4px #533d4a, 5px 5px #533d4a, 6px 6px #533d4a;
+    font-family: 'Fjalla One', sans-serif;
+    /* transform:  rotate(-10deg);
+    display: block;
+  float: left;
+  left: 50%;
+   */
+  }
+
+.header-title-2{   
+    left: 31%;
+    display: block;
 }
 
-.css-1ab221l-MuiGrid-root{
-    margin-bottom: 10px;
+.header-title-3{
+    left: 60%;
+    display: block;
+}
+
+/* .header-container span{
+    transform: skew(-10deg);
+    display: block;
+    text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+    min-width: 10px;
+    min-height: 10px;
 } */
+
+
+.header-title:nth-child(1){
+    color: --#533d4a;
+}
+
+.header-title:nth-child(2){
+    color: --green;
+}
+    
+.header-title:nth-child(3){
+    color: --yellow;
+}
+  
 
 /*******************Home**********************/
 
@@ -166,11 +211,12 @@ p{
     /* background-color: #3e3d40; */
     background-color: #313133;
     border-radius: 10%;
+    transition: all .2s ease-in-out;
 }
 
 .card:hover{
     position: relative;
-    bottom: 15px;
+    transform: scale(1.1);
 }
 
 .css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root{
@@ -230,19 +276,19 @@ p{
 
 /*******************Explanation**********************/
 
-.explanation-title{
-    margin-bottom: 5px;
-    text-align: center;
-    text-decoration-line: underline;
-}
-
 .explanation-heading{
     font-weight: 600;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    pointer-events: none;
 }
 
 .insertion-explanation-heading{
     font-weight: 600;
     font-size: 18px;
+    margin-top: 1%;
+    margin-right: 2%;
+    pointer-events: none;
 }
 
 .explanation {
@@ -254,6 +300,7 @@ p{
     list-style: none;
     margin: .5rem 0 0 0;
     padding-inline-start: 0px;
+    pointer-events: none;
   }
 
 .explanation-list li{
@@ -277,12 +324,13 @@ p{
 .insertion-explanation-list{
     list-style: none;
     padding-inline-start: 0px;
+    pointer-events: none;
   }
 
 .insertion-explanation-list li{
     margin: .35rem;
     margin-left: 0;
-    font-size: 17px;
+    font-size: 18px;
     letter-spacing: .01rem;
     line-height: 1.3em;
 }
@@ -305,7 +353,7 @@ p{
 }
 
 .array-index{
-    color: orangered;
+    color: orange#533d4a;
 }
 
 .adjacent-element{
@@ -317,7 +365,7 @@ p{
 }
 
 .unsorted-array{
-    color: orangered;
+    color: orange#533d4a;
 }
 
 .current-element{
@@ -325,7 +373,7 @@ p{
 }
 
 .j-element{
-    color: red;
+    color: #533d4a;
 }
 
 /*********************Method********************/
@@ -356,8 +404,11 @@ pre{
     margin-bottom: auto;
     margin-top: auto;
     padding: 1%;
-    padding-bottom: 2%;
     height: 80%;
+}
+
+.side-display.insertion{
+    padding-bottom: 2%;
 }
 
 .var-container{
@@ -369,6 +420,7 @@ pre{
     margin-right: auto;
     margin-bottom: 22px;
     justify-content: space-between;
+    pointer-events: none;
 }
 
 .insertion-span{
@@ -497,6 +549,7 @@ pre{
     margin-left: auto;
     margin-right: auto;
     padding-top: .5em;
+    pointer-events: none;
 }
 
 .css-fk6q5t-MuiSlider-root{
@@ -548,15 +601,10 @@ pre{
     display: flex;
     flex-grow: 1;
     justify-content: center;
-    height: 19em;
+    height: 18em;
     width: 70%;
     gap:1em;
-    margin-top: auto;
-    margin-bottom: 30px;
-}
-
-.row.insertion{
-    height: 18em;
+    margin-top: 2%;
 }
 
 .tubes { 
@@ -564,7 +612,7 @@ pre{
   display: flex; 
   flex-wrap: wrap; 
   gap: 2rem; 
-  justify-content: center 
+  justify-content: center;
 }
 
 .tube {
@@ -582,6 +630,7 @@ pre{
     display: grid;
     grid-template-rows: max-content auto max-content;
     position: relative;
+    pointer-events: none;
 }
 
 .tube::before{
@@ -629,12 +678,12 @@ pre{
 }
 
 .current-element {
-    --fill-color: orangered;
+    --fill-color: orange#533d4a;
     bottom: 15px;
 }
 
 .next-element{
-    --fill-color: orangered;
+    --fill-color: orange#533d4a;
    bottom: 15px;
 }
 
@@ -653,6 +702,7 @@ pre{
 }
 
 .thought-bubble p{
+    font-family: 'Barlow';
     margin: 0px 0px 3px;
     font-weight: bold;
 }
@@ -660,15 +710,16 @@ pre{
 .thought-bubble div{
     margin: 0px 0px 7px;
     font-weight: bold;
+    pointer-events: none;
 }
 
 .greater{
-    color: orangered;
+    color: orange#533d4a;
     font-size: 20px;
 }
 
 .less{
-    color: orangered;
+    color: orange#533d4a;
     font-size: 20px;
 }
 
@@ -708,6 +759,14 @@ pre{
     display: none;
 }
 
+.finished{
+    display: none;
+}
+
+#finished2{
+    font-size: 2.5em;
+    left: 15%;
+}
 
 .cap{
     --cap-height: calc(var(--width) * .4);
@@ -841,7 +900,7 @@ pre{
 }
 
 .sorted{
-    --fill-color: orangered;
+    --fill-color: orange#533d4a;
 }
 
 .sorted-text::before{

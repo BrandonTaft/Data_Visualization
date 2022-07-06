@@ -1,8 +1,18 @@
-  
-  const Header = () => (
-    <div className="header" >
-      <h1>Visualization Of Sorting Methods</h1>
+
+const Header = () => (
+  <header className="header">
+    <div className="header-container">
+      <h1 className="header-title">
+        <span className="header-span">Sorting</span>
+      </h1>
+      <h1 className="header-title-2">
+        <span className="header-span-2">Method</span>
+      </h1>
+      <h1 className="header-title-3">
+        <span className="header-span-3">Visualizer</span>
+      </h1>
     </div>
-  );
-  
-  export default Header;
+  </header>
+);
+
+export default Header;

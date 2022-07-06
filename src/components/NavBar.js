@@ -34,7 +34,7 @@ const drawerWidth = 240;
 const pages = ['Bubble', 'Quick Sort', 'Insertion'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export default function Navbar() {
+export default function Navbar({path}) {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -73,14 +73,15 @@ export default function Navbar() {
               ml:4,
               display: { xs: 'none', md: 'flex' },
               fontSize: "30px",
-              fontFamily: 'Playfair Display',
+            //   fontFamily: 'Playfair Display',
+            fontFamily: 'Fjalla One',
               
               
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            Sorting Algorithm Visualizer
+             {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
           </Typography>
 
 
@@ -209,7 +210,7 @@ export default function Navbar() {
                             textDecoration: 'none',
                         }}
                     >
-                        Sorting Visualizer
+                       {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
@@ -265,7 +266,7 @@ export default function Navbar() {
                             onClose={handleCloseUserMenu}
                         >
                             <MenuItem >
-                                <div>Hello! Come on over!</div>
+                                <div>Hello! I'm Brandon!</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://github.com/BrandonTaft" target="_blank">
