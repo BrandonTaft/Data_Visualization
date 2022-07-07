@@ -13,12 +13,11 @@ function Layout({ children }) {
     return (
 
         <div className="layout" >
-            {path === '/' ? "" : <Background />}
-            <NavBar path={path} />
+            {path === '/' ? "" : <><NavBar path={path} /><Background /></>}
             {/* <div className={className}> */}
-            <div>
+            
                 {children}
-            </div>
+            
         </div>
     )
 }

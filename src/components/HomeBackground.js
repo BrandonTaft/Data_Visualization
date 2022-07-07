@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-const Background = () => (
+const HomeBackground = () => (
   <div>
-    <div className="bgWrap">
+    <div className="bgWrap home-background">
       <Image
         alt="Background Image"
-        src="/images/background2.jpg"
+        src="/images/black-orchid.png"
         layout="fill"
         objectFit="cover"
         quality={100}
@@ -14,4 +14,4 @@ const Background = () => (
   </div>
 )
 
-export default Background
+export default HomeBackground

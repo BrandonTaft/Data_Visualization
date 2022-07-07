@@ -13,6 +13,10 @@ body{
     z-index: -1;
   }
 
+.bgWrap.home-background{
+    background-color: #222222;
+}
+
 h1,h2,h3 {
     margin: 0;
     margin-top: 5px;
@@ -146,14 +150,15 @@ p{
   }
 
 .header-container h1{
-    color: #fff8ba;
+    /* color: #fff8ba; */
+    color: ghostwhite;
     text-transform: uppercase;
-    font-size: 48px;
+    font-size: 50px;
     margin: 0;
     line-height: 45px;
     letter-spacing: 5px;
     position: relative;
-    text-shadow: 1px 1px #533d4a, 2px 2px #533d4a, 3px 3px #533d4a, 4px 4px #533d4a, 5px 5px #533d4a, 6px 6px #533d4a;
+    text-shadow: 1px 1px #585858, 1px 1px #585858, 2px 2px #585858, 3px 3px #585858, 4px 4px #585858, 5px 5px #585858;
     font-family: 'Fjalla One', sans-serif;
     /* transform:  rotate(-10deg);
     display: block;
@@ -162,27 +167,29 @@ p{
    */
   }
 
-.header-title-2{   
+.header-title-2{ 
     left: 31%;
     display: block;
+    margin: 2% 0 !important;
 }
 
 .header-title-3{
     left: 60%;
     display: block;
+    width: fit-content;
 }
 
 /* .header-container span{
     transform: skew(-10deg);
     display: block;
-    text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+    text-shadow: #585858 1px 1px, #585858 2px 2px, #585858 3px 3px, #585858 4px 4px, #585858 5px 5px, #585858 6px 6px;
     min-width: 10px;
     min-height: 10px;
 } */
 
 
 .header-title:nth-child(1){
-    color: --#533d4a;
+    color: --#585858;
 }
 
 .header-title:nth-child(2){
@@ -196,27 +203,39 @@ p{
 
 /*******************Home**********************/
 
-.card-container{
+.home-content{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 10px;
 }
 
 .card{
     display: flex;
-    margin: 1em;
-    max-width: 30%;
+    margin: 2em;
+    max-width: 40%;
     /* background-color: #1d1d1d; */
-    /* background-color: #3e3d40; */
+    background-color: #3e3d40;
     /* background-color: #211f1f; */
-    background-color: #313133;
-    border-radius: 10%;
+    /* background-color: #313133; */
+    border-radius: 7%;
     transition: all .2s ease-in-out;
 }
 
 .card:hover{
     position: relative;
     transform: scale(1.1);
+}
+
+.card-title{
+    /* color: #585858; */
+    color: ghostwhite;
+    text-transform: uppercase;
+    font-size: 33px;
+    margin: 0;
+    line-height: 45px;
+    letter-spacing: 5px;
+    position: relative;
 }
 
 .css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root{
@@ -228,12 +247,6 @@ p{
     background: transparent;
 }
 
-.card span{
-    
-    font-size: 17px;
-    line-height: 1.5em;
-    color: #fff8ba;
-}
 
 .css-46bh2p-MuiCardContent-root {
     padding: 5px 10px 15px 10px;
@@ -251,20 +264,32 @@ p{
 }
 
 .card-content{
-    background-color: #3e3d40;
+    /* background-color: #3e3d40; */
+    background-color: #585858;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
+.content-header{
+    font-size: 22px;
+    color: #fff8ba;
+    margin: 0 auto;
+}
+
 .card-content p{
     font-family: 'Lato';
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 15px;
+    text-align: left;
 }
 
 .complexity-container{
     margin-top: auto;
+    font-size: 20px;
+    line-height: 1.5em;
+    color: #fff8ba;
+    text-align: left;
 }
 
 /*******************Top Container**********************/
@@ -396,6 +421,7 @@ pre{
 .bottom-container{
     display: flex;
     flex-grow: 1;
+    margin-top: 1%;
 }
 
 /*******************Side-Display**********************/
@@ -596,7 +622,6 @@ pre{
     flex-grow: 1;
     justify-content: center;
     height: 18em;
-    
     gap:1em;
     margin-top: 2%;
 }
@@ -606,16 +631,16 @@ pre{
 }
 
 .tubes { 
-  margin-inline: auto; 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 2rem; 
-  justify-content: center;
+    margin-inline: auto; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 2rem; 
+    justify-content: center;
 }
 
 .tube {
     --width: calc(8vw + 0.6rem); 
-    --skew: calc(1vw + 0.1rem);
+    --skew: calc(.5vw + 0.05rem);
     --tube-color: #fff;
     --fill-color: black; 
     width: var(--width);
@@ -632,16 +657,16 @@ pre{
 }
 
 .tube::before{
-    --blur: 4px;
+    --blur: 6px;
     content: '';
     position: absolute;
-    width: calc(100% + var(--width) * 1);
+    width: calc(70% + var(--width) * 1);
     z-index: -1;
-    right: var(--blur);
-    bottom: 18px;
-    height: calc(var(--skew) * 2);
-    background: rgb(0 0 0 / .55);
-    border-radius: inherit;
+    right: 45px;
+    bottom: 3px;
+    height: calc(var(--skew) * 10);
+    background: #00000068;
+    border-radius: 0% 100%;
     filter: blur(var(--blur));
 }
 
@@ -661,6 +686,124 @@ pre{
     mask-image: var(--mask-image);
     font-size: x-large;
     font-style: normal;
+}
+
+.cap{
+    --cap-height: calc(var(--width) * .4);
+    height: calc(var(--cap-height) + var(--skew));
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    background-color: var(--tube-color);
+    background-image: linear-gradient(to right, rgb(0 0 0 / .25), transparent 50%);
+    position: relative;
+    z-index: 2;
+    color: var(--fill-color);
+    display: grid;
+    place-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: x-large;
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+.cap::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: calc(var(--skew) * 2);
+    background-color: var(--tube-color);
+    background-image: linear-gradient(to left, rgb(0 0 0 / .30), transparent);
+    border-radius: 50%;
+    top: calc(var(--skew) * -1);
+}
+
+.base{
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    background-color: var(--tube-color);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.353), transparent 40%);
+    position: relative;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.text{
+    width: 100%;
+    color: var(--fill-color);
+    padding-top: calc(var(--skew) + var(--width) * .1);
+    padding-bottom: calc(var(--width) * .1);
+    display: grid;
+    place-content: center;
+    margin-top: calc(var(--skew) * -.5);
+    border-bottom-left-radius: 50% var(--skew);
+    border-bottom-right-radius: 50% var(--skew);
+    line-height: 1;
+    font-size: calc(var(--width) * .4);
+    position: relative;
+    font-weight: 600;
+}
+
+.fill{
+    margin-top: calc(var(--skew) * -1);
+    color: white;
+    padding-top: 50%;
+    position: relative;
+    z-index: 1;
+    --glas-gradient:
+        linear-gradient(
+            to right,
+            rgb(0 0 0 / .25),
+            transparent 10% 15%,
+            rgb(255 255 255 / .5) 20%,
+            transparent 50% 90%,
+            rgb(0 0 0 / .125) 
+        );
+    background-image: var(--glas-gradient);
+}
+
+.fill::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    --fill-start: var(--skew);
+    --fill-end: calc(var(--percent) * 1% + var(--skew));
+    height: var(--fill-start);
+    background-color: var(--fill-color);
+    bottom: calc(var(--skew) * -1);
+    border-bottom-left-radius: 50% var(--skew);
+    border-bottom-right-radius: 50% var(--skew);
+    background-image: 
+        var(--glas-gradient),
+        radial-gradient(
+            ellipse 100% calc(var(--skew) * 2) at center calc(100% - var(--skew)), 
+            rgb(255 255 255 /.125) calc(50% - 1px), 
+            transparent 50%),
+        linear-gradient(
+            to right, 
+            rgb(0 0 0 / .25), 
+            transparent 50% 70%, 
+            rgb(0 0 0 / .25));
+  animation: fill-before 1s linear forwards
+}
+
+.fill::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: calc(var(--skew) * 2);
+    background-color: var(--fill-color);
+    border-radius: 50%;
+    --fill-start: calc(var(--skew) * -1);
+    --fill-end: calc(var(--percent) * 1% - var(--skew));
+    bottom: var(--fill-start);
+    background-image: 
+        var(--glas-gradient),
+        linear-gradient(to left, rgb(0 0 0 / .25), transparent 50%);
+  animation: fill-after 1s linear forwards
 }
 
 .current-element-text::before{
@@ -701,14 +844,14 @@ pre{
 
 .thought-bubble p{
     margin: 0px 0px 3px;
-    font-weight: 600;
+    font-weight: 700;
     pointer-events: none;
     text-transform: uppercase;
 }
 
 .thought-bubble div{
     margin: 0px 0px 7px;
-    font-weight: 600;
+    font-weight: 700;
     pointer-events: none;
     text-transform: uppercase;
     font-family: 'Playfair Display', serif;
@@ -774,126 +917,6 @@ pre{
     font-size: 2.5em;
     left: 5%;
     font-family: 'Playfair Display', serif;
-}
-
-.cap{
-    --cap-height: calc(var(--width) * .4);
-    height: calc(var(--cap-height) + var(--skew));
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    background-color: var(--tube-color);
-    background-image: linear-gradient(to right, rgb(0 0 0 / .25), transparent 50%);
-    position: relative;
-    z-index: 2;
-    color: var(--fill-color);
-    display: grid;
-    place-content: center;
-    font-size: x-large;
-    font-weight: 500;
-    font-style: normal;
-}
-
-
-.cap::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: calc(var(--skew) * 2);
-    background-color: var(--tube-color);
-    background-image: linear-gradient(to left, rgb(0 0 0 / .30), transparent);
-    border-radius: 50%;
-    top: calc(var(--skew) * -1);
-}
-
-.base{
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    background-color: var(--tube-color);
-    background-image: linear-gradient(to right, rgb(0 0 0 / .25), transparent 50%);
-    position: relative;
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-.text{
-    width: 100%;
-    color: var(--fill-color);
-    background-color: rgb(0 0 0 / .1);
-    padding-top: calc(var(--skew) + var(--width) * .1);
-    padding-bottom: calc(var(--width) * .1);
-    display: grid;
-    place-content: center;
-    margin-top: calc(var(--skew) * -.5);
-    border-bottom-left-radius: 50% var(--skew);
-    border-bottom-right-radius: 50% var(--skew);
-    --mask-image: radial-gradient( ellipse 100% calc(var(--skew) * 2) at center top, transparent calc(50% - 1px), black calc(50% + 1px));
-    -webkit-mask-image: var(--mask-image);
-    mask-image: var(--mask-image);
-    line-height: 1;
-    font-size: calc(var(--width) * .4);
-    position: relative;
-}
-
-.fill{
-    margin-top: calc(var(--skew) * -1);
-    color: white;
-    padding-top: 50%;
-    position: relative;
-    z-index: 1;
-    --glas-gradient:
-        linear-gradient(
-            to right,
-            rgb(0 0 0 / .25),
-            transparent 10% 15%,
-            rgb(255 255 255 / .5) 20%,
-            transparent 50% 90%,
-            rgb(0 0 0 / .125) 
-        );
-    background-image: var(--glas-gradient);
-}
-
-.fill::before{
-    position: absolute;
-    content: "";
-    width: 100%;
-    --fill-start: var(--skew);
-    --fill-end: calc(var(--percent) * 1% + var(--skew));
-    height: var(--fill-start);
-    background-color: var(--fill-color);
-    bottom: calc(var(--skew) * -1);
-    border-bottom-left-radius: 50% var(--skew);
-    border-bottom-right-radius: 50% var(--skew);
-    background-image: 
-        var(--glas-gradient),
-        radial-gradient(
-            ellipse 100% calc(var(--skew) * 2) at center calc(100% - var(--skew)), 
-            rgb(255 255 255 /.125) calc(50% - 1px), 
-            transparent 50%),
-        linear-gradient(
-            to right, 
-            rgb(0 0 0 / .25), 
-            transparent 50% 70%, 
-            rgb(0 0 0 / .25));
-  animation: fill-before 1s linear forwards
-}
-
-.fill::after{
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: calc(var(--skew) * 2);
-    background-color: var(--fill-color);
-    border-radius: 50%;
-    --fill-start: calc(var(--skew) * -1);
-    --fill-end: calc(var(--percent) * 1% - var(--skew));
-    bottom: var(--fill-start);
-    background-image: 
-        var(--glas-gradient),
-        linear-gradient(to left, rgb(0 0 0 / .25), transparent 50%);
-  animation: fill-after 1s linear forwards
 }
 
 @keyframes fill-before{ to { height: var(--fill-end)}}

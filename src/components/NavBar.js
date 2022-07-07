@@ -1,18 +1,11 @@
 import * as React from 'react';
 import Link from './Link';
-import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
@@ -23,10 +16,8 @@ import Menu from '@mui/material/Menu';
 import Image from 'next/image'
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
 
 const drawerWidth = 240;
@@ -34,7 +25,7 @@ const drawerWidth = 240;
 const pages = ['Bubble', 'Quick Sort', 'Insertion'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export default function Navbar({path}) {
+export default function Navbar({ path }) {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -64,23 +55,23 @@ export default function Navbar({path}) {
                     </Box>
 
                     <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              ml:4,
-              display: { xs: 'none', md: 'flex' },
-              fontSize: "30px",
-              fontFamily: 'Playfair Display',
-              letterSpacing: ".15em",  
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-             {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
-          </Typography>
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            ml: 4,
+                            display: { xs: 'none', md: 'flex' },
+                            fontSize: "30px",
+                            fontFamily: 'Playfair Display',
+                            letterSpacing: ".15em",
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
+                    </Typography>
 
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -112,7 +103,7 @@ export default function Navbar({path}) {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            
+
                             <List>
 
                                 <ListItem disablePadding>
@@ -191,7 +182,7 @@ export default function Navbar({path}) {
                             </List>
                         </Menu>
                     </Box>
-                    
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -208,36 +199,36 @@ export default function Navbar({path}) {
                             textDecoration: 'none',
                         }}
                     >
-                       {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
+                        {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
-                    <Box sx={{ fontFamily: 'Barlow',flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ fontFamily: 'Barlow', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
                         <Box className="in-nav-container">
-                            
-                                <Link href="/">    
-                                            <span>Home</span>
-                                </Link>
-                           
-                                <Link href="/bubble">
-                                            <span>Bubble Sort</span>
-                                </Link>
-                           
-                                <Link href="">
-                                            <span>Quick Sort</span>                                 
-                                </Link>
-                            
-                                <Link href="">
-                                            <span>Selection</span>
-                                </Link>
-                            
-                                <Link href="/insertion">
-                                            <span>Insertion</span>
-                                </Link>
-                            
-                                <Link href="">
-                                            <span>Merge</span>
-                                </Link>
-                           
+
+                            <Link href="/">
+                                <span>Home</span>
+                            </Link>
+
+                            <Link href="/bubble">
+                                <span>Bubble Sort</span>
+                            </Link>
+
+                            <Link href="">
+                                <span>Quick Sort</span>
+                            </Link>
+
+                            <Link href="">
+                                <span>Selection</span>
+                            </Link>
+
+                            <Link href="/insertion">
+                                <span>Insertion</span>
+                            </Link>
+
+                            <Link href="">
+                                <span>Merge</span>
+                            </Link>
+
                         </Box>
                     </Box>
 
@@ -283,7 +274,7 @@ export default function Navbar({path}) {
                                     <Image src="/icons/linked.png" alt="github" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts">My Linked In</div>
-                            </MenuItem>                           
+                            </MenuItem>
                             <MenuItem >
                                 <a href="mailto:btaftcan@gmail.com" >
                                     <Image src="/icons/gmail-logo.png" alt="github" layout="intrinsic" width={20} height={20} />
