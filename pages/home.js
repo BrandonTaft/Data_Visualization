@@ -1,5 +1,6 @@
 import HomeBackground from "../src/components/HomeBackground";
 import Header from "../src/components/Header";
+import Footer from "../src/components/Footer";
 import { BubbleCard, BucketCard, InsertionCard, SelectionCard, MergeCard, QuickCard } from "../src/components/Card";
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <MergeCard />
       <QuickCard />
     </div>
+  <Footer />
     </>  
   )
 }

@@ -77,7 +77,7 @@ function Bubble() {
                     <div>No Swap</div>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
-                    <div>Sorted!!!</div>
+                    <div>Sorted&nbsp;!!!</div>
                 </div>
             </div>
         )

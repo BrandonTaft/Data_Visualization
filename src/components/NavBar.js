@@ -265,19 +265,19 @@ export default function Navbar({ path }) {
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://www.brandontaft.net/" target="_blank">
-                                    <Image src="/icons/logo.png" alt="github" layout="intrinsic" width={20} height={20} />
+                                    <Image src="/icons/logo.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts">My Portfolio</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank">
-                                    <Image src="/icons/linked.png" alt="github" layout="intrinsic" width={20} height={20} />
+                                    <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts">My Linked In</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="mailto:btaftcan@gmail.com" >
-                                    <Image src="/icons/gmail-logo.png" alt="github" layout="intrinsic" width={20} height={20} />
+                                    <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts">Email Me</div>
                             </MenuItem>
