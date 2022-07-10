@@ -11,7 +11,7 @@ body{
     width: 100vw;
     overflow: hidden;
     z-index: -1;
-  }
+}
 
 #bgWrap.light-mode{
     display: none;
@@ -19,15 +19,12 @@ body{
 
 .bgWrap.home-background{
     background-color: #222222;
-    
-    /* background-color: #202124; */
-    /* background-color: #303134 */
 }
 
 h1,h2,h3 {
     margin: 0;
     margin-top: 5px;
-    }
+}
 
 h4{
     margin: 0;
@@ -58,6 +55,7 @@ p{
     flex-grow: 1;
 }
 
+
 /*******************Layout******************/
 
 .layout{
@@ -72,9 +70,9 @@ p{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    z-index: 0;
-    
+    z-index: 0;    
 }
+
 
 /*******************Navbar******************/
 
@@ -111,8 +109,7 @@ p{
     margin-right: 0px !important;
 }
 
-.css-6hp17o-MuiList-root-MuiMenu-list{
-    
+.css-6hp17o-MuiList-root-MuiMenu-list{    
     color: white;
 }
 
@@ -138,23 +135,27 @@ p{
     margin: 5px;
 }
 
+
 /*******************Header********************/
+
 .header{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     pointer-events: none;
 }
 
 .header-container{
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin-top: 2%;
-    margin-bottom: 1%;
-  }
+    background-color: #161617;
+    padding-top: 3%;
+}
+
+.wave{
+    fill: #161617;
+}
 
 .header-container h1{
-    /* color: #fff8ba; */
     color: ghostwhite;
     text-transform: uppercase;
     font-size: 50px;
@@ -162,42 +163,32 @@ p{
     line-height: 45px;
     letter-spacing: 5px;
     position: relative;
-    text-shadow: 1px 1px #585858, 1px 1px #585858, 2px 2px #585858, 3px 3px #585858, 4px 4px #585858, 5px 5px #585858;
+    text-shadow: 2px 2px #585858, 2px 2px #585858, 3px 3px #585858, 4px 4px #585858;
     font-family: 'Fjalla One', sans-serif;
     /* transform:  rotate(-10deg);
     display: block;
-  float: left;
-  left: 50%;
+    float: left;
+    left: 50%;
    */
-  }
+}
 
-#header-container.light-mode h1{
-    /* color: #fff8ba; */
-    color: black;
-    font-family: "Barlow";
-    font-weight: 800;
-  }
+.header-title-1{ 
+    /* left: 25%; */
+    margin-left: 22% !important;
+}
 
 .header-title-2{ 
-    left: 31%;
-    display: block;
-    margin: 2% 0 !important;
+    /* text-align: center;
+    right: 1%;
+    margin: 1% 0 !important; */
+    margin-left: 41% !important;
 }
 
 .header-title-3{
-    left: 60%;
-    display: block;
+    /* left: 60%; */
+    margin-left: 59% !important;
     width: fit-content;
 }
-
-/* .header-container span{
-    transform: skew(-10deg);
-    display: block;
-    text-shadow: #585858 1px 1px, #585858 2px 2px, #585858 3px 3px, #585858 4px 4px, #585858 5px 5px, #585858 6px 6px;
-    min-width: 10px;
-    min-height: 10px;
-} */
-
 
 .header-title:nth-child(1){
     color: --#585858;
@@ -210,7 +201,7 @@ p{
 .header-title:nth-child(3){
     color: --yellow;
 }
-  
+
 
 /*******************Home**********************/
 
@@ -239,6 +230,7 @@ p{
 
 #card.light-mode{
     background-color: #000;
+    box-shadow: 5px 2px 3px 1px rgb(0 0 0 / 20%), 2px 1px 1px 2px rgb(0 0 0 / 14%), 1px 1px 3px 3px rgb(0 0 0 / 18%);
 }
 
 .card:hover{
@@ -266,7 +258,6 @@ p{
     background: transparent;
 }
 
-
 .css-46bh2p-MuiCardContent-root {
     padding: 5px 10px 15px 10px;
     height: 100%;
@@ -289,26 +280,43 @@ p{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    color: #fff8ba;
+}
+
+.card-content.light-mode{
+    background-color: #fff;
+    color: #000;
+}
+
+.card-content.light-mode span{
+    text-decoration: underline;
+    font-weight: 900;
 }
 
 .content-header{
     font-size: 22px;
-    color: #fff8ba;
+    color: inherit;
     margin: 0 auto;
 }
 
-.card-content p{
+.content-description{
     font-family: 'Lato';
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 15px;
     text-align: left;
+    color: ghostwhite;
+}
+
+.content-description.light-mode{
+    color: #000;
+    font-weight: 700;
 }
 
 .complexity-container{
     margin-top: auto;
     font-size: 20px;
     line-height: 1.5em;
-    color: #fff8ba;
+    color: inherit;
     text-align: left;
 }
 
@@ -319,6 +327,7 @@ p{
     margin: 0 1em 0 1em;
     justify-content: space-evenly;
 }
+
 
 /*******************Explanation**********************/
 
@@ -371,7 +380,7 @@ p{
     padding-inline-start: 0px;
     pointer-events: none;
     margin: 0;
-  }
+}
 
 .insertion-explanation-list li{
     margin: .35rem;
@@ -422,19 +431,18 @@ p{
     color: red;
 }
 
+
 /*********************Method********************/
 
-.method{
-    
+.method{    
     margin-top: auto;
     margin-bottom: auto;
-    
 }
 
 pre{
-   
     font-family: monospace !important;
 }
+
 
 /*******************Bottom Container**********************/
 
@@ -443,6 +451,7 @@ pre{
     flex-grow: 1;
     margin-top: 1%;
 }
+
 
 /*******************Side-Display**********************/
 
@@ -509,6 +518,7 @@ pre{
     flex-grow: 0;
 }
 
+
 /*******************Button Box**********************/
 
 .button-box{
@@ -548,11 +558,11 @@ pre{
 
 .button:hover {  
     background-color: #fd5c39;
-  }
+}
 
 .button:active {  
     background-color: #6e5b5b3d;
-  }
+}
 
 .refresh-button{
     padding: .7em .8em;
@@ -566,6 +576,7 @@ pre{
     padding: 0 5px 0 5px;
     margin: 9px 0 9px 0;
 }
+
 
 /*******************SLIDER******************/
 
@@ -635,6 +646,7 @@ pre{
     border-radius: 50%;
 }
 
+
 /*********************Switch********************/
 
 .switch-container{
@@ -648,16 +660,16 @@ pre{
     display: inline-block;
     width: 80px;
     height: 34px;
-  }
+}
   
   /* Hide default HTML checkbox */
-  .switch input {
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
-  .switcher {
+.switcher {
     height: inherit;
     position: absolute;
     cursor: pointer;
@@ -669,9 +681,9 @@ pre{
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 34px;
-  }
+}
   
-  .switcher:before {
+.switcher:before {
     position: absolute;
     content: "";
     height: 30px;
@@ -682,22 +694,23 @@ pre{
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
-  }
+}
   
-  input:checked + .switcher {
+input:checked + .switcher {
     background-color: #2196F3;
-  }
+}
   
-  input:focus + .switcher {
+input:focus + .switcher {
     box-shadow: 0 0 1px #2196F3;
-  }
+}
   
-  input:checked + .switcher:before {
+input:checked + .switcher:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-  
+}
+
+
 /*********************Tubes********************/
 
 .row{
@@ -789,7 +802,6 @@ pre{
     font-style: normal;
 }
 
-
 .cap::after{
     content: "";
     position: absolute;
@@ -869,7 +881,7 @@ pre{
             rgb(0 0 0 / .25), 
             transparent 50% 70%, 
             rgb(0 0 0 / .25));
-  animation: fill-before 1s linear forwards
+    animation: fill-before 1s linear forwards;
 }
 
 .fill::after{
@@ -886,7 +898,7 @@ pre{
     background-image: 
         var(--glas-gradient),
         linear-gradient(to left, rgb(0 0 0 / .25), transparent 50%);
-  animation: fill-after 1s linear forwards
+    animation: fill-after 1s linear forwards
 }
 
 .current-element-text::before{
@@ -964,7 +976,7 @@ pre{
     left: 14px;
     bottom: -21px;
     z-index: -1;
-  }
+}
 
 .bubble-bottom-left:after {
     content: "";
@@ -978,7 +990,7 @@ pre{
     left: 17px;
     bottom: -14px;
     z-index: -1;
-  }
+}
 
 .move-the-bubble{
     top: 33%;
@@ -1024,8 +1036,6 @@ pre{
     top: 4px;
 }
 
-
-
 .current{
     --fill-color: blue;
     top: 8%;
@@ -1044,6 +1054,7 @@ pre{
     font-size: 20px;
     color: ghostwhite;
     background-color: #00000094;
+    background-color: #161617;
     align-items: center;
     padding: 0 2%;
     margin-top: 5%;
@@ -1070,8 +1081,7 @@ pre{
 
 .footer h3{
     text-align: center;
-    color: #fff8ba;
-    
+    color: #fff8ba;    
     margin-bottom: 0;
 }
 

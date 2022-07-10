@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import Background from "./Background";
+import Footer from "./Footer";
 import { useRouter } from 'next/router';
 
 
@@ -10,8 +11,9 @@ function Layout({ children }) {
     return (
 
         <div className="layout" >
-            {path === '/' ? "" : <><NavBar path={path} /><Background /></>}
+            {path === '/' ? "" : <><Background /><NavBar path={path} /></>}
             {children}
+            <Footer />
         </div>
     )
 }
