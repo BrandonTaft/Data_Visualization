@@ -6,13 +6,12 @@ import Image from 'next/image';
 function Footer() {
 
     return (
-        <div className="footer" id="footer">
+        <div className="dark footer" >
                 <Image className='profile-pic' src="/images/hoodie1.png" alt="logo" width="80px" height="80px" />
                 <div className='my-description'>
                     <h4>Hi! I'm Brandon,</h4>
                     <div>I am a Web Developer with a passion for building applications using React and Node.js.</div>
                 </div>
-            
             <div className='middle-container'>
                 <div className='socials'>
                     <a href="https://github.com/BrandonTaft" target="_blank">

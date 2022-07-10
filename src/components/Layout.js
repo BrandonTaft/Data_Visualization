@@ -10,8 +10,8 @@ function Layout({ children }) {
 
     return (
 
-        <div className="layout" >
-            {path === '/' ? "" : <><Background /><NavBar path={path} /></>}
+        <div className="dark layout" >
+            {path === '/' ? "" : <><NavBar path={path} /></>}
             {children}
             <Footer />
         </div>

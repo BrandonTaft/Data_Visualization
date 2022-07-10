@@ -18,6 +18,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import LightSwitch from './LightSwitch';
 
 
 const drawerWidth = 240;
@@ -73,6 +74,7 @@ export default function Navbar({ path }) {
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
 
+                        <LightSwitch />
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton

@@ -13,7 +13,7 @@ body{
     z-index: -1;
 }
 
-#bgWrap.light-mode{
+.bgWrap.home-background.light-mode{
     display: none;
 }
 
@@ -62,7 +62,6 @@ p{
     display: flex;
     position: relative;
     flex-flow: column;
-    height: 100vh;
     width: 100%;
 }
 
@@ -73,6 +72,9 @@ p{
     z-index: 0;    
 }
 
+.layout.light-mode{
+    background-color: #222222;
+}
 
 /*******************Navbar******************/
 
@@ -142,17 +144,19 @@ p{
     display: flex;
     flex-direction: column;
     pointer-events: none;
+    margin-bottom: 1.5em;
 }
 
 .header-container{
     display: flex;
     flex-direction: column;
-    background-color: #161617;
-    padding-top: 3%;
+    background-color: #0f0f0f;
+    padding-top: 2%;
 }
 
+
 .wave{
-    fill: #161617;
+    fill: #0f0f0f;
 }
 
 .header-container h1{
@@ -216,21 +220,10 @@ p{
     display: flex;
     margin: 2em;
     max-width: 40%;
-    /* background-color: #1d1d1d; */
-    background-color: #3e3d40;
-    /* background-color: #202124; */
-    /* background-color: #303134; */
-    /* background-color: #211f1f; */
-    /* background-color: #313133; */
-    background-color: #00000094;
-    /* background-color: #22242b; */
+    background-color: #0f0f0f;
+    box-shadow: 5px 2px 3px 1px rgb(0 0 0 / 20%), 2px 1px 1px 2px rgb(0 0 0 / 14%), 1px 1px 3px 3px rgb(0 0 0 / 18%);
     border-radius: 7%;
     transition: all .2s ease-in-out;
-}
-
-#card.light-mode{
-    background-color: #000;
-    box-shadow: 5px 2px 3px 1px rgb(0 0 0 / 20%), 2px 1px 1px 2px rgb(0 0 0 / 14%), 1px 1px 3px 3px rgb(0 0 0 / 18%);
 }
 
 .card:hover{
@@ -290,7 +283,7 @@ p{
 
 .card-content.light-mode span{
     text-decoration: underline;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .content-header{
@@ -309,7 +302,7 @@ p{
 
 .content-description.light-mode{
     color: #000;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .complexity-container{
@@ -652,14 +645,15 @@ pre{
 .switch-container{
     display: flex;
     width: 15%;
-    justify-content: space-evenly;
+    margin-left: 1em;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 80px;
-    height: 34px;
+    width: 60px;
+    height: 24px;
+    margin: 0 10px;
 }
   
   /* Hide default HTML checkbox */
@@ -686,9 +680,9 @@ pre{
 .switcher:before {
     position: absolute;
     content: "";
-    height: 30px;
-    width: 30px;
-    left: 12px;
+    height: 20px;
+    width: 20px;
+    left: 6px;
     bottom: 2px;
     background-color: white;
     -webkit-transition: .4s;
@@ -1053,20 +1047,19 @@ input:checked + .switcher:before {
     display: flex;
     font-size: 20px;
     color: ghostwhite;
-    background-color: #00000094;
-    background-color: #161617;
+    background-color: #0f0f0f;
     align-items: center;
     padding: 0 2%;
-    margin-top: 5%;
+    margin-top: 4em;
 }
 
 .footer h3{
     pointer-events: none;
 }
 
-#footer.light-mode{
+/* .footer.light-mode{
     background-color: #000;
-}
+} */
 
 .my-description{
     width: 40%;
