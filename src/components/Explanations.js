@@ -1,4 +1,3 @@
-import Highlighter from "react-highlight-words";
 
 export function BubbleExplanation() {
     return (

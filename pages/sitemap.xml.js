@@ -39,7 +39,6 @@ export const getServerSideProps = ({ res }) => {
           .join("")}
       </urlset>
     `;
-    console.log(staticPages)
     res.setHeader("Content-Type", "text/xml");
     res.write(sitemap);
     res.end();

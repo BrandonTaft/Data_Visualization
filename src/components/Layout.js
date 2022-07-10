@@ -10,7 +10,7 @@ function Layout({ children }) {
     return (
 
         <div className="layout" >
-            {path === '/home' ? "" : <><NavBar path={path} /><Background /></>}
+            {path === '/' ? "" : <><NavBar path={path} /><Background /></>}
             {children}
         </div>
     )
