@@ -657,8 +657,7 @@ pre{
     height: 0;
   }
   
-  /* The slider */
-  .slider {
+  .switcher {
     height: inherit;
     position: absolute;
     cursor: pointer;
@@ -669,9 +668,10 @@ pre{
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 34px;
   }
   
-  .slider:before {
+  .switcher:before {
     position: absolute;
     content: "";
     height: 30px;
@@ -681,31 +681,23 @@ pre{
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 50%;
   }
   
-  input:checked + .slider {
+  input:checked + .switcher {
     background-color: #2196F3;
   }
   
-  input:focus + .slider {
+  input:focus + .switcher {
     box-shadow: 0 0 1px #2196F3;
   }
   
-  input:checked + .slider:before {
+  input:checked + .switcher:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
   
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
 /*********************Tubes********************/
 
 .row{
