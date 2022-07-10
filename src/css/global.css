@@ -1049,6 +1049,10 @@ pre{
     margin-top: 5%;
 }
 
+.footer h3{
+    pointer-events: none;
+}
+
 #footer.light-mode{
     background-color: #000;
 }
@@ -1057,6 +1061,7 @@ pre{
     width: 40%;
     margin: 0;
     margin-left: 2%;
+    pointer-events: none;
 }
 
 .profile-pic{
@@ -1110,6 +1115,7 @@ pre{
 
 .footer-links span{
     margin: .2em;
+    cursor: pointer;
 }
 
 .middle-container{
