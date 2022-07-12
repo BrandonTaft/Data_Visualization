@@ -5,7 +5,7 @@
 }
   
 [data-theme='dark'] .layout{
-    background-color: #1b1a1a;
+    background-color: #202124;
 }
 
 [data-theme='dark'] .card-content{
@@ -15,6 +15,8 @@
 
 [data-theme='dark'] .content-description{
     color: ghostwhite;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 [data-theme='dark'] ul{
@@ -22,6 +24,11 @@
 }
 
 [data-theme='dark'] .thought-bubble {
+    background-color: #303134;
+    color: ghostwhite;
+}
+
+[data-theme='dark'] .thought-bubble.selection-bubble {
     background-color: #303134;
     color: ghostwhite;
 }
@@ -54,6 +61,33 @@
    bottom: 15px;
 }
 
+[data-theme='dark'] .complexity-container{
+    font-weight: 400;
+}
+
+[data-theme='dark'] .explanation-heading{
+    font-weight: 500;
+    margin-bottom: 2%;
+}
+
+[data-theme='dark'] .insertion-explanation-heading{
+    font-weight: 500;
+}
+
+[data-theme='dark'] .min-tube{
+    --fill-color: rgb(78, 80, 80);
+}
+
+[data-theme='dark'] .thought-bubble.selection-bubble p{
+    text-transform: none;
+    margin: 10px 0 10px;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+[data-theme='dark'] .thought-bubble.selection-bubble div{
+    font-weight: 400;
+}
 
 body{
     font-family: 'Barlow', sans-serif;
@@ -102,23 +136,12 @@ p{
 
 /*******************Layout******************/
 
-/* .dark layout{
-    display: flex;
-    position: relative;
-    flex-flow: column;
-    width: 100%;
-} */
-
 .content{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     z-index: 0;    
 }
-
-/* .layout.light-mode{
-    background-color: #222222;
-} */
 
 /*******************Navbar******************/
 
@@ -157,30 +180,44 @@ p{
 
 .css-6hp17o-MuiList-root-MuiMenu-list{    
     color: white;
-}
-
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
-    justify-content: space-evenly;
+    padding: 0.5em;
+    padding-right: .3em;
 }
 
 .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
     background-color: #1d1d1d;
     box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black;
     color: white;
-    font-size: larger;
+    font-size: 1.5em;
     height: fit-content;
     width: max-content;
-    
+    top: 8px;
+    left: 970px;
 }
 
 .css-h4y409-MuiList-root{
-    padding: 20px;
+    padding: 10px;
 }
 
 .css-1ab221l-MuiGrid-root{
     margin: 5px;
 }
 
+.contacts-title{
+    margin: auto;
+    color: orangered;
+    font-size: 1.5em;
+}
+
+.contacts{
+    margin-left: 1em;
+    margin-right: auto;
+    font-size: 1.5em;
+}
+
+.responsive-link{
+    margin-left: 1em;
+}
 
 /*******************Header********************/
 
@@ -252,16 +289,6 @@ p{
     transform: scale(1.1);
 }
 
-.card-title{
-    color: ghostwhite;
-    text-transform: uppercase;
-    font-size: 33px;
-    margin: 0;
-    line-height: 45px;
-    letter-spacing: 5px;
-    position: relative;
-}
-
 .css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root{
     display: flex;
     flex-direction: column;
@@ -274,7 +301,6 @@ p{
 .css-46bh2p-MuiCardContent-root {
     padding: 5px 10px 15px 10px;
     height: 100%;
-    color: white;
 }
 
 .css-o69gx8-MuiCardMedia-root{
@@ -283,7 +309,9 @@ p{
 }
 
 .content-header{
-    font-size: 22px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.8em;
+    font-weight: 500;
     color: inherit;
     margin: 0 auto .5em;
     text-decoration: underline;
@@ -297,28 +325,23 @@ p{
     color: #000;
 }
 
-
-.card-content span{
-    font-weight: 700;
-}
-
 .content-description{
-    font-family: 'Lato';
-    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
     margin-bottom: 15px;
     text-align: left;
     color: #000;
-    font-weight: 700;
+    font-weight: 500;
 }
-
-
 
 .complexity-container{
     margin-top: auto;
-    font-size: 22px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.6em;
     line-height: 1.5em;
     color: inherit;
     text-align: left;
+    font-weight: 500;
 }
 
 
@@ -336,13 +359,13 @@ p{
 .explanation-heading{
     font-weight: 600;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     pointer-events: none;
     letter-spacing: .5px;
 }
 
 .insertion-explanation-heading{
-    font-weight: 700;
+    font-weight: 600;
     font-size: 19px;
     margin: 1% 2% 2% 0;
     pointer-events: none;
@@ -363,6 +386,7 @@ p{
 .explanation-list li{
     margin: .35rem;
     margin-left: 0;
+    font-size: 1em;
 }
 
 .explanation-list li::before{
@@ -388,7 +412,7 @@ p{
 .insertion-explanation-list li{
     margin: .35rem;
     margin-left: 0;
-    font-size: .95em;
+    font-size: 1em;
     letter-spacing: .01rem;
     line-height: 1.3em;
 }
@@ -804,7 +828,7 @@ input:checked + .switcher:before {
     color: var(--fill-color);
     display: grid;
     place-content: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fira Sans', serif;
     font-size: x-large;
     font-weight: 500;
     font-style: normal;
@@ -1032,6 +1056,7 @@ input:checked + .switcher:before {
     content: "Unsorted";  
     position: relative;
     top: 4px;
+    font-weight: 600;
 }
 
 .sorted{
@@ -1042,6 +1067,7 @@ input:checked + .switcher:before {
     content: "Sorted";  
     position: relative;
     top: 4px;
+    font-weight: 600;
 }
 
 .current{
@@ -1055,12 +1081,72 @@ input:checked + .switcher:before {
 }
 
 
-/****************Insertion Tubes******************/
+/****************Selection Tubes******************/
+
+.selection.row{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    height: 20em;
+    gap:1.1em;
+    margin-top: 1.5%;
+}
 
 .min::before{
     content: "min";  
     position: relative;
     top: 4px;
+}
+
+.min-tube{
+    --fill-color: rgb(78, 80, 80);
+}
+
+.selection-stay{
+    display: none;
+}
+
+.selection-swap{
+    display: none;
+}
+
+.thought-bubble.selection-bubble{
+    position: absolute;
+    z-index: 5;
+	background: rgb(255, 239, 224);
+	border-radius: 35px;
+    padding: 10px 10px 10px;
+	text-align: center;
+    width: auto;
+    top: 20%;
+    left: -5%;
+    border: solid black;
+}
+
+.thought-bubble.selection-bubble p{
+    text-transform: none;
+    margin: 10px 0 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.thought-bubble.selection-bubble div{
+    text-transform: none;
+    margin: 5px 0 3px;
+    font-weight: 600;
+}
+
+.move-to-front{
+    display: none;
+}
+
+.i-is-min{
+    display: none;
+}
+
+.selection-div{
+    font-size: 1em;
+    width: 6em;
 }
 
 /****************************Footer****************************/
@@ -1091,7 +1177,7 @@ input:checked + .switcher:before {
 }
 
 .css-1pqm26d-MuiAvatar-img{
-width: 80%;
+width: 75%;
 }
 
 .footer h3{

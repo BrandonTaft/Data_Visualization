@@ -21,8 +21,6 @@ import MenuItem from '@mui/material/MenuItem';
 import LightSwitch from './LightSwitch';
 
 
-const drawerWidth = 240;
-
 const pages = ['Bubble', 'Quick Sort', 'Insertion'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -74,8 +72,7 @@ export default function Navbar({ path }) {
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
 
-                        <LightSwitch />
-
+                       
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -115,7 +112,7 @@ export default function Navbar({ path }) {
                                                 <HomeIcon />
                                             </Grid>
                                             <Grid item>
-                                                <span>Home</span>
+                                            <span className='responsive-link'>Home</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -128,35 +125,12 @@ export default function Navbar({ path }) {
                                                 <ScienceIcon />
                                             </Grid>
                                             <Grid item>
-                                                <span>Bubble Sort</span>
+                                            <span className='responsive-link'>Bubble Sort</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
                                 </ListItem>
-                                <ListItem disablePadding>
-                                    <Link href="">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
-                                            </Grid>
-                                            <Grid item>
-                                                <span>Quick Sort</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <Link href="/selection">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
-                                            </Grid>
-                                            <Grid item>
-                                                <span>Selection</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
+
                                 <ListItem disablePadding>
                                     <Link href="/insertion">
                                         <Grid container sx={{ cursor: "pointer" }}>
@@ -164,11 +138,25 @@ export default function Navbar({ path }) {
                                                 <CalculateIcon />
                                             </Grid>
                                             <Grid item>
-                                                <span>Insertion</span>
+                                            <span className='responsive-link'>Insertion</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
                                 </ListItem>
+
+                                <ListItem disablePadding>
+                                    <Link href="/selection">
+                                        <Grid container sx={{ cursor: "pointer" }}>
+                                            <Grid item>
+                                                <CalculateIcon />
+                                            </Grid>
+                                            <Grid item>
+                                            <span className='responsive-link'>Selection</span>
+                                            </Grid>
+                                        </Grid>
+                                    </Link>
+                                </ListItem>
+
                                 <ListItem disablePadding>
                                     <Link href="">
                                         <Grid container sx={{ cursor: "pointer" }}>
@@ -176,7 +164,33 @@ export default function Navbar({ path }) {
                                                 <CalculateIcon />
                                             </Grid>
                                             <Grid item>
-                                                <span>Merge</span>
+                                            <span className='responsive-link'>Quick Sort</span>
+                                            </Grid>
+                                        </Grid>
+                                    </Link>
+                                </ListItem>
+
+                                <ListItem disablePadding>
+                                    <Link href="">
+                                        <Grid container sx={{ cursor: "pointer" }}>
+                                            <Grid item>
+                                                <CalculateIcon />
+                                            </Grid>
+                                            <Grid item>
+                                                <span className='responsive-link'>Bucket</span>
+                                            </Grid>
+                                        </Grid>
+                                    </Link>
+                                </ListItem>
+                                                    
+                                <ListItem disablePadding>
+                                    <Link href="">
+                                        <Grid container sx={{ cursor: "pointer" }}>
+                                            <Grid item>
+                                                <CalculateIcon />
+                                            </Grid>
+                                            <Grid item>
+                                                <span className='responsive-link'>Merge</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -184,6 +198,7 @@ export default function Navbar({ path }) {
                             </List>
                         </Menu>
                     </Box>
+                    <LightSwitch />
 
                     <Typography
                         variant="h5"
@@ -203,7 +218,7 @@ export default function Navbar({ path }) {
                     >
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
-                    <Box sx={{ fontFamily: 'Barlow', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ fontFamily: 'Fira Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
                         <Box className="in-nav-container">
 
@@ -212,19 +227,23 @@ export default function Navbar({ path }) {
                             </Link>
 
                             <Link href="/bubble">
-                                <span>Bubble Sort</span>
+                                <span>Bubble</span>
                             </Link>
 
-                            <Link href="">
-                                <span>Quick Sort</span>
+                            <Link href="/insertion">
+                                <span>Insertion</span>
                             </Link>
 
                             <Link href="selection">
                                 <span>Selection</span>
                             </Link>
 
-                            <Link href="/insertion">
-                                <span>Insertion</span>
+                            <Link href="/bubble">
+                                <span>Bucket</span>
+                            </Link>
+
+                            <Link href="">
+                                <span>Quick</span>
                             </Link>
 
                             <Link href="">
@@ -241,7 +260,8 @@ export default function Navbar({ path }) {
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '55px' }}
+                            className='about-me-menu'
+                            sx={{ mt: '40px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -257,25 +277,25 @@ export default function Navbar({ path }) {
                             onClose={handleCloseUserMenu}
                         >
                             <MenuItem >
-                                <div>Hello! I'm Brandon!</div>
+                                <div className="contacts-title">Contact Me</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://github.com/BrandonTaft" target="_blank">
                                     <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
                                 </a>
-                                <div className="contacts">My Github</div>
+                                <div className="contacts"> Github</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://www.brandontaft.net/" target="_blank">
-                                    <Image src="/icons/logo.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
+                                    <Image src="/icons/huge.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
-                                <div className="contacts">My Portfolio</div>
+                                <div className="contacts">Portfolio</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank">
                                     <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
-                                <div className="contacts">My Linked In</div>
+                                <div className="contacts">Linked In</div>
                             </MenuItem>
                             <MenuItem >
                                 <a href="mailto:btaftcan@gmail.com" >

@@ -8,7 +8,7 @@ export function BubbleCard() {
     
     return (
 
-        <Card className="dark card">
+        <Card className="card">
             <Link href="/bubble">
             <CardActionArea >
                 <CardMedia
@@ -32,7 +32,7 @@ export function InsertionCard() {
 
     return (
 
-        <Card className="dark card">
+        <Card className="card">
             <Link href="/insertion">
             <CardActionArea>
                 <CardMedia
@@ -53,7 +53,7 @@ export function SelectionCard() {
 
     return (
 
-        <Card className="dark card">
+        <Card className="card">
             <Link href="/selection">
             <CardActionArea>
                 <CardMedia
@@ -74,7 +74,7 @@ export function QuickCard() {
 
     return (
 
-        <Card className="dark card">
+        <Card className="card">
             <Link href="/quick">
             <CardActionArea>
                 <CardMedia
@@ -95,7 +95,7 @@ export function BucketCard() {
 
     return (
 
-        <Card className="dark card">
+        <Card className="card">
             <Link href="/bucket">
             <CardActionArea>
                 <CardMedia
@@ -116,7 +116,7 @@ export function MergeCard() {
 
     return (
 
-        <Card className="dark card">
+        <Card className="card">
             <Link href="/merge">
             <CardActionArea>
                 <CardMedia

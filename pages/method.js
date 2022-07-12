@@ -16,8 +16,7 @@ function Method({ method}) {
                     checked = true
                 }
             }
-        } while (checked)
-    `;
+        } while (checked)`;
 
     } else if (method === "insertion"){
         display = `insertion(arr) {
