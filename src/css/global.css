@@ -1,24 +1,64 @@
+:root {
+    /* Your default theme */
+    --background: white;
+    --foreground: black;
+}
+  
+[data-theme='dark'] .layout{
+    background-color: #1b1a1a;
+}
+
+[data-theme='dark'] .card-content{
+    background-color: #303134;
+    color: #fff8ba;
+}
+
+[data-theme='dark'] .content-description{
+    color: ghostwhite;
+}
+
+[data-theme='dark'] ul{
+    font-weight: 400;
+}
+
+[data-theme='dark'] .thought-bubble {
+    background-color: #303134;
+    color: ghostwhite;
+}
+
+[data-theme='dark'] .bubble-bottom-left:after {
+    border-left: 24px solid #303134;
+    border-top: 12px solid #303134;
+}
+
+[data-theme='dark'] .tube{
+    --fill-color: blue;
+}
+
+[data-theme='dark'] .sorted{
+    --fill-color: orangered;
+}
+
+[data-theme='dark'] .current{
+    --fill-color: green;
+    top: 8%;
+}
+
+[data-theme='dark'] .current-element {
+    --fill-color: orangered;
+    bottom: 15px;
+}
+
+[data-theme='dark'] .next-element{
+    --fill-color: orangered;
+   bottom: 15px;
+}
+
 
 body{
     font-family: 'Barlow', sans-serif;
     margin: 0;
     height: 100%;
-}
-
-.bgWrap {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.bgWrap.home-background.light-mode{
-    display: none;
-}
-
-.bgWrap.home-background{
-    background-color: #222222;
 }
 
 h1,h2,h3 {
@@ -45,6 +85,7 @@ p{
     opacity: 40%;
 }
 
+
 .selected{
     display: none;
 }
@@ -55,15 +96,18 @@ p{
     flex-grow: 1;
 }
 
+.page-container.dark{
+    background-color: #222222;
+}
 
 /*******************Layout******************/
 
-.layout{
+/* .dark layout{
     display: flex;
     position: relative;
     flex-flow: column;
     width: 100%;
-}
+} */
 
 .content{
     flex-grow: 1;
@@ -72,9 +116,9 @@ p{
     z-index: 0;    
 }
 
-.layout.light-mode{
+/* .layout.light-mode{
     background-color: #222222;
-}
+} */
 
 /*******************Navbar******************/
 
@@ -144,7 +188,6 @@ p{
     display: flex;
     flex-direction: column;
     pointer-events: none;
-    margin-bottom: 1.5em;
 }
 
 .header-container{
@@ -169,41 +212,19 @@ p{
     position: relative;
     text-shadow: 2px 2px #585858, 2px 2px #585858, 3px 3px #585858, 4px 4px #585858;
     font-family: 'Fjalla One', sans-serif;
-    /* transform:  rotate(-10deg);
-    display: block;
-    float: left;
-    left: 50%;
-   */
 }
 
 .header-title-1{ 
-    /* left: 25%; */
     margin-left: 22% !important;
 }
 
 .header-title-2{ 
-    /* text-align: center;
-    right: 1%;
-    margin: 1% 0 !important; */
     margin-left: 41% !important;
 }
 
 .header-title-3{
-    /* left: 60%; */
     margin-left: 59% !important;
     width: fit-content;
-}
-
-.header-title:nth-child(1){
-    color: --#585858;
-}
-
-.header-title:nth-child(2){
-    color: --green;
-}
-    
-.header-title:nth-child(3){
-    color: --yellow;
 }
 
 
@@ -221,7 +242,7 @@ p{
     margin: 2em;
     max-width: 40%;
     background-color: #0f0f0f;
-    box-shadow: 5px 2px 3px 1px rgb(0 0 0 / 20%), 2px 1px 1px 2px rgb(0 0 0 / 14%), 1px 1px 3px 3px rgb(0 0 0 / 18%);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
     border-radius: 7%;
     transition: all .2s ease-in-out;
 }
@@ -232,7 +253,6 @@ p{
 }
 
 .card-title{
-    /* color: #585858; */
     color: ghostwhite;
     text-transform: uppercase;
     font-size: 33px;
@@ -262,56 +282,45 @@ p{
     margin: 3% auto;
 }
 
-.red{
-    background-color: #fa4654;
-}
-
-.card-content{
-    /* background-color: #3e3d40; */
-    /* background-color: #585858; */
-    background-color: #303134;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    color: #fff8ba;
-}
-
-.card-content.light-mode{
-    background-color: #fff;
-    color: #000;
-}
-
-.card-content.light-mode span{
-    text-decoration: underline;
-    font-weight: 700;
-}
-
 .content-header{
     font-size: 22px;
     color: inherit;
-    margin: 0 auto;
+    margin: 0 auto .5em;
+    text-decoration: underline;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: rgb(245, 242, 239);
+    color: #000;
+}
+
+
+.card-content span{
+    font-weight: 700;
 }
 
 .content-description{
     font-family: 'Lato';
-    font-size: 19px;
+    font-size: 20px;
     margin-bottom: 15px;
     text-align: left;
-    color: ghostwhite;
+    color: #000;
+    font-weight: 700;
 }
 
-.content-description.light-mode{
-    color: #000;
-    font-weight: 500;
-}
+
 
 .complexity-container{
     margin-top: auto;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.5em;
     color: inherit;
     text-align: left;
 }
+
 
 /*******************Top Container**********************/
 
@@ -329,17 +338,18 @@ p{
     margin-top: 2%;
     margin-bottom: 2%;
     pointer-events: none;
+    letter-spacing: .5px;
 }
 
 .insertion-explanation-heading{
-    font-weight: 600;
-    font-size: 18px;
-    margin: 2% 2% 2% 0;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 1% 2% 2% 0;
     pointer-events: none;
 }
 
 .explanation {
-	font-size: 1.2em;
+	font-size: 1.3em;
     width: 60%;
 }
 
@@ -378,7 +388,7 @@ p{
 .insertion-explanation-list li{
     margin: .35rem;
     margin-left: 0;
-    font-size: 18px;
+    font-size: .95em;
     letter-spacing: .01rem;
     line-height: 1.3em;
 }
@@ -434,6 +444,8 @@ p{
 
 pre{
     font-family: monospace !important;
+    font-size: 1.3em !important;
+    padding: .5em 1em !important;
 }
 
 
@@ -454,7 +466,7 @@ pre{
     border-radius: 20%;
     margin-left: 5em;
     margin-bottom: auto;
-    margin-top: 22px;
+    margin-top: 10px;
     padding: 1%;
     padding-left: .6%;
     text-transform: uppercase;
@@ -644,16 +656,18 @@ pre{
 
 .switch-container{
     display: flex;
-    width: 15%;
     margin-left: 1em;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 24px;
-    margin: 0 10px;
+    width: 3em;
+    height: 1.2em;
+    top: .3em;
+    margin: 0 5px;
 }
   
   /* Hide default HTML checkbox */
@@ -680,11 +694,11 @@ pre{
 .switcher:before {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
-    left: 6px;
-    bottom: 2px;
-    background-color: white;
+    height: 1em;
+    width: 1em;
+    left: 3px;
+    top: 2px;
+    background-color: rgb(30, 28, 28);
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
@@ -712,12 +726,12 @@ input:checked + .switcher:before {
     flex-grow: 1;
     justify-content: center;
     height: 18em;
-    gap:1em;
-    margin-top: 2%;
+    gap:1.1em;
+    margin-top: 1.5%;
 }
 
 .row.move-row{
-    margin-top: 1%;
+    margin-top: .5%;
 }
 
 .tubes { 
@@ -752,9 +766,9 @@ input:checked + .switcher:before {
     position: absolute;
     width: calc(70% + var(--width) * 1);
     z-index: -1;
-    right: 45px;
+    right: 55px;
     bottom: 3px;
-    height: calc(var(--skew) * 10);
+    height: calc(var(--skew) * 8);
     background: #00000068;
     border-radius: 0% 100%;
     filter: blur(var(--blur));
@@ -1041,6 +1055,14 @@ input:checked + .switcher:before {
 }
 
 
+/****************Insertion Tubes******************/
+
+.min::before{
+    content: "min";  
+    position: relative;
+    top: 4px;
+}
+
 /****************************Footer****************************/
 
 .footer{
@@ -1049,7 +1071,7 @@ input:checked + .switcher:before {
     color: ghostwhite;
     background-color: #0f0f0f;
     align-items: center;
-    padding: 0 2%;
+    padding: 1% 2%;
     margin-top: 4em;
 }
 
@@ -1068,14 +1090,14 @@ input:checked + .switcher:before {
     pointer-events: none;
 }
 
-.profile-pic{
-    border-radius: 50%;
+.css-1pqm26d-MuiAvatar-img{
+width: 80%;
 }
 
 .footer h3{
     text-align: center;
     color: #fff8ba;    
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .footer p{
@@ -1096,19 +1118,19 @@ input:checked + .switcher:before {
 
 .footer-link-container{
     height: 100%;
-    justify-content: space-around;
     display: flex;
     flex-direction: column;
-    font-size: 16px;
+    font-size: .85em;
     width: 20%;
     text-align: left;
-    margin-left: auto;
+    margin: auto;
+    position: relative;
+    bottom: 6px;
 }
 
 .footer-link-inner{
     display: flex;
     justify-content: space-between;
-    margin: 3% 0;
 }
 
 .footer-links{
@@ -1117,7 +1139,7 @@ input:checked + .switcher:before {
 }
 
 .footer-links span{
-    margin: .2em;
+    
     cursor: pointer;
 }
 

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from './Link';
 import Image from 'next/image';
+import { Avatar } from '@mui/material';
 
 
 function Footer() {
 
     return (
         <div className="dark footer" >
-                <Image className='profile-pic' src="/images/hoodie1.png" alt="logo" width="80px" height="80px" />
+                 <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
                 <div className='my-description'>
                     <h4>Hi! I'm Brandon,</h4>
                     <div>I am a Web Developer with a passion for building applications using React and Node.js.</div>

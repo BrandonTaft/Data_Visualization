@@ -20,46 +20,47 @@ function Selection() {
     async function selectionSort() {
         const arr = array;
         const n = arr.length;
-        await new Promise(resolve => setTimeout(resolve, speed / 2));
-        document.getElementById(0).classList.toggle("sorted");
-        document.getElementById(`cap${0}`).classList.toggle("sorted-text");
+        
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
+        await new Promise(resolve => setTimeout(resolve, speed / 2));
         for (let i = 0; i < n; i++) {
             // Finding the smallest number in the subarray
+            document.getElementById(`cap${i}`).classList.toggle("min");
+            await new Promise(resolve => setTimeout(resolve, speed / 2));
         let min = i;
+        
+        
         for(let j = i+1; j < n; j++){
             if(arr[j] < arr[min]) {
+                document.getElementById(`cap${min}`).classList.remove("min");
+                document.getElementById(`cap${j}`).classList.toggle("min");
+                await new Promise(resolve => setTimeout(resolve, speed ));
                 min=j; 
             }
          }
             
-            await new Promise(resolve => setTimeout(resolve, speed / 2));
-            document.getElementById(i).classList.toggle("current");
-            document.getElementById(`cap${i}`).classList.toggle("current-text");
-            await new Promise(resolve => setTimeout(resolve, speed));
-           
+            
             if (min != i) {
                 // Swapping the elements
                 let tmp = arr[i]; 
                 arr[i] = arr[min];
-                arr[min] = tmp;      
+                arr[min] = tmp;   
+                setArray([...arr]);
+                await new Promise(resolve => setTimeout(resolve, speed));   
            }
-       
-           
-            document.getElementById(j + 1).classList.toggle("current");
-            document.getElementById(`cap${j + 1}`).classList.toggle("current-text");
-            document.getElementById(j + 1).classList.toggle("sorted");
-            document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
+           document.getElementById(`cap${i}`).classList.toggle("min");
+           document.getElementById(i).classList.toggle("sorted");
+        document.getElementById(`cap${i}`).classList.toggle("sorted-text");
+           setSorted(arr.slice(0, i + 1))
+            setUnSorted(arr.slice(i))
+            
             setArray(arr);
             await new Promise(resolve => setTimeout(resolve, speed));
         }    
         setUnSorted([])
         setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
-        document.getElementById('finished2').classList.toggle("finished");
-        document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
-        document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
-        document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
+        
         return arr;
     }
 

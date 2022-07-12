@@ -2,7 +2,7 @@
 export function BubbleExplanation() {
     return (
         <>  
-            <p className="explanation-heading">Bubble sort is a simple comparison-based sorting algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
+            <p className="explanation-heading">Bubble sort is a simple comparison-based algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
             <ul className="explanation-list">
                 <li>First, <span className="checked-variable">checked</span> is initialized, then it is set to false once inside the while loop.</li>
                 <li>The for loop determines if each pair of adjacent elements are in the correct order.</li>
