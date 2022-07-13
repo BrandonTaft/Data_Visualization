@@ -89,6 +89,10 @@
     font-weight: 400;
 }
 
+[data-theme='dark'] .pivot-tube{
+    --fill-color: rgb(78, 80, 80);
+}
+
 body{
     font-family: 'Barlow', sans-serif;
     margin: 0;
@@ -606,6 +610,10 @@ pre{
     margin: 9px 0 9px 0;
 }
 
+.button:disabled {
+    color: #555;
+    pointer-events: none;
+  }
 
 /*******************SLIDER******************/
 
@@ -1149,6 +1157,17 @@ input:checked + .switcher:before {
     width: 6em;
 }
 
+
+.pivot::before{
+    content: "pivot";  
+    position: relative;
+    top: 4px;
+}
+
+.pivot-tube{
+    --fill-color: rgb(78, 80, 80);
+}
+
 /****************************Footer****************************/
 
 .footer{
@@ -1165,15 +1184,12 @@ input:checked + .switcher:before {
     pointer-events: none;
 }
 
-/* .footer.light-mode{
-    background-color: #000;
-} */
-
 .my-description{
     width: 40%;
     margin: 0;
     margin-left: 2%;
     pointer-events: none;
+    font-size: .9em;
 }
 
 .css-1pqm26d-MuiAvatar-img{
@@ -1206,12 +1222,13 @@ width: 75%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-size: .85em;
+    font-size: .75em;
     width: 20%;
     text-align: left;
     margin: auto;
     position: relative;
     bottom: 6px;
+    padding: .5em;
 }
 
 .footer-link-inner{
@@ -1236,7 +1253,7 @@ width: 75%;
     justify-content: space-around;
     border-left: #fff8ba27 1px solid;
     border-right: #fff8ba27 1px solid;
-    padding: 0 4%;
+    padding: 0 .85em;
 }
 
 
@@ -1246,6 +1263,7 @@ width: 75%;
     font-size: 16px;
     margin-top: auto;
     flex-grow: 1;
+    width: max-content;
 }
 
 .socials{
@@ -1254,3 +1272,6 @@ width: 75%;
     margin-bottom: 10%;
 }
 
+.css-1mnmxt2-Simple{
+    margin: auto ;
+}

@@ -12,6 +12,8 @@ function Bubble() {
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
 
     async function bubbleSort() {
+        document.getElementById("sort-button").disabled = true;
+        document.getElementById("refresh-button").disabled = true;
         const arr = array;
         let checked;
         do {
@@ -28,7 +30,6 @@ function Bubble() {
                     await new Promise(resolve => setTimeout(resolve, speed));
                 }
                 if (arr[i] > arr[i + 1]) {
-
                     document.getElementById(`swap${i}`).classList.toggle("swap");
                     await new Promise(resolve => setTimeout(resolve, speed));
                     document.getElementById(`swap${i}`).classList.toggle("swap");
@@ -55,6 +56,8 @@ function Bubble() {
                 setArray([...arr]);
             }
         } while (checked)
+        document.getElementById("sort-button").disabled = false;
+        document.getElementById("refresh-button").disabled = false;
         document.getElementById('finished2').classList.toggle("finished");
     }
 
@@ -82,7 +85,7 @@ function Bubble() {
             </div>
         )
     });
-
+    
     return (
         <div className="light page-container">
             <Box className="top-container">
@@ -92,7 +95,6 @@ function Bubble() {
                 <Method method={"bubble"} />
             </Box>
             <Box className="bottom-container">
-
                 <Box className="side-display">
                     <ButtonBox
                         sortMethod={bubbleSort}

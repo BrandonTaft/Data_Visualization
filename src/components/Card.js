@@ -75,7 +75,7 @@ export function QuickCard() {
     return (
 
         <Card className="card">
-            <Link href="/quick">
+            <Link href="/quicksort">
             <CardActionArea>
                 <CardMedia
                     component="img"

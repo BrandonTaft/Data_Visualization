@@ -2,17 +2,34 @@ import React, { useState, useEffect } from 'react';
 import Link from './Link';
 import Image from 'next/image';
 import { Avatar } from '@mui/material';
+import { Provider, ClapButton } from "@lyket/react";
 
 
 function Footer() {
 
     return (
         <div className="dark footer" >
-                 <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
-                <div className='my-description'>
-                    <h4>Hi! I'm Brandon,</h4>
-                    <div>I am a Web Developer with a passion for building applications using React and Node.js.</div>
-                </div>
+            <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
+            <div className='my-description'>
+                <h4>Hi! I'm Brandon,</h4>
+                <div>I am a Web Developer with a passion for building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>
+            </div>
+            <Provider
+                apiKey="pt_9631f43a75cbdb23263b1a4942d68b"
+                theme={{
+                    colors: {
+                        background: "ghostwhite",
+                        text: "ghostwhite",
+                        primary: "white"
+                    }
+                }}
+            >
+                <ClapButton
+                    namespace="like-me"
+                    id="applause"
+                />
+            </Provider>
+
             <div className='middle-container'>
                 <div className='socials'>
                     <a href="https://github.com/BrandonTaft" target="_blank">
@@ -31,10 +48,10 @@ function Footer() {
                 <div className='copyright-container'>
                     <p className="copyright"> &copy;{new Date().getFullYear()} </p>
                     <p> Brandon Taft </p>
-                
-                <a className="sitemap-link" href="/sitemap.xml">
-                    <span > Sitemap </span>
-                </a>
+
+                    <a className="sitemap-link" href="/sitemap.xml">
+                        <span > Sitemap </span>
+                    </a>
                 </div>
             </div>
 

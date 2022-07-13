@@ -1,114 +1,135 @@
 import { useState, useEffect } from "react";
-import Layout from "../src/components/Layout";
 import Method from "./method";
-import randomArray from "./randomArray";
+import getArray from "../src/components/Array";
+import ButtonBox from "../src/components/ButtonBox.js";
+import Box from "@mui/material/Box";
+import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
+function QuickSort() {
 
-function Quicksort() {
+    const [speed, setSpeed] = useState(2500);
+    const [sorted, setSorted] = useState([]);
+    const [unSorted, setUnSorted] = useState([]);
+    const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
 
-    //Tells the method component whatcode to display 
-    const codeString = `function swap(arr, leftIndex, rightIndex){
-        var temp = arr[leftIndex];
-        arr[leftIndex] = arr[rightIndex];
-        arr[rightIndex] = temp;
-    }
-    function partition(arr, left, right) {
-        var pivot   = arr[Math.floor((right + left) / 2)], //middle element
-            i       = left, //left pointer
-            j       = right; //right pointer
-        while (i <= j) {
-            while (arr[i] < pivot) {
-                i++;
-            }
-            while (arr[j] > pivot) {
-                j--;
-            }
-            if (i <= j) {
-                swap(arr, i, j); //sawpping two elements
-                i++;
-                j--;
+    useEffect(() => {
+        setSorted([])
+    }, [refresh]);
+
+    function swap(array, a, b) {
+        let temp = array[a];
+        array[a] = array[b];
+        array[b] = temp
+    };
+
+    async function partition(array, start, end) {
+        document.getElementById(`cap${end}`).classList.toggle("pivot");
+        document.getElementById(end).classList.toggle("pivot-tube");
+        await new Promise(resolve => setTimeout(resolve, speed));
+        let pivotIndex = start;
+        let pivotValue = array[end];
+        for (let i = start; i < end; i++) {
+            if (array[i] < pivotValue) {
+                swap(array, i, pivotIndex);
+                pivotIndex++;
             }
         }
-        return i;
-    }
-    
-    function quickSort(arr, left, right) {
-        var index;
-        if (arr.length > 1) {
-            index = partition(arr, left, right); //index returned from partition
-            if (left < index - 1) { //more elements on the left side of the pivot
-                quickSort(arr, left, index - 1);
-            }
-            if (index < right) { //more elements on the right side of the pivot
-                quickSort(arr, index, right);
-            }
+        swap(array, pivotIndex, end);
+        return pivotIndex;
+    };
+
+   async function quickSort(array, start, end) {
+        if (start >= end) {
+            setArray([...array]);
+                await new Promise(resolve => setTimeout(resolve, speed));   
+            return;
         }
-        return arr;
+        console.log(start, end)
+        let index = partition(array, start, end);
+        await quickSort(array, start, index - 1);
+        await new Promise(resolve => setTimeout(resolve, speed));   
+        await quickSort(array, index + 1, end)
     }
-    // first call to quick sort
-    var sortedArray = quickSort(arr, 0, arr.length - 1);
-`;
 
-    
-    const { arr } = randomArray();
-
-    function swap(arr, leftIndex, rightIndex){
-        var temp = arr[leftIndex];
-        arr[leftIndex] = arr[rightIndex];
-        arr[rightIndex] = temp;
+    function runSort(){
+        quickSort(array, 0, array.length - 1)
     }
-    function partition(arr, left, right) {
-        var pivot   = arr[Math.floor((right + left) / 2)], //middle element
-            i       = left, //left pointer
-            j       = right; //right pointer
-        while (i <= j) {
-            while (arr[i] < pivot) {
-                i++;
-            }
-            while (arr[j] > pivot) {
-                j--;
-            }
-            if (i <= j) {
-                swap(arr, i, j); //sawpping two elements
-                i++;
-                j--;
-            }
-        }
-        return i;
-    }
-    
-    function quickSort(arr, left, right) {
-        var index;
-        if (arr.length > 1) {
-            index = partition(arr, left, right); //index returned from partition
-            if (left < index - 1) { //more elements on the left side of the pivot
-                quickSort(arr, left, index - 1);
-            }
-            if (index < right) { //more elements on the right side of the pivot
-                quickSort(arr, index, right);
-            }
-        }
-        return arr;
-    }
-    // first call to quick sort
-    var sortedArray = quickSort(arr, 0, arr.length - 1);
-    
 
-
-    const display = sortedArray.map((bar, index) => {
+    const display = array.map((tube, index) => {
+        let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
         return (
-            <div key={index}>{bar}</div>
+            <div className="tube" style={cssProperties} key={tube} id={`${index}`} >
+                <i className="cap" id={`cap${index}`}></i>
+                <i className="fill" key={index}></i>
+                <div className="base">
+                    <div className="text">{tube}</div>
+                </div>
+                <div className="selection-stay thought-bubble selection-bubble bubble-bottom-left " id={`selection-stay${index}`}>
+                    <p className="greater">{tube} &gt; "min"</p>
+                    <p>min stays the same</p>
+                </div>
+                <div className="selection-swap thought-bubble selection-bubble bubble-bottom-left " id={`selection-swap${index}`}>
+                    <p className="less" >{array[index]} &lt; "min"</p>
+                    <div>This is the new min</div>
+                    <SwapIcon sx={{ fontSize: 40 }} />
+                </div>
+                <div className="move-to-front thought-bubble selection-bubble bubble-bottom-left " id={`move-to-front${index}`}>
+                    <div className="selection-div">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</div>
+                </div>
+                <div className="i-is-min thought-bubble selection-bubble bubble-bottom-left " id={`i-is-min${index}`}>
+                    <div className="selection-div"><span className="j-element">arr[i]</span> was the lowest element so it stays where it is. </div>
+                </div>
+                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
+                    <div>Sorted&nbsp;!!!</div>
+                </div>
+            </div>
         )
-    })
-
+    });
 
     return (
-        <Layout>
-            <h1>Quick Sort</h1>
-            <Method method={codeString} />
-            {display}
-        </Layout>
+        <div className="page-container">
+            <Box className="top-container">
+                <Box className="explanation">
+                    
+                </Box>
+                <Method method={"selection"} />
+            </Box>
+            <Box className="bottom-container">
+                <Box className="side-display insertion">
+                    <ButtonBox
+                        sortMethod={runSort}
+                        refresh={refresh}
+                        setRefresh={setRefresh}
+                        speed={speed}
+                        setSpeed={setSpeed}
+                    />
+                    <Box className="var-container">
+                        <Box className="array-container insertion">
+                            <span className="insertion-span">Array</span>
+                            <span className="array-span">
+                                [{array.toString()}]
+                            </span>
+                        </Box>
+                        <Box className="checked-container insertion">
+                            <span className="insertion-span">Unsorted</span>
+                            <span className="array-span">
+                                [{unSorted.toString()}]
+                            </span>
+                        </Box>
+                        <Box className="checked-container insertion">
+                            <span className="insertion-span">Sorted Array</span>
+                            <span className="array-span">
+                                [{sorted.toString()}]
+                            </span>
+                        </Box>
+                    </Box>
+                </Box>
+                <div className="selection row move-row">
+                    {display}
+                </div>
+            </Box>
+        </div>
     )
 }
 
-export default Quicksort
+export default QuickSort

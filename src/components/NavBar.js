@@ -158,7 +158,7 @@ export default function Navbar({ path }) {
                                 </ListItem>
 
                                 <ListItem disablePadding>
-                                    <Link href="">
+                                    <Link href="quicksort">
                                         <Grid container sx={{ cursor: "pointer" }}>
                                             <Grid item>
                                                 <CalculateIcon />
@@ -234,7 +234,7 @@ export default function Navbar({ path }) {
                                 <span>Insertion</span>
                             </Link>
 
-                            <Link href="selection">
+                            <Link href="/selection">
                                 <span>Selection</span>
                             </Link>
 
@@ -242,7 +242,7 @@ export default function Navbar({ path }) {
                                 <span>Bucket</span>
                             </Link>
 
-                            <Link href="">
+                            <Link href="quicksort">
                                 <span>Quick</span>
                             </Link>
 
