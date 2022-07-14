@@ -5,11 +5,18 @@ import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { BubbleExplanation } from "../src/components/Explanations";
-
+import { useRouter } from 'next/router';
+    
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
     const [checked, setChecked] = useState("");
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    const router = useRouter();
+    let path = router.pathname;
+
+    function timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     async function bubbleSort() {
         document.getElementById("sort-button").disabled = true;
@@ -20,14 +27,14 @@ function Bubble() {
             checked = false
             setChecked("False")
             for (let i = 0; i < arr.length; i++) {
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById(i).classList.toggle("current-element");
                 document.getElementById(`cap${i}`).classList.toggle("current-element-text");
                 if (document.getElementById(i + 1) !== null) {
                     document.getElementById(i + 1).classList.toggle("next-element");
                     document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
                 } else {
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    await timeout(speed);
                 }
                 if (arr[i] > arr[i + 1]) {
                     document.getElementById(`swap${i}`).classList.toggle("swap");
@@ -43,7 +50,7 @@ function Bubble() {
                 } else {
                     if (document.getElementById(i + 1) !== null) {
                         document.getElementById(`stay${i}`).classList.toggle("stay");
-                        await new Promise(resolve => setTimeout(resolve, speed));
+                        await timeout(speed);
                         document.getElementById(`stay${i}`).classList.toggle("stay");
                     }
                 }
@@ -55,7 +62,7 @@ function Bubble() {
                 }
                 setArray([...arr]);
             }
-        } while (checked)
+        } while (checked && path == "/bubble")
         document.getElementById("sort-button").disabled = false;
         document.getElementById("refresh-button").disabled = false;
         document.getElementById('finished2').classList.toggle("finished");

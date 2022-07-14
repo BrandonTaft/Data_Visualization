@@ -18,6 +18,8 @@ function Selection() {
     }, [refresh]);
 
     async function selectionSort() {
+        document.getElementById("sort-button").disabled = true;
+        document.getElementById("refresh-button").disabled = true;
         const arr = array;
         const n = arr.length;
         
@@ -78,6 +80,8 @@ function Selection() {
         setUnSorted([])
         setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
+        document.getElementById("sort-button").disabled = false;
+        document.getElementById("refresh-button").disabled = false;
         document.getElementById('finished2').classList.toggle("finished");
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });

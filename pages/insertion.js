@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
 import Method from "./method";
 import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
@@ -12,12 +13,18 @@ function Insertion() {
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    const router = useRouter();
+    let path = router.pathname;
 
     useEffect(() => {
         setSorted([])
     }, [refresh]);
 
     async function insertionSort() {
+        try{
+        while( path == "/insertion"){
+        document.getElementById("sort-button").disabled = true;
+        document.getElementById("refresh-button").disabled = true;
         const arr = array;
         const n = arr.length;
         await new Promise(resolve => setTimeout(resolve, speed / 2));
@@ -25,6 +32,7 @@ function Insertion() {
         document.getElementById(`cap${0}`).classList.toggle("sorted-text");
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         for (let i = 1; i < n; i++) {
+            if(path == "/insertion"){
             // Choosing the first element in our unsorted subarray
             let current = arr[i];
             setSorted(arr.slice(0, i))
@@ -36,6 +44,7 @@ function Insertion() {
             // The last element of our sorted subarray
             let j = i - 1;
             while ((j > -1) && (current < arr[j])) {
+                if(path == "/insertion"){
                 document.getElementById(`swap${j}`).classList.toggle("swap");
                 await new Promise(resolve => setTimeout(resolve, speed));
                 document.getElementById(`swap${j}`).classList.toggle("swap");
@@ -47,6 +56,7 @@ function Insertion() {
                 await new Promise(resolve => setTimeout(resolve, speed));
                 j--;
             }
+        }
             if (j > -1) {
                 document.getElementById(`stay${j}`).classList.toggle("stay");
                 await new Promise(resolve => setTimeout(resolve, speed));
@@ -59,17 +69,25 @@ function Insertion() {
             document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
             setArray(arr);
             await new Promise(resolve => setTimeout(resolve, speed));
+        } else {
+            return;
         }
+    }
         setUnSorted([])
         setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
+        document.getElementById("sort-button").disabled = false;
+        document.getElementById("refresh-button").disabled = false;
         document.getElementById('finished2').classList.toggle("finished");
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
         return arr;
     }
-
+    } catch(error){
+        return;
+    }
+}
     const display = array.map((tube, index) => {
         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
         return (
