@@ -7,6 +7,36 @@ import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function QuickSort() {
 
+// await new Promise(resolve => setTimeout(resolve, speed));
+                // document.getElementById(`swap${i}`).classList.toggle("swap");
+                // await new Promise(resolve => setTimeout(resolve, speed));
+                // document.getElementById(`swap${i}`).classList.toggle("swap");
+                // document.getElementById(`cap${pivotIndex}`).classList.toggle("pivot");
+                // document.getElementById(pivotIndex).classList.toggle("pivot-tube");
+                // document.getElementById(`cap${i}`).classList.toggle("pivot");
+                // document.getElementById(i).classList.toggle("pivot-tube");
+                // await new Promise(resolve => setTimeout(resolve, speed));
+                // swap(arr, i, pivotIndex);
+                // document.getElementById(`cap${end}`).classList.toggle("pivot-value");
+        // document.getElementById(end).classList.toggle("pivot-value-tube");
+    // await quickSort(arr, start, index - 1);
+        // await new Promise(resolve => setTimeout(resolve, speed));
+        // await quickSort(arr, index + 1, end)
+
+        // async function swap(arr, a, b) {
+        //     document.getElementById(`cap${pivotIndex}`).classList.toggle("pivot-index");
+        //     document.getElementById(pivotIndex).classList.toggle("pivot-index-tube");
+        //     await new Promise(resolve => setTimeout(resolve, speed));
+        //     let temp = arr[a];
+        //     arr[a] = arr[b];
+        //     arr[b] = temp;
+        //     document.getElementById(`cap${pivotIndex}`).classList.toggle("pivot-index");
+        //     document.getElementById(pivotIndex).classList.toggle("pivot-index-tube");
+        //     await new Promise(resolve => setTimeout(resolve, speed));
+        //     setArray([...arr]);
+        //     await new Promise(resolve => setTimeout(resolve, speed));
+        // };
+
     const [speed, setSpeed] = useState(2500);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
@@ -16,43 +46,76 @@ function QuickSort() {
         setSorted([])
     }, [refresh]);
 
-    function swap(array, a, b) {
-        let temp = array[a];
-        array[a] = array[b];
-        array[b] = temp
-    };
+    
 
-    async function partition(array, start, end) {
-        document.getElementById(`cap${end}`).classList.toggle("pivot");
-        document.getElementById(end).classList.toggle("pivot-tube");
-        await new Promise(resolve => setTimeout(resolve, speed));
-        let pivotIndex = start;
-        let pivotValue = array[end];
-        for (let i = start; i < end; i++) {
-            if (array[i] < pivotValue) {
-                swap(array, i, pivotIndex);
-                pivotIndex++;
-            }
+    async function quickSort(arr, start, end) {
+        if (start >= end) {
+            setArray([...arr]);
+            await new Promise(resolve => setTimeout(resolve, speed));
+            return;
         }
-        swap(array, pivotIndex, end);
+        let index = await partition(arr, start, end);
+        await Promise.all([
+            quickSort(arr, start, index - 1),
+            quickSort(arr, index + 1, end)
+        ])
+        setArray([...arr]);
+        await new Promise(resolve => setTimeout(resolve, speed));
+        
+    }
+
+    async function partition(arr, start, end) {
+        let pivotIndex = start;
+        let pivotValue = arr[end];
+        document.getElementById(`cap${end}`).classList.toggle("pivot-value");
+        document.getElementById(end).classList.toggle("pivot-value-tube");
+        await new Promise(resolve => setTimeout(resolve, speed));
+        for (let i = start; i < end; i++) {
+            document.getElementById(`cap${pivotIndex}`).classList.add("pivot-index");
+            document.getElementById(pivotIndex).classList.add("pivot-index-tube");
+            await new Promise(resolve => setTimeout(resolve, speed));
+            if (arr[i] < pivotValue) {
+                
+
+               
+                let temp = arr[i];
+                arr[i] = arr[pivotIndex];
+                arr[pivotIndex] = temp;
+                
+                
+                await new Promise(resolve => setTimeout(resolve, speed));
+                document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
+                document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
+                setArray([...arr]);
+                await new Promise(resolve => setTimeout(resolve, speed));
+                pivotIndex++;
+                document.getElementById(`cap${pivotIndex}`).classList.add("pivot-index");
+            document.getElementById(pivotIndex).classList.add("pivot-index-tube");
+            await new Promise(resolve => setTimeout(resolve, speed));
+            }
+
+            setArray([...arr]);
+            await new Promise(resolve => setTimeout(resolve, speed));
+        }
+        
+        document.getElementById(`cap${end}`).classList.remove("pivot-value");
+        document.getElementById(end).classList.remove("pivot-value-tube");
+        document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
+        document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
+        //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
+        let temp = arr[pivotIndex];
+        arr[pivotIndex] = arr[end];
+        arr[end] = temp;
+        
+        setArray([...arr]);
+        await new Promise(resolve => setTimeout(resolve, speed));
         return pivotIndex;
     };
 
-   async function quickSort(array, start, end) {
-        if (start >= end) {
-            setArray([...array]);
-                await new Promise(resolve => setTimeout(resolve, speed));   
-            return;
-        }
-        console.log(start, end)
-        let index = partition(array, start, end);
-        await quickSort(array, start, index - 1);
-        await new Promise(resolve => setTimeout(resolve, speed));   
-        await quickSort(array, index + 1, end)
-    }
+    
 
-    function runSort(){
-        quickSort(array, 0, array.length - 1)
+    function runSort() {
+        quickSort(array, 0, 5)
     }
 
     const display = array.map((tube, index) => {
@@ -64,20 +127,14 @@ function QuickSort() {
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="selection-stay thought-bubble selection-bubble bubble-bottom-left " id={`selection-stay${index}`}>
-                    <p className="greater">{tube} &gt; "min"</p>
-                    <p>min stays the same</p>
-                </div>
-                <div className="selection-swap thought-bubble selection-bubble bubble-bottom-left " id={`selection-swap${index}`}>
-                    <p className="less" >{array[index]} &lt; "min"</p>
-                    <div>This is the new min</div>
+                <div className="stay thought-bubble bubble-bottom-left" id={`swap${index}`}>
+                    <p className="greater">{array[index]} &gt; Pivot</p>
+                    <p>Swap</p>
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
-                <div className="move-to-front thought-bubble selection-bubble bubble-bottom-left " id={`move-to-front${index}`}>
-                    <div className="selection-div">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</div>
-                </div>
-                <div className="i-is-min thought-bubble selection-bubble bubble-bottom-left " id={`i-is-min${index}`}>
-                    <div className="selection-div"><span className="j-element">arr[i]</span> was the lowest element so it stays where it is. </div>
+                <div className="swap thought-bubble bubble-bottom-left" id={`stay${index}`}>
+                    <p className="less" >{array[index]} &lt; Pivot}</p>
+                    <div>Swap with pivot</div>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
                     <div>Sorted&nbsp;!!!</div>
@@ -90,7 +147,7 @@ function QuickSort() {
         <div className="page-container">
             <Box className="top-container">
                 <Box className="explanation">
-                    
+
                 </Box>
                 <Method method={"selection"} />
             </Box>

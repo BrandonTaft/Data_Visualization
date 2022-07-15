@@ -1158,15 +1158,26 @@ input:checked + .switcher:before {
 }
 
 
-.pivot::before{
-    content: "pivot";  
+.pivot-value::before{
+    content: "pivot-value";  
     position: relative;
     top: 4px;
 }
 
-.pivot-tube{
+.pivot-index::before{
+    content: "pivot-index";  
+    position: relative;
+    top: 4px;
+}
+
+.pivot-value-tube{
     --fill-color: rgb(78, 80, 80);
 }
+
+.pivot-index-tube{
+    --fill-color: blue;
+}
+
 
 /****************************Footer****************************/
 
