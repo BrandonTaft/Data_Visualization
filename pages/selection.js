@@ -20,9 +20,12 @@ function Selection() {
     async function selectionSort() {
         document.getElementById("sort-button").disabled = true;
         document.getElementById("refresh-button").disabled = true;
+        document.getElementById("in-nav-container").classList.toggle("turn-off");
+        document.getElementById("menu-appbar").classList.toggle("turn-off");
+        document.getElementById("footer-link-container").classList.toggle("turn-off");
         const arr = array;
         const n = arr.length;
-        
+
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         await new Promise(resolve => setTimeout(resolve, speed / 2));
         for (let i = 0; i < n; i++) {
@@ -30,53 +33,53 @@ function Selection() {
             document.getElementById(`cap${i}`).classList.toggle("min");
             document.getElementById(i).classList.toggle("min-tube");
             await new Promise(resolve => setTimeout(resolve, speed));
-        let min = i;
-        
-        
-        for(let j = i+1; j < n; j++){
-            if(arr[j] > arr[min]) {
-                document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
-                await new Promise(resolve => setTimeout(resolve, speed));
-                document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
-            }else if(arr[j] < arr[min]) {
-                document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
-                await new Promise(resolve => setTimeout(resolve, speed));
-                document.getElementById(`cap${min}`).classList.remove("min");
-                document.getElementById(min).classList.toggle("min-tube");
-                document.getElementById(`cap${j}`).classList.toggle("min");
-                document.getElementById(j).classList.toggle("min-tube");
-                document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
-                await new Promise(resolve => setTimeout(resolve, speed ));
-                min=j; 
-            }
-         }  if(min == i){
-            document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
+            let min = i;
+
+
+            for (let j = i + 1; j < n; j++) {
+                if (arr[j] > arr[min]) {
+                    document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
+                    await new Promise(resolve => setTimeout(resolve, speed));
+                    document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
+                } else if (arr[j] < arr[min]) {
+                    document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
+                    await new Promise(resolve => setTimeout(resolve, speed));
+                    document.getElementById(`cap${min}`).classList.remove("min");
+                    document.getElementById(min).classList.toggle("min-tube");
+                    document.getElementById(`cap${j}`).classList.toggle("min");
+                    document.getElementById(j).classList.toggle("min-tube");
+                    document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
+                    await new Promise(resolve => setTimeout(resolve, speed));
+                    min = j;
+                }
+            } if (min == i) {
+                document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
                 await new Promise(resolve => setTimeout(resolve, speed));
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
-         }
-            
-            
+            }
+
+
             else if (min != i) {
                 // Swapping the elements
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
                 await new Promise(resolve => setTimeout(resolve, speed));
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
-                let tmp = arr[i]; 
+                let tmp = arr[i];
                 arr[i] = arr[min];
-                arr[min] = tmp;   
+                arr[min] = tmp;
                 setArray([...arr]);
-                await new Promise(resolve => setTimeout(resolve, speed));   
-           }
-           document.getElementById(`cap${i}`).classList.toggle("min");
-           document.getElementById(i).classList.toggle("min-tube");
-           document.getElementById(i).classList.toggle("sorted");
-        document.getElementById(`cap${i}`).classList.toggle("sorted-text");
-           setSorted(arr.slice(0, i + 1))
+                await new Promise(resolve => setTimeout(resolve, speed));
+            }
+            document.getElementById(`cap${i}`).classList.toggle("min");
+            document.getElementById(i).classList.toggle("min-tube");
+            document.getElementById(i).classList.toggle("sorted");
+            document.getElementById(`cap${i}`).classList.toggle("sorted-text");
+            setSorted(arr.slice(0, i + 1))
             setUnSorted(arr.slice(i + 1))
-            
+
             setArray(arr);
             await new Promise(resolve => setTimeout(resolve, speed));
-        }    
+        }
         setUnSorted([])
         setSorted(arr)
         await new Promise(resolve => setTimeout(resolve, speed));
@@ -86,6 +89,11 @@ function Selection() {
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
+        document.getElementById("sort-button").disabled = false;
+        document.getElementById("refresh-button").disabled = false;
+        document.getElementById("in-nav-container").classList.toggle("turn-off");
+        document.getElementById("menu-appbar").classList.toggle("turn-off");
+        document.getElementById("footer-link-container").classList.toggle("turn-off");
         return arr;
     }
 
@@ -105,7 +113,7 @@ function Selection() {
                 <div className="selection-swap thought-bubble selection-bubble bubble-bottom-left " id={`selection-swap${index}`}>
                     <p className="less" >{array[index]} &lt; "min"</p>
                     <div>This is the new min</div>
-                    <SwapIcon sx={{ fontSize: 40 }} /> 
+                    <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
                 <div className="move-to-front thought-bubble selection-bubble bubble-bottom-left " id={`move-to-front${index}`}>
                     <div className="selection-div">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</div>
@@ -113,7 +121,7 @@ function Selection() {
                 <div className="i-is-min thought-bubble selection-bubble bubble-bottom-left " id={`i-is-min${index}`}>
                     <div className="selection-div"><span className="j-element">arr[i]</span> was the lowest element so it stays where it is. </div>
                 </div>
-                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>   
+                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
                     <div>Sorted&nbsp;!!!</div>
                 </div>
             </div>
@@ -145,13 +153,13 @@ function Selection() {
                             </span>
                         </Box>
                         <Box className="checked-container insertion">
-                        <span className="insertion-span">Unsorted</span>
+                            <span className="insertion-span">Unsorted</span>
                             <span className="array-span">
                                 [{unSorted.toString()}]
                             </span>
                         </Box>
                         <Box className="checked-container insertion">
-                        <span className="insertion-span">Sorted Array</span>
+                            <span className="insertion-span">Sorted Array</span>
                             <span className="array-span">
                                 [{sorted.toString()}]
                             </span>

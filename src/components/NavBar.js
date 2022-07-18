@@ -56,8 +56,6 @@ export default function Navbar({ path }) {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
-                        href="/"
                         sx={{
                             mr: 2,
                             ml: 4,
@@ -67,6 +65,7 @@ export default function Navbar({ path }) {
                             letterSpacing: ".15em",
                             color: 'inherit',
                             textDecoration: 'none',
+                            cursor: "default",
                         }}
                     >
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
@@ -158,7 +157,7 @@ export default function Navbar({ path }) {
                                 </ListItem>
 
                                 <ListItem disablePadding>
-                                    <Link href="quicksort">
+                                    <Link href="/quick">
                                         <Grid container sx={{ cursor: "pointer" }}>
                                             <Grid item>
                                                 <CalculateIcon />
@@ -170,7 +169,7 @@ export default function Navbar({ path }) {
                                     </Link>
                                 </ListItem>
 
-                                <ListItem disablePadding>
+                                {/* <ListItem disablePadding>
                                     <Link href="">
                                         <Grid container sx={{ cursor: "pointer" }}>
                                             <Grid item>
@@ -181,9 +180,9 @@ export default function Navbar({ path }) {
                                             </Grid>
                                         </Grid>
                                     </Link>
-                                </ListItem>
+                                </ListItem> */}
                                                     
-                                <ListItem disablePadding>
+                                {/* <ListItem disablePadding>
                                     <Link href="">
                                         <Grid container sx={{ cursor: "pointer" }}>
                                             <Grid item>
@@ -194,11 +193,11 @@ export default function Navbar({ path }) {
                                             </Grid>
                                         </Grid>
                                     </Link>
-                                </ListItem>
+                                </ListItem> */}
                             </List>
                         </Menu>
                     </Box>
-                    <LightSwitch />
+                    
 
                     <Typography
                         variant="h5"
@@ -219,36 +218,36 @@ export default function Navbar({ path }) {
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
                     <Box sx={{ fontFamily: 'Fira Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-
-                        <Box className="in-nav-container">
+                    <LightSwitch />
+                        <Box className="in-nav-container" id="in-nav-container">
 
                             <Link href="/">
                                 <span>Home</span>
                             </Link>
 
                             <Link href="/bubble">
-                                <span>Bubble</span>
+                                <span>Bubble Sort</span>
                             </Link>
 
                             <Link href="/insertion">
-                                <span>Insertion</span>
+                                <span>Insertion Sort</span>
                             </Link>
 
                             <Link href="/selection">
-                                <span>Selection</span>
+                                <span>Selection Sort</span>
                             </Link>
 
-                            <Link href="/bubble">
+                            {/* <Link href="/bubble">
                                 <span>Bucket</span>
+                            </Link> */}
+
+                            <Link href="/quick">
+                                <span>Quick Sort</span>
                             </Link>
 
-                            <Link href="quicksort">
-                                <span>Quick</span>
-                            </Link>
-
-                            <Link href="">
+                            {/* <Link href="">
                                 <span>Merge</span>
-                            </Link>
+                            </Link> */}
 
                         </Box>
                     </Box>

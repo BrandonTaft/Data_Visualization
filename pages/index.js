@@ -1,5 +1,5 @@
 import Header from "../src/components/Header";
-import { BubbleCard, BucketCard, InsertionCard, SelectionCard, MergeCard, QuickCard } from "../src/components/Card";
+import { BubbleCard, InsertionCard, SelectionCard, QuickCard } from "../src/components/Card";
 import LightSwitch from "../src/components/LightSwitch";
 
 function Home() {
@@ -12,8 +12,6 @@ function Home() {
         <BubbleCard />
         <InsertionCard />
         <SelectionCard />
-        <BucketCard />
-        <MergeCard />
         <QuickCard />
       </div>
     </>

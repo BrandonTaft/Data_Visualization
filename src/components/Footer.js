@@ -55,7 +55,7 @@ function Footer() {
                 </div>
             </div>
 
-            <div className="footer-link-container">
+            <div className="footer-link-container" id="footer-link-container">
                 <h3>Navigate</h3>
                 <div className="footer-link-inner">
                     <div className="footer-links">
@@ -70,21 +70,20 @@ function Footer() {
                         <Link href="">
                             <span>Quick Sort</span>
                         </Link>
-
-                        <Link href="">
-                            <span>Selection Sort</span>
-                        </Link>
                     </div>
                     <div className="footer-links">
                         <Link href="/insertion">
                             <span>Insertion Sort</span>
                         </Link>
                         <Link href="">
+                            <span>Selection Sort</span>
+                        </Link>
+                        {/* <Link href="">
                             <span>Bucket Sort</span>
                         </Link>
                         <Link href="">
                             <span>Merge Sort</span>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>

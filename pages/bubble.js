@@ -21,6 +21,9 @@ function Bubble() {
     async function bubbleSort() {
         document.getElementById("sort-button").disabled = true;
         document.getElementById("refresh-button").disabled = true;
+        document.getElementById("in-nav-container").classList.toggle("turn-off");
+        document.getElementById("menu-appbar").classList.toggle("turn-off");
+        document.getElementById("footer-link-container").classList.toggle("turn-off");
         const arr = array;
         let checked;
         do {
@@ -65,6 +68,9 @@ function Bubble() {
         } while (checked && path == "/bubble")
         document.getElementById("sort-button").disabled = false;
         document.getElementById("refresh-button").disabled = false;
+        document.getElementById("in-nav-container").classList.toggle("turn-off");
+        document.getElementById("menu-appbar").classList.toggle("turn-off");
+        document.getElementById("footer-link-container").classList.toggle("turn-off");
         document.getElementById('finished2').classList.toggle("finished");
     }
 

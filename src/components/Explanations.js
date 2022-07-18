@@ -1,7 +1,7 @@
 
 export function BubbleExplanation() {
     return (
-        <>  
+        <>
             <p className="explanation-heading">Bubble sort is a simple comparison-based algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
             <ul className="explanation-list">
                 <li>First, <span className="checked-variable">checked</span> is initialized, then it is set to false once inside the while loop.</li>
@@ -23,8 +23,8 @@ export function InsertionExplanation() {
     return (
         <>
             <p className="insertion-explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
-            The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another 
-            card from the deck.  </p>
+                The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another
+                card from the deck.  </p>
             <ul className="insertion-explanation-list">
                 <li>The first element of the array will by default be the first element in the <span className="sorted-array">sorted array</span>.</li>
                 <li>The loop starts at the second element which is assigned the identifier <span className="current-explanation">current</span>.</li>
@@ -37,23 +37,51 @@ export function InsertionExplanation() {
             </ul>
         </>
     )
-}  
+}
 
 export function SelectionExplanation() {
     return (
         <>
-            <p className="insertion-explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
-            The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another 
-            card from the deck.  </p>
+            <p className="selection-explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
+                On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat untill you have gone through the whole array.  </p>
             <ul className="insertion-explanation-list">
-                <li>The first element of the array will by default be the first element in the <span className="sorted-array">sorted array</span>.</li>
-                <li>The loop starts at the second element which is assigned the identifier <span className="current-explanation">current</span>.</li>
-                <li><span className="current-explanation">Current</span> is the first element in the <span className="unsorted-array">unsorted array</span> ( a.k.a the top card of the deck ).</li>
-                <li>The element before <span className="current-explanation">current</span> is the last element in the <span className="sorted-array">sorted array</span> and is tracked with <span className="j-element">j</span>.</li>
-                <li>The while loop runs as long as <span className="current-explanation">current</span> is less than the element in front of it ( <span className="j-element">arr[ j ]</span> ).</li>
-                <li>It shifts larger elements to the right, leaving a space for <span className="current-explanation">current</span> to be inserted in front.</li>
-                <li>The for loop starts over with the new  <span className="current-explanation">current</span> element and repeats the process.</li>
-                <li>Once the for loop completes its last iteration the  array will be completely sorted.</li>
+                <li>The first pass will select the smallest value and move it to the left side of the array.</li>
+                <li>This is now the first element in the <span className="sorted-array">sorted array</span>.</li>
+                <li>On the second pass we look from the second position through the end of the array.</li>
+                <li>Select the smallest value and move it to the end of the <span className="sorted-array">sorted array</span>.</li>
+                <li>So on each pass we move to a new index and find the smallest value to right of it.</li>
+                <li>When we find the smallest value we put it in the index position the loop is currently on.</li>
+                <li>This is repeated until we have moved all of the elements to our <span className="sorted-array">sorted array</span>.</li>
+            </ul>
+        </>
+    )
+}
+
+export function QuickExplanation() {
+    return (
+        <>
+            <p className="selection-explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it in to smaller parts to 
+             perform sorting opereations on them. This is where recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
+             I have found many ways to write this algorithm, I decided to use this one because it makes the most sense to me. It was used in a tutorial on a Youtube channel called 
+              <a className="referral" href="https://www.youtube.com/c/TheCodingTrain">&nbsp; The Coding Train.</a>  He has many great videos and I can't recommend it enough. </p>
+            <ul className="insertion-explanation-list">
+                <li>The first line is a condition that will break out of the loop once the array is sorted.</li>
+                <li>The first step is to determine the pivot in the array.</li>
+                <li>Pivot value will always be the last element and referred to as end.</li>
+                <li>Pivot index will always start at the first element and referred to as start to begin with.</li>
+                <li>Next we call the partition function and pass in the array , start and end.</li>
+                <li>The partition functiondoes all of the hard work.</li>
+                <li>It loops through the array checking if each element is less than the pivot value.</li>
+                <li>If it's less, the swap function swaps the places of that element with the pivot index.</li>
+                <li>If the current element is the pivot index it will just stay where it is.</li>
+                <li>Then it moves the pivot index one spot to the right by adding 1 to it.</li>
+                <li>If it's not less than the pivot value nothing happens and it moves to the next element.</li>
+                <li>Once the loop is done, the swap function swaps the pivot index with the pivot value.</li>
+                <li>Then quicksort calls itself two times:</li>
+                <li>Once to sort the elements on the left side of new pivot index.</li>
+                <li>And once again to sort the elements on the right side of the new pivot index.</li>
+                <li>When the subarrays are down to fewer than two elements it will not pass the condition.</li>
+                <li>This breaks the loop and since the subarrays are sorted in place, the array is sorted.</li>
             </ul>
         </>
     )
