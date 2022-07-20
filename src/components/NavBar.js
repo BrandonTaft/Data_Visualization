@@ -71,7 +71,7 @@ export default function Navbar({ path }) {
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
 
-                       
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -111,7 +111,7 @@ export default function Navbar({ path }) {
                                                 <HomeIcon />
                                             </Grid>
                                             <Grid item>
-                                            <span className='responsive-link'>Home</span>
+                                                <span className='responsive-link'>Home</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -124,7 +124,7 @@ export default function Navbar({ path }) {
                                                 <ScienceIcon />
                                             </Grid>
                                             <Grid item>
-                                            <span className='responsive-link'>Bubble Sort</span>
+                                                <span className='responsive-link'>Bubble Sort</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -137,7 +137,7 @@ export default function Navbar({ path }) {
                                                 <CalculateIcon />
                                             </Grid>
                                             <Grid item>
-                                            <span className='responsive-link'>Insertion</span>
+                                                <span className='responsive-link'>Insertion</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -150,7 +150,7 @@ export default function Navbar({ path }) {
                                                 <CalculateIcon />
                                             </Grid>
                                             <Grid item>
-                                            <span className='responsive-link'>Selection</span>
+                                                <span className='responsive-link'>Selection</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -163,7 +163,7 @@ export default function Navbar({ path }) {
                                                 <CalculateIcon />
                                             </Grid>
                                             <Grid item>
-                                            <span className='responsive-link'>Quick Sort</span>
+                                                <span className='responsive-link'>Quick Sort</span>
                                             </Grid>
                                         </Grid>
                                     </Link>
@@ -181,7 +181,7 @@ export default function Navbar({ path }) {
                                         </Grid>
                                     </Link>
                                 </ListItem> */}
-                                                    
+
                                 {/* <ListItem disablePadding>
                                     <Link href="">
                                         <Grid container sx={{ cursor: "pointer" }}>
@@ -197,7 +197,7 @@ export default function Navbar({ path }) {
                             </List>
                         </Menu>
                     </Box>
-                    
+
 
                     <Typography
                         variant="h5"
@@ -218,7 +218,7 @@ export default function Navbar({ path }) {
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
                     <Box sx={{ fontFamily: 'Fira Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    <LightSwitch />
+                        <LightSwitch />
                         <Box className="in-nav-container" id="in-nav-container">
 
                             <Link href="/">
@@ -255,7 +255,9 @@ export default function Navbar({ path }) {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="About Me">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Brandon Taft" src="/images/collar-full.png" variant="square" />
+                                <Box className='about-me-p'>
+                                    <p>Contact Me</p>
+                                </Box>
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -275,10 +277,8 @@ export default function Navbar({ path }) {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            <MenuItem >
-                                <div className="contacts-title">Contact Me</div>
-                            </MenuItem>
-                            <MenuItem >
+                            
+                            <MenuItem className="top-contact">
                                 <a href="https://github.com/BrandonTaft" target="_blank">
                                     <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
                                 </a>
@@ -302,6 +302,15 @@ export default function Navbar({ path }) {
                                 </a>
                                 <div className="contacts">Email Me</div>
                             </MenuItem>
+                            <div className='nav-copyright-container'>
+                                <div className='inner-copyright-container'>
+                                <p className="copyright"> &copy;{new Date().getFullYear()} </p>
+                                <p className="copyright"> Brandon Taft </p>
+                                </div>
+                                <a className="sitemap-link" href="/sitemap.xml">
+                                    <span > Sitemap </span>
+                                </a>
+                            </div>
                         </Menu>
                     </Box>
                 </Toolbar>

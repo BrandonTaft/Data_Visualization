@@ -122,6 +122,24 @@
     --fill-color: green;
 }
 
+[data-theme='dark'] .index-element{
+    bottom: 5%;
+    --fill-color: orangered;
+}
+
+[data-theme='dark'] .thought-bubble.quick-bubble p{
+    text-transform: none;
+    margin: 10px 0 5px;
+    font-size: .9em;
+    font-weight: 600;
+}
+
+[data-theme='dark'] .thought-bubble.quick-bubble div{
+    text-transform: none;
+    margin: 5px 0 3px;
+    font-weight: 600;
+    font-size: .8em;
+}
 
 body{
     font-family: 'Barlow', sans-serif;
@@ -210,6 +228,7 @@ p{
 .in-nav-container span{
     cursor: pointer;
     margin-right: 1em;
+    margin-top: auto;
 }
 
 .home-link{
@@ -231,6 +250,7 @@ p{
     width: max-content;
     top: 8px;
     left: 970px;
+    padding: .5em;
 }
 
 .css-h4y409-MuiList-root{
@@ -255,6 +275,28 @@ p{
 
 .responsive-link{
     margin-left: 1em;
+}
+
+.about-me-p{
+    
+    font-size: 20px;
+    color: orangered;
+}
+
+.nav-copyright-container{
+    text-align: center;
+    font-size: .7em;   
+}
+
+.inner-copyright-container{
+    display: flex;
+    justify-content: space-evenly;
+    border-top: #fff8ba27 1px solid;
+    padding-top: 1em;
+}
+
+.top-contact{
+    border-top: #fff8ba27 1px solid;
 }
 
 /*******************Header********************/
@@ -419,6 +461,11 @@ p{
     pointer-events: none;
 }
 
+.quick-explanation-heading{
+    margin: 0 3em;
+    font-size: 20px;
+}
+
 .explanation {
 	font-size: 1.3em;
     width: 60%;
@@ -555,6 +602,18 @@ pre{
     margin-right: auto;
     margin-bottom: 22px;
     justify-content: space-between;
+    pointer-events: none;
+}
+
+.quick-var-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+    justify-content: center;
     pointer-events: none;
 }
 
@@ -965,7 +1024,7 @@ input:checked + .switcher:before {
             rgb(0 0 0 / .25), 
             transparent 50% 70%, 
             rgb(0 0 0 / .25));
-    animation: fill-before 1s linear forwards;
+    animation: fill-before .66s linear forwards;
 }
 
 .fill::after{
@@ -982,7 +1041,7 @@ input:checked + .switcher:before {
     background-image: 
         var(--glas-gradient),
         linear-gradient(to left, rgb(0 0 0 / .25), transparent 50%);
-    animation: fill-after 1s linear forwards
+    animation: fill-after .66s linear forwards
 }
 
 .current-element-text::before{
@@ -1204,6 +1263,10 @@ input:checked + .switcher:before {
 
 /****************Quick Sort Tubes******************/
 
+.quick.row.move-row{
+    margin-top: 2.5%;
+}
+
 .pivot-value::before{
     content: "pivot-value";  
     position: relative;
@@ -1248,8 +1311,16 @@ input:checked + .switcher:before {
 
 .index-element{
     bottom: 5%;
-    margin: 0 2%;
+    --fill-color: orangered;
 }
+
+.index-element-text::before{
+    content: "index";  
+    position: relative;
+    top: 4px;
+    font-weight: 600;
+}
+
 
 .thought-bubble.quick-bubble{
     position: absolute;
@@ -1285,6 +1356,22 @@ input:checked + .switcher:before {
 
 /****************************Footer****************************/
 
+#disqus_thread{
+    background-color: #0f0f0f;
+}
+
+.wrapper{
+    background-color: #0f0f0f;
+}
+
+#thread__wrapper{
+    background-color: #0f0f0f;
+}
+
+#layout{
+    background-color: #0f0f0f;
+}
+
 .footer{
     display: flex;
     font-size: 20px;
@@ -1293,6 +1380,7 @@ input:checked + .switcher:before {
     align-items: center;
     padding: 0% 2%;
     margin-top: 4em;
+    padding-bottom: 1em;
 }
 
 .footer h3{
@@ -1305,6 +1393,11 @@ input:checked + .switcher:before {
     margin-left: 2%;
     pointer-events: none;
     font-size: .9em;
+}
+
+.my-description h4{
+    margin-top: .5em;
+    margin-bottom: .1em;
 }
 
 .css-1pqm26d-MuiAvatar-img{

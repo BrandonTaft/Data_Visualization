@@ -5,6 +5,7 @@ import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { QuickExplanation } from "../src/components/Explanations";
+import { QuickExplanationHeading } from "../src/components/Explanations";
 
 function QuickSort() {
 
@@ -13,51 +14,56 @@ function QuickSort() {
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
 
+    useEffect(() => {
+        clearAll();
+    }, [refresh]);
+
+    function clearAll() {
+        document.querySelectorAll(".tube").forEach(el => { el.classList.remove("sorted") });
+        document.querySelectorAll(".cap").forEach(el => { el.classList.remove("sorted-text") });
+        document.querySelectorAll(".tube").forEach(el => { el.classList.remove("index-element") });
+        document.querySelectorAll(".cap").forEach(el => { el.classList.remove("index-element-text") });
+    }
+
     let x = 0;
     async function quickSort(arr, start, end) {
-        if(x < 3){
-        document.getElementById("sort-button").disabled = true;
-        document.getElementById("refresh-button").disabled = true;
-        document.getElementById("in-nav-container").classList.toggle("turn-off");
-        document.getElementById("footer-link-container").classList.toggle("turn-off");
-        document.getElementById("menu-appbar").classList.toggle("turn-off");
+        if (x < 3) {
+            document.getElementById("sort-button").disabled = true;
+            document.getElementById("refresh-button").disabled = true;
+            document.getElementById("in-nav-container").classList.toggle("turn-off");
+            document.getElementById("footer-link-container").classList.toggle("turn-off");
+            document.getElementById("menu-appbar").classList.toggle("turn-off");
         }
         if (start >= end) {
-            console.log("start - ", start, "end - ", end, "id - ", `start-greater-end${start}`)
-            if((start + 1) !== null){
-            document.getElementById(`start-greater-end${start}`).classList.toggle("start-greater-end");
-            await new Promise(resolve => setTimeout(resolve, speed));
-            document.getElementById(`start-greater-end${start}`).classList.toggle("start-greater-end");
-            document.getElementById(start).classList.toggle("sorted");
-            document.getElementById(`cap${start}`).classList.toggle("sorted-text");
-            console.log(start + 1)
-            // if((start + 1) !== null){
-            console.log("it worked")
-            document.getElementById(start + 1).classList.toggle("sorted");
-            document.getElementById(`cap${start + 1}`).classList.toggle("sorted-text");
+
+            if (document.getElementById(start) !== null) {
+                document.getElementById(`start-greater-end${start}`).classList.remove("start-greater-end");
+                await new Promise(resolve => setTimeout(resolve, speed));
+                document.getElementById(`start-greater-end${start}`).classList.add("start-greater-end");
+                document.getElementById(start).classList.toggle("sorted");
+                document.getElementById(`cap${start}`).classList.toggle("sorted-text");
             }
+            console.log(start, end)
+            console.log("test", arr[start], arr[end])
             setArray([...arr]);
             await new Promise(resolve => setTimeout(resolve, speed));
             return;
         }
-        
         let index = await partition(arr, start, end);
-        quickSort(arr, start, index - 1),
+        document.getElementById(index).classList.add("index-element");
+        document.getElementById(`cap${index}`).classList.add("index-element-text");
+        quickSort(arr, start, index - 1);
         quickSort(arr, index + 1, end);
-        
-    
         setArray([...arr]);
-        
         await new Promise(resolve => setTimeout(resolve, speed));
         x += 1;
-        if(x === 3){
+        if (x === 3) {
             document.getElementById("sort-button").disabled = false;
             document.getElementById("refresh-button").disabled = false;
             document.getElementById("in-nav-container").classList.toggle("turn-off");
             document.getElementById("menu-appbar").classList.toggle("turn-off");
             document.getElementById("footer-link-container").classList.toggle("turn-off");
-            }
-        
+        }
     }
 
     async function partition(arr, start, end) {
@@ -80,7 +86,6 @@ function QuickSort() {
                 let temp = arr[i];
                 arr[i] = arr[pivotIndex];
                 arr[pivotIndex] = temp;
-
                 document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
                 document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
                 setArray([...arr]);
@@ -116,14 +121,11 @@ function QuickSort() {
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
 
-        
-        setArray([...arr]);
 
+        setArray([...arr]);
         await new Promise(resolve => setTimeout(resolve, speed));
         return pivotIndex;
     };
-
-
 
     function runSort() {
         quickSort(array, 0, 5)
@@ -164,6 +166,9 @@ function QuickSort() {
 
     return (
         <div className="page-container">
+            <Box className="quick-explanation-heading">
+                <QuickExplanationHeading />
+            </Box>
             <Box className="top-container">
                 <Box className="explanation">
                     <QuickExplanation />
@@ -179,31 +184,20 @@ function QuickSort() {
                         speed={speed}
                         setSpeed={setSpeed}
                     />
-                    <Box className="var-container">
+                    <Box className="quick-var-container">
                         <Box className="array-container insertion">
                             <span className="insertion-span">Array</span>
                             <span className="array-span">
                                 [{array.toString()}]
                             </span>
                         </Box>
-                        <Box className="checked-container insertion">
-                            <span className="insertion-span">Pivot Index</span>
-                            <span className="array-span">
-                                {myPivotIndex}
-                            </span>
-                        </Box>
-                        {/* <Box className="checked-container insertion">
-                            <span className="quick-span">Sorted Array</span>
-                            <span className="array-span">
-                                [{sorted.toString()}]
-                            </span>
-                        </Box> */}
                     </Box>
                 </Box>
                 <div className="quick row move-row">
                     {display}
                 </div>
             </Box>
+           
         </div>
     )
 }

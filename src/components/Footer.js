@@ -3,11 +3,15 @@ import Link from './Link';
 import Image from 'next/image';
 import { Avatar } from '@mui/material';
 import { Provider, ClapButton } from "@lyket/react";
+import Comments from "./Comment";
+
 
 
 function Footer() {
 
     return (
+        <>
+        
         <div className="dark footer" >
             <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
             <div className='my-description'>
@@ -88,6 +92,8 @@ function Footer() {
                 </div>
             </div>
         </div>
+        <Comments />
+        </>
     )
 }
 

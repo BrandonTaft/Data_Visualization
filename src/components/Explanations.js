@@ -57,13 +57,20 @@ export function SelectionExplanation() {
     )
 }
 
+export function QuickExplanationHeading() {
+    return (
+        <>
+            <p className="selection-explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to 
+             perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
+             There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me. It was used in a tutorial on a Youtube channel called 
+              <a className="referral" href="https://www.youtube.com/c/TheCodingTrain">&nbsp; The Coding Train.</a>  He has many great videos and I can't recommend them enough. </p>
+        </>
+    )
+}
+
 export function QuickExplanation() {
     return (
         <>
-            <p className="selection-explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it in to smaller parts to 
-             perform sorting opereations on them. This is where recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
-             I have found many ways to write this algorithm, I decided to use this one because it makes the most sense to me. It was used in a tutorial on a Youtube channel called 
-              <a className="referral" href="https://www.youtube.com/c/TheCodingTrain">&nbsp; The Coding Train.</a>  He has many great videos and I can't recommend it enough. </p>
             <ul className="insertion-explanation-list">
                 <li>The first line is a condition that will break out of the loop once the array is sorted.</li>
                 <li>The first step is to determine the pivot in the array.</li>
