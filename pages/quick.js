@@ -193,7 +193,7 @@ function QuickSort() {
                             </span>
                         </Box>
                         {/* <Box className="checked-container insertion">
-                            <span className="insertion-span">Sorted Array</span>
+                            <span className="quick-span">Sorted Array</span>
                             <span className="array-span">
                                 [{sorted.toString()}]
                             </span>
