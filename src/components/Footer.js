@@ -12,7 +12,7 @@ function Footer() {
             <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
             <div className='my-description'>
                 <h4>Hi! I'm Brandon,</h4>
-                <div>I am a Web Developer with a passion for building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>
+                <div>I am a Web Developer that loves building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>
             </div>
             <Provider
                 apiKey="pt_9631f43a75cbdb23263b1a4942d68b"
