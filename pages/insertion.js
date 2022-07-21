@@ -12,7 +12,7 @@ function Insertion() {
     const [speed, setSpeed] = useState(2500);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
-    const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    const { array, setArray, refresh, setRefresh } = getArray();
     const router = useRouter();
     let path = router.pathname;
 

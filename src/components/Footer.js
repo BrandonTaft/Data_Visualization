@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react';
 import Link from './Link';
 import Image from 'next/image';
 import { Avatar } from '@mui/material';
 import { Provider, ClapButton } from "@lyket/react";
-import Comments from "./Comment";
-
 
 
 function Footer() {
 
     return (
-        <>
-        
+        <>     
         <div className="dark footer" >
             <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
             <div className='my-description'>
-                <h4>Hi! I'm Brandon,</h4>
+                <div className="hi">Hi! I&apos;m Brandon,</div>
                 <div>I am a Web Developer that loves building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>
             </div>
             <Provider
@@ -36,13 +32,13 @@ function Footer() {
 
             <div className='middle-container'>
                 <div className='socials'>
-                    <a href="https://github.com/BrandonTaft" target="_blank">
+                    <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
                         <Image src="/icons/github.png" alt="github" layout="intrinsic" width={30} height={30} />
                     </a>
-                    <a href="https://www.brandontaft.net/" target="_blank">
+                    <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
                         <Image src="/icons/my-logo.png" alt="my-logo" layout="intrinsic" width={30} height={30} />
                     </a>
-                    <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank">
+                    <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
                         <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={30} height={30} />
                     </a>
                     <a href="mailto:btaftcan@gmail.com" >
@@ -60,7 +56,7 @@ function Footer() {
             </div>
 
             <div className="footer-link-container" id="footer-link-container">
-                <h3>Navigate</h3>
+                <span className="navigate-footer">Navigate</span>
                 <div className="footer-link-inner">
                     <div className="footer-links">
                         <Link href="/">
@@ -89,10 +85,10 @@ function Footer() {
                             <span>Merge Sort</span>
                         </Link> */}
                     </div>
+                
                 </div>
             </div>
         </div>
-        <Comments />
         </>
     )
 }

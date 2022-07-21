@@ -39,7 +39,7 @@ export function SelectionCardContent() {
     return (
         <CardContent className='card-content'>
             <span className="content-header">Selection Sort</span>
-            <p className="content-description"> Despite Selection Sort's inefficiency with large data sets, it works well with small lists.
+            <p className="content-description"> Despite Selection Sort&apos;s inefficiency with large data sets, it works well with small lists.
                 It sorts in-place, using no storage beyond what is needed for the original list.
                 It takes the smallest number and places it at the front of the array.
                 Then it takes the next smallest number and places it behind that one and repeats until the array is sorted.</p>

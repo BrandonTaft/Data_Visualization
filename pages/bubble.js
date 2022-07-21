@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Method from "./method";
 import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 function Bubble() {
     const [speed, setSpeed] = useState(2500);
     const [checked, setChecked] = useState("");
-    const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    const { array, setArray, refresh, setRefresh } = getArray();
     const router = useRouter();
     let path = router.pathname;
 

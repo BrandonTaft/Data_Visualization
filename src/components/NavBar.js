@@ -15,14 +15,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Image from 'next/image'
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import LightSwitch from './LightSwitch';
 
-
-const pages = ['Bubble', 'Quick Sort', 'Insertion'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function Navbar({ path }) {
 
@@ -279,19 +275,19 @@ export default function Navbar({ path }) {
                         >
                             
                             <MenuItem className="top-contact">
-                                <a href="https://github.com/BrandonTaft" target="_blank">
+                                <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
                                     <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts"> Github</div>
                             </MenuItem>
                             <MenuItem >
-                                <a href="https://www.brandontaft.net/" target="_blank">
+                                <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
                                     <Image src="/icons/huge.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts">Portfolio</div>
                             </MenuItem>
                             <MenuItem >
-                                <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank">
+                                <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
                                     <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
                                 </a>
                                 <div className="contacts">Linked In</div>

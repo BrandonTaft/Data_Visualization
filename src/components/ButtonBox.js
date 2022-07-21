@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import List from "@mui/material/List";
 import MySlider from "./MySlider";
 import { SortButton, RefreshButton } from "./MyButtons";
 

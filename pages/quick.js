@@ -10,9 +10,9 @@ import { QuickExplanationHeading } from "../src/components/Explanations";
 function QuickSort() {
 
     const [speed, setSpeed] = useState(2500);
+    // eslint-disable-next-line no-unused-vars
     const [myPivotIndex, setMyPivotIndex] = useState([]);
-    const [unSorted, setUnSorted] = useState([]);
-    const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    const { array, setArray, refresh, setRefresh} = getArray();
 
     useEffect(() => {
         clearAll();
@@ -125,7 +125,7 @@ function QuickSort() {
         setArray([...arr]);
         await new Promise(resolve => setTimeout(resolve, speed));
         return pivotIndex;
-    };
+    }
 
     function runSort() {
         quickSort(array, 0, 5)
@@ -141,11 +141,11 @@ function QuickSort() {
                     <div className="text">{tube}</div>
                 </div>
                 <div className="quick-stay thought-bubble quick-bubble bubble-bottom-left " id={`quick-stay${index}`}>
-                    <p className="greater">{tube} &gt; "Pivot Value"</p>
+                    <p className="greater">{tube} &gt; Pivot Value</p>
                     <p className="stay-p">Nothing changes and loop moves to next index</p>
                 </div>
                 <div className="quick-swap thought-bubble quick-bubble bubble-bottom-left " id={`quick-swap${index}`}>
-                    <p className="less" >{array[index]} &lt; "Pivot Value"</p>
+                    <p className="less" >{array[index]} &lt; Pivot Value</p>
                     <div>Swap values with the pivot index then the pivot index moves one spot to the right</div>
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>

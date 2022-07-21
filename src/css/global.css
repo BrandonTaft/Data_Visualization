@@ -1356,21 +1356,6 @@ input:checked + .switcher:before {
 
 /****************************Footer****************************/
 
-#disqus_thread{
-    background-color: #0f0f0f;
-}
-
-.wrapper{
-    background-color: #0f0f0f;
-}
-
-#thread__wrapper{
-    background-color: #0f0f0f;
-}
-
-#layout{
-    background-color: #0f0f0f;
-}
 
 .footer{
     display: flex;
@@ -1383,8 +1368,11 @@ input:checked + .switcher:before {
     padding-bottom: 1em;
 }
 
-.footer h3{
-    pointer-events: none;
+.hi{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: .5em;
+    margin-bottom: .1em;
 }
 
 .my-description{
@@ -1395,19 +1383,16 @@ input:checked + .switcher:before {
     font-size: .9em;
 }
 
-.my-description h4{
-    margin-top: .5em;
-    margin-bottom: .1em;
-}
 
 .css-1pqm26d-MuiAvatar-img{
 width: 75%;
 }
 
-.footer h3{
+.navigate-footer{
+    pointer-events: none;
     text-align: center;
     color: #fff8ba;    
-    margin: 0;
+    margin: .3em 0;
 }
 
 .footer p{

@@ -1,4 +1,3 @@
-import Slider, { SliderThumb } from '@mui/material/Slider';
 
 function MySlider({ speed, setSpeed }) {
 

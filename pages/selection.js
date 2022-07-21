@@ -11,7 +11,7 @@ function Selection() {
     const [speed, setSpeed] = useState(2500);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
-    const { array, setArray, refresh, setRefresh, max, setMax } = getArray();
+    const { array, setArray, refresh, setRefresh } = getArray();
 
     useEffect(() => {
         setSorted([])
@@ -107,11 +107,11 @@ function Selection() {
                     <div className="text">{tube}</div>
                 </div>
                 <div className="selection-stay thought-bubble selection-bubble bubble-bottom-left " id={`selection-stay${index}`}>
-                    <p className="greater">{tube} &gt; "min"</p>
+                    <p className="greater">{tube} &gt; min</p>
                     <p>min stays the same</p>
                 </div>
                 <div className="selection-swap thought-bubble selection-bubble bubble-bottom-left " id={`selection-swap${index}`}>
-                    <p className="less" >{array[index]} &lt; "min"</p>
+                    <p className="less" >{array[index]} &lt; min</p>
                     <div>This is the new min</div>
                     <SwapIcon sx={{ fontSize: 40 }} />
                 </div>
