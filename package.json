@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -12,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "16": "^0.0.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@lyket/react": "^1.4.8",
