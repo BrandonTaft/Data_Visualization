@@ -21,6 +21,7 @@ function Insertion() {
     }, [refresh]);
 
     async function insertionSort() {
+        document.getElementById('finished2').classList.add("finished");
         document.getElementById("sort-button").disabled = true;
         document.getElementById("refresh-button").disabled = true;
         document.getElementById("in-nav-container").classList.toggle("turn-off");
@@ -86,7 +87,7 @@ function Insertion() {
                 document.getElementById("in-nav-container").classList.toggle("turn-off");
                 document.getElementById("menu-appbar").classList.toggle("turn-off");
                 document.getElementById("footer-link-container").classList.toggle("turn-off");
-                document.getElementById('finished2').classList.toggle("finished");
+                document.getElementById('finished2').classList.remove("finished");
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });

@@ -18,6 +18,7 @@ function Selection() {
     }, [refresh]);
 
     async function selectionSort() {
+        document.getElementById('finished2').classList.add("finished");
         document.getElementById("sort-button").disabled = true;
         document.getElementById("refresh-button").disabled = true;
         document.getElementById("in-nav-container").classList.toggle("turn-off");
@@ -85,7 +86,7 @@ function Selection() {
         await new Promise(resolve => setTimeout(resolve, speed));
         document.getElementById("sort-button").disabled = false;
         document.getElementById("refresh-button").disabled = false;
-        document.getElementById('finished2').classList.toggle("finished");
+        document.getElementById('finished2').classList.remove("finished");
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });

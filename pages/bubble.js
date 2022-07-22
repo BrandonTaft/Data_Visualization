@@ -19,6 +19,7 @@ function Bubble() {
     }
 
     async function bubbleSort() {
+        document.getElementById('finished2').classList.add("finished");
         document.getElementById("sort-button").disabled = true;
         document.getElementById("refresh-button").disabled = true;
         document.getElementById("in-nav-container").classList.toggle("turn-off");
@@ -71,7 +72,7 @@ function Bubble() {
         document.getElementById("in-nav-container").classList.toggle("turn-off");
         document.getElementById("menu-appbar").classList.toggle("turn-off");
         document.getElementById("footer-link-container").classList.toggle("turn-off");
-        document.getElementById('finished2').classList.toggle("finished");
+        document.getElementById('finished2').classList.remove("finished");
     }
 
     const display = array.map((tube, index) => {

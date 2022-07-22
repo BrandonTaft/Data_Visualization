@@ -128,6 +128,7 @@ function QuickSort() {
     }
 
     function runSort() {
+        clearAll();
         quickSort(array, 0, 5)
     }
 
