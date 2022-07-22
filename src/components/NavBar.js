@@ -42,7 +42,7 @@ export default function Navbar({ path }) {
 
     return (
 
-        <AppBar position="static">
+        <AppBar position="static" className="nav-bar">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
