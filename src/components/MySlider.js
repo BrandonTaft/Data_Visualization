@@ -1,4 +1,5 @@
-
+import Slider from '@mui/material/Slider';
+// eslint-disable-next-line no-unused-vars
 function MySlider({ speed, setSpeed }) {
 
     const marks = [
