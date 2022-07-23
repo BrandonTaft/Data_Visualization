@@ -3,28 +3,21 @@ import { useTheme } from 'next-themes';
 
 const LightSwitch = () => {
 
-  // const [darkMode, setDarkMode] = useState("false")
   const { theme, setTheme } = useTheme()
+
   function changeMode() {
-    // const light = document.getElementsByClassName("light");
-    // for (let i = 0; i < light.length; i++) {
-    //   light[i].classList.toggle("dark");
-    // }
-    // darkMode == "false" ? setDarkMode("true") : setDarkMode("false");
-    // localStorage.setItem("dark-mode", darkMode)
-    theme == "light" ? setTheme("dark") : setTheme("light");
-    
+    theme == "light" ? setTheme("dark") : setTheme("light");  
   }
 
 
   return (
     <div className="switch-container">
-    <Image src="/icons/brightness.png" alt="github" layout="intrinsic" width={30} height={30} />
-    <label className="switch" htmlFor="toggle-switch" aria-label="switch">
+    <Image src="/icons/brightness.png" alt="light-mode" layout="intrinsic" width={30} height={30} />
+    <label className="switch" aria-label="switch">
       <input id="toggle-switch" type="checkbox" onChange={changeMode} />
       <span className="switcher round"></span>
     </label>
-    <Image src="/icons/night-mode.png" alt="github" layout="intrinsic" width={30} height={30} />
+    <Image src="/icons/night-mode.png" alt="dark-mode" layout="intrinsic" width={30} height={30} />
     </div>
   )
 }
