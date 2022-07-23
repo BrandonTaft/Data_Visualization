@@ -75,7 +75,7 @@ function Footer() {
                         <Link href="/insertion">
                             <span>Insertion Sort</span>
                         </Link>
-                        <Link href="">
+                        <Link href="/selection">
                             <span>Selection Sort</span>
                         </Link>
                     </div>

@@ -221,27 +221,27 @@ export default function Navbar({ path }) {
                             <div className="about-me-div">
                                 <MenuItem className="top-contact">
                                     <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-                                        <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
-                                    </a>
+                                        <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />                     
                                     <div className="contacts"> Github</div>
+                                    </a>
                                 </MenuItem>
                                 <MenuItem >
                                     <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
                                         <Image src="/icons/huge.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
-                                    </a>
                                     <div className="contacts">Portfolio</div>
+                                    </a>
                                 </MenuItem>
                                 <MenuItem >
                                     <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
                                         <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
-                                    </a>
                                     <div className="contacts">Linked In</div>
+                                    </a>
                                 </MenuItem>
                                 <MenuItem className="email-contact">
                                     <a href="mailto:btaftcan@gmail.com" >
                                         <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={20} height={20} />
-                                    </a>
                                     <div className="email contacts">Email Me</div>
+                                    </a>
                                 </MenuItem>
                                 <div className='nav-copyright-container'>
                                     <div className='inner-copyright-container'>
@@ -249,7 +249,7 @@ export default function Navbar({ path }) {
                                         <p className="copyright"> Brandon Taft </p>
                                     </div>
                                     <a className="sitemap-link" href="/sitemap.xml">
-                                        <span > Sitemap </span>
+                                        <span className='map-box' > Sitemap </span>
                                     </a>
                                 </div>
                             </div>

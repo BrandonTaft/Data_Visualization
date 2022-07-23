@@ -240,6 +240,18 @@ p{
     padding: .5em 1em;
 }
 
+.about-me-div a{
+    display: flex;
+    text-decoration: none;
+    line-height: 1em;
+    margin-top: 1em;
+    color: ghostwhite;
+}
+
+.map-box{
+    margin: auto;
+}
+
 #menu-appbar{
     padding: 0;
 }
@@ -253,6 +265,7 @@ p{
 .contacts{
     margin-left: 1em;
     margin-right: auto;
+    margin-top: auto;
     font-size: 1.5em;
 }
 
@@ -1379,7 +1392,7 @@ input:checked + .switcher:before {
 }
 
 .sitemap-link{
-    color: #fff8ba;
+    color: #fff8ba !important;
     cursor: pointer !important;
     text-decoration: none;
     text-align: center;
