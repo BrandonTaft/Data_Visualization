@@ -9,7 +9,7 @@ function Footer() {
     return (
         <>     
         <div className="dark footer" >
-            <Avatar alt="Brandon Taft" src="/images/ava.png" variant="square" />
+            <Image alt="Brandon Taft" src="/images/ava.png" height={80} width={60} />
             <div className='my-description'>
                 <div className="hi">Hi! I&apos;m Brandon,</div>
                 <div>I am a Web Developer that loves building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>

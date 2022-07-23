@@ -10,16 +10,14 @@ export function BubbleCard() {
 
         <Card className="card">
             <Link href="/bubble">
-            <CardActionArea >
+            <CardActionArea className="card-action-area">
                 <CardMedia
+                    className='card-pic'
                     component="img"
                     height="180"
                     image="/images/screen.png"
                     alt="Picture of tubes"
                 />
-                {/* <CardMedia>
-        <CardImage />
-        </CardMedia> */}
                 <BubbleCardContent />
             </CardActionArea>
             </Link>
@@ -34,8 +32,9 @@ export function InsertionCard() {
 
         <Card className="card">
             <Link href="/insertion">
-            <CardActionArea>
+           <CardActionArea className="card-action-area">
                 <CardMedia
+                    className='card-pic'
                     component="img"
                     height="180"
                     image="/images/circle.png"
@@ -55,8 +54,9 @@ export function SelectionCard() {
 
         <Card className="card">
             <Link href="/selection">
-            <CardActionArea>
+           <CardActionArea className="card-action-area">
                 <CardMedia
+                    className='card-pic'
                     component="img"
                     height="180"
                     image="/images/laptop.png"
@@ -76,8 +76,9 @@ export function QuickCard() {
 
         <Card className="card">
             <Link href="/quicksort">
-            <CardActionArea>
+           <CardActionArea className="card-action-area">
                 <CardMedia
+                    className='card-pic'
                     component="img"
                     height="180"
                     image="/images/cell.png"
@@ -97,8 +98,9 @@ export function BucketCard() {
 
         <Card className="card">
             <Link href="/bucket">
-            <CardActionArea>
+           <CardActionArea className="card-action-area">
                 <CardMedia
+                    className='card-pic'
                     component="img"
                     height="180"
                     image="/images/gears.png"
@@ -118,8 +120,9 @@ export function MergeCard() {
 
         <Card className="card">
             <Link href="/merge">
-            <CardActionArea>
+           <CardActionArea className="card-action-area">
                 <CardMedia
+                    className='card-pic'
                     component="img"
                     height="180"
                     image="/images/cell-laptop.png"

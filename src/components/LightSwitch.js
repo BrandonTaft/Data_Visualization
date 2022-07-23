@@ -19,12 +19,12 @@ const LightSwitch = () => {
 
   return (
     <div className="switch-container">
-    <Image src="/icons/night-mode.png" alt="github" layout="intrinsic" width={30} height={30} />
+    <Image src="/icons/brightness.png" alt="github" layout="intrinsic" width={30} height={30} />
     <label className="switch" htmlFor="toggle-switch" aria-label="switch">
       <input id="toggle-switch" type="checkbox" onChange={changeMode} />
       <span className="switcher round"></span>
     </label>
-    <Image src="/icons/brightness.png" alt="github" layout="intrinsic" width={30} height={30} />
+    <Image src="/icons/night-mode.png" alt="github" layout="intrinsic" width={30} height={30} />
     </div>
   )
 }

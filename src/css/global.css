@@ -214,17 +214,6 @@ p{
     font-size: large;
 }
 
-.css-j9wkuc-MuiAvatar-root{
-    height: fit-content ;
-    width: 70px;
-    padding-top: 3px;
-}
-
-.css-av538e-MuiButtonBase-root-MuiIconButton-root{
-    background: none;
-    box-shadow: none;
-}
-
 .in-nav-container span{
     cursor: pointer;
     margin-right: 1em;
@@ -235,13 +224,7 @@ p{
     margin-right: 0px !important;
 }
 
-.css-6hp17o-MuiList-root-MuiMenu-list{    
-    color: white;
-    padding: 0.5em;
-    padding-right: .3em;
-}
-
-.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
+.about-me-div{
     background-color: #1d1d1d;
     box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black;
     color: white;
@@ -250,15 +233,11 @@ p{
     width: max-content;
     top: 8px;
     left: 970px;
-    padding: .5em;
+    padding: .5em 1em;
 }
 
-.css-h4y409-MuiList-root{
-    padding: 10px;
-}
-
-.css-1ab221l-MuiGrid-root{
-    margin: 5px;
+#menu-appbar{
+    padding: 0;
 }
 
 .contacts-title{
@@ -271,6 +250,10 @@ p{
     margin-left: 1em;
     margin-right: auto;
     font-size: 1.5em;
+}
+
+.email-contact{
+    margin-bottom: 10px;
 }
 
 .responsive-link{
@@ -295,9 +278,6 @@ p{
     padding-top: 1em;
 }
 
-.top-contact{
-    border-top: #fff8ba27 1px solid;
-}
 
 /*******************Header********************/
 
@@ -358,10 +338,10 @@ p{
     display: flex;
     margin: 2em;
     max-width: 40%;
-    background-color: #0f0f0f;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 7%;
-    transition: all .2s ease-in-out;
+    background-color: #0f0f0f !important;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19) !important;
+    border-radius: 7% !important;
+    transition: all .2s ease-in-out !important;
 }
 
 .card:hover{
@@ -369,23 +349,23 @@ p{
     transform: scale(1.1);
 }
 
-.css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root{
+.card-action-area{
     display: flex;
     flex-direction: column;
 }
 
-.MuiCardActionArea-focusHighlight {
+/* .MuiCardActionArea-focusHighlight {
     background: transparent;
-}
+} */
 
 .css-46bh2p-MuiCardContent-root {
     padding: 5px 10px 15px 10px;
     height: 100%;
 }
 
-.css-o69gx8-MuiCardMedia-root{
-    width: fit-content;
-    margin: 3% auto;
+.card-pic{
+    width: fit-content !important;
+    margin: 3% auto !important;
 }
 
 .content-header{
@@ -403,6 +383,8 @@ p{
     flex-grow: 1;
     background-color: rgb(245, 242, 239);
     color: #000;
+    /* padding: 5px 10px 15px 10px;
+    height: 100%; */
 }
 
 .content-description{
@@ -1356,6 +1338,11 @@ input:checked + .switcher:before {
 
 /****************************Footer****************************/
 
+/* .css-j9wkuc-MuiAvatar-root{
+    height: fit-content ;
+    width: 70px;
+    padding-top: 3px;
+} */
 
 .footer{
     display: flex;

@@ -11,6 +11,8 @@ import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
 import ScienceIcon from '@mui/icons-material/Science';
 import CalculateIcon from '@mui/icons-material/Calculate';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Image from 'next/image'
@@ -19,36 +21,29 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import LightSwitch from './LightSwitch';
 
-
 export default function Navbar({ path }) {
-
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
-
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
-
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
 
     return (
-
         <AppBar position="static" className="nav-bar">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
                         <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={50} height={50} />
                     </Box>
-
                     <Typography
                         variant="h6"
                         noWrap
@@ -66,9 +61,8 @@ export default function Navbar({ path }) {
                     >
                         {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                     </Typography>
-
-
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -97,109 +91,76 @@ export default function Navbar({ path }) {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-
-                            <List>
-
-                                <ListItem disablePadding>
-                                    <Link href="/">
-                                        <Grid container sx={{ cursor: "pointer" }} >
-                                            <Grid item>
-                                                <HomeIcon />
+                            <div className='about-me-div'>
+                                <List sx={{ padding: '10px' }}>
+                                    <ListItem disablePadding>
+                                        <Link href="/">
+                                            <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid item>
+                                                    <HomeIcon />
+                                                </Grid>
+                                                <Grid item>
+                                                    <span className='responsive-link'>Home</span>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Home</span>
+                                        </Link>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <Link href="/bubble">
+                                            <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid item>
+                                                    <BubbleChartIcon />
+                                                </Grid>
+                                                <Grid item>
+                                                    <span className='responsive-link'>Bubble Sort</span>
+                                                </Grid>
                                             </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
-
-                                <ListItem disablePadding>
-                                    <Link href="/bubble">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <ScienceIcon />
+                                        </Link>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <Link href="/insertion">
+                                            <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid item>
+                                                    <CalculateIcon />
+                                                </Grid>
+                                                <Grid item>
+                                                    <span className='responsive-link'>Insertion</span>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Bubble Sort</span>
+                                        </Link>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <Link href="/selection">
+                                            <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid item>
+                                                    <EqualizerIcon />
+                                                </Grid>
+                                                <Grid item>
+                                                    <span className='responsive-link'>Selection</span>
+                                                </Grid>
                                             </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
-
-                                <ListItem disablePadding>
-                                    <Link href="/insertion">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
+                                        </Link>
+                                    </ListItem>
+                                    <ListItem disablePadding>
+                                        <Link href="/quick">
+                                            <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid item>
+                                                    <ScienceIcon />
+                                                </Grid>
+                                                <Grid item>
+                                                    <span className='responsive-link'>Quick Sort</span>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Insertion</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
-
-                                <ListItem disablePadding>
-                                    <Link href="/selection">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
-                                            </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Selection</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
-
-                                <ListItem disablePadding>
-                                    <Link href="/quick">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
-                                            </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Quick Sort</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem>
-
-                                {/* <ListItem disablePadding>
-                                    <Link href="">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
-                                            </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Bucket</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem> */}
-
-                                {/* <ListItem disablePadding>
-                                    <Link href="">
-                                        <Grid container sx={{ cursor: "pointer" }}>
-                                            <Grid item>
-                                                <CalculateIcon />
-                                            </Grid>
-                                            <Grid item>
-                                                <span className='responsive-link'>Merge</span>
-                                            </Grid>
-                                        </Grid>
-                                    </Link>
-                                </ListItem> */}
-                            </List>
+                                        </Link>
+                                    </ListItem>
+                                </List>
+                            </div>
                         </Menu>
+                        <LightSwitch />
                     </Box>
-
-
                     <Typography
                         variant="h5"
                         noWrap
-                        // component="a"
-                        // href=""
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -216,48 +177,32 @@ export default function Navbar({ path }) {
                     <Box sx={{ fontFamily: 'Fira Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <LightSwitch />
                         <Box className="in-nav-container" id="in-nav-container">
-
                             <Link href="/">
                                 <span>Home</span>
                             </Link>
-
                             <Link href="/bubble">
                                 <span>Bubble Sort</span>
                             </Link>
-
                             <Link href="/insertion">
                                 <span>Insertion Sort</span>
                             </Link>
-
                             <Link href="/selection">
                                 <span>Selection Sort</span>
                             </Link>
-
-                            {/* <Link href="/bubble">
-                                <span>Bucket</span>
-                            </Link> */}
-
                             <Link href="/quick">
                                 <span>Quick Sort</span>
                             </Link>
-
-                            {/* <Link href="">
-                                <span>Merge</span>
-                            </Link> */}
-
                         </Box>
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="About Me">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0 }}>
                                 <Box className='about-me-p'>
                                     <p>Contact Me</p>
                                 </Box>
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            className='about-me-menu'
                             sx={{ mt: '40px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
@@ -273,39 +218,40 @@ export default function Navbar({ path }) {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            
-                            <MenuItem className="top-contact">
-                                <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-                                    <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
-                                </a>
-                                <div className="contacts"> Github</div>
-                            </MenuItem>
-                            <MenuItem >
-                                <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                                    <Image src="/icons/huge.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
-                                </a>
-                                <div className="contacts">Portfolio</div>
-                            </MenuItem>
-                            <MenuItem >
-                                <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
-                                    <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
-                                </a>
-                                <div className="contacts">Linked In</div>
-                            </MenuItem>
-                            <MenuItem >
-                                <a href="mailto:btaftcan@gmail.com" >
-                                    <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={20} height={20} />
-                                </a>
-                                <div className="contacts">Email Me</div>
-                            </MenuItem>
-                            <div className='nav-copyright-container'>
-                                <div className='inner-copyright-container'>
-                                <p className="copyright"> &copy;{new Date().getFullYear()} </p>
-                                <p className="copyright"> Brandon Taft </p>
+                            <div className="about-me-div">
+                                <MenuItem className="top-contact">
+                                    <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
+                                        <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
+                                    </a>
+                                    <div className="contacts"> Github</div>
+                                </MenuItem>
+                                <MenuItem >
+                                    <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
+                                        <Image src="/icons/huge.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
+                                    </a>
+                                    <div className="contacts">Portfolio</div>
+                                </MenuItem>
+                                <MenuItem >
+                                    <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
+                                        <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
+                                    </a>
+                                    <div className="contacts">Linked In</div>
+                                </MenuItem>
+                                <MenuItem className="email-contact">
+                                    <a href="mailto:btaftcan@gmail.com" >
+                                        <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={20} height={20} />
+                                    </a>
+                                    <div className="email contacts">Email Me</div>
+                                </MenuItem>
+                                <div className='nav-copyright-container'>
+                                    <div className='inner-copyright-container'>
+                                        <p className="copyright"> &copy;{new Date().getFullYear()} </p>
+                                        <p className="copyright"> Brandon Taft </p>
+                                    </div>
+                                    <a className="sitemap-link" href="/sitemap.xml">
+                                        <span > Sitemap </span>
+                                    </a>
                                 </div>
-                                <a className="sitemap-link" href="/sitemap.xml">
-                                    <span > Sitemap </span>
-                                </a>
                             </div>
                         </Menu>
                     </Box>
