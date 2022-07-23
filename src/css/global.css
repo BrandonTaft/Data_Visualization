@@ -724,23 +724,23 @@ pre{
     pointer-events: none;
 }
 
-.css-fk6q5t-MuiSlider-root{
+/* .css-fk6q5t-MuiSlider-root{
     color: white;
-}
+} */
 
 .MuiSlider-thumb{
-    border: #fff solid;
-    color: #262424;
+    border: #fff solid !important;
+    color: #262424 !important;
 }
 
 .MuiSlider-track{
-    width: 10px;
-    color: white;
+    width: 10px !important;
+    color: white !important;
 }
 
 .MuiSlider-rail{
-    color: transparent;
-    width: 10px;
+    color: transparent !important;
+    width: 10px !important;
 }
 
 /* .css-eg0mwd-MuiSlider-thumb{
@@ -748,23 +748,23 @@ pre{
 } */
 
 .MuiSlider-markLabel{
-    color: white;
-    left: 2.6em;
-    font-size: 1rem;
+    color: white !important;
+    left: 2.6em !important;
+    font-size: 1rem !important;
 }
 
 .MuiSlider-markLabelActive{
-    color: #fd5c39;;
-    left: 2.6em;
-    font-size: 1rem;
+    color: #fd5c39 !important;
+    left: 2.6em !important;
+    font-size: 1rem !important;
 }
 
 .MuiSlider-mark{
-    color: transparent;
-    width: 6px;
-    height: 6px;
-    border: #fd5c39 solid 1px;
-    border-radius: 50%;
+    color: transparent !important;
+    width: 6px !important;
+    height: 6px !important;
+    border: #fd5c39 solid 1px !important;
+    border-radius: 50% !important;
 }
 
 
