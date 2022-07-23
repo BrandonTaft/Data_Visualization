@@ -141,6 +141,10 @@
     font-size: .8em;
 }
 
+[data-theme='dark'] .checked-variable{
+    color: dodgerblue;
+}
+
 body{
     font-family: 'Barlow', sans-serif;
     margin: 0;
@@ -685,10 +689,10 @@ pre{
     padding: .9em .4em;
 }
 
-.css-1p823my-MuiListItem-root{
+/* .css-1p823my-MuiListItem-root{
     padding: 0 5px 0 5px;
     margin: 9px 0 9px 0;
-}
+} */
 
 .button:disabled {
     color: #555;
@@ -724,38 +728,38 @@ pre{
     color: white;
 }
 
-.css-y35fuw-MuiSlider-thumb{
+.MuiSlider-thumb{
     border: #fff solid;
     color: #262424;
 }
 
-.css-ada0pd-MuiSlider-track{
+.MuiSlider-track{
     width: 10px;
     color: white;
 }
 
-.css-qx5f9e-MuiSlider-rail{
+.MuiSlider-rail{
     color: transparent;
     width: 10px;
 }
 
-.css-eg0mwd-MuiSlider-thumb{
+/* .css-eg0mwd-MuiSlider-thumb{
     background-color: white;
-}
+} */
 
-.css-xxsb21-MuiSlider-markLabel{
+.MuiSlider-markLabel{
     color: white;
     left: 2.6em;
     font-size: 1rem;
 }
 
-.css-19l5h75-MuiSlider-markLabel{
+.MuiSlider-markLabelActive{
     color: #fd5c39;;
     left: 2.6em;
     font-size: 1rem;
 }
 
-.css-1wdhkzz-MuiSlider-mark{
+.MuiSlider-mark{
     color: transparent;
     width: 6px;
     height: 6px;
