@@ -1,6 +1,5 @@
 import Link from './Link';
 import Image from 'next/image';
-import { Avatar } from '@mui/material';
 import { Provider, ClapButton } from "@lyket/react";
 
 
