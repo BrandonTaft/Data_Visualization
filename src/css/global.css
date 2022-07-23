@@ -724,9 +724,9 @@ pre{
     pointer-events: none;
 }
 
-/* .css-fk6q5t-MuiSlider-root{
+.css-fk6q5t-MuiSlider-root{
     color: white;
-} */
+}
 
 .MuiSlider-thumb{
     border: #fff solid !important;
@@ -767,6 +767,10 @@ pre{
     border-radius: 50% !important;
 }
 
+.MuiSlider-markActive{
+    color: transparent !important;
+    border: white solid 1px !important;
+}
 
 /*********************Switch********************/
 
@@ -1337,21 +1341,14 @@ input:checked + .switcher:before {
 
 /****************************Footer****************************/
 
-/* .css-j9wkuc-MuiAvatar-root{
-    height: fit-content ;
-    width: 70px;
-    padding-top: 3px;
-} */
-
 .footer{
     display: flex;
     font-size: 20px;
     color: ghostwhite;
     background-color: #0f0f0f;
     align-items: center;
-    padding: 0% 2%;
+    padding: 0% 0% 1em 2%;
     margin-top: 4em;
-    padding-bottom: 1em;
 }
 
 .hi{
@@ -1367,11 +1364,6 @@ input:checked + .switcher:before {
     margin-left: 2%;
     pointer-events: none;
     font-size: .9em;
-}
-
-
-.css-1pqm26d-MuiAvatar-img{
-width: 75%;
 }
 
 .navigate-footer{
@@ -1409,6 +1401,7 @@ width: 75%;
     position: relative;
     bottom: 6px;
     padding: .5em;
+    padding-right: 0;
 }
 
 .footer-link-inner{
@@ -1452,6 +1445,6 @@ width: 75%;
     margin-bottom: 10%;
 }
 
-.css-1mnmxt2-Simple{
-    margin: .5em ;
+.like-it{
+    margin: .5em;
 }

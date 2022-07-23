@@ -13,6 +13,7 @@ function Footer() {
                 <div className="hi">Hi! I&apos;m Brandon,</div>
                 <div>I am a Web Developer that loves building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>
             </div>
+            <label className='like-it'>
             <Provider
                 apiKey="pt_9631f43a75cbdb23263b1a4942d68b"
                 theme={{
@@ -28,7 +29,7 @@ function Footer() {
                     id="applause"
                 />
             </Provider>
-
+            </label>
             <div className='middle-container'>
                 <div className='socials'>
                     <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
@@ -77,12 +78,6 @@ function Footer() {
                         <Link href="">
                             <span>Selection Sort</span>
                         </Link>
-                        {/* <Link href="">
-                            <span>Bucket Sort</span>
-                        </Link>
-                        <Link href="">
-                            <span>Merge Sort</span>
-                        </Link> */}
                     </div>
                 
                 </div>
