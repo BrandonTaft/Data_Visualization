@@ -350,7 +350,7 @@ p{
 }
 
 .card-action-area{
-    display: flex;
+    display: flex !important;
     flex-direction: column;
 }
 
