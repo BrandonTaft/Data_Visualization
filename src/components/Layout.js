@@ -7,7 +7,7 @@ function Layout({ children }) {
     let path = router.pathname;
 
     return (
-        <div className="dark layout" >
+        <div className="layout" >
             {path === '/' ? "" : <NavBar path={path} />}
             {children}
             <Footer />

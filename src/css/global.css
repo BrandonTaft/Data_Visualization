@@ -3,7 +3,7 @@
     --background: white;
     --foreground: black;
 }
-  
+
 [data-theme='dark'] .layout{
     background-color: #202124;
 }

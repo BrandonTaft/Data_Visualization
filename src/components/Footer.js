@@ -11,7 +11,7 @@ function Footer() {
             <Image alt="Brandon Taft" src="/images/ava.png" height={80} width={60} />
             <div className='my-description'>
                 <div className="hi">Hi! I&apos;m Brandon,</div>
-                <div>I am a Web Developer that loves building applications using React and Node.js. If you liked my work or found it helpful, please feel free to hit the like button.</div>
+               <div><span className='rwd-line'>I am a Web Developer that loves building applications using React and Node.js.</span> <span className='rwd-line'>If&nbsp;you liked my work or found it helpful, please feel free to hit the like button.</span></div>
             </div>
             <label className='like-it'>
             <Provider

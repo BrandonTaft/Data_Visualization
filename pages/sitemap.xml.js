@@ -5,7 +5,7 @@ const Sitemap = () => {};
 export const getServerSideProps = ({ res }) => {
     const baseUrl = {
       development: "http://localhost:3000",
-      production: "https://mydomain.com",
+      production: "https://sage-nougat-85746e.netlify.app",
     // eslint-disable-next-line no-undef
     }[process.env.NODE_ENV];
   
