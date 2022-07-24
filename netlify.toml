@@ -3,6 +3,6 @@ package = "@netlify/plugin-sitemap"
 
 [plugins.inputs]
 exclude = [
-      '**/server/pages/en/500',
-      '**/server/pages/en/404',
+      './server/pages/en/500',
+      './server/pages/en/404',
   ]
