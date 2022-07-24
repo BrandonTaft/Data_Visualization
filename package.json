@@ -30,7 +30,6 @@
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
-    "@netlify/plugin-sitemap": "^0.8.1",
     "eslint": "^8.20.0",
     "eslint-plugin-react": "^7.30.1"
   }
