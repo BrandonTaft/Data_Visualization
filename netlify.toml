@@ -1,7 +1,7 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
   [plugins.inputs]
-  buildDir = "public"
+  buildDir = "."
   exclude = [
     './build-dir/path-to/_document.js',
     './build-dir/path-to/_app.js',
