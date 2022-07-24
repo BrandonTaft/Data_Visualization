@@ -1,7 +1,4 @@
-module.exports = {
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
-  
+export const i18n = {
+  locales: ["en"],
+  defaultLocale: "en",
 };
