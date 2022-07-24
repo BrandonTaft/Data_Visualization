@@ -1,7 +1,8 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 
+[plugins.inputs]
 exclude = [
-      './build-dir/path-to/en/500',
-      './build-dir/path-to/en/404',
+      '**/server/pages/en/500',
+      '**/server/pages/en/404',
   ]
