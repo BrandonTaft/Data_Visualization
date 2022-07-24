@@ -1,2 +1,7 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
+
+exclude = [
+      '**/server/pages/en/500',
+      '**/server/pages/en/404',
+  ]
