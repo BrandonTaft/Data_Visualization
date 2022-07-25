@@ -1,0 +1,34 @@
+
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://sage-nougat-85746e.netlify.app/bubble</loc>
+        <lastmod>2022-07-25T20:31:52.200Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sage-nougat-85746e.netlify.app/index</loc>
+        <lastmod>2022-07-25T20:31:52.200Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sage-nougat-85746e.netlify.app/insertion</loc>
+        <lastmod>2022-07-25T20:31:52.200Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sage-nougat-85746e.netlify.app/quick</loc>
+        <lastmod>2022-07-25T20:31:52.200Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sage-nougat-85746e.netlify.app/selection</loc>
+        <lastmod>2022-07-25T20:31:52.200Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>
