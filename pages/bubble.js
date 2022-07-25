@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Method from "./method";
+import Method from "../src/components/Method";
 import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
