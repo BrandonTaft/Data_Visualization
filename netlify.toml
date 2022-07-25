@@ -6,5 +6,16 @@ exclude = [
       './server/pages/500.html',
       './server/pages/404.html',
       '/server/pages/500.html',
-      '/server/pages/404.html'
+      '/server/pages/404.html',
+      './pages/500.html',
+      './pages/404.html',
+      '/pages/500.html',
+      '/pages/404.html',
+      '/500.html',
+      '/404.html',
+      './500.html',
+      './404.html',
+      '_error.js',
+      '/server/pages/_error.js',
+      './server/pages/_error.js',
   ]
