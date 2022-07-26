@@ -67,7 +67,7 @@ function Footer() {
                             <span>Bubble Sort</span>
                         </Link>
 
-                        <Link href="">
+                        <Link href="quick">
                             <span>Quick Sort</span>
                         </Link>
                     </div>
