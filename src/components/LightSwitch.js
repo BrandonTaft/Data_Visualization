@@ -13,7 +13,7 @@ const LightSwitch = () => {
     event.target.checked == true ? setTheme("dark") : setTheme("light");
   };
 
-  //On 1st render the theme is set according to value of "theme" in localStorage  
+  // On 1st render the theme is set according to value of "theme" in localStorage  
   useEffect(() => {
     setTheme(localStorage.getItem("theme"))
     theme == "light" ? setChecked(false) : setChecked(true)
