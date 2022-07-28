@@ -1,15 +1,16 @@
 import {DiscussionEmbed} from "disqus-react"
 const Comments = () => {
-  
+  const disqusShortname = "sorting-visual"
+  const disqusConfig = {
+    url: "https://sage-nougat-85746e.netlify.app/bubble",
+  }
   return (
-    <DiscussionEmbed
-    shortname='sorting visual'
-    config={
-        {
-            url: "https://sage-nougat-85746e.netlify.app",
-        }
-    }
-/>
+    <div>
+      <DiscussionEmbed
+        shortname={disqusShortname}
+        config={disqusConfig}
+      />
+    </div>
   )
 }
 export default Comments;

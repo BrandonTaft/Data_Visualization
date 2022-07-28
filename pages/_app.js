@@ -8,7 +8,8 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Sorting Method Visualizer</title>
-        <meta name="description" content="This is a visualization of how sorting methods work in computer science." />
+        <meta name="description" content="A visualization and explanation of how different sorting algorithms work." />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
         <link  href="/favicon.ico"  type="image/x-icon" rel="shortcut icon"/>
       </Head>
       <ThemeProvider
