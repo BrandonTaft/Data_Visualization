@@ -12,7 +12,7 @@ function Footer() {
                 <div className='my-description'>
                     <div className="hi">Hi! I&apos;m Brandon,</div>
                     <div>
-                        <span className='rwd-line'>I am a Web Developer focused on developing my knowledge of core CS concepts.</span>
+                        <span className='rwd-line'>I am a Web Developer focused on further developing my knowledge of CS concepts.</span>
                         <span className='rwd-line'>&nbsp;I aim to grow as an engineer by trying to help others understand basic programming.</span></div>
                 </div>
                 {/* <span className='rwd-line'>I am a Web Developer who enjoys building applications using React and Node.</span> */}
