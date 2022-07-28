@@ -65,7 +65,7 @@ export default function Navbar({ path }) {
 
                         <IconButton
                             size="large"
-                            aria-label="account of current user"
+                            aria-label="hamburger-menu"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
@@ -204,7 +204,7 @@ export default function Navbar({ path }) {
                         </Tooltip>
                         <Menu
                             sx={{ mt: '40px' }}
-                            id="menu-appbar"
+                            
                             anchorEl={anchorElUser}
                             anchorOrigin={{
                                 vertical: 'top',
@@ -239,7 +239,7 @@ export default function Navbar({ path }) {
                                 </MenuItem>
                                 <MenuItem className="email-contact">
                                     <a href="mailto:btaftcan@gmail.com" >
-                                        <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={20} height={20} />
+                                        <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={22} height={13} />
                                     <div className="email contacts">Email Me</div>
                                     </a>
                                 </MenuItem>

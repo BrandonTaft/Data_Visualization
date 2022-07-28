@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from 'next/router';
 import Method from "../src/components/Method";
 import getArray from "../src/components/Array";
+import { UpDown } from "../src/components/Feedback";
 import { BubbleExplanation } from "../src/components/Explanations";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
@@ -137,6 +138,7 @@ function Bubble() {
                     {display}
                 </div>
             </Box>
+            <UpDown />
         </div>
     )
 }

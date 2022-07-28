@@ -1,7 +1,5 @@
 import Link from './Link';
 import Image from 'next/image';
-import { Provider, ClapButton } from "@lyket/react";
-
 
 function Footer() {
 
@@ -15,25 +13,6 @@ function Footer() {
                         <span className='rwd-line'>I am a Web Developer focused on further developing my knowledge of CS concepts.</span>
                         <span className='rwd-line'>&nbsp;I aim to grow as an engineer by trying to help others understand basic programming.</span></div>
                 </div>
-                {/* <span className='rwd-line'>I am a Web Developer who enjoys building applications using React and Node.</span> */}
-                {/* <span className='rwd-line'>If&nbsp;you liked my work or found it helpful, please feel free to hit the like button.</span> */}
-                <label className='like-it'>
-                    <Provider
-                        apiKey="pt_9631f43a75cbdb23263b1a4942d68b"
-                        theme={{
-                            colors: {
-                                background: "ghostwhite",
-                                text: "ghostwhite",
-                                primary: "white"
-                            }
-                        }}
-                    >
-                        <ClapButton
-                            namespace="like-me"
-                            id="applause"
-                        />
-                    </Provider>
-                </label>
                 <div className='middle-container'>
                     <div className='socials'>
                         <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
