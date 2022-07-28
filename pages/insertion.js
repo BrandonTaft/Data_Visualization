@@ -20,6 +20,10 @@ function Insertion() {
         setSorted([])
     }, [refresh]);
 
+    function timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     async function insertionSort() {
         document.getElementById('finished2').classList.add("finished");
         document.getElementById("sort-button").disabled = true;
@@ -46,26 +50,26 @@ function Insertion() {
                         await new Promise(resolve => setTimeout(resolve, speed / 2));
                         document.getElementById(i).classList.toggle("current");
                         document.getElementById(`cap${i}`).classList.toggle("current-text");
-                        await new Promise(resolve => setTimeout(resolve, speed));
+                        await timeout(speed);
                         // The last element of our sorted subarray
                         let j = i - 1;
                         while ((j > -1) && (current < arr[j])) {
                             if (path == "/insertion") {
                                 document.getElementById(`swap${j}`).classList.toggle("swap");
-                                await new Promise(resolve => setTimeout(resolve, speed));
+                                await timeout(speed);
                                 document.getElementById(`swap${j}`).classList.toggle("swap");
                                 // arr[j + 1] = arr[j];
                                 let tmp = arr[j];
                                 arr[j] = arr[j + 1];
                                 arr[j + 1] = tmp;
                                 setArray([...arr]);
-                                await new Promise(resolve => setTimeout(resolve, speed));
+                                await timeout(speed);
                                 j--;
                             }
                         }
                         if (j > -1) {
                             document.getElementById(`stay${j}`).classList.toggle("stay");
-                            await new Promise(resolve => setTimeout(resolve, speed));
+                            await timeout(speed);
                             document.getElementById(`stay${j}`).classList.toggle("stay");
                         }
                         arr[j + 1] = current;
@@ -74,14 +78,14 @@ function Insertion() {
                         document.getElementById(j + 1).classList.toggle("sorted");
                         document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
                         setArray(arr);
-                        await new Promise(resolve => setTimeout(resolve, speed));
+                        await timeout(speed);
                     } else {
                         return;
                     }
                 }
                 setUnSorted([])
                 setSorted(arr)
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById("sort-button").disabled = false;
                 document.getElementById("refresh-button").disabled = false;
                 document.getElementById("in-nav-container").classList.toggle("turn-off");

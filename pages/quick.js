@@ -25,6 +25,10 @@ function QuickSort() {
         document.querySelectorAll(".cap").forEach(el => { el.classList.remove("index-element-text") });
     }
 
+    function timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     let x = 0;
     async function quickSort(arr, start, end) {
         if (x < 3) {
@@ -38,7 +42,7 @@ function QuickSort() {
 
             if (document.getElementById(start) !== null) {
                 document.getElementById(`start-greater-end${start}`).classList.remove("start-greater-end");
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById(`start-greater-end${start}`).classList.add("start-greater-end");
                 document.getElementById(start).classList.toggle("sorted");
                 document.getElementById(`cap${start}`).classList.toggle("sorted-text");
@@ -46,7 +50,7 @@ function QuickSort() {
             console.log(start, end)
             console.log("test", arr[start], arr[end])
             setArray([...arr]);
-            await new Promise(resolve => setTimeout(resolve, speed));
+            await timeout(speed);
             return;
         }
         let index = await partition(arr, start, end);
@@ -55,7 +59,7 @@ function QuickSort() {
         quickSort(arr, start, index - 1);
         quickSort(arr, index + 1, end);
         setArray([...arr]);
-        await new Promise(resolve => setTimeout(resolve, speed));
+        await timeout(speed);
         x += 1;
         if (x === 3) {
             document.getElementById("sort-button").disabled = false;
@@ -72,15 +76,15 @@ function QuickSort() {
         let pivotValue = arr[end];
         document.getElementById(`cap${end}`).classList.toggle("pivot-value");
         document.getElementById(end).classList.toggle("pivot-value-tube");
-        await new Promise(resolve => setTimeout(resolve, speed));
+        await timeout(speed);
         for (let i = start; i < end; i++) {
             document.getElementById(i).classList.add("quick-current");
             document.getElementById(`cap${pivotIndex}`).classList.add("pivot-index");
             document.getElementById(pivotIndex).classList.add("pivot-index-tube");
-            await new Promise(resolve => setTimeout(resolve, speed));
+            await timeout(speed);
             if (arr[i] < pivotValue) {
                 document.getElementById(`quick-swap${i}`).classList.toggle("quick-swap");
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById(i).classList.remove("quick-current");
                 document.getElementById(`quick-swap${i}`).classList.toggle("quick-swap");
                 let temp = arr[i];
@@ -89,33 +93,33 @@ function QuickSort() {
                 document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
                 document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
                 setArray([...arr]);
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 pivotIndex++;
                 setMyPivotIndex(pivotIndex)
                 if (pivotIndex < arr.length - 1) {
                     document.getElementById(`cap${pivotIndex}`).classList.add("pivot-index");
                     document.getElementById(pivotIndex).classList.add("pivot-index-tube");
                 }
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
             } else {
                 document.getElementById(`quick-stay${i}`).classList.toggle("quick-stay");
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById(`quick-stay${i}`).classList.toggle("quick-stay");
                 document.getElementById(i).classList.remove("quick-current");
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
             }
 
         }
 
         //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
         document.getElementById(`quick-swap-pivot${pivotIndex}`).classList.toggle("quick-swap-pivot");
-        await new Promise(resolve => setTimeout(resolve, speed));
+        await timeout(speed);
         document.getElementById(`cap${end}`).classList.remove("pivot-value");
         document.getElementById(end).classList.remove("pivot-value-tube");
         document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
         document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
         document.getElementById(`quick-swap-pivot${pivotIndex}`).classList.toggle("quick-swap-pivot");
-        await new Promise(resolve => setTimeout(resolve, speed));
+        await timeout(speed);
 
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
@@ -123,7 +127,7 @@ function QuickSort() {
 
 
         setArray([...arr]);
-        await new Promise(resolve => setTimeout(resolve, speed));
+        await timeout(speed);
         return pivotIndex;
     }
 

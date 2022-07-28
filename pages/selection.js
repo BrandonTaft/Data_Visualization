@@ -17,6 +17,10 @@ function Selection() {
         setSorted([])
     }, [refresh]);
 
+    function timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     async function selectionSort() {
         document.getElementById('finished2').classList.add("finished");
         document.getElementById("sort-button").disabled = true;
@@ -33,29 +37,29 @@ function Selection() {
             // Finding the smallest number in the subarray
             document.getElementById(`cap${i}`).classList.toggle("min");
             document.getElementById(i).classList.toggle("min-tube");
-            await new Promise(resolve => setTimeout(resolve, speed));
+            await timeout(speed);
             let min = i;
 
 
             for (let j = i + 1; j < n; j++) {
                 if (arr[j] > arr[min]) {
                     document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    await timeout(speed);
                     document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
                 } else if (arr[j] < arr[min]) {
                     document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    await timeout(speed);
                     document.getElementById(`cap${min}`).classList.remove("min");
                     document.getElementById(min).classList.toggle("min-tube");
                     document.getElementById(`cap${j}`).classList.toggle("min");
                     document.getElementById(j).classList.toggle("min-tube");
                     document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    await timeout(speed);
                     min = j;
                 }
             } if (min == i) {
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
             }
 
@@ -63,13 +67,13 @@ function Selection() {
             else if (min != i) {
                 // Swapping the elements
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
                 let tmp = arr[i];
                 arr[i] = arr[min];
                 arr[min] = tmp;
                 setArray([...arr]);
-                await new Promise(resolve => setTimeout(resolve, speed));
+                await timeout(speed);
             }
             document.getElementById(`cap${i}`).classList.toggle("min");
             document.getElementById(i).classList.toggle("min-tube");
@@ -79,11 +83,11 @@ function Selection() {
             setUnSorted(arr.slice(i + 1))
 
             setArray(arr);
-            await new Promise(resolve => setTimeout(resolve, speed));
+            await timeout(speed);
         }
         setUnSorted([])
         setSorted(arr)
-        await new Promise(resolve => setTimeout(resolve, speed));
+        await timeout(speed);
         document.getElementById("sort-button").disabled = false;
         document.getElementById("refresh-button").disabled = false;
         document.getElementById('finished2').classList.remove("finished");
