@@ -5,8 +5,8 @@ function Footer() {
 
     return (
         <>
-            <div className="dark footer" >
-                <Image alt="Brandon Taft" src="/images/ava.png" height={80} width={60} />
+            <div className="footer" >
+                <Image className='ava' alt="Brandon Taft" src="/images/ava.png" height={80} width={60} />
                 <div className='my-description'>
                     <div className="hi">Hi! I&apos;m Brandon,</div>
                     <div>

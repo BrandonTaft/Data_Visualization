@@ -75,19 +75,19 @@ export function QuickExplanation() {
             <ul className="insertion-explanation-list">
                 <li>The first line is a condition that will break out of the loop once the array is sorted.</li>
                 <li>The first step is to determine the pivot in the array.</li>
-                <li>Pivot value will always be the last element and referred to as end.</li>
-                <li>Pivot index will always start at the first element and referred to as start to begin with.</li>
+                <li><span className="j-element">Pivot value</span> will always be the last element and referred to as end.</li>
+                <li><span className="sorted-array">Pivot index</span> will always start at the first element and referred to as start to begin with.</li>
                 <li>Next we call the partition function and pass in the array , start and end.</li>
-                <li>The partition functiondoes all of the hard work.</li>
-                <li>It loops through the array checking if each element is less than the pivot value.</li>
-                <li>If it's less, the swap function swaps the places of that element with the pivot index.</li>
-                <li>If the current element is the pivot index it will just stay where it is.</li>
-                <li>Then it moves the pivot index one spot to the right by adding 1 to it.</li>
-                <li>If it's not less than the pivot value nothing happens and it moves to the next element.</li>
-                <li>Once the loop is done, the swap function swaps the pivot index with the pivot value.</li>
+                <li>The partition function does all of the hard work.</li>
+                <li>It loops through the array checking if each element is less than the <span className="j-element">Pivot value</span>.</li>
+                <li>If it's less, the swap function swaps the places of that element with the <span className="sorted-array">pivot index</span>.</li>
+                <li>If the current element is the <span className="sorted-array">pivot index</span> it will just stay where it is.</li>
+                <li>Then it moves the <span className="sorted-array">pivot index</span> one spot to the right by adding 1 to it.</li>
+                <li>If it's not less than the <span className="j-element">Pivot value</span> nothing happens and it moves to the next element.</li>
+                <li>Once the loop is done, the swap function swaps the <span className="sorted-array">pivot index</span> with the <span className="j-element">Pivot value</span>.</li>
                 <li>Then quicksort calls itself two times:</li>
-                <li>Once to sort the elements on the left side of new pivot index.</li>
-                <li>And once again to sort the elements on the right side of the new pivot index.</li>
+                <li>Once to sort the elements on the left side of new <span className="sorted-array">pivot index</span>.</li>
+                <li>And once again to sort the elements on the right side of the new <span className="sorted-array">pivot index</span>.</li>
                 <li>When the subarrays are down to fewer than two elements it will not pass the condition.</li>
                 <li>This breaks the loop and since the subarrays are sorted in place, the array is sorted.</li>
             </ul>
