@@ -7,7 +7,6 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
         <title>Data Sorting Visualizer</title>
         <meta name="description" content="An interactive visualization and explanation of different sorting algorithms in action.
         Including a complete walkthrough / tutorial of how the sorting algorithms work. The methods covered include quick sort,
