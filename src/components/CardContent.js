@@ -12,7 +12,7 @@ export function BubbleCardContent() {
                 <span className="space-complexity">Space Complexity:</span> <span className="times">O(1)</span> <br />
                 <span className="complexity">Best Time Complexity:</span> <span className="times">O(n)</span> <br />
                 <span className="complexity">Average Time Complexity:</span> <span className="times"> O(n^2)</span><br />
-                <span className="complexity">Worst Case Time Complexity:</span> <span className="times"> O(n^2)</span>
+                <span className="complexity">Worst Time Complexity:</span> <span className="times"> O(n^2)</span>
             </div>
         </CardContent>
     )
@@ -29,7 +29,7 @@ export function InsertionCardContent() {
                 <span className="space-complexity">Space Complexity:</span> <span className="times">O(1)</span> <br />
                 <span className="complexity">Best Time Complexity:</span> <span className="times">O(n)</span> <br />
                 <span className="complexity">Average Time Complexity:</span> <span className="times"> O(n^2)</span><br />
-                <span className="complexity">Worst Case Time Complexity:</span> <span className="times"> O(n^2)</span>
+                <span className="complexity">Worst Time Complexity:</span> <span className="times"> O(n^2)</span>
             </div>
         </CardContent>
     )
@@ -47,7 +47,7 @@ export function SelectionCardContent() {
                 <span className="space-complexity">Space Complexity:</span> <span className="times">O(1)</span> <br />
                 <span className="complexity">Best Time Complexity:</span> <span className="times">O(n^2)</span> <br />
                 <span className="complexity">Average Time Complexity:</span> <span className="times"> O(n^2)</span><br />
-                <span className="complexity">Worst Case Time Complexity:</span> <span className="times"> O(n^2)</span>
+                <span className="complexity">Worst Time Complexity:</span> <span className="times"> O(n^2)</span>
             </div>
         </CardContent>
     )
@@ -64,7 +64,7 @@ export function QuickCardContent() {
                 <span className="space-complexity">Space Complexity:</span> <span className="times">O(n) - O(log n)</span> <br />
                 <span className="complexity">Best Time Complexity:</span> <span className="times">O(n log n)</span> <br />
                 <span className="complexity">Average Time Complexity:</span> <span className="times"> O(n log n)</span><br />
-                <span className="complexity">Worst Case Time Complexity:</span> <span className="times"> O(n^2)</span>
+                <span className="complexity">Worst Time Complexity:</span> <span className="times"> O(n^2)</span>
             </div>
         </CardContent>
     )
@@ -80,7 +80,7 @@ export function BucketCardContent() {
                 <span className="space-complexity">Space Complexity:</span> <span className="times">O(n^2)</span> <br />
                 <span className="complexity">Best Time Complexity:</span> <span className="times">O(n + k)</span> <br />
                 <span className="complexity">Average Time Complexity:</span> <span className="times"> O(n + k)</span><br />
-                <span className="complexity">Worst Case Time Complexity:</span> <span className="times"> O(n^2)</span>
+                <span className="complexity">Worst Time Complexity:</span> <span className="times"> O(n^2)</span>
             </div>
         </CardContent>
     )
@@ -97,7 +97,7 @@ export function MergeCardContent() {
                 <span className="space-complexity">Space Complexity:</span> <span className="times">O(n)</span> <br />
                 <span className="complexity">Best Time Complexity:</span> <span className="times">O(n log n)</span> <br />
                 <span className="complexity">Average Time Complexity:</span> <span className="times"> O(n log n)</span><br />
-                <span className="complexity">Worst Case Time Complexity:</span> <span className="times"> O(n log n)</span>
+                <span className="complexity">Worst Time Complexity:</span> <span className="times"> O(n log n)</span>
             </div>
         </CardContent>
     )
