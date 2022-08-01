@@ -19,6 +19,7 @@ import Image from 'next/image'
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { createTheme, ThemeProvider} from '@mui/material/styles';
 import LightSwitch from './LightSwitch';
 
 export default function Navbar({ path }) {
@@ -37,21 +38,36 @@ export default function Navbar({ path }) {
         setAnchorElUser(null);
     };
 
+    const theme = createTheme({
+        breakpoints: {
+          values: {
+            xs: 0,
+            rs: 355,
+            cs: 460,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+          },
+        },
+      });
+
     return (
+        <ThemeProvider theme={theme}>
         <AppBar position="static" className="nav-bar">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                        <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={50} height={50} />
+                        <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={40} height={40} />
                     </Box>
                     <Typography
                         variant="h6"
                         noWrap
                         sx={{
-                            mr: 2,
+                            mr: { sm: 0, lg: 3},
                             ml: 4,
                             display: { xs: 'none', md: 'flex' },
-                            fontSize: "30px",
+                            fontSize: { xs: "24px", lg:"30px" },
                             fontFamily: 'Playfair Display',
                             letterSpacing: ".15em",
                             color: 'inherit',
@@ -64,6 +80,7 @@ export default function Navbar({ path }) {
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 
                         <IconButton
+                            sx={{ padding: 0}}
                             size="large"
                             aria-label="hamburger-menu"
                             aria-controls="menu-appbar"
@@ -162,10 +179,11 @@ export default function Navbar({ path }) {
                         variant="h5"
                         noWrap
                         sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            mr: 1,
+                            display: { xs: 'none', rs: 'flex', cs: 'flex', md: 'none' },
                             flexGrow: 1,
                             fontFamily: 'Playfair Display',
+                            fontSize: { rs: '.9em', cs: '1.5em' },
                             fontWeight: 700,
                             letterSpacing: '.1rem',
                             color: 'inherit',
@@ -197,9 +215,7 @@ export default function Navbar({ path }) {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="About Me">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0 }}>
-                                <Box className='about-me-p'>
-                                    <p>Contact Me</p>
-                                </Box>
+                                    <p className="about-me-p">Contact Me</p>
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -258,5 +274,6 @@ export default function Navbar({ path }) {
                 </Toolbar>
             </Container>
         </AppBar>
+        </ThemeProvider>
     );
 }

@@ -18,10 +18,7 @@ const LightSwitch = () => {
     setTheme(localStorage.getItem("theme"))
     theme == "light" ? setChecked(false) : setChecked(true)
   }, [])
-
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-    width: 72,
-    height: 30,
     padding: 7,
     '& .MuiSwitch-switchBase': {
       margin: 1,
@@ -46,8 +43,6 @@ const LightSwitch = () => {
     },
     '& .MuiSwitch-thumb': {
       backgroundColor: '#f65214',
-      width: 28,
-      height: 28,
       '&:before': {
         content: "''",
         position: 'absolute',
@@ -71,7 +66,7 @@ const LightSwitch = () => {
 
   return (
     <MaterialUISwitch
-      sx={{ m: 1 }}
+      sx={{ ml: {xs: 0, sm: 1}, mr: {xs: 0, sm: 1}, width: { xs:60, sm: 64, md: 72 }, height: { xs:24, sm: 28, md: 30 }, m: 1, '& .MuiSwitch-thumb': {width: { xs: 22, sm: 26, md: 28 }, height: { xs: 22, sm: 26, md: 28 }} }}
       checked={checked}
       onChange={handleChange}
       inputProps={{ 'aria-label': 'controlled' }}
