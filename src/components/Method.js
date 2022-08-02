@@ -85,7 +85,7 @@ function quickSort(arr,start,end){
             <SyntaxHighlighter
                 language="javascript"
                 style={materialDark}
-                codeTagProps={{style: {fontSize: '15px'} }}
+                useInlineStyles={false}
                 >
                 {display}
             </SyntaxHighlighter>

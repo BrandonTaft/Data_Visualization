@@ -5,7 +5,6 @@ import getArray from "../src/components/Array";
 import { UpDown } from "../src/components/Feedback";
 import { BubbleExplanation } from "../src/components/Explanations";
 import ButtonBox from "../src/components/ButtonBox.js";
-import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
     
@@ -104,14 +103,14 @@ function Bubble() {
     
     return (
         <div className="light page-container">
-            <Box className="top-container">
-                <Box className="explanation">
+            <div className="top-container">
+                <div className="explanation">
                     <BubbleExplanation />
-                </Box>
+                </div>
                 <Method method={"bubble"} />
-            </Box>
-            <Box className="bottom-container">
-                <Box className="side-display">
+            </div>
+            <div className="bottom-container">
+                <div className="side-display">
                     <ButtonBox
                         sortMethod={bubbleSort}
                         refresh={refresh}
@@ -119,25 +118,25 @@ function Bubble() {
                         speed={speed}
                         setSpeed={setSpeed}
                     />
-                    <Box className="var-container">
-                        <Box className="array-container">
+                    <div className="var-container">
+                        <div className="array-container">
                             <h3>Array</h3>
                             <span className="array-span">
                                 [{array.toString()}]
                             </span>
-                        </Box>
-                        <Box className="checked-container">
+                        </div>
+                        <div className="checked-container">
                             <h3>Checked</h3>
                             <span className="array-span">
                                 {checked}
                             </span>
-                        </Box>
-                    </Box>
-                </Box>
+                        </div>
+                    </div>
+                </div>
                 <div className="row">
                     {display}
                 </div>
-            </Box>
+            </div>
             <UpDown />
         </div>
     )
