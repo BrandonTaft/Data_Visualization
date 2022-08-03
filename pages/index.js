@@ -7,7 +7,9 @@ function Home() {
   return (
     <>
       <Header />
-      <LightSwitch />
+      <div className="home-switch">
+        <LightSwitch />
+      </div>
       <div className="home-content">
         <BubbleCard />
         <InsertionCard />
