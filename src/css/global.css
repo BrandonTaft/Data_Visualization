@@ -252,6 +252,12 @@ p{
     font-size: 20px;
 }
 
+.in-nav-container span:active{
+    position: relative;
+    text-shadow: 2px 2px 3px #ffffff5e;
+    top: 1px;
+}
+
 .home-link{
     margin-right: 0px !important;
 }
@@ -307,6 +313,12 @@ p{
 
 .responsive-link{
     margin-left: 1em;
+}
+
+.responsive-container:active{
+    position: relative;
+    text-shadow: 2px 2px 3px #ffffff5e;
+    top: 1px;
 }
 
 .about-me-p{
@@ -2242,12 +2254,14 @@ input:checked + .switcher:before {
     }
 }
 
-@media (max-width: 460px) {
-/*--------NAVBAR----------*/
-.about-me-p{
-    font-size: .6em;
+@media (max-width: 470px) {
+    /*--------NAVBAR----------*/
+    .about-me-p{
+        font-size: .6em;
+    }
 }
 
+@media (max-width: 460px) {
 .row{
     gap: .5em;
 }
@@ -2256,6 +2270,11 @@ input:checked + .switcher:before {
 }
 
 @media (max-width: 420px) {
+    /*----------NAVBAR----------*/
+    .about-me-p{
+        font-size: .5em;
+    }
+
     /*----------HOME----------*/
     .header-container{
         padding-left: 4%;
@@ -2278,18 +2297,20 @@ input:checked + .switcher:before {
     }
 }
 
+@media (max-width: 400px) {
+    /*----------NAVBAR----------*/
+    .about-me-p{
+        display: none;
+    }
+}
+
 /******Extra Small Devices (393px and below)******/
 @media (max-width: 393px) {
-   /*----------NAVBAR----------*/
-   .nav-switch{
-    transform: scale(.65);
-    padding-left: 0;
+    /*----------NAVBAR----------*/
+    .nav-switch{
+        transform: scale(.65);
+        padding-left: 0;
     }
-
-    .about-me-p{
-        font-size: .55em;
-    }
-
 
     /*----------HOME----------*/
     .header-container{

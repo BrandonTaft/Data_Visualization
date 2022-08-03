@@ -112,7 +112,7 @@ export default function Navbar({ path }) {
                                     <List sx={{ padding: '10px' }}>
                                         <ListItem disablePadding>
                                             <Link href="/">
-                                                <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <HomeIcon />
                                                     </Grid>
@@ -124,7 +124,7 @@ export default function Navbar({ path }) {
                                         </ListItem>
                                         <ListItem disablePadding>
                                             <Link href="/bubble">
-                                                <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <BubbleChartIcon />
                                                     </Grid>
@@ -136,7 +136,7 @@ export default function Navbar({ path }) {
                                         </ListItem>
                                         <ListItem disablePadding>
                                             <Link href="/insertion">
-                                                <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <CalculateIcon />
                                                     </Grid>
@@ -148,7 +148,7 @@ export default function Navbar({ path }) {
                                         </ListItem>
                                         <ListItem disablePadding>
                                             <Link href="/selection">
-                                                <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <EqualizerIcon />
                                                     </Grid>
@@ -160,7 +160,7 @@ export default function Navbar({ path }) {
                                         </ListItem>
                                         <ListItem disablePadding>
                                             <Link href="/quick">
-                                                <Grid container sx={{ cursor: "pointer", margin: '10px' }}>
+                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <ScienceIcon />
                                                     </Grid>
@@ -182,10 +182,10 @@ export default function Navbar({ path }) {
                             noWrap
                             sx={{
                                 mr: 1,
-                                display: { xs: 'none', rs: 'flex', cs: 'flex', md: 'none' },
+                                display: { xs: 'flex', rs: 'flex', cs: 'flex', md: 'none' },
                                 flexGrow: 1,
                                 fontFamily: 'Playfair Display',
-                                fontSize: { rs: '1.1em', cs: '1.5em' },
+                                fontSize: { xs: '.7em', rs: '1.2em', cs: '1.5em' },
                                 fontWeight: 700,
                                 letterSpacing: '.1rem',
                                 color: 'inherit',
@@ -218,13 +218,12 @@ export default function Navbar({ path }) {
                         </Box>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="About Me">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0 }}>
+                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, color: "white" }}>
                                     <p className="about-me-p">Contact Me</p>
                                 </IconButton>
                             </Tooltip>
                             <Menu
-                                sx={{ mt: '40px' }}
-
+                                sx={{ mt: { rs: '25px', cs: '30px', sm: '40px'} }}
                                 anchorEl={anchorElUser}
                                 anchorOrigin={{
                                     vertical: 'top',
