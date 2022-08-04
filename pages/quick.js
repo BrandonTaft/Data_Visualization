@@ -5,7 +5,6 @@ import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { QuickExplanation } from "../src/components/Explanations";
-import { QuickExplanationHeading } from "../src/components/Explanations";
 
 function QuickSort() {
 
@@ -171,9 +170,6 @@ function QuickSort() {
 
     return (
         <div className="page-container">
-            <Box className="quick-explanation-heading">
-                <QuickExplanationHeading />
-            </Box>
             <Box className="top-container">
                 <Box className="explanation">
                     <QuickExplanation />

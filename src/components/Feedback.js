@@ -53,11 +53,11 @@ export function UpDown() {
         }) => (
           <>
             <button className="feedback" onClick={handlePressUp} disabled={isLoading} aria-label="like-button">
-              <ThumbUpIcon sx={{color:"white"}}/>
+              <ThumbUpIcon sx={{color:"white", fontSize: 'inherit'}}/>
             </button>
             <span className="score">{totalScore}</span>
             <button className="feedback" onClick={handlePressDown} disabled={isLoading} aria-label="dislike-button">
-              <ThumbDownIcon sx={{color:"white"}} />
+              <ThumbDownIcon sx={{color:"white", fontSize: 'inherit'}} />
             </button>
             
             <div>

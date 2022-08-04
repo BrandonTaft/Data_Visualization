@@ -271,7 +271,11 @@ p{
     width: max-content;
     top: 8px;
     left: 970px;
-    padding: .5em 1em;
+    padding: 0em 1.5em 1em;
+}
+
+.hamburger.about-me-div{
+    padding: 0em 1em 1em;
 }
 
 .about-me-div a{
@@ -280,6 +284,10 @@ p{
     line-height: 1em;
     margin-top: 1em;
     color: ghostwhite;
+}
+
+.menu-background{
+    background-color: #f06c07;
 }
 
 .map-box{
@@ -469,7 +477,7 @@ p{
 
 .top-container{
     display: flex;
-    margin: 0 1em 0 1em;
+    margin: 0 .1em;
     justify-content: space-evenly;
 }
 
@@ -482,9 +490,8 @@ p{
 }
 
 .explanation-heading{
-    font-weight: 600;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    font-weight: 700;
+    margin: 2% auto;
     pointer-events: none;
     letter-spacing: .5px;
 }
@@ -509,12 +516,11 @@ p{
 .explanation {
 	font-size: 1.25em;
     width: 60%;
-    margin-top: 2%;
 }
 
 .explanation-list{
     list-style: none;
-    margin: .5rem 0 0 0;
+    margin: auto;
     padding-inline-start: 0px;
     pointer-events: none;
     width: fit-content;
@@ -522,9 +528,9 @@ p{
   }
 
 .explanation-list li{
-    margin: .35rem;
-    margin-left: 0;
-    font-size: 1em;
+    margin: .35rem auto;
+    /* margin-left: 0; */
+    font-size: 1.1em;
 }
 
 .explanation-list li::before{
@@ -854,13 +860,13 @@ pre span{
 
 .MuiSlider-markLabel{
     color: white !important;
-    left: 2.6em !important;
+    left: 50px !important;
     font-size: 1rem !important;
 }
 
 .MuiSlider-markLabelActive{
     color: #f06c07 !important;
-    left: 2.6em !important;
+    left: 50px !important;
     font-size: 1rem !important;
 }
 
@@ -1167,7 +1173,7 @@ input:checked + .switcher:before {
     width: auto;
     top: 25%;
     left: 55%;
-    border: solid black;
+    border: 3px solid black;
 }
 
 .thought-bubble p{
@@ -1175,6 +1181,7 @@ input:checked + .switcher:before {
     font-weight: 700;
     pointer-events: none;
     text-transform: uppercase;
+    font-family: 'Barlow', serif;
 }
 
 .thought-bubble div{
@@ -1307,9 +1314,9 @@ input:checked + .switcher:before {
     display: none;
 }
 
-.selection-swap{
+/* .selection-swap{
     display: none;
-}
+} */
 
 .thought-bubble.selection-bubble{
     position: absolute;
@@ -1318,9 +1325,9 @@ input:checked + .switcher:before {
 	border-radius: 35px;
     padding: 10px 10px 10px;
 	text-align: center;
-    width: auto;
+    width: 100%;
     top: 20%;
-    left: -5%;
+    left: -12%;
     border: solid black;
 }
 
@@ -1355,6 +1362,7 @@ input:checked + .switcher:before {
 
 .quick.row.move-row{
     margin-top: 2.5%;
+    height: 19em;
 }
 
 .pivot-value::before{
@@ -1387,9 +1395,9 @@ input:checked + .switcher:before {
     display: none;
 }
 
-.quick-swap{
+/* .quick-swap{
     display: none;
-}
+} */
 
 .quick-swap-pivot{
     display: none;
@@ -1417,19 +1425,19 @@ input:checked + .switcher:before {
     z-index: 5;
 	background: rgb(255, 239, 224);
 	border-radius: 35px;
-    padding: 0px 5px;
+    padding: 0px 15px;
 	text-align: center;
     width: 8em;
     top: 18%;
     left: -15%;
-    border: solid black;
+    border: 3px solid black;
 }
 
 
 .thought-bubble.quick-bubble p{
     text-transform: none;
     margin: 10px 0 5px;
-    font-size: .9em;
+    font-size: 1em;
     font-weight: 600;
 }
 
@@ -1437,7 +1445,7 @@ input:checked + .switcher:before {
     text-transform: none;
     margin: 5px 0 3px;
     font-weight: 600;
-    font-size: .8em;
+    font-size: .85em;
 }
 
 .stay-p {
@@ -1460,7 +1468,7 @@ input:checked + .switcher:before {
     margin-right: .5em;
     font-weight: 600;
     font-family: 'Barlow';
-    font-size: 23px;
+    font-size: 19px;
 }
 
 .feedback{
@@ -1484,7 +1492,7 @@ input:checked + .switcher:before {
     background-color: #0f0f0f;
     align-items: center;
     margin-top: 2%;
-    padding: 1em 0% 1em 2%;
+    padding: 1em .5% 1em 2%;
 }
 
 .hi{
@@ -1646,6 +1654,10 @@ input:checked + .switcher:before {
         width: 40%;
     }
 
+    .footer-link-container{
+        padding: 0 1em;
+    }
+
 }
 
 /******XX-Large devices (large desktops, 1200px and below)******/
@@ -1767,6 +1779,10 @@ input:checked + .switcher:before {
     .my-description{
         margin-right: 5px;
     }
+
+    .middle-container{
+        margin-left: 1%;
+    }
 }
 
 /******X-Large devices (desktops, 992px and below)******/
@@ -1850,6 +1866,7 @@ input:checked + .switcher:before {
         flex-wrap: wrap;
         padding-top: 2%;
         justify-content: center;
+        padding: 2% 0% 1em 2%;
     }
 
     .footer span{
@@ -1863,7 +1880,7 @@ input:checked + .switcher:before {
     .my-description{
         width: 80%;
         margin: 0 0 0 7%;
-        font-size: 1em;
+        font-size: .85em;
         padding-bottom: 2%;
     }
 
@@ -1872,6 +1889,7 @@ input:checked + .switcher:before {
         border-left: none;
         border-right: none;
         margin-top: auto;
+        margin-left: auto;
     }
 
     .socials{
@@ -2017,17 +2035,17 @@ input:checked + .switcher:before {
     }
 
     .side-display{
-        width: 50%;
+        width: 45%;
         margin: 4% auto 0;
         transform: none;
     }
 
     #sort-button{
-        font-size: .9em;
+        font-size: .8em;
     }
 
     .refresh-button {
-        padding: 0.65em 0.75em;
+        padding: 0.51em 0.65em;
     }
 
     .slider-label{
@@ -2035,17 +2053,15 @@ input:checked + .switcher:before {
     }
 
     .MuiSlider-markLabel {
-        left: 3.6em !important;
         font-size: .8em !important;
     }
 
     .MuiSlider-markLabelActive {
-        left: 3.6em !important;
         font-size: .8em !important;
     }
 
     .var-container{
-        font-size: 1em;
+        font-size: 1.15em;
     }
 
     .row{
@@ -2133,6 +2149,10 @@ input:checked + .switcher:before {
     .explanation{
         font-size: 1em;
     }
+
+    .explanation-heading{
+        letter-spacing: normal;
+    }
     
     pre{
         font-size: .9em !important;
@@ -2172,13 +2192,16 @@ input:checked + .switcher:before {
     }
 
     .helpful{
-        font-size: 21px;
+        font-size: 17px;
     }
 
     /*----------FOOTER----------*/
+    .footer{
+        padding: 1em 2%;
+    }
     .my-description{
         width: 100%;
-        margin: 0 auto 0 3%;
+        margin: 0 auto 0 2%;
     }
 
     .middle-container{
@@ -2198,7 +2221,7 @@ input:checked + .switcher:before {
 
     .footer-link-container{
         width: 100%;
-        font-size: 1em;
+        font-size: .9em;
         margin: 0% 10%;
     }
 
@@ -2293,7 +2316,7 @@ input:checked + .switcher:before {
     }
 
     .thought-bubble{
-        left: 15%;
+        left: 28%;
     }
 }
 
@@ -2354,7 +2377,7 @@ input:checked + .switcher:before {
     }
 
     .thought-bubble{
-        font-size: .85em;
+        font-size: .9em;
         padding: 4px 20px;
     }
 
@@ -2364,7 +2387,7 @@ input:checked + .switcher:before {
 
     /*----------FOOTER----------*/
     .footer{
-        padding-top: 1%;
+        padding-top: 2%;
     }
 
     .footer span{
@@ -2381,10 +2404,9 @@ input:checked + .switcher:before {
     }
 
     .my-description{
-        width: 80%;
+        width: 95%;
         margin: 0 auto 0;
-        margin-right: -5px;
-        font-size: .9em;
+        font-size: .85em;
     }
 
     .middle-container{
@@ -2399,6 +2421,7 @@ input:checked + .switcher:before {
     .copyright-container{
         margin: auto;
         margin-bottom: 2%;
+        font-size: .8em;
     }
 
     .footer-link-container{
@@ -2407,9 +2430,6 @@ input:checked + .switcher:before {
     }
 
     .footer-link-inner {
-        margin: auto 10%;
-        flex-direction: column;
-        margin: auto;
         font-size: .9em;
     }
 
@@ -2417,6 +2437,13 @@ input:checked + .switcher:before {
         letter-spacing: 1.5px;
     }
 }
+
+@media (max-width: 385px) {
+    .explanation-heading{
+        letter-spacing: .5px;
+    }
+}
+
 /******Extra Small Devices (359px and below)******/
 @media (max-width: 359px) {
     .footer{
@@ -2488,5 +2515,10 @@ input:checked + .switcher:before {
 
     .ava{
         margin-left: 0% !important;
+    }
+
+    .footer-link-inner {
+        flex-direction: column;
+        margin: auto;
     }
 }

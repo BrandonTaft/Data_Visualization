@@ -43,6 +43,7 @@ export default function Navbar({ path }) {
             values: {
                 xs: 0,
                 rs: 355,
+                ps: 400,
                 cs: 460,
                 sm: 600,
                 md: 900,
@@ -91,6 +92,7 @@ export default function Navbar({ path }) {
                                 <MenuIcon />
                             </IconButton>
                             <Menu
+                                className="menu-background"
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
@@ -108,7 +110,7 @@ export default function Navbar({ path }) {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                <div className='about-me-div'>
+                                <div className='hamburger about-me-div'>
                                     <List sx={{ padding: '10px' }}>
                                         <ListItem disablePadding>
                                             <Link href="/">
@@ -185,7 +187,7 @@ export default function Navbar({ path }) {
                                 display: { xs: 'flex', rs: 'flex', cs: 'flex', md: 'none' },
                                 flexGrow: 1,
                                 fontFamily: 'Playfair Display',
-                                fontSize: { xs: '.7em', rs: '1.2em', cs: '1.5em' },
+                                fontSize: { xs: '1.1em', rs: '1.2em', cs: '1.5em' },
                                 fontWeight: 700,
                                 letterSpacing: '.1rem',
                                 color: 'inherit',
@@ -217,13 +219,14 @@ export default function Navbar({ path }) {
                             </Box>
                         </Box>
                         <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="About Me">
+                            <Tooltip title="More of my work">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, color: "white" }}>
                                     <p className="about-me-p">Contact Me</p>
                                 </IconButton>
                             </Tooltip>
                             <Menu
-                                sx={{ mt: { rs: '25px', cs: '30px', sm: '40px'} }}
+                                className="menu-background"
+                                sx={{ mt: { rs: '25px', cs: '30px', sm: '40px'}, display: { xs: 'none', ps: 'block'} }}
                                 anchorEl={anchorElUser}
                                 anchorOrigin={{
                                     vertical: 'top',

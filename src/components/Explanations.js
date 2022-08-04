@@ -23,10 +23,10 @@ export function BubbleExplanation() {
 export function InsertionExplanation() {
     return (
         <>
-            <p className="insertion-explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
+            <p className="explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
                 The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another
                 card from the deck.  </p>
-            <ul className="insertion-explanation-list">
+            <ul className="explanation-list">
                 <li>The first element of the array will by default be the first element in the <span className="sorted-array">sorted array</span>.</li>
                 <li>The loop starts at the second element which is assigned the identifier <span className="current-explanation">current</span>.</li>
                 <li><span className="current-explanation">Current</span> is the first element in the <span className="unsorted-array">unsorted array</span> ( a.k.a the top card of the deck ).</li>
@@ -43,9 +43,9 @@ export function InsertionExplanation() {
 export function SelectionExplanation() {
     return (
         <>
-            <p className="selection-explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
+            <p className="explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
                 On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat untill you have gone through the whole array.  </p>
-            <ul className="insertion-explanation-list">
+            <ul className="explanation-list">
                 <li>The first pass will select the smallest value and move it to the left side of the array.</li>
                 <li>This is now the first element in the <span className="sorted-array">sorted array</span>.</li>
                 <li>On the second pass we look from the second position through the end of the array.</li>
@@ -58,21 +58,14 @@ export function SelectionExplanation() {
     )
 }
 
-export function QuickExplanationHeading() {
-    return (
-        <>
-            <p className="selection-explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to 
-             perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
-             There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me. It was used in a tutorial on a Youtube channel called 
-              <a className="referral" href="https://www.youtube.com/c/TheCodingTrain">&nbsp; The Coding Train.</a>  He has many great videos and I can't recommend them enough. </p>
-        </>
-    )
-}
-
 export function QuickExplanation() {
     return (
         <>
-            <ul className="insertion-explanation-list">
+            <p className="explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to 
+             perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
+             There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me. It was used in a tutorial on a Youtube channel called 
+              <a className="referral" href="https://www.youtube.com/c/TheCodingTrain">&nbsp; The Coding Train.</a>  He has many great videos and I can't recommend them enough. </p>
+              <ul className="insertion-explanation-list">
                 <li>The first line is a condition that will break out of the loop once the array is sorted.</li>
                 <li>The first step is to determine the pivot in the array.</li>
                 <li><span className="j-element">Pivot value</span> will always be the last element and referred to as end.</li>
@@ -93,4 +86,4 @@ export function QuickExplanation() {
             </ul>
         </>
     )
-}  
+}

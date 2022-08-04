@@ -102,7 +102,7 @@ function Bubble() {
     });
     
     return (
-        <div className="light page-container">
+        <div className="page-container">
             <div className="top-container">
                 <div className="explanation">
                     <BubbleExplanation />
