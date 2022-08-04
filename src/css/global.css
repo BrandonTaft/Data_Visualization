@@ -1314,9 +1314,9 @@ input:checked + .switcher:before {
     display: none;
 }
 
-/* .selection-swap{
+.selection-swap{
     display: none;
-} */
+}
 
 .thought-bubble.selection-bubble{
     position: absolute;
@@ -1395,9 +1395,9 @@ input:checked + .switcher:before {
     display: none;
 }
 
-/* .quick-swap{
+.quick-swap{
     display: none;
-} */
+}
 
 .quick-swap-pivot{
     display: none;
