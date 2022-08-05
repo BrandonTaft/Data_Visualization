@@ -79,7 +79,6 @@ export default function Navbar({ path }) {
                             {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-
                             <IconButton
                                 sx={{ padding: 0 }}
                                 size="large"
@@ -92,7 +91,6 @@ export default function Navbar({ path }) {
                                 <MenuIcon />
                             </IconButton>
                             <Menu
-                                className="menu-background"
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
@@ -108,10 +106,16 @@ export default function Navbar({ path }) {
                                 onClose={handleCloseNavMenu}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
+                                    '& .MuiPopover-paper': {
+                                        marginTop: { xs: '5px' }
+                                    },
+                                    '& .MuiMenu-list': {
+                                        backgroundColor: '#f06c07'
+                                    }
                                 }}
                             >
                                 <div className='hamburger about-me-div'>
-                                    <List sx={{ padding: '10px' }}>
+                                    <List>
                                         <ListItem disablePadding>
                                             <Link href="/">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
@@ -225,8 +229,14 @@ export default function Navbar({ path }) {
                                 </IconButton>
                             </Tooltip>
                             <Menu
-                                className="menu-background"
-                                sx={{ mt: { rs: '25px', cs: '30px', sm: '40px'}, display: { xs: 'none', ps: 'block'} }}
+                                
+                                sx={{
+                                    mt: { rs: '25px', cs: '30px', sm: '35px'},
+                                    display: { xs: 'none', ps: 'block'},
+                                    '& .MuiMenu-list': {
+                                        backgroundColor: '#f06c07'
+                                    }
+                                }}
                                 anchorEl={anchorElUser}
                                 anchorOrigin={{
                                     vertical: 'top',

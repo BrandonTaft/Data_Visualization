@@ -3,7 +3,9 @@
 export function BubbleExplanation() {
     return (
         <>
+            <div>
             <p className="explanation-heading">Bubble sort is a simple comparison-based algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
+            </div>
             <ul className="explanation-list">
                 <li>First, <span className="checked-variable">checked</span> is initialized, then it is set to false once inside the while loop.</li>
                 <li>The for loop determines if each pair of adjacent elements are in the correct order.</li>
@@ -29,9 +31,9 @@ export function InsertionExplanation() {
             <ul className="explanation-list">
                 <li>The first element of the array will by default be the first element in the <span className="sorted-array">sorted array</span>.</li>
                 <li>The loop starts at the second element which is assigned the identifier <span className="current-explanation">current</span>.</li>
-                <li><span className="current-explanation">Current</span> is the first element in the <span className="unsorted-array">unsorted array</span> ( a.k.a the top card of the deck ).</li>
-                <li>The element before <span className="current-explanation">current</span> is the last element in the <span className="sorted-array">sorted array</span> and is tracked with <span className="j-element">j</span>.</li>
-                <li>The while loop runs as long as <span className="current-explanation">current</span> is less than the element in front of it ( <span className="j-element">arr[ j ]</span> ).</li>
+                <li><span className="current-explanation">Current</span> is the first element in the <span className="unsorted-array">unsorted array</span> ( a.k.a the top card of the deck&nbsp;).</li>
+                <li>The element before <span className="current-explanation">current</span> is the last element in the <span className="sorted-array">sorted array</span> and is tracked with&nbsp;<span className="j-element">j</span>.</li>
+                <li>The while loop runs as long as <span className="current-explanation">current</span> is less than the element in front of it (&nbsp;<span className="j-element">arr[&nbsp;j&nbsp;]</span>&nbsp;).</li>
                 <li>It shifts larger elements to the right, leaving a space for <span className="current-explanation">current</span> to be inserted in front.</li>
                 <li>The for loop starts over with the new  <span className="current-explanation">current</span> element and repeats the process.</li>
                 <li>Once the for loop completes its last iteration the  array will be completely sorted.</li>
