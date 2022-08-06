@@ -112,16 +112,16 @@ function Selection() {
                     <div className="text">{tube}</div>
                 </div>
                 <div className="selection-stay thought-bubble selection-bubble bubble-bottom-left " id={`selection-stay${index}`}>
-                    <p className="greater">{tube} &gt; min</p>
-                    <p>min stays the same</p>
+                    <p className="selection greater">{tube} &gt; min</p>
+                    <p className="no-tm">min stays the same</p>
                 </div>
                 <div className="selection-swap thought-bubble selection-bubble bubble-bottom-left " id={`selection-swap${index}`}>
-                    <p className="less" >{array[index]} &lt; min</p>
-                    <div>This is the new min</div>
-                    <SwapIcon sx={{ fontSize: 40 }} />
+                    <p className="selection less" >{array[index]} &lt; min</p>
+                    <p className="no-tm">This is the new min</p>
+                    <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
                 </div>
                 <div className="move-to-front thought-bubble selection-bubble bubble-bottom-left " id={`move-to-front${index}`}>
-                    <div className="selection-div">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</div>
+                    <p className="mtf-p">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</p>
                 </div>
                 <div className="i-is-min thought-bubble selection-bubble bubble-bottom-left " id={`i-is-min${index}`}>
                     <div className="selection-div"><span className="j-element">arr[i]</span> was the lowest element so it stays where it is. </div>
@@ -136,7 +136,7 @@ function Selection() {
     return (
         <div className="page-container">
             <Box className="top-container">
-                <Box className="explanation">
+                <Box className="selection explanation">
                     <SelectionExplanation />
                 </Box>
                 <Method method={"selection"} />

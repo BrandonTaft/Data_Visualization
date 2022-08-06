@@ -127,7 +127,7 @@ function Insertion() {
             </div>
         )
     });
-
+    
     return (
         <div className="page-container">
             <Box className="top-container">
