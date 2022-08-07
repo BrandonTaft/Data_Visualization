@@ -111,20 +111,20 @@ function Selection() {
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="selection-stay thought-bubble selection-bubble bubble-bottom-left " id={`selection-stay${index}`}>
+                <div className="selection selection-stay thought-bubble bubble-bottom-left " id={`selection-stay${index}`}>
                     <p className="selection greater">{tube} &gt; min</p>
-                    <p className="no-tm">min stays the same</p>
+                    <p className="selection no-tm mb">min stays the same</p>
                 </div>
-                <div className="selection-swap thought-bubble selection-bubble bubble-bottom-left " id={`selection-swap${index}`}>
+                <div className="selection selection-swap thought-bubble bubble-bottom-left " id={`selection-swap${index}`}>
                     <p className="selection less" >{array[index]} &lt; min</p>
-                    <p className="no-tm">This is the new min</p>
-                    <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
+                    <p className="selection no-tm">This is the new min</p>
+                    <SwapIcon className="selection swap-icon" sx={{ fontSize: 40 }} />
                 </div>
-                <div className="move-to-front thought-bubble selection-bubble bubble-bottom-left " id={`move-to-front${index}`}>
+                <div className="selection move-to-front thought-bubble mtf bubble-bottom-left " id={`move-to-front${index}`}>
                     <p className="mtf-p">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</p>
                 </div>
-                <div className="i-is-min thought-bubble selection-bubble bubble-bottom-left " id={`i-is-min${index}`}>
-                    <div className="selection-div"><span className="j-element">arr[i]</span> was the lowest element so it stays where it is. </div>
+                <div className="selection i-is-min thought-bubble iim mtf bubble-bottom-left " id={`i-is-min${index}`}>
+                    <p className="mtf-p tm">&nbsp;<span className="j-element">arr[i]</span>&nbsp; was the lowest element so it stays where it is. </p>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
                     <div>Sorted&nbsp;!!!</div>

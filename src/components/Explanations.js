@@ -65,20 +65,20 @@ export function QuickExplanation() {
         <>
             <p className="explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to 
              perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
-             There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me. It was used in a tutorial on a Youtube channel called 
-              <a className="referral" href="https://www.youtube.com/c/TheCodingTrain">&nbsp; The Coding Train.</a>  He has many great videos and I can't recommend them enough. </p>
+             There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me.
+            </p>
               <ul className="insertion-explanation-list">
                 <li>The first line is a condition that will break out of the loop once the array is sorted.</li>
                 <li>The first step is to determine the pivot in the array.</li>
-                <li><span className="j-element">Pivot value</span> will always be the last element and referred to as end.</li>
-                <li><span className="sorted-array">Pivot index</span> will always start at the first element and referred to as start to begin with.</li>
-                <li>Next we call the partition function and pass in the array , start and end.</li>
-                <li>The partition function does all of the hard work.</li>
+                <li><span className="j-element">Pivot value</span> will always be the last element and is referred to as end.</li>
+                <li><span className="sorted-array">Pivot index</span> will always start at the first element and is referred to as start to begin with.</li>
+                <li>Next we call the partition function and pass in the array , and the start and end values.</li>
                 <li>It loops through the array checking if each element is less than the <span className="j-element">Pivot value</span>.</li>
-                <li>If it's less, the swap function swaps the places of that element with the <span className="sorted-array">pivot index</span>.</li>
-                <li>If the current element is the <span className="sorted-array">pivot index</span> it will just stay where it is.</li>
+                <li>If the element is greater than the <span className="j-element">Pivot value</span> nothing happens and it moves to the next element.</li>
+                <li>If it's less, the swap function swaps the places of that element and the <span className="sorted-array">pivot index</span>.</li>
                 <li>Then it moves the <span className="sorted-array">pivot index</span> one spot to the right by adding 1 to it.</li>
-                <li>If it's not less than the <span className="j-element">Pivot value</span> nothing happens and it moves to the next element.</li>
+                <li>In other words, the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li>
+                <li>If the element is the <span className="sorted-array">pivot index</span> it won't move, but the element to its right will now be the <span className="sorted-array">pivot index</span>.</li>
                 <li>Once the loop is done, the swap function swaps the <span className="sorted-array">pivot index</span> with the <span className="j-element">Pivot value</span>.</li>
                 <li>Then quicksort calls itself two times:</li>
                 <li>Once to sort the elements on the left side of new <span className="sorted-array">pivot index</span>.</li>
