@@ -8,7 +8,7 @@ import { SelectionExplanation } from "../src/components/Explanations";
 
 function Selection() {
 
-    const [speed, setSpeed] = useState(2500);
+    const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh } = getArray();

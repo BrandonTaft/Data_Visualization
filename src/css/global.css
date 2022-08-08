@@ -47,19 +47,8 @@
     color: #f55;
 }
 
-[data-theme='dark'] .thought-bubble {
-    background-color: #303134;
-    color: ghostwhite;
-}
-
-[data-theme='dark'] .thought-bubble.selection.thought-bubble {
-    background-color: #303134;
-    color: ghostwhite;
-}
-
-[data-theme='dark'] .bubble-bottom-left:after {
-    border-left: 24px solid #303134;
-    border-top: 12px solid #303134;
+[data-theme='dark'] .checked-variable{
+    color: dodgerblue;
 }
 
 [data-theme='dark'] .tube{
@@ -94,23 +83,8 @@
     margin-bottom: 2%;
 }
 
-[data-theme='dark'] .insertion-explanation-heading{
-    font-weight: 500;
-}
-
 [data-theme='dark'] .min-tube{
     --fill-color: green;
-}
-
-[data-theme='dark'] .thought-bubble.selection.thought-bubble p{
-    text-transform: none;
-    margin: 10px 0 10px;
-    font-size: 1.1em;
-    font-weight: 400;
-}
-
-[data-theme='dark'] .thought-bubble.selection.thought-bubble div{
-    font-weight: 400;
 }
 
 [data-theme='dark'] .pivot-value-tube{
@@ -119,6 +93,50 @@
 
 [data-theme='dark'] .pivot-index-tube{
     --fill-color: purple;
+}
+
+[data-theme='dark'] .quick-current{
+    --fill-color: green;
+}
+
+[data-theme='dark'] .index-element{
+    bottom: 5%;
+    --fill-color: #f06c07;
+}
+
+[data-theme='dark'] .thought-bubble {
+    background-color: #303134;
+    color: ghostwhite;
+}
+
+[data-theme='dark'] .bubble-bottom-left:after {
+    border-left: 24px solid #303134;
+    border-top: 12px solid #303134;
+}
+
+[data-theme='dark'] .selection.thought-bubble p{
+    text-transform: none;
+    margin: 10px 0 10px;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+[data-theme='dark'] .selection.thought-bubble div{
+    font-weight: 400;
+}
+
+[data-theme='dark'] .thought-bubble.quick-bubble p{
+    text-transform: none;
+    margin: 10px 0 5px;
+    font-size: .9em;
+    font-weight: 600;
+}
+
+[data-theme='dark'] .thought-bubble.quick-bubble div{
+    text-transform: none;
+    margin: 5px 0 3px;
+    font-weight: 600;
+    font-size: .8em;
 }
 
 [data-theme='dark'] .thought-bubble.quick-bubble p{
@@ -138,35 +156,7 @@
     color: ghostwhite;
 }
 
-[data-theme='dark'] .quick-current{
-    --fill-color: green;
-}
-
-[data-theme='dark'] .index-element{
-    bottom: 5%;
-    --fill-color: #f06c07;
-}
-
-[data-theme='dark'] .thought-bubble.quick-bubble p{
-    text-transform: none;
-    margin: 10px 0 5px;
-    font-size: .9em;
-    font-weight: 600;
-}
-
-[data-theme='dark'] .thought-bubble.quick-bubble div{
-    text-transform: none;
-    margin: 5px 0 3px;
-    font-weight: 600;
-    font-size: .8em;
-}
-
-[data-theme='dark'] .checked-variable{
-    color: dodgerblue;
-}
-
-[data-theme='dark'] .like-it{
-    
+[data-theme='dark'] .like-it{ 
     font-size: 15px;
     color: white;
     align-items: center;
@@ -518,12 +508,12 @@ p{
     pointer-events: none;
     width: fit-content;
     margin: auto;
-    padding: 0 10px;
+    padding: 0 5px;
+    font-weight: 400;
   }
 
 .explanation-list li{
     margin: .35rem auto;
-    /* margin-left: 0; */
     font-size: 1.1em;
 }
 
@@ -531,7 +521,6 @@ p{
     position: relative;
     bottom: 2px;
     content: "";
-   /* background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% ); */
    background: radial-gradient( 80% 75% at 67% 43%, #f5bb67, #ff6f00 90% );
     width: .75rem;
     height: .75rem;
@@ -539,37 +528,7 @@ p{
     display: inline-block;
     color: white;
     margin-right: 0.4rem;
-}
-  
-.insertion-explanation-list{
-    list-style: none;
-    padding-inline-start: 0px;
-    pointer-events: none;
-    margin: 0;
-    margin: auto;
-    width: 95%;
-}
-
-.insertion-explanation-list li{
-    margin: .35rem;
-    margin-left: 0;
-    font-size: 1em;
-    letter-spacing: .01rem;
-    line-height: 1.3em;
-}
-
-.insertion-explanation-list li::before{
-    position: relative;
-    content: "";
-    /* background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% ); */
-    background: radial-gradient( 80% 75% at 67% 43%, #f5bb67, #ff6f00 90% );
-    width: .75rem;
-    height: .75rem;
-    border-radius: 50%;
-    display: inline-block;
-    color: white;
-    margin-right: 0.4rem;
-}
+}  
 
 .checked-variable{
     color: blue;
@@ -1229,7 +1188,6 @@ pre span{
 .selection.thought-bubble{
     position: absolute;
     z-index: 5;
-	background: rgb(255, 239, 224);
 	border-radius: 30px;
     padding-top: 3px;
     padding-bottom: 8px;
@@ -1317,17 +1275,9 @@ pre span{
     font-weight: 600;
 }
 
-.thought-bubble.quick-bubble div{
-    text-transform: none;
-    margin: 5px 0 3px;
-    font-weight: 600;
-    font-size: .85em;
-}
-
 .quick.thought-bubble{
     position: absolute;
     z-index: 5;
-	background: rgb(255, 239, 224);
 	border-radius: 35px;
     padding: 10px 10px 17px;
 	text-align: center;

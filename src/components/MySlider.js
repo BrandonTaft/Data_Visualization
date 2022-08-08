@@ -8,39 +8,39 @@ function MySlider({ speed, setSpeed }) {
             label: '0s',
         },
         {
-            value: 500
-        },
-        {
-            value: 1000,
-            label: '1s',
-        },
-        {
-            value: 1500
+            value: 1000
         },
         {
             value: 2000,
             label: '2s',
         },
         {
-            value: 2500
-        },
-        {
-            value: 3000,
-            label: '3s',
-        },
-        {
-            value: 3500
+            value: 3000
         },
         {
             value: 4000,
             label: '4s',
         },
         {
-            value: 4500,
+            value: 5000
         },
         {
-            value: 5000,
-            label: '5s',
+            value: 6000,
+            label: '6s',
+        },
+        {
+            value: 7000
+        },
+        {
+            value: 8000,
+            label: '8s',
+        },
+        {
+            value: 9000,
+        },
+        {
+            value: 10000,
+            label: '10',
         },
     ];
 
@@ -52,10 +52,10 @@ function MySlider({ speed, setSpeed }) {
                 <Slider
                     aria-label="Speed Slider"
                     size="large"
-                    step={500}
+                    step={1000}
                     marks={marks}
-                    defaultValue={2500}
-                    max={5000}
+                    defaultValue={3000}
+                    max={10000}
                    
                     valueLabelDisplay="off"
                     orientation='vertical'

@@ -7,7 +7,7 @@ import { QuickExplanation } from "../src/components/Explanations";
 
 function QuickSort() {
 
-    const [speed, setSpeed] = useState(2500);
+    const [speed, setSpeed] = useState(3000);
     // eslint-disable-next-line no-unused-vars
     const [myPivotIndex, setMyPivotIndex] = useState([]);
     const { array, setArray, refresh, setRefresh} = getArray();
@@ -155,7 +155,7 @@ function QuickSort() {
                 </div>
                 <div className="quick start-greater-end thought-bubble bubble-bottom-left " id={`start-greater-end${index}`}>
                     <p className="quick-greater">start &gt;= end </p>
-                    <p> This array is sorted. </p>
+                    <p> This element is sorted. </p>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
                     <div>Sorted&nbsp;!!!</div>

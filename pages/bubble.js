@@ -9,7 +9,7 @@ import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 
 function Bubble() {
-    const [speed, setSpeed] = useState(2500);
+    const [speed, setSpeed] = useState(3000);
     const [checked, setChecked] = useState("");
     const { array, setArray, refresh, setRefresh } = getArray();
     const router = useRouter();
