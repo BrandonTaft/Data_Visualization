@@ -473,8 +473,8 @@ p{
 
 .top-container{
     display: flex;
-    margin: 0 .1em;
-    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
@@ -486,15 +486,16 @@ p{
 }
 
 .explanation-heading{
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'Barlow', serif;
     margin: 2% auto;
     pointer-events: none;
     letter-spacing: .5px;
-    font-size: 1.1em;
+    font-size: 1.15em;
 }
 
 .insertion-explanation-heading{
-    font-weight: 600;
+    
     font-size: 19px;
     margin: 1% 2% 2% 0;
     pointer-events: none;
@@ -505,16 +506,9 @@ p{
     pointer-events: none;
 }
 
-.quick-explanation-heading{
-    margin: 0 3em;
-    font-size: 20px;
-}
-
 .explanation {
 	font-size: 1.25em;
-    width: 60%;
-    padding-left: 5px;
-    padding-right: 5px;
+    width: 65%;
 }
 
 .explanation-list{
@@ -524,6 +518,7 @@ p{
     pointer-events: none;
     width: fit-content;
     margin: auto;
+    padding: 0 10px;
   }
 
 .explanation-list li{
@@ -550,6 +545,8 @@ p{
     padding-inline-start: 0px;
     pointer-events: none;
     margin: 0;
+    margin: auto;
+    width: 95%;
 }
 
 .insertion-explanation-list li{
@@ -562,15 +559,15 @@ p{
 
 .insertion-explanation-list li::before{
     position: relative;
-    top: 1px;
     content: "";
-    background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% );
-    width: 1rem;
-    height: 1rem;
+    /* background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% ); */
+    background: radial-gradient( 80% 75% at 67% 43%, #f5bb67, #ff6f00 90% );
+    width: .75rem;
+    height: .75rem;
     border-radius: 50%;
     display: inline-block;
     color: white;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
 }
 
 .checked-variable{
@@ -601,12 +598,14 @@ p{
     color: #b30202;
 }
 
-
+.value-element{
+    color: #f06c07;
+}
 /*********************Method********************/
 
 .method{    
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
+    margin-left: 10px;
 }
 
 pre{
@@ -1079,7 +1078,7 @@ pre span{
 
 .thought-bubble p{
     margin: 0px 0px 3px;
-    font-weight: 700;
+    font-weight: 600;
     pointer-events: none;
     text-transform: uppercase;
     font-family: 'Barlow', serif;
@@ -1151,6 +1150,11 @@ pre span{
     font-family: 'Playfair Display', serif;
 }
 
+.greater{
+    color: #f06c07;
+    font-size: 20px;
+}
+
 @keyframes fill-before{ to { height: var(--fill-end)}}
 @keyframes fill-after { to { bottom: var(--fill-end)}}
 
@@ -1188,8 +1192,6 @@ pre span{
 .move-the-bubble{
     top: 28%;
 }
-
-
 
 /****************Selection Tubes******************/
 
@@ -1314,28 +1316,6 @@ pre span{
     font-weight: 600;
 }
 
-
-.thought-bubble.quick-bubble{
-    position: absolute;
-    z-index: 5;
-	background: rgb(255, 239, 224);
-	border-radius: 35px;
-    padding: 0px 15px;
-	text-align: center;
-    width: 8em;
-    top: 18%;
-    left: -15%;
-    border: 3px solid black;
-}
-
-
-.thought-bubble.quick-bubble p{
-    text-transform: none;
-    margin: 10px 0 5px;
-    font-size: 1em;
-    font-weight: 600;
-}
-
 .thought-bubble.quick-bubble div{
     text-transform: none;
     margin: 5px 0 3px;
@@ -1343,8 +1323,35 @@ pre span{
     font-size: .85em;
 }
 
-.stay-p {
-    margin-bottom: 1em !important;
+.quick.thought-bubble{
+    position: absolute;
+    z-index: 5;
+	background: rgb(255, 239, 224);
+	border-radius: 35px;
+    padding: 10px 10px 17px;
+	text-align: center;
+    width: 100%;
+    top: 23%;
+    left: -12%;
+    border: 3px solid black;
+    font-size: 1em;
+}
+
+.quick.thought-bubble p{
+    text-transform: none;
+}
+
+.qs{
+    font-size: .95em !important;
+    top: 20% !important;
+}
+
+.quick-greater{
+    color: #f06c07;
+}
+
+.quick-p{
+    font-weight: 500 !important;
 }
 
 /****************************Feedback****************************/
@@ -1386,7 +1393,7 @@ pre span{
     color: ghostwhite;
     background-color: #0f0f0f;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 7%;
     padding: 1em .5% 1em 2%;
 }
 
@@ -1507,6 +1514,12 @@ pre span{
         font-size: 60px;
     }
 
+    .insertion-explanation-list li::before{
+        bottom: 1px;
+        width: .85rem;
+        height: .85rem;
+    }
+
     /*---------BOTTOM CONTAINER--------*/
     .bottom-container{
         margin-top: 2%;
@@ -1578,15 +1591,18 @@ pre span{
     .selection.mb{
         margin-bottom: 15% !important;
     }
-
-
-    .quick-swap{
-        padding-bottom: 0 !important;
+    
+    .quick.thought-bubble{
+        padding: 10px 5px 12px;
+        top: 22%;
+        left: -7%;
+        font-size: 1.1em;
     }
 
-    .quick-stay{
-        padding-bottom: 0 !important;
-    }    
+    .qs{
+        font-size: .95em !important;
+        top: 21% !important;
+    }
 
     #finished2{
         left: 7%;
@@ -1718,6 +1734,12 @@ pre span{
         font-size: 1em;
     }
 
+    .insertion-explanation-list li::before{
+        width: .7rem;
+        height: .7rem;
+        margin-right: .3rem;
+    }
+
     /*---------BOTTOM CONTAINER--------*/
     .bottom-container{
         padding: 0;
@@ -1758,6 +1780,15 @@ pre span{
 
     .mtf-p{
         margin: 8px 0 5px !important;
+    }
+
+    .quick.thought-bubble{
+        top: 18%;
+        padding: 9px 10px 15px;
+    }
+
+    .qs{
+        top: 17% !important;
     }
 
     #finished2{
@@ -1802,10 +1833,12 @@ pre span{
     /*----------TOP CONTAINER----------*/
     .top-container{
         flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .explanation{
-        width: 90%;
+        width: auto;
         margin-left: auto;
         margin-right: auto;
         font-size: 1.35em;
@@ -1816,7 +1849,14 @@ pre span{
     }
 
     .explanation-list li{
-        font-size: 1.05;
+        font-size: 1em;
+    }
+
+    .insertion-explanation-list li::before{
+        width: .8rem;
+        height: .8rem;
+        margin-right: .4rem;
+        bottom: 1px;
     }
 
     .method{
@@ -1824,7 +1864,7 @@ pre span{
     }
 
     pre{
-        font-size: 1.1em !important;
+        font-size: 1em !important;
     }
 
     .row{
@@ -1839,17 +1879,16 @@ pre span{
         left: 50%;
     }
 
-    /* .thought-bubble. selection-bubble{
-        padding: 3px 10px 10px;
-        top: 15%;
-        left: -12%;
-        font-size: .95em;
-    } */
-
     .selection.mtf{
         top: 17% !important;
         padding-top: 0px !important;
         padding-bottom: 9px !important;
+    }
+
+    .qs{
+        font-size: .92em !important;
+        top: 14% !important;
+        padding: 7px 8px 13px !important;
     }
 
     #finished2{
@@ -1907,12 +1946,11 @@ pre span{
 
     /*----------TOP CONTAINER----------*/
     .explanation{
-        width: 95%;
         font-size: 1.25em;
     }
 
     pre{
-        font-size: 1em !important;
+        font-size: .9em !important;
     }
 
     /*--------BOTTOM CONTAINER---------*/
@@ -1981,14 +2019,19 @@ pre span{
         margin-bottom: 5px !important;
     }
 
-    .selection-div{
-        font-size: .82em !important;
-        margin: 2px 0 4px !important;
+    .quick.thought-bubble{
+        top: 15%;
+        padding: 7px 7px 13px;
+        left: -13%;
+    }
+
+    .qs{
+        font-size: .86em !important;
+        top: 10% !important;
     }
 
     /*----------FOOTER----------*/
     .footer{
-        margin-top: 1%;
         flex-wrap: wrap;
         padding-top: 2%;
         justify-content: center;
@@ -2084,6 +2127,14 @@ pre span{
         gap: .65em;
     }
 
+    .quick.thought-bubble{
+        font-size: .85em;
+    }
+
+    .qs{
+        font-size: .8em !important;
+    }
+
     .cap{
         font-size: .9em;
     }    
@@ -2095,6 +2146,10 @@ pre span{
     /*-------TOP CONTAINER------*/
     .explanation{
         font-size: 1.15em;
+    }
+
+    .insertion-explanation-list li::before{
+        bottom: 0px;
     }
 
     /*----------TUBES----------*/
@@ -2138,6 +2193,10 @@ pre span{
         margin: 6px 0 7px !important;
     }
 
+    .quick.row.move-row{
+        height: 16em;
+        margin-top: 1.5%;
+    }
 
 }
 
@@ -2145,6 +2204,10 @@ pre span{
 @media (max-width: 810px) {
     .cap{
         padding: 5px 0;
+    }
+
+    .qs{
+        top: 5% !important;
     }
 }
 
@@ -2220,6 +2283,10 @@ pre span{
         margin-right: 0.2rem;
     }
 
+    .insertion-explanation-list li::before{
+        margin-right: .3rem;
+    }
+
     /*--------BOTTOM CONTAINER---------*/
     
     .bottom-container{
@@ -2282,10 +2349,6 @@ pre span{
         font-size: 1em;
     }
 
-    .greater{
-        font-size: 1em;
-    }
-
     .less{
         font-size: 1em;
     }
@@ -2302,6 +2365,18 @@ pre span{
     .mtf-p{
         font-size: .85em !important;
         margin: 7px 0 4px !important;
+    }
+
+    .quick.thought-bubble{
+        font-size: 1em;
+        top: 18%;
+        padding: 10px 7px 15px;
+        left: -10%;
+    }
+
+    .qs{
+        font-size: .9em !important;
+        top: 18% !important;
     }
 
     #finished2{
@@ -2330,6 +2405,18 @@ pre span{
 
     .mtf-p{
         margin: 5px 1px 3px !important;
+    }
+
+    .quick.thought-bubble{
+        top: 16%;
+        padding: 8px 7px 13px;
+        left: -10%;
+    }
+
+    .qs{
+        font-size: .88em !important;
+        top: 5% !important;
+        padding: 9px 6px 13px !important;
     }
 }
 
@@ -2372,16 +2459,18 @@ pre span{
     .explanation-heading{
         letter-spacing: normal;
     }
+
+    .insertion-explanation-list li::before{
+        width: .7rem;
+        height: .7rem;
+        margin-right: .25rem;
+    }
     
     pre{
-        font-size: .9em !important;
+        font-size: .8em !important;
     }
     
     /*--------BOTTOM CONTAINER---------*/
-    .top-container{
-        margin: 0;
-    }
-
     .side-display{
         width: 60%;
     }
@@ -2443,9 +2532,16 @@ pre span{
         margin-bottom: 5px !important;
     }
 
-    .selection-div{
-        font-size: .9em !important;
-    } 
+    .quick.row.move-row {
+        margin-top: 5%;
+    }
+
+    .quick.thought-bubble{
+        font-size: .95em;
+        top: 14%;
+        padding: 7px 5px 12px;
+        left: -10%;
+    }
 
     #finished2{
         left: -90%;
@@ -2462,6 +2558,7 @@ pre span{
     /*----------FOOTER----------*/
     .footer{
         padding: 1em 2%;
+        margin-top: 10%;
     }
     .my-description{
         width: 100%;
@@ -2496,6 +2593,12 @@ pre span{
     .socials{
         margin-bottom: 0%;
     }
+}
+
+@media (max-width: 520px) {
+.qs{
+    font-size: .85em !important;
+}
 }
 
 @media (max-width: 490px) {
@@ -2552,6 +2655,20 @@ pre span{
         bottom: -8px;
     }
 
+    .quick.bubble-bottom-left:before{
+        border-left: 20px solid #000;
+        border-right: 8px solid #0000;
+        border-top: 8px solid #000;
+        border-bottom: 16px solid #0000;
+        bottom: -14px;
+        left: 10px;
+    }
+
+    .quick.bubble-bottom-left:after{
+        bottom: -8px;
+        left: 13px;
+    }
+
     .move-the-bubble{
         top: 26%;
     }
@@ -2564,9 +2681,28 @@ pre span{
         top: 17% !important;
     }
 
-    .selection-div{
-        font-size: .95em !important;
-    } 
+    .quick.thought-bubble{
+        font-size: .9em;
+        top: 13%;
+        padding: 10px 5px 15px;
+        left: -14%;
+    }
+
+    .quick.bubble-bottom-left:before{
+        border-left: 20px solid #000;
+        border-right: 8px solid #0000;
+        border-top: 8px solid #000;
+        border-bottom: 16px solid #0000;
+        bottom: -14px;
+    }
+
+    .quick.bubble-bottom-left:after{
+        bottom: -8px;
+    }
+
+    .qs{
+        font-size: .8em !important;
+    }
 
     #finished2{
         font-size: 2em;
@@ -2628,6 +2764,11 @@ pre span{
     .header-title-3{
         margin-left: 46% !important;
     }
+    
+    .top-container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
     .thought-bubble{
         left: 28%;
@@ -2651,6 +2792,11 @@ pre span{
 
     .selection.row{
         gap: .6em;
+    }
+
+    .qs{
+        font-size: .75em !important;
+        top: 13% !important;
     }
 
     .cap{
@@ -2756,9 +2902,15 @@ pre span{
         margin: 6px 0 6px !important;
     }
 
-    .selection-div{
-        margin: 10px 0 7px !important;
-    } 
+    .quick.thought-bubble{
+        font-size: .8em;
+        padding: 10px 6px 15px;
+        left: -16%;
+    }
+
+    .qs{
+        top: 10% !important;
+    }
 
     #finished2{
         left: -95%;
@@ -2818,9 +2970,11 @@ pre span{
         letter-spacing: .5px;
     }
 
-    /* .thought-bubble. selection-bubble{
-        padding: 0px 5px 7px;
-    } */
+    .qs{
+        font-size: .7em !important;
+        top: 5% !important;
+        padding: 9px 4px 13px !important;
+    }
 }
 
 /******Extra Small Devices (359px and below)******/
@@ -2867,6 +3021,12 @@ pre span{
 
     .selection.mtf{
         top: 11% !important;
+    }
+
+    .quick.thought-bubble{
+        font-size: .75em;
+        top: 10%;
+        padding-top: 7px;
     }
 }
 
@@ -2952,6 +3112,12 @@ pre span{
 
     .mtf-p {
         margin: 4px 0 10px !important;
+    }
+
+    .qs{
+        font-size: .6em !important;
+        top: 5% !important;
+        padding: 9px 4px 13px !important;
     }
 
     /*----------FOOTER----------*/

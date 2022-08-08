@@ -88,7 +88,7 @@ function Bubble() {
                 <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
                     <p className="greater">{array[index]} &gt; {array[index + 1]}</p>
                     <p>Swap</p>
-                    <SwapIcon sx={{ fontSize: 40 }} />
+                    <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
                 </div>
                 <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
                     <p className="less" >{array[index]} &lt; {array[index + 1]}</p>

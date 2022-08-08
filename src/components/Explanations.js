@@ -46,7 +46,7 @@ export function SelectionExplanation() {
     return (
         <>
             <p className="explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
-                On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat untill you have gone through the whole array.  </p>
+                On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat until you have gone through the whole array.  </p>
             <ul className="explanation-list">
                 <li>The first pass will select the smallest value and move it to the left side of the array.</li>
                 <li>This is now the first element in the <span className="sorted-array">sorted array</span>.</li>
@@ -68,23 +68,31 @@ export function QuickExplanation() {
              There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me.
             </p>
               <ul className="insertion-explanation-list">
-                <li>The first line is a condition that will break out of the loop once the array is sorted.</li>
-                <li>The first step is to determine the pivot in the array.</li>
-                <li><span className="j-element">Pivot value</span> will always be the last element and is referred to as end.</li>
-                <li><span className="sorted-array">Pivot index</span> will always start at the first element and is referred to as start to begin with.</li>
-                <li>Next we call the partition function and pass in the array , and the start and end values.</li>
-                <li>It loops through the array checking if each element is less than the <span className="j-element">Pivot value</span>.</li>
-                <li>If the element is greater than the <span className="j-element">Pivot value</span> nothing happens and it moves to the next element.</li>
-                <li>If it's less, the swap function swaps the places of that element and the <span className="sorted-array">pivot index</span>.</li>
-                <li>Then it moves the <span className="sorted-array">pivot index</span> one spot to the right by adding 1 to it.</li>
-                <li>In other words, the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li>
-                <li>If the element is the <span className="sorted-array">pivot index</span> it won't move, but the element to its right will now be the <span className="sorted-array">pivot index</span>.</li>
-                <li>Once the loop is done, the swap function swaps the <span className="sorted-array">pivot index</span> with the <span className="j-element">Pivot value</span>.</li>
+                <li>The first step is to set a condition that will break out of the loop once the array is sorted.</li>
+                <li>Next it calls the partition function and passes in the array with the first and last indexes.</li>
+                <li>Inside the Partition function, the element in that first index will always start as the <span className="sorted-array">Pivot index</span>.</li>
+                <li>While the element in the end index will always be the <span className="j-element">Pivot value</span>.</li>
+                <li>Then it loops through the array checking if each element is less than the <span className="j-element">Pivot value</span>.</li>
+                
+                <li>If the element is greater than the <span className="j-element">Pivot value</span>, nothing changes and it moves to the next element.</li>
+                
+                <li>If it's less than the <span className="j-element">Pivot value</span>, it's value and the value of the <span className="sorted-array">pivot index</span> will swap places.</li>
+                <li>If the element is already in the <span className="sorted-array">pivot index</span> it will stay where it is.</li>
+                <li>Then it moves the <span className="sorted-array">pivot index</span> one index to the right by adding 1 to it.</li>
+              
+                {/* <li>To clarify, the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li> */}
+                <li>To clarify, if an element is less than the <span className="j-element">Pivot value</span> it will swap places with the value of the <span className="sorted-array">pivot index</span>,
+                if the element was already in the pivot index it will just stay where it is. Then the <span className="sorted-array">pivot index</span> will move one spot to the right, meaning
+                the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li>
+                
+                
+                <li>When the loop reaches the <span className="j-element">Pivot value</span>, it's value is swapped with the value of the <span className="sorted-array">pivot index</span>.</li>
                 <li>Then quicksort calls itself two times:</li>
                 <li>Once to sort the elements on the left side of new <span className="sorted-array">pivot index</span>.</li>
                 <li>And once again to sort the elements on the right side of the new <span className="sorted-array">pivot index</span>.</li>
-                <li>When the subarrays are down to fewer than two elements it will not pass the condition.</li>
-                <li>This breaks the loop and since the subarrays are sorted in place, the array is sorted.</li>
+                <li>This process repeats until the subarrays are broken down to one element.</li>
+                <li>Now the original condition can't be met which allows the function to stup running.</li>
+                <li>Since the subarrays have been sorted in place, the array is now completely sorted.</li>
             </ul>
         </>
     )

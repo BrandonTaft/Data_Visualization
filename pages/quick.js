@@ -38,7 +38,6 @@ function QuickSort() {
             document.getElementById("menu-appbar").classList.toggle("turn-off");
         }
         if (start >= end) {
-
             if (document.getElementById(start) !== null) {
                 document.getElementById(`start-greater-end${start}`).classList.remove("start-greater-end");
                 await timeout(speed);
@@ -144,21 +143,19 @@ function QuickSort() {
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="quick-stay thought-bubble quick-bubble bubble-bottom-left " id={`quick-stay${index}`}>
-                    <p className="greater">{tube} &gt; Pivot Value</p>
-                    <p className="stay-p">Nothing changes and loop moves to next index</p>
+                <div className="quick quick-stay thought-bubble bubble-bottom-left " id={`quick-stay${index}`}>
+                    <p className="quick-greater">{tube} &gt; Pivot Value</p>
+                    <p className="quick-p">Nothing changes and the loop moves to next index</p>
                 </div>
-                <div className="quick-swap thought-bubble quick-bubble bubble-bottom-left " id={`quick-swap${index}`}>
-                    <p className="less" >{array[index]} &lt; Pivot Value</p>
-                    <div>Swap values with the pivot index then the pivot index moves one spot to the right</div>
-                    <SwapIcon sx={{ fontSize: 40 }} />
+                <div className="quick qs quick-swap thought-bubble bubble-bottom-left " id={`quick-swap${index}`}>
+                    <p className="quick-greater" >{array[index]} &lt; Pivot Value</p>
+                    <p className="quick-p">Swap values with pivot index then pivot index moves one spot to the right</p>
                 </div>
-                <div className="quick-swap-pivot thought-bubble quick-bubble bubble-bottom-left " id={`quick-swap-pivot${index}`}>
-                    <p>Pivot Index and Pivot Value swap places.</p>
-                    <SwapIcon sx={{ fontSize: 40 }} />
+                <div className="quick qsp quick-swap-pivot thought-bubble bubble-bottom-left " id={`quick-swap-pivot${index}`}>
+                    <p><span className="sorted-array">Pivot Index</span> and <span className="value-element">Pivot Value</span> swap places.</p>
                 </div>
-                <div className="start-greater-end thought-bubble quick-bubble bubble-bottom-left " id={`start-greater-end${index}`}>
-                    <p className="greater">start &gt;= end </p>
+                <div className="quick start-greater-end thought-bubble bubble-bottom-left " id={`start-greater-end${index}`}>
+                    <p className="quick-greater">start &gt;= end </p>
                     <p> This array is sorted. </p>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
