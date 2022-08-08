@@ -257,7 +257,7 @@ export default function Navbar({ path }) {
                                     </MenuItem>
                                     <MenuItem >
                                         <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                                            <Image src="/icons/huge.png" alt="my-logo" layout="intrinsic" width={20} height={20} />
+                                            <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={20} height={20} />
                                             <div className="contacts">Portfolio</div>
                                         </a>
                                     </MenuItem>

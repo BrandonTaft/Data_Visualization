@@ -7,7 +7,6 @@ import { BubbleExplanation } from "../src/components/Explanations";
 import ButtonBox from "../src/components/ButtonBox.js";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
-
 function Bubble() {
     const [speed, setSpeed] = useState(3000);
     const [checked, setChecked] = useState("");

@@ -5,7 +5,7 @@ function Footer() {
     return (
         <>
             <div className="footer" >
-                <Image className='ava' alt="Brandon Taft" src="/images/ava.png" height={90} width={70} />
+                <Image className='ava' alt="Brandon Taft" src="/images/ava.png" height={90} width={60} />
                 <div className='my-description'>
                     <div className="hi">Hi! I&apos;m Brandon,</div>
                     <div>
@@ -42,13 +42,13 @@ function Footer() {
                             <Image src="/icons/github.png" alt="github" layout="intrinsic" width={30} height={30} />
                         </a>
                         <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                            <Image src="/icons/my-logo.png" alt="my-logo" layout="intrinsic" width={30} height={30} />
+                            <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={30} height={30} />
                         </a>
                         <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
                             <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={30} height={30} />
                         </a>
                         <a href="mailto:btaftcan@gmail.com" >
-                            <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={30} height={30} />
+                            <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={40} height={30} />
                         </a>
                     </div>
                     <div className='copyright-container'>
