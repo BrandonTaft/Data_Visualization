@@ -37,7 +37,6 @@ export default function Navbar({ path }) {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
     const theme = createTheme({
         breakpoints: {
             values: {
@@ -229,10 +228,9 @@ export default function Navbar({ path }) {
                                 </IconButton>
                             </Tooltip>
                             <Menu
-                                
                                 sx={{
-                                    mt: { rs: '25px', cs: '30px', sm: '35px'},
-                                    display: { xs: 'none', ps: 'block'},
+                                    mt: { rs: '25px', cs: '30px', sm: '35px' },
+                                    display: { xs: 'none', ps: 'block' },
                                     '& .MuiMenu-list': {
                                         backgroundColor: '#f06c07'
                                     }

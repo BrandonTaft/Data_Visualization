@@ -8,6 +8,5 @@ export default function MyLink({ href, children }) {
     if (router.pathname === href) {
         className = `${className} selected`
     }
-
     return <Link href={href}>{React.cloneElement(children, { className })}</Link>
 }

@@ -5,133 +5,115 @@ import { CardActionArea } from '@mui/material';
 import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent, MergeCardContent, BucketCardContent } from './CardContent';
 
 export function BubbleCard() {
-    
     return (
-
         <Card className="card">
             <Link href="/bubble">
-            <CardActionArea className="card-action-area">
-                <CardMedia
-                    className='card-pic'
-                    component="img"
-                    height="180"
-                    image="/images/screen.png"
-                    alt="Picture of tubes"
-                />
-                <BubbleCardContent />
-            </CardActionArea>
+                <CardActionArea className="card-action-area">
+                    <CardMedia
+                        className='card-pic'
+                        component="img"
+                        height="180"
+                        image="/images/screen.png"
+                        alt="Picture of tubes"
+                    />
+                    <BubbleCardContent />
+                </CardActionArea>
             </Link>
         </Card>
-
     )
 }
 
 export function InsertionCard() {
-
     return (
-
         <Card className="card">
             <Link href="/insertion">
-           <CardActionArea className="card-action-area">
-                <CardMedia
-                    className='card-pic'
-                    component="img"
-                    height="180"
-                    image="/images/circle.png"
-                    alt="Picture of tubes"
-                />
-                <InsertionCardContent />
-            </CardActionArea>
+                <CardActionArea className="card-action-area">
+                    <CardMedia
+                        className='card-pic'
+                        component="img"
+                        height="180"
+                        image="/images/circle.png"
+                        alt="Picture of tubes"
+                    />
+                    <InsertionCardContent />
+                </CardActionArea>
             </Link>
         </Card>
-
     )
 }
 
 export function SelectionCard() {
-
     return (
-
         <Card className="card">
             <Link href="/selection">
-           <CardActionArea className="card-action-area">
-                <CardMedia
-                    className='card-pic'
-                    component="img"
-                    height="180"
-                    image="/images/laptop.png"
-                    alt="Picture of tubes"
-                />
-                <SelectionCardContent />
-            </CardActionArea>
+                <CardActionArea className="card-action-area">
+                    <CardMedia
+                        className='card-pic'
+                        component="img"
+                        height="180"
+                        image="/images/laptop.png"
+                        alt="Picture of tubes"
+                    />
+                    <SelectionCardContent />
+                </CardActionArea>
             </Link>
         </Card>
-
     )
 }
 
 export function QuickCard() {
-
     return (
-
         <Card className="card">
             <Link href="/quick">
-           <CardActionArea className="card-action-area">
-                <CardMedia
-                    className='card-pic'
-                    component="img"
-                    height="180"
-                    image="/images/cell.png"
-                    alt="Picture of tubes"
-                />
-                <QuickCardContent />
-            </CardActionArea>
+                <CardActionArea className="card-action-area">
+                    <CardMedia
+                        className='card-pic'
+                        component="img"
+                        height="180"
+                        image="/images/cell.png"
+                        alt="Picture of tubes"
+                    />
+                    <QuickCardContent />
+                </CardActionArea>
             </Link>
         </Card>
-
     )
 }
 
 export function BucketCard() {
-
     return (
-
         <Card className="card">
             <Link href="/bucket">
-           <CardActionArea className="card-action-area">
-                <CardMedia
-                    className='card-pic'
-                    component="img"
-                    height="180"
-                    image="/images/gears.png"
-                    alt="Picture of tubes"
-                />
-                <BucketCardContent />
-            </CardActionArea>
+                <CardActionArea className="card-action-area">
+                    <CardMedia
+                        className='card-pic'
+                        component="img"
+                        height="180"
+                        image="/images/gears.png"
+                        alt="Picture of tubes"
+                    />
+                    <BucketCardContent />
+                </CardActionArea>
             </Link>
         </Card>
-
     )
 }
 
 export function MergeCard() {
-
     return (
-
         <Card className="card">
             <Link href="/merge">
-           <CardActionArea className="card-action-area">
-                <CardMedia
-                    className='card-pic'
-                    component="img"
-                    height="180"
-                    image="/images/cell-laptop.png"
-                    alt="Picture of tubes"
-                />
-                <MergeCardContent />
-            </CardActionArea>
+                <CardActionArea className="card-action-area">
+                    <CardMedia
+                        className='card-pic'
+                        component="img"
+                        height="180"
+                        image="/images/cell-laptop.png"
+                        alt="Picture of tubes"
+                    />
+                    <MergeCardContent />
+                </CardActionArea>
             </Link>
         </Card>
-
     )
 }

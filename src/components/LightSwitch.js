@@ -39,9 +39,7 @@ const LightSwitch = () => {
     marginTop: 4,
     '& .MuiSwitch-switchBase': {
       margin: 1,
-      
       padding: 0,
-      
       transform: 'translateX(6px)',
       '&.Mui-checked': {
         color: '#fff',
@@ -85,8 +83,6 @@ const LightSwitch = () => {
     },
   }));
 
-
-  
   return (
     <ThemeProvider theme={responsiveTheme}>
       <MaterialUISwitch

@@ -3,7 +3,6 @@ import { BubbleCard, InsertionCard, SelectionCard, QuickCard } from "../src/comp
 import LightSwitch from "../src/components/LightSwitch";
 
 function Home() {
-
   return (
     <>
       <Header />

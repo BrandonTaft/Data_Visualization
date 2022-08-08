@@ -33,22 +33,6 @@ function Method({ method }) {
     }
     return arr;
 }`;
-// function selectionSort(arr) {
-//     for (let i = 0; i < arr.length; i++) {
-//         let min = i;
-//         for (let j = i + 1; j < n; j++) {
-//             if (arr[j] < arr[min]) {
-//                 min = j;
-//             }
-//         }
-//         if (min != i) {
-//             let tmp = arr[i];
-//             arr[i] = arr[min];
-//             arr[min] = tmp;
-//         }
-//     }
-//     return arr;
-// }
     } else if (method === "selection") {
         display = `function selection(arr) {              
     for(let i = 0; i < arr.length; i++) {
@@ -69,32 +53,32 @@ function Method({ method }) {
     } else if (method === "quick") {
         display =
             `function swap(arr, a, b){
-        let temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp
-        };
+    let temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp
+}
             
 function partition(arr, start, end){
-        let pivotIndex = start;
-        let pivotValue = arr[end];
-        for(let i = start; i < end; i++){
-            if(arr[i] < pivotValue){
-                swap(arr, i, pivotIndex);
-                pivotIndex++;
-            }
+    let pivotIndex = start;
+    let pivotValue = arr[end];
+    for(let i = start; i < end; i++){
+        if(arr[i] < pivotValue){
+            swap(arr, i, pivotIndex);
+            pivotIndex++;
         }
-        swap(arr, pivotIndex, end);
-        return pivotIndex;
-        };
+    }
+    swap(arr, pivotIndex, end);
+    return pivotIndex;
+    }
         
 function quickSort(arr,start,end){
-        if(start >= end){
-            return;
-        }
-        let index = partition(arr,start,end);
-        quickSort(arr,start,index - 1);
-        quickSort(arr,index + 1, end)
-        }`
+    if(start >= end){
+        return;
+    }
+    let index = partition(arr,start,end);
+    quickSort(arr,start,index - 1);
+    quickSort(arr,index + 1, end)
+}`
     }
 
     return (

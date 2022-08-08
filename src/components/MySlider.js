@@ -1,7 +1,6 @@
 import Slider from '@mui/material/Slider';
 // eslint-disable-next-line no-unused-vars
 function MySlider({ speed, setSpeed }) {
-
     const marks = [
         {
             value: 0,
@@ -47,22 +46,19 @@ function MySlider({ speed, setSpeed }) {
     const handleChange = (event, newValue) => {
         setSpeed(newValue);
     };
-    return (
-        
-                <Slider
-                    aria-label="Speed Slider"
-                    size="large"
-                    step={1000}
-                    marks={marks}
-                    defaultValue={3000}
-                    max={10000}
-                   
-                    valueLabelDisplay="off"
-                    orientation='vertical'
-                    onChange={handleChange}
-                />
-            
 
+    return (
+        <Slider
+            aria-label="Speed Slider"
+            size="large"
+            step={1000}
+            marks={marks}
+            defaultValue={3000}
+            max={10000}
+            valueLabelDisplay="off"
+            orientation='vertical'
+            onChange={handleChange}
+        />
     )
 }
 

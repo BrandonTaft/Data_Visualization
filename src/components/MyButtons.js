@@ -4,7 +4,7 @@ const SortButton = ({ sortMethod }) => (
   <button
     onClick={sortMethod}
     id="sort-button"
-    className= "button sort-button"
+    className="button sort-button"
     aria-label="Start Sorting Button"
   >
     SORT
@@ -19,15 +19,13 @@ function RefreshButton({ refresh, setRefresh }) {
         refresh == "false" ? setRefresh("true") : setRefresh("false");
       }}
       id="refresh-button"
-      className= "button refresh-button"
+      className="button refresh-button"
       aria-label="Refresh Button"
     >
       <RefreshIcon size="small" />
     </button>
   )
 }
-
-  // <ArraySizeButton arraySize={5} setMax={setMax} />
 
 const ArraySizeButton = ({ arraySize, setMax }) => (
   <button

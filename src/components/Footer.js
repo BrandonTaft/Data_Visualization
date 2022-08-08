@@ -2,7 +2,6 @@ import Link from './Link';
 import Image from 'next/image';
 
 function Footer() {
-
     return (
         <>
             <div className="footer" >
@@ -11,7 +10,7 @@ function Footer() {
                     <div className="hi">Hi! I&apos;m Brandon,</div>
                     <div>
                         <span className='rwd-line'>I am a Web Developer focused on further developing my knowledge of&nbsp;CS&nbsp;concepts. My&nbsp;aim is to grow
-                         as&nbsp;an&nbsp;engineer by trying to help others understand basic programming.</span></div>
+                            as&nbsp;an&nbsp;engineer by trying to help others understand basic programming.</span></div>
                 </div>
                 <div className="footer-link-container" id="footer-link-container">
                     <span className="navigate-footer">Navigate</span>
@@ -20,11 +19,9 @@ function Footer() {
                             <Link href="/">
                                 <span>Home</span>
                             </Link>
-
                             <Link href="/bubble">
                                 <span>Bubble Sort</span>
                             </Link>
-
                             <Link href="quick">
                                 <span>Quick Sort</span>
                             </Link>
@@ -37,7 +34,6 @@ function Footer() {
                                 <span>Selection Sort</span>
                             </Link>
                         </div>
-
                     </div>
                 </div>
                 <div className='middle-container'>
@@ -64,8 +60,6 @@ function Footer() {
                         </a>
                     </div>
                 </div>
-
-                
             </div>
         </>
     )

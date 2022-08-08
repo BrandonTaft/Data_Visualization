@@ -6,11 +6,10 @@ import Box from "@mui/material/Box";
 import { QuickExplanation } from "../src/components/Explanations";
 
 function QuickSort() {
-
     const [speed, setSpeed] = useState(3000);
     // eslint-disable-next-line no-unused-vars
     const [myPivotIndex, setMyPivotIndex] = useState([]);
-    const { array, setArray, refresh, setRefresh} = getArray();
+    const { array, setArray, refresh, setRefresh } = getArray();
 
     useEffect(() => {
         clearAll();
@@ -105,9 +104,7 @@ function QuickSort() {
                 document.getElementById(i).classList.remove("quick-current");
                 await timeout(speed);
             }
-
         }
-
         //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
         document.getElementById(`quick-swap-pivot${pivotIndex}`).classList.toggle("quick-swap-pivot");
         await timeout(speed);
@@ -121,7 +118,6 @@ function QuickSort() {
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
-
 
         setArray([...arr]);
         await timeout(speed);
@@ -194,7 +190,7 @@ function QuickSort() {
                     {display}
                 </div>
             </Box>
-           
+
         </div>
     )
 }

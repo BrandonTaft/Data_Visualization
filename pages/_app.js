@@ -8,11 +8,11 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Data Sorting Visualizer</title>
-        <meta name="description" content="An interactive visualization and explanation of different sorting algorithms in action.
-        Including a complete walkthrough / tutorial of how the sorting algorithms work. The methods covered include quick sort,
+        <meta name="description" content="An interactive visualization of different sorting algorithms in action.
+        Including a complete walkthrough and tutorial of how the sorting algorithms work. The methods covered include quick sort,
         bubble sort, selection sort, insertion sort and many more to be added." />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="keywords" content="tutorial, data, visualization, algorithm, sort, quick sort, bubble sort, selection sort, insertion sort" />
+        <meta name="keywords" content="tutorial, data, visualization, interactive, algorithm, sort, quick sort, bubble sort, selection sort, insertion sort" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Data Sorting Visualizer" key="ogsitename" />
         <meta property="og:title" content="Data Sorting Visualizer" key="ogtitle" />

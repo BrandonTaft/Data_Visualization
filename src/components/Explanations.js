@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-
 export function BubbleExplanation() {
     return (
         <>
             <div>
-            <p className="explanation-heading">Bubble sort is a simple comparison-based algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
+                <p className="explanation-heading">Bubble sort is a simple comparison-based algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
             </div>
             <ul className="explanation-list">
                 <li>First, <span className="checked-variable">checked</span> is initialized, then it is set to false once inside the while loop.</li>
@@ -17,7 +16,6 @@ export function BubbleExplanation() {
                 <li>Once the array is sorted, a swap is not made and the value of <span className="checked-variable">checked</span> stays false.</li>
                 <li>Now the condition set by the while statement isn't met which will end the loop.</li>
             </ul>
-
         </>
     )
 }
@@ -63,29 +61,23 @@ export function SelectionExplanation() {
 export function QuickExplanation() {
     return (
         <>
-            <p className="explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to 
-             perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
-             There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me.
+            <p className="explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to
+                perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
+                There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me.
             </p>
-              <ul className="explanation-list">
+            <ul className="explanation-list">
                 <li>The first step is to set a condition that will break out of the loop once the array is sorted.</li>
                 <li>Next it calls the partition function and passes in the array with the first and last indexes.</li>
                 <li>Inside the Partition function, the element in that first index will always start as the <span className="sorted-array">Pivot index</span>.</li>
                 <li>While the element in the end index will always be the <span className="j-element">Pivot value</span>.</li>
                 <li>Then it loops through the array checking if each element is less than the <span className="j-element">Pivot value</span>.</li>
-                
                 <li>If the element is greater than the <span className="j-element">Pivot value</span>, nothing changes and it moves to the next element.</li>
-                
                 <li>If it's less than the <span className="j-element">Pivot value</span>, it's value and the value of the <span className="sorted-array">pivot index</span> will swap places.</li>
                 <li>If the element is already in the <span className="sorted-array">pivot index</span> it will stay where it is.</li>
                 <li>Then it moves the <span className="sorted-array">pivot index</span> one index to the right by adding 1 to it.</li>
-              
-                {/* <li>To clarify, the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li> */}
                 <li>To clarify, if an element is less than the <span className="j-element">Pivot value</span> it will swap places with the value of the <span className="sorted-array">pivot index</span>,
-                if the element was already in the pivot index it will just stay where it is. Then the <span className="sorted-array">pivot index</span> will move one spot to the right, meaning
-                the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li>
-                
-                
+                    if the element was already in the pivot index it will just stay where it is. Then the <span className="sorted-array">pivot index</span> will move one spot to the right, meaning
+                    the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li>
                 <li>When the loop reaches the <span className="j-element">Pivot value</span>, it's value is swapped with the value of the <span className="sorted-array">pivot index</span>.</li>
                 <li>Then quicksort calls itself two times:</li>
                 <li>Once to sort the elements on the left side of new <span className="sorted-array">pivot index</span>.</li>

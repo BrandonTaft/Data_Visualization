@@ -8,7 +8,6 @@ import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { InsertionExplanation } from "../src/components/Explanations";
 
 function Insertion() {
-
     const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
@@ -103,6 +102,7 @@ function Insertion() {
         document.getElementById("sort-button").disabled = false;
         document.getElementById("refresh-button").disabled = false;
     }
+
     const display = array.map((tube, index) => {
         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
         return (
@@ -127,7 +127,7 @@ function Insertion() {
             </div>
         )
     });
-    
+
     return (
         <div className="page-container">
             <Box className="top-container">

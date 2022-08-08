@@ -7,7 +7,6 @@ import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 import { SelectionExplanation } from "../src/components/Explanations";
 
 function Selection() {
-
     const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
@@ -30,7 +29,6 @@ function Selection() {
         document.getElementById("footer-link-container").classList.toggle("turn-off");
         const arr = array;
         const n = arr.length;
-
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         await new Promise(resolve => setTimeout(resolve, speed / 2));
         for (let i = 0; i < n; i++) {
@@ -39,8 +37,6 @@ function Selection() {
             document.getElementById(i).classList.toggle("min-tube");
             await timeout(speed);
             let min = i;
-
-
             for (let j = i + 1; j < n; j++) {
                 if (arr[j] > arr[min]) {
                     document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
@@ -61,10 +57,7 @@ function Selection() {
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
                 await timeout(speed);
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
-            }
-
-
-            else if (min != i) {
+            } else if (min != i) {
                 // Swapping the elements
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
                 await timeout(speed);
@@ -81,7 +74,6 @@ function Selection() {
             document.getElementById(`cap${i}`).classList.toggle("sorted-text");
             setSorted(arr.slice(0, i + 1))
             setUnSorted(arr.slice(i + 1))
-
             setArray(arr);
             await timeout(speed);
         }
