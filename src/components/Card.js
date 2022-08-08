@@ -2,7 +2,7 @@ import Link from './Link';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
-import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent, MergeCardContent, BucketCardContent } from './CardContent';
+import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent } from './CardContent';
 
 export function BubbleCard() {
     return (
