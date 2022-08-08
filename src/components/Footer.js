@@ -1,11 +1,16 @@
 import Link from './Link';
 import Image from 'next/image';
+import github from "../../public/icons/github.png";
+import gmail from "../../public/icons/gmail-logo.png";
+import huge from "../../public/icons/huge.png";
+import linked from "../../public/icons/linked.png";
+import avatar from "../../public/images/ava.png";
 
 function Footer() {
     return (
         <>
             <div className="footer" >
-                <Image className='ava' alt="Brandon Taft" src="/images/ava.png" height={90} width={60} />
+                <Image className='ava' alt="Brandon Taft" src={avatar} height={80} width={53} />
                 <div className='my-description'>
                     <div className="hi">Hi! I&apos;m Brandon,</div>
                     <div>
@@ -39,16 +44,16 @@ function Footer() {
                 <div className='middle-container'>
                     <div className='socials'>
                         <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-                            <Image src="/icons/github.png" alt="github" layout="intrinsic" width={30} height={30} />
+                            <Image src={github} alt="github" width={30} height={30} />
                         </a>
                         <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                            <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={30} height={30} />
+                            <Image src={huge} alt="logo" width={30} height={30} />
                         </a>
                         <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
-                            <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={30} height={30} />
+                            <Image src={linked} alt="linkedIn-logo" width={30} height={30} />
                         </a>
                         <a href="mailto:btaftcan@gmail.com" >
-                            <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={40} height={30} />
+                            <Image src={gmail} alt="gmail-logo" width={40} height={30} />
                         </a>
                     </div>
                     <div className='copyright-container'>

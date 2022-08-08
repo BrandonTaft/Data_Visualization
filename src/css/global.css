@@ -2,7 +2,7 @@
   --background: white;
   --foreground: black;
 }
-
+Fira
 [data-theme="dark"] .layout {
   background-color: #202124;
 }
@@ -14,7 +14,6 @@
 
 [data-theme="dark"] .content-description {
   color: ghostwhite;
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
 
@@ -419,9 +418,9 @@ p {
 }
 
 .content-header {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Barlow", serif;
   font-size: 1.8em;
-  font-weight: 500;
+  font-weight: 600;
   color: inherit;
   margin: 0 auto 0.5em;
   text-decoration: underline;
@@ -438,7 +437,7 @@ p {
 }
 
 .content-description {
-  font-family: "Lato", sans-serif;
+  font-family: "Barlow", serif;
   font-size: 1.5em;
   margin-bottom: 15px;
   text-align: left;
@@ -448,12 +447,12 @@ p {
 
 .complexity-container {
   margin-top: auto;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Barlow", serif;
   font-size: 1.6em;
   line-height: 1.5em;
   color: inherit;
   text-align: left;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /*******************Top Container**********************/
@@ -560,12 +559,10 @@ p {
 
 .method {
   margin: auto;
-  margin-left: 10px;
 }
 
 pre {
   width: fit-content;
-  font-family: monospace !important;
   font-size: 1em !important;
   padding: 0.5em 1em !important;
   background-color: rgb(47, 47, 47);
@@ -957,7 +954,7 @@ pre span {
   width: 100%;
   --fill-start: var(--skew);
   --fill-end: calc(var(--percent) * 1% + var(--skew));
-  height: var(--fill-start);
+  height: var(--skew);
   background-color: var(--fill-color);
   bottom: calc(var(--skew) * -1);
   border-bottom-left-radius: 50% var(--skew);
@@ -1048,13 +1045,11 @@ pre span {
 .greater {
   color: #f06c07;
   font-size: 20px;
-  font-family: sans-serif;
 }
 
 .less {
   color: #f06c07;
   font-size: 20px;
-  font-family: sans-serif;
 }
 
 .bubble-bottom-left:before {
@@ -1320,7 +1315,7 @@ pre span {
 .helpful {
   margin-right: 0.5em;
   font-weight: 600;
-  font-family: "Barlow";
+  font-family: "Barlow", serif;
   font-size: 19px;
 }
 
@@ -1376,7 +1371,7 @@ pre span {
 }
 
 .copyright {
-  font-family: "Barlow";
+  font-family: "Barlow", serif;
 }
 
 .footer-link-container {
