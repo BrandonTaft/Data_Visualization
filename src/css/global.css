@@ -531,7 +531,8 @@ p{
     position: relative;
     bottom: 2px;
     content: "";
-    background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% );
+   /* background: radial-gradient( 80% 75% at 67% 43%, #abaed1, #1210ed 90% ); */
+   background: radial-gradient( 80% 75% at 67% 43%, #f5bb67, #ff6f00 90% );
     width: .75rem;
     height: .75rem;
     border-radius: 50%;
