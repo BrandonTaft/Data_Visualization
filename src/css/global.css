@@ -1188,7 +1188,7 @@ pre span {
   padding-bottom: 8px;
   text-align: center;
   width: 100%;
-  border: solid black;
+  border:3px solid black;
 }
 
 .selection.thought-bubble p {

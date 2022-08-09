@@ -114,7 +114,7 @@ function Insertion() {
                 </div>
                 <div className="swap thought-bubble bubble-bottom-left move-the-bubble" id={`swap${index}`}>
                     <p className="greater">{tube} &gt; {array[index + 1]}</p>
-                    <p>Swap</p>
+                    <div>Swap</div>
                     <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
                 </div>
                 <div className="stay thought-bubble bubble-bottom-left move-the-bubble" id={`stay${index}`}>
