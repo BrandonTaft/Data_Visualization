@@ -379,9 +379,12 @@ p {
 }
 
 /*******************Home**********************/
-.home-switch {
+.home-switch{
   display: flex;
   justify-content: center;
+}
+
+.MuiSwitch-root{
   transform: scale(1.25);
 }
 
@@ -1021,8 +1024,8 @@ pre span {
   font-size: 1.15em;
   text-align: center;
   width: auto;
-  top: 25%;
-  left: 55%;
+  top: 23%;
+  left: 61%;
   border: 3px solid black;
 }
 
@@ -1035,16 +1038,11 @@ pre span {
 }
 
 .thought-bubble div {
-  margin: 0px 0px 7px;
+  margin: 0px;
   font-weight: 700;
   pointer-events: none;
   text-transform: uppercase;
   font-family: "Playfair Display", serif;
-}
-
-.greater {
-  color: #f06c07;
-  font-size: 20px;
 }
 
 .less {
@@ -1088,6 +1086,10 @@ pre span {
   display: none;
 }
 
+.no-swap{
+  margin-bottom: 5px !important;
+}
+
 .finished {
   display: none;
 }
@@ -1100,7 +1102,7 @@ pre span {
 
 .greater {
   color: #f06c07;
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 @keyframes fill-before {
@@ -1292,12 +1294,17 @@ pre span {
   top: 20% !important;
 }
 
+.qsp p{
+  font-weight: 500;
+  margin-top: 2px;
+}
+
 .quick-greater {
   color: #f06c07;
 }
 
 .quick-p {
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 
 /****************************Feedback****************************/
@@ -1464,12 +1471,8 @@ pre span {
     margin-top: 2%;
   }
 
-  #finished2 {
-    left: 0%;
-  }
-
-  .thought-bubble {
-    left: 63%;
+  .thought-bubble{
+    left: 68%;
   }
 
   .move-the-bubble {
@@ -1550,6 +1553,10 @@ pre span {
   .cap {
     font-size: x-large;
   }
+
+  #finished2 {
+    left: 0%;
+  }
 }
 
 /******XX-Large devices (large desktops, 1399px and below)******/
@@ -1569,10 +1576,6 @@ pre span {
   }
   #finished2 {
     left: -10%;
-  }
-
-  .thought-bubble {
-    left: 57%;
   }
 
   .move-the-bubble {
@@ -1693,7 +1696,7 @@ pre span {
   }
 
   .thought-bubble {
-    left: 48%;
+    left: 53%;
   }
 
   .move-the-bubble {
@@ -1812,6 +1815,10 @@ pre span {
     margin-left: 1em;
   }
 
+  .thought-bubble {
+    left: 46%;
+  }
+
   .move-the-bubble {
     left: 50%;
   }
@@ -1846,6 +1853,12 @@ pre span {
   }
 }
 
+@media (max-width: 1040px) {
+  .quick.thought-bubble {
+    padding: 9px 3px 15px;
+    left: -5%;
+  }
+}
 /******X-Large devices (desktops, 992px and below)******/
 @media (max-width: 992px) {
   /*---------NAVBAR---------*/
@@ -1919,7 +1932,7 @@ pre span {
   }
 
   .thought-bubble {
-    left: 35%;
+    padding: 8px 25px 8px;
   }
 
   .move-the-bubble {
@@ -2037,8 +2050,18 @@ pre span {
     gap: 1em;
   }
 
+  .thought-bubble{
+    left: 44%;
+    padding: 6px 20px 6px;
+    font-size: 1em;
+  }
+
   .move-the-bubble {
     left: 33%;
+  }
+
+  .no-swap{
+    margin-bottom: 10px !important;
   }
 
   .selection.thought-bubble {
@@ -2094,12 +2117,12 @@ pre span {
     gap: 0.7em;
   }
 
-  .thought-bubble {
-    left: 25%;
-    font-size: 1em;
+  .thought-bubble{
+    left: 40%;
+    font-size: .9em;
   }
 
-  .greater {
+  .selection.greater {
     font-size: 1em;
   }
 
@@ -2279,11 +2302,7 @@ pre span {
   }
 
   .thought-bubble {
-    left: 55%;
-    font-size: 1em;
-  }
-
-  .less {
+    left: 61%;
     font-size: 1em;
   }
 
@@ -2431,7 +2450,7 @@ pre span {
   }
 
   .thought-bubble {
-    left: 32%;
+    left: 45%;
     border-radius: 25px;
   }
 
@@ -2532,6 +2551,10 @@ pre span {
   .qs {
     font-size: 0.85em !important;
   }
+
+  .move-the-bubble {
+    left: 30%;
+  }
 }
 
 @media (max-width: 490px) {
@@ -2571,9 +2594,16 @@ pre span {
 
   .thought-bubble {
     font-size: 0.75em;
-    left: 40%;
-    top: 20%;
-    padding: 10px 25px;
+    left: 45%;
+    top: 21%;
+  }
+
+  .bubble-bottom-left:before {
+    left: 7px;
+  }
+  
+  .bubble-bottom-left:after {
+    left: 10px;
   }
 
   .selection.bubble-bottom-left:before {
@@ -2618,7 +2648,7 @@ pre span {
     font-size: 0.9em;
     top: 13%;
     padding: 10px 5px 15px;
-    left: -14%;
+    left: -16%;
   }
 
   .quick.bubble-bottom-left:before {
@@ -2642,6 +2672,10 @@ pre span {
     left: -75%;
     top: 55px;
   }
+
+  .swap-icon {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 470px) {
@@ -2664,10 +2698,6 @@ pre span {
     padding-left: 5px !important;
     padding-right: 5px !important;
     left: -14% !important;
-  }
-
-  .swap-icon {
-    font-size: 30px;
   }
 
   .cap {
@@ -2704,7 +2734,7 @@ pre span {
   }
 
   .thought-bubble {
-    left: 28%;
+    left: 35%;
   }
 
   .move-the-bubble {
@@ -2808,7 +2838,8 @@ pre span {
 
   .thought-bubble {
     font-size: 0.8em;
-    padding: 4px 20px;
+    padding: 4px 12px 5px;
+    left: 41%;
   }
 
   .selection.thought-bubble {
@@ -2924,7 +2955,7 @@ pre span {
   }
 
   .thought-bubble {
-    left: 0%;
+    left: 30%;
   }
 
   #finished2 {
@@ -2938,6 +2969,22 @@ pre span {
 
   .selection.row {
     gap: 0.5em;
+  }
+
+  .var-container{
+    font-size: .85em;
+  }
+
+  .quick-var-container{
+    font-size: .85em;
+  }
+
+  .qsp p{
+    font-size: .85em;
+  }
+
+  .quick.thought-bubble{
+    padding: 10px 5px 15px;
   }
 }
 /******( 340px and below )******/
@@ -2959,6 +3006,14 @@ pre span {
     font-size: 0.75em;
     top: 10%;
     padding-top: 7px;
+  }
+
+  .quick.bubble-bottom-left:before{
+    left: 6px;
+  }
+
+  .quick.bubble-bottom-left:after{
+    left: 8px;
   }
 }
 
@@ -3007,6 +3062,10 @@ pre span {
 
   #finished2 {
     font-size: 1em;
+  }
+
+  .thought-bubble {
+    left: 15%;
   }
 
   .selection.thought-bubble {

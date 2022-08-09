@@ -86,6 +86,7 @@ const LightSwitch = () => {
   return (
     <ThemeProvider theme={responsiveTheme}>
       <MaterialUISwitch
+        id="Home-sitch"
         checked={checked}
         onChange={handleChange}
         inputProps={{ 'aria-label': 'controlled' }}

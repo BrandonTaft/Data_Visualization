@@ -154,7 +154,7 @@ function QuickSort() {
                     <p> This element is sorted. </p>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
-                    <div>Sorted&nbsp;!!!</div>
+                    <div className="no-swap">Sorted&nbsp;!!!</div>
                 </div>
             </div>
         )

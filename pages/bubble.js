@@ -90,11 +90,11 @@ function Bubble() {
                     <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
                 </div>
                 <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
-                    <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
-                    <div>No Swap</div>
+                    <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
+                    <div className="no-swap">No Swap</div>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
-                    <div>Sorted&nbsp;!!!</div>
+                    <div className="no-swap">Sorted&nbsp;!!!</div>
                 </div>
             </div>
         )

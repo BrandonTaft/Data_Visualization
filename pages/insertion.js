@@ -112,17 +112,17 @@ function Insertion() {
                 <div className="base">
                     <div className="text">{tube}</div>
                 </div>
-                <div className="swap thought-bubble bubble-bottom-left move-the-bubble" id={`swap${index}`}>
+                <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
                     <p className="greater">{tube} &gt; {array[index + 1]}</p>
                     <div>Swap</div>
                     <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
                 </div>
-                <div className="stay thought-bubble bubble-bottom-left move-the-bubble" id={`stay${index}`}>
-                    <p className="less" >{array[index]} &lt; {array[index + 1]}</p>
-                    <div>No Swap</div>
+                <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
+                    <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
+                    <div className="no-swap">No Swap</div>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
-                    <div>Sorted&nbsp;!!!</div>
+                    <div className="no-swap">Sorted&nbsp;!!!</div>
                 </div>
             </div>
         )

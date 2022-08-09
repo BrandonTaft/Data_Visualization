@@ -108,7 +108,7 @@ function Selection() {
                     <p className="selection no-tm mb">min stays the same</p>
                 </div>
                 <div className="selection selection-swap thought-bubble bubble-bottom-left " id={`selection-swap${index}`}>
-                    <p className="selection less" >{array[index]} &lt; min</p>
+                    <p className="selection greater" >{array[index]} &lt; min</p>
                     <p className="selection no-tm">This is the new min</p>
                     <SwapIcon className="selection swap-icon" sx={{ fontSize: 40 }} />
                 </div>
@@ -119,7 +119,7 @@ function Selection() {
                     <p className="mtf-p tm">&nbsp;<span className="j-element">arr[i]</span>&nbsp; was the lowest element so it stays where it is. </p>
                 </div>
                 <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
-                    <div>Sorted&nbsp;!!!</div>
+                    <div className="no-swap">Sorted&nbsp;!!!</div>
                 </div>
             </div>
         )
