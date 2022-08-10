@@ -4,8 +4,9 @@ import Method from "../src/components/Method";
 import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
-import SwapIcon from '@mui/icons-material/SwapHorizSharp';
+import { turnOff, turnOn, timeOut } from "../src/components/Utils";
 import { InsertionExplanation } from "../src/components/Explanations";
+import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Insertion() {
     const [speed, setSpeed] = useState(3000);
@@ -19,24 +20,15 @@ function Insertion() {
         setSorted([])
     }, [refresh]);
 
-    function timeout(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async function insertionSort() {
-        document.getElementById('finished2').classList.add("finished");
-        document.getElementById("sort-button").disabled = true;
-        document.getElementById("refresh-button").disabled = true;
-        document.getElementById("in-nav-container").classList.toggle("turn-off");
-        document.getElementById("menu-appbar").classList.toggle("turn-off");
-        document.getElementById("footer-link-container").classList.toggle("turn-off");
+        turnOff();
         try {
             while (path == "/insertion") {
                 document.getElementById("sort-button").disabled = true;
                 document.getElementById("refresh-button").disabled = true;
                 const arr = array;
                 const n = arr.length;
-                await new Promise(resolve => setTimeout(resolve, speed / 2));
+                await timeOut(speed / 2);
                 document.getElementById(0).classList.toggle("sorted");
                 document.getElementById(`cap${0}`).classList.toggle("sorted-text");
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
@@ -46,29 +38,29 @@ function Insertion() {
                         let current = arr[i];
                         setSorted(arr.slice(0, i))
                         setUnSorted(arr.slice(i))
-                        await new Promise(resolve => setTimeout(resolve, speed / 2));
+                        await timeOut(speed / 2);
                         document.getElementById(i).classList.toggle("current");
                         document.getElementById(`cap${i}`).classList.toggle("current-text");
-                        await timeout(speed);
+                        await timeOut(speed);
                         // The last element of our sorted subarray
                         let j = i - 1;
                         while ((j > -1) && (current < arr[j])) {
                             if (path == "/insertion") {
                                 document.getElementById(`swap${j}`).classList.toggle("swap");
-                                await timeout(speed);
+                                await timeOut(speed);
                                 document.getElementById(`swap${j}`).classList.toggle("swap");
                                 // arr[j + 1] = arr[j];
                                 let tmp = arr[j];
                                 arr[j] = arr[j + 1];
                                 arr[j + 1] = tmp;
                                 setArray([...arr]);
-                                await timeout(speed);
+                                await timeOut(speed);
                                 j--;
                             }
                         }
                         if (j > -1) {
                             document.getElementById(`stay${j}`).classList.toggle("stay");
-                            await timeout(speed);
+                            await timeOut(speed);
                             document.getElementById(`stay${j}`).classList.toggle("stay");
                         }
                         arr[j + 1] = current;
@@ -77,20 +69,15 @@ function Insertion() {
                         document.getElementById(j + 1).classList.toggle("sorted");
                         document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
                         setArray(arr);
-                        await timeout(speed);
+                        await timeOut(speed);
                     } else {
                         return;
                     }
                 }
                 setUnSorted([])
                 setSorted(arr)
-                await timeout(speed);
-                document.getElementById("sort-button").disabled = false;
-                document.getElementById("refresh-button").disabled = false;
-                document.getElementById("in-nav-container").classList.toggle("turn-off");
-                document.getElementById("menu-appbar").classList.toggle("turn-off");
-                document.getElementById("footer-link-container").classList.toggle("turn-off");
-                document.getElementById('finished2').classList.remove("finished");
+                await timeOut(speed);
+                turnOn();
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });

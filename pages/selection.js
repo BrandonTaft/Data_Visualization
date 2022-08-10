@@ -3,8 +3,9 @@ import Method from "../src/components/Method";
 import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
-import SwapIcon from '@mui/icons-material/SwapHorizSharp';
+import { turnOff, turnOn, timeOut } from "../src/components/Utils";
 import { SelectionExplanation } from "../src/components/Explanations";
+import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Selection() {
     const [speed, setSpeed] = useState(3000);
@@ -16,57 +17,48 @@ function Selection() {
         setSorted([])
     }, [refresh]);
 
-    function timeout(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async function selectionSort() {
-        document.getElementById('finished2').classList.add("finished");
-        document.getElementById("sort-button").disabled = true;
-        document.getElementById("refresh-button").disabled = true;
-        document.getElementById("in-nav-container").classList.toggle("turn-off");
-        document.getElementById("menu-appbar").classList.toggle("turn-off");
-        document.getElementById("footer-link-container").classList.toggle("turn-off");
+        turnOff();
         const arr = array;
         const n = arr.length;
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
-        await new Promise(resolve => setTimeout(resolve, speed / 2));
+        await timeOut(speed / 2);
         for (let i = 0; i < n; i++) {
             // Finding the smallest number in the subarray
             document.getElementById(`cap${i}`).classList.toggle("min");
             document.getElementById(i).classList.toggle("min-tube");
-            await timeout(speed);
+            await timeOut(speed);
             let min = i;
             for (let j = i + 1; j < n; j++) {
                 if (arr[j] > arr[min]) {
                     document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
-                    await timeout(speed);
+                    await timeOut(speed);
                     document.getElementById(`selection-stay${j}`).classList.toggle("selection-stay");
                 } else if (arr[j] < arr[min]) {
                     document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
-                    await timeout(speed);
+                    await timeOut(speed);
                     document.getElementById(`cap${min}`).classList.remove("min");
                     document.getElementById(min).classList.toggle("min-tube");
                     document.getElementById(`cap${j}`).classList.toggle("min");
                     document.getElementById(j).classList.toggle("min-tube");
                     document.getElementById(`selection-swap${j}`).classList.toggle("selection-swap");
-                    await timeout(speed);
+                    await timeOut(speed);
                     min = j;
                 }
             } if (min == i) {
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
-                await timeout(speed);
+                await timeOut(speed);
                 document.getElementById(`i-is-min${min}`).classList.toggle("i-is-min");
             } else if (min != i) {
                 // Swapping the elements
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
-                await timeout(speed);
+                await timeOut(speed);
                 document.getElementById(`move-to-front${min}`).classList.toggle("move-to-front");
                 let tmp = arr[i];
                 arr[i] = arr[min];
                 arr[min] = tmp;
                 setArray([...arr]);
-                await timeout(speed);
+                await timeOut(speed);
             }
             document.getElementById(`cap${i}`).classList.toggle("min");
             document.getElementById(i).classList.toggle("min-tube");
@@ -75,22 +67,17 @@ function Selection() {
             setSorted(arr.slice(0, i + 1))
             setUnSorted(arr.slice(i + 1))
             setArray(arr);
-            await timeout(speed);
+            await timeOut(speed);
         }
         setUnSorted([])
         setSorted(arr)
-        await timeout(speed);
-        document.getElementById("sort-button").disabled = false;
-        document.getElementById("refresh-button").disabled = false;
-        document.getElementById('finished2').classList.remove("finished");
+        await timeOut(speed);
+        turnOn();
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
         document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
         document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
-        document.getElementById("sort-button").disabled = false;
-        document.getElementById("refresh-button").disabled = false;
-        document.getElementById("in-nav-container").classList.toggle("turn-off");
-        document.getElementById("menu-appbar").classList.toggle("turn-off");
-        document.getElementById("footer-link-container").classList.toggle("turn-off");
+    
+       
         return arr;
     }
 

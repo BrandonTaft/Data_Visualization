@@ -3,6 +3,7 @@ import Method from "../src/components/Method";
 import getArray from "../src/components/Array";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
+import { quickTurnOff, quickTurnOn, timeOut } from "../src/components/Utils";
 import { QuickExplanation } from "../src/components/Explanations";
 
 function QuickSort() {
@@ -22,23 +23,15 @@ function QuickSort() {
         document.querySelectorAll(".cap").forEach(el => { el.classList.remove("index-element-text") });
     }
 
-    function timeout(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     let x = 0;
     async function quickSort(arr, start, end) {
         if (x < 3) {
-            document.getElementById("sort-button").disabled = true;
-            document.getElementById("refresh-button").disabled = true;
-            document.getElementById("in-nav-container").classList.toggle("turn-off");
-            document.getElementById("footer-link-container").classList.toggle("turn-off");
-            document.getElementById("menu-appbar").classList.toggle("turn-off");
+            quickTurnOff();
         }
         if (start >= end) {
             if (document.getElementById(start) !== null) {
                 document.getElementById(`start-greater-end${start}`).classList.remove("start-greater-end");
-                await timeout(speed);
+                await timeOut(speed);
                 document.getElementById(`start-greater-end${start}`).classList.add("start-greater-end");
                 document.getElementById(start).classList.toggle("sorted");
                 document.getElementById(`cap${start}`).classList.toggle("sorted-text");
@@ -46,7 +39,7 @@ function QuickSort() {
             console.log(start, end)
             console.log("test", arr[start], arr[end])
             setArray([...arr]);
-            await timeout(speed);
+            await timeOut(speed);
             return;
         }
         let index = await partition(arr, start, end);
@@ -55,14 +48,10 @@ function QuickSort() {
         quickSort(arr, start, index - 1);
         quickSort(arr, index + 1, end);
         setArray([...arr]);
-        await timeout(speed);
+        await timeOut(speed);
         x += 1;
         if (x === 3) {
-            document.getElementById("sort-button").disabled = false;
-            document.getElementById("refresh-button").disabled = false;
-            document.getElementById("in-nav-container").classList.toggle("turn-off");
-            document.getElementById("menu-appbar").classList.toggle("turn-off");
-            document.getElementById("footer-link-container").classList.toggle("turn-off");
+            quickTurnOn();
         }
     }
 
@@ -72,15 +61,15 @@ function QuickSort() {
         let pivotValue = arr[end];
         document.getElementById(`cap${end}`).classList.toggle("pivot-value");
         document.getElementById(end).classList.toggle("pivot-value-tube");
-        await timeout(speed);
+        await timeOut(speed);
         for (let i = start; i < end; i++) {
             document.getElementById(i).classList.add("quick-current");
             document.getElementById(`cap${pivotIndex}`).classList.add("pivot-index");
             document.getElementById(pivotIndex).classList.add("pivot-index-tube");
-            await timeout(speed);
+            await timeOut(speed);
             if (arr[i] < pivotValue) {
                 document.getElementById(`quick-swap${i}`).classList.toggle("quick-swap");
-                await timeout(speed);
+                await timeOut(speed);
                 document.getElementById(i).classList.remove("quick-current");
                 document.getElementById(`quick-swap${i}`).classList.toggle("quick-swap");
                 let temp = arr[i];
@@ -89,38 +78,38 @@ function QuickSort() {
                 document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
                 document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
                 setArray([...arr]);
-                await timeout(speed);
+                await timeOut(speed);
                 pivotIndex++;
                 setMyPivotIndex(pivotIndex)
                 if (pivotIndex < arr.length - 1) {
                     document.getElementById(`cap${pivotIndex}`).classList.add("pivot-index");
                     document.getElementById(pivotIndex).classList.add("pivot-index-tube");
                 }
-                await timeout(speed);
+                await timeOut(speed);
             } else {
                 document.getElementById(`quick-stay${i}`).classList.toggle("quick-stay");
-                await timeout(speed);
+                await timeOut(speed);
                 document.getElementById(`quick-stay${i}`).classList.toggle("quick-stay");
                 document.getElementById(i).classList.remove("quick-current");
-                await timeout(speed);
+                await timeOut(speed);
             }
         }
         //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
         document.getElementById(`quick-swap-pivot${pivotIndex}`).classList.toggle("quick-swap-pivot");
-        await timeout(speed);
+        await timeOut(speed);
         document.getElementById(`cap${end}`).classList.remove("pivot-value");
         document.getElementById(end).classList.remove("pivot-value-tube");
         document.getElementById(`cap${pivotIndex}`).classList.remove("pivot-index");
         document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
         document.getElementById(`quick-swap-pivot${pivotIndex}`).classList.toggle("quick-swap-pivot");
-        await timeout(speed);
+        await timeOut(speed);
 
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
 
         setArray([...arr]);
-        await timeout(speed);
+        await timeOut(speed);
         return pivotIndex;
     }
 

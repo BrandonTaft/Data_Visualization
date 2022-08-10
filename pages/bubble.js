@@ -5,6 +5,7 @@ import getArray from "../src/components/Array";
 import { UpDown } from "../src/components/Feedback";
 import { BubbleExplanation } from "../src/components/Explanations";
 import ButtonBox from "../src/components/ButtonBox.js";
+import { turnOff, turnOn, timeOut } from "../src/components/Utils";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Bubble() {
@@ -14,35 +15,26 @@ function Bubble() {
     const router = useRouter();
     let path = router.pathname;
 
-    function timeout(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async function bubbleSort() {
-        document.getElementById('finished2').classList.add("finished");
-        document.getElementById("sort-button").disabled = true;
-        document.getElementById("refresh-button").disabled = true;
-        document.getElementById("in-nav-container").classList.toggle("turn-off");
-        document.getElementById("menu-appbar").classList.toggle("turn-off");
-        document.getElementById("footer-link-container").classList.toggle("turn-off");
+        turnOff();
         const arr = array;
         let checked;
         do {
             checked = false
             setChecked("False")
             for (let i = 0; i < arr.length; i++) {
-                await timeout(speed);
+                await timeOut(speed / 2);
                 document.getElementById(i).classList.toggle("current-element");
                 document.getElementById(`cap${i}`).classList.toggle("current-element-text");
                 if (document.getElementById(i + 1) !== null) {
                     document.getElementById(i + 1).classList.toggle("next-element");
                     document.getElementById(`cap${i + 1}`).classList.toggle("next-element-text");
                 } else {
-                    await timeout(speed);
+                    await timeOut(speed);
                 }
                 if (arr[i] > arr[i + 1]) {
                     document.getElementById(`swap${i}`).classList.toggle("swap");
-                    await new Promise(resolve => setTimeout(resolve, speed));
+                    await timeOut(speed);
                     document.getElementById(`swap${i}`).classList.toggle("swap");
                     //Swap the elements in the array since element is less than the next element
                     let tmp = arr[i];
@@ -54,7 +46,7 @@ function Bubble() {
                 } else {
                     if (document.getElementById(i + 1) !== null) {
                         document.getElementById(`stay${i}`).classList.toggle("stay");
-                        await timeout(speed);
+                        await timeOut(speed);
                         document.getElementById(`stay${i}`).classList.toggle("stay");
                     }
                 }
@@ -67,12 +59,7 @@ function Bubble() {
                 setArray([...arr]);
             }
         } while (checked && path == "/bubble")
-        document.getElementById("sort-button").disabled = false;
-        document.getElementById("refresh-button").disabled = false;
-        document.getElementById("in-nav-container").classList.toggle("turn-off");
-        document.getElementById("menu-appbar").classList.toggle("turn-off");
-        document.getElementById("footer-link-container").classList.toggle("turn-off");
-        document.getElementById('finished2').classList.remove("finished");
+        turnOn();
     }
 
     const display = array.map((tube, index) => {

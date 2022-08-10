@@ -113,7 +113,7 @@ export default function Navbar({ path }) {
                                     }
                                 }}
                             >
-                                <div className='hamburger about-me-div'>
+                                <div className='hamburger about-me-div' id="about-me-div">
                                     <List>
                                         <ListItem disablePadding>
                                             <Link href="/">

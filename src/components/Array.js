@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 
 function getArray() {
     const [array, setArray] = useState([]);
-    const [max, setMax] = useState(6);
     const [refresh, setRefresh] = useState("false");
     useEffect(() => {
         const getMyArray = () => {
             const arr = [];
-            for (let i = 0; i < max;) {
-                let num = Math.floor(Math.random() * max + 1)
+            for (let i = 0; i < 6;) {
+                let num = Math.floor(Math.random() * 6 + 1)
                 while (arr.includes(num) === false) {
                     arr.push(num)
                     i++
@@ -17,8 +16,8 @@ function getArray() {
             setArray(arr)
         }
         getMyArray()
-    }, [refresh, max])
-    return { array, setArray, refresh, setRefresh, max, setMax }
+    }, [refresh])
+    return { array, setArray, refresh, setRefresh }
 }
 
 export default getArray
