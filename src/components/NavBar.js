@@ -21,6 +21,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LightSwitch from './LightSwitch';
+import logo from "../../public/icons/huge.png";
 
 export default function Navbar({ path }) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -58,7 +59,7 @@ export default function Navbar({ path }) {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                            <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={40} height={40} />
+                            <Image src={ logo } alt="logo" layout="intrinsic" width={40} height={40} />
                         </Box>
                         <Typography
                             variant="h6"
