@@ -2,18 +2,23 @@
   --background: white;
   --foreground: black;
 }
-Fira
-[data-theme="dark"] .layout {
-  background-color: #202124;
+
+[data-theme="dark"],
+[data-theme="dark"] body {
+  background: #202124;
 }
+
+/* [data-theme="dark"] .layout {
+  background-color: #202124;
+} */
 
 [data-theme="dark"] .card-content {
   background-color: #303134;
-  color: #fff8ba;
+  color: #bb86fc;
 }
 
 [data-theme="dark"] .content-description {
-  color: ghostwhite;
+  color: #03DAC5;;
   font-weight: 400;
 }
 
@@ -159,6 +164,14 @@ Fira
   color: white;
   align-items: center;
   justify-content: center;
+}
+
+[data-theme="dark"] .footer{
+  color: #03DAC5;
+}
+
+[data-theme="dark"] .equalizer-bar span {
+  background: #BB86FC;
 }
 
 body {
@@ -353,7 +366,7 @@ p {
 }
 
 .header-container h1 {
-  color: ghostwhite;
+  color: #03DAC5;
   text-transform: uppercase;
   font-size: 50px;
   margin: 0;
@@ -379,12 +392,12 @@ p {
 }
 
 /*******************Home**********************/
-.home-switch{
+.home-switch {
   display: flex;
   justify-content: center;
 }
 
-.MuiSwitch-root{
+.MuiSwitch-root {
   transform: scale(1.25);
 }
 
@@ -436,7 +449,7 @@ p {
   background-color: rgb(245, 242, 239);
   color: #000;
   padding: 5px 10px 15px 10px;
-  height: 100%;
+  height: 70%;
 }
 
 .content-description {
@@ -456,6 +469,25 @@ p {
   color: inherit;
   text-align: left;
   font-weight: 600;
+}
+
+/****************BARS*****************/
+.equalizer {
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  margin-bottom: 2rem;
+}
+
+.equalizer-bar {
+  width: 1.8rem;
+  margin: 0 3px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.equalizer-bar span {
+  background: #03DAC5;
 }
 
 /*******************Top Container**********************/
@@ -1086,7 +1118,7 @@ pre span {
   display: none;
 }
 
-.no-swap{
+.no-swap {
   margin-bottom: 5px !important;
 }
 
@@ -1190,7 +1222,7 @@ pre span {
   padding-bottom: 8px;
   text-align: center;
   width: 100%;
-  border:3px solid black;
+  border: 3px solid black;
 }
 
 .selection.thought-bubble p {
@@ -1294,7 +1326,7 @@ pre span {
   top: 20% !important;
 }
 
-.qsp p{
+.qsp p {
   font-weight: 500;
   margin-top: 2px;
 }
@@ -1370,6 +1402,7 @@ pre span {
   text-align: center;
   color: #fff8ba;
   margin: 0.3em 0;
+  text-decoration: underline;
 }
 
 .footer p {
@@ -1471,7 +1504,7 @@ pre span {
     margin-top: 2%;
   }
 
-  .thought-bubble{
+  .thought-bubble {
     left: 68%;
   }
 
@@ -1882,11 +1915,11 @@ pre span {
   }
 
   .complexity-container {
-    line-height: 1.3em;
+    line-height: 1.2em;
   }
 
   .content-description {
-    font-size: 1.75em;
+    font-size: 1.5em;
   }
 
   /*---------NAVBAR----------*/
@@ -2050,7 +2083,7 @@ pre span {
     gap: 1em;
   }
 
-  .thought-bubble{
+  .thought-bubble {
     left: 44%;
     padding: 6px 20px 6px;
     font-size: 1em;
@@ -2060,7 +2093,7 @@ pre span {
     left: 33%;
   }
 
-  .no-swap{
+  .no-swap {
     margin-bottom: 10px !important;
   }
 
@@ -2117,9 +2150,9 @@ pre span {
     gap: 0.7em;
   }
 
-  .thought-bubble{
+  .thought-bubble {
     left: 40%;
-    font-size: .9em;
+    font-size: 0.9em;
   }
 
   .selection.greater {
@@ -2220,11 +2253,11 @@ pre span {
   }
 
   .content-description {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
 
   .complexity-container {
-    font-size: 1.8em;
+    font-size: 1.7em;
     line-height: 1.4em;
   }
 
@@ -2601,7 +2634,7 @@ pre span {
   .bubble-bottom-left:before {
     left: 7px;
   }
-  
+
   .bubble-bottom-left:after {
     left: 10px;
   }
@@ -2971,19 +3004,19 @@ pre span {
     gap: 0.5em;
   }
 
-  .var-container{
-    font-size: .85em;
+  .var-container {
+    font-size: 0.85em;
   }
 
-  .quick-var-container{
-    font-size: .85em;
+  .quick-var-container {
+    font-size: 0.85em;
   }
 
-  .qsp p{
-    font-size: .85em;
+  .qsp p {
+    font-size: 0.85em;
   }
 
-  .quick.thought-bubble{
+  .quick.thought-bubble {
     padding: 10px 5px 15px;
   }
 }
@@ -3008,11 +3041,11 @@ pre span {
     padding-top: 7px;
   }
 
-  .quick.bubble-bottom-left:before{
+  .quick.bubble-bottom-left:before {
     left: 6px;
   }
 
-  .quick.bubble-bottom-left:after{
+  .quick.bubble-bottom-left:after {
     left: 8px;
   }
 }

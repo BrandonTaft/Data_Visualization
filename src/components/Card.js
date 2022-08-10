@@ -1,21 +1,15 @@
 import Link from './Link';
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent } from './CardContent';
+import Bars from "./Bars";
 
 export function BubbleCard() {
     return (
         <Card className="card">
             <Link href="/bubble">
                 <CardActionArea className="card-action-area">
-                    <CardMedia
-                        className='card-pic'
-                        component="img"
-                        height="180"
-                        image="/images/screen.png"
-                        alt="Picture of tubes"
-                    />
+                    <Bars />
                     <BubbleCardContent />
                 </CardActionArea>
             </Link>
@@ -28,13 +22,7 @@ export function InsertionCard() {
         <Card className="card">
             <Link href="/insertion">
                 <CardActionArea className="card-action-area">
-                    <CardMedia
-                        className='card-pic'
-                        component="img"
-                        height="180"
-                        image="/images/circle.png"
-                        alt="Picture of tubes"
-                    />
+                    <Bars />
                     <InsertionCardContent />
                 </CardActionArea>
             </Link>
@@ -47,13 +35,7 @@ export function SelectionCard() {
         <Card className="card">
             <Link href="/selection">
                 <CardActionArea className="card-action-area">
-                    <CardMedia
-                        className='card-pic'
-                        component="img"
-                        height="180"
-                        image="/images/laptop.png"
-                        alt="Picture of tubes"
-                    />
+                    <Bars />
                     <SelectionCardContent />
                 </CardActionArea>
             </Link>
@@ -66,13 +48,7 @@ export function QuickCard() {
         <Card className="card">
             <Link href="/quick">
                 <CardActionArea className="card-action-area">
-                    <CardMedia
-                        className='card-pic'
-                        component="img"
-                        height="180"
-                        image="/images/cell.png"
-                        alt="Picture of tubes"
-                    />
+                    <Bars />
                     <QuickCardContent />
                 </CardActionArea>
             </Link>
