@@ -480,7 +480,7 @@ p {
 }
 
 .equalizer-bar {
-  width: 1.8rem;
+  width: 1.9rem;
   margin: 0 3px;
   display: flex;
   flex-direction: column-reverse;
@@ -3021,6 +3021,10 @@ pre span {
 
   .quick.thought-bubble {
     padding: 10px 5px 15px;
+  }
+
+  .equalizer-bar{
+    width: 1.5rem;
   }
 }
 /******( 340px and below )******/
