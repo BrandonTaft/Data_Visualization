@@ -103,11 +103,9 @@ function QuickSort() {
         document.getElementById(pivotIndex).classList.remove("pivot-index-tube");
         document.getElementById(`quick-swap-pivot${pivotIndex}`).classList.toggle("quick-swap-pivot");
         await timeOut(speed);
-
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
-
         setArray([...arr]);
         await timeOut(speed);
         return pivotIndex;
