@@ -481,8 +481,8 @@ p {
 .equalizer {
   display: flex;
   justify-content: center;
-  height: 10rem;
-  margin-bottom: 2rem;
+  height: 11rem;
+  margin-bottom: 1rem;
 }
 
 .equalizer-bar {

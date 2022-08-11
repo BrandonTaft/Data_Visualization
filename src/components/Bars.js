@@ -1,27 +1,56 @@
-import dynamic from 'next/dynamic';
-
-function Bars() {
-    const arr = [];
-    for (let i = 0; i < 7;) {
-        let num = Math.floor(Math.random() * 7) + 1
-        while (arr.includes(num) === false) {
-            arr.push(num)
-            i++
-        }
-    }
-    const display = arr.map((bar, index) => {
-        return (
-            <div className="equalizer-bar" key={index}>
-                <span style={{ height: (bar * 15) }}></span>
-            </div>
-        )
-    })
-
+export function BarsOne() {
     return (
         <div className="equalizer">
-            {display}
+            <div className="equalizer-bar">
+                <span style={{ height: 15 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 30 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 45 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 60 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 75 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 90 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 105 }}></span>
+            </div>
         </div>
     )
 }
 
-export default dynamic(() => Promise.resolve(Bars), { ssr: false });
+export function BarsThree() {
+    return (
+        <div className="equalizer">
+            <div className="equalizer-bar">
+                <span style={{ height: 105 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 90 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 75 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 60 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 45 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 30 }}></span>
+            </div>
+            <div className="equalizer-bar">
+                <span style={{ height: 15 }}></span>
+            </div>      
+        </div>
+    )
+}
+
