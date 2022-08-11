@@ -5,20 +5,24 @@
 
 [data-theme="dark"],
 [data-theme="dark"] body {
-  background: #202124;
+  background: #121212;
 }
 
-/* [data-theme="dark"] .layout {
-  background-color: #202124;
-} */
+[data-theme="dark"] .header-container{
+  background-color: #0c0c0c;
+}
+
+[data-theme="dark"] .card{
+  background-color: #0c0c0c !important;
+}
 
 [data-theme="dark"] .card-content {
-  background-color: #303134;
-  color: #bb86fc;
+  background-color: #202124;
+  color: #03DAC5;
 }
 
 [data-theme="dark"] .content-description {
-  color: #03DAC5;;
+  color: #eaeaea;
   font-weight: 400;
 }
 
@@ -167,11 +171,12 @@
 }
 
 [data-theme="dark"] .footer{
+  background-color: #0c0c0c;
   color: #03DAC5;
 }
 
-[data-theme="dark"] .equalizer-bar span {
-  background: #BB86FC;
+[data-theme="dark"] .wave{
+  fill: #0c0c0c;
 }
 
 body {
@@ -359,6 +364,7 @@ p {
   flex-direction: column;
   background-color: #0f0f0f;
   padding-top: 2%;
+  margin-bottom: -1px;
 }
 
 .wave {
@@ -480,7 +486,7 @@ p {
 }
 
 .equalizer-bar {
-  width: 1.9rem;
+  width: 1.8rem;
   margin: 0 3px;
   display: flex;
   flex-direction: column-reverse;
@@ -1366,6 +1372,7 @@ pre span {
   border-radius: 50%;
   background-color: #f06c07;
   padding: 0.5em;
+  cursor: pointer;
 }
 
 .score {
@@ -1381,8 +1388,13 @@ pre span {
   color: ghostwhite;
   background-color: #0f0f0f;
   align-items: center;
-  margin-top: 5%;
   padding: 1em 0.5% 1em 2%;
+  margin-top: -1px;
+}
+
+.footer-svg-container{
+  transform: rotate(180deg);
+  margin-top: 5%;
 }
 
 .hi {
@@ -1788,7 +1800,6 @@ pre span {
   .footer-link-container {
     font-size: 0.9em;
     padding: 0;
-    margin-top: 1em;
     margin-left: 5px;
     width: 20%;
   }
@@ -1922,7 +1933,7 @@ pre span {
   }
 
   .content-description {
-    font-size: 1.5em;
+    font-size: 1.6em;
   }
 
   /*---------NAVBAR----------*/
@@ -2234,11 +2245,11 @@ pre span {
   }
 
   .header-title-1 {
-    margin-left: 6% !important;
+    margin-left: 7% !important;
   }
 
   .header-title-2 {
-    margin: 2% 0 2% 29% !important;
+    margin: 2% 0 2% 31% !important;
   }
 
   .header-title-3 {
@@ -2253,10 +2264,6 @@ pre span {
   .card:hover {
     position: relative;
     transform: scale(1.03);
-  }
-
-  .content-description {
-    font-size: 1.6em;
   }
 
   .complexity-container {
@@ -2431,10 +2438,6 @@ pre span {
     margin: 1em;
   }
 
-  .content-description {
-    font-size: 1.5em;
-  }
-
   .complexity-container {
     font-size: 1.6em;
   }
@@ -2546,8 +2549,12 @@ pre span {
   /*----------FOOTER----------*/
   .footer {
     padding: 1em 2%;
+  }
+
+  .footer-svg-container{
     margin-top: 7%;
   }
+
   .my-description {
     width: 100%;
     margin: 0 auto 0 2%;
@@ -2750,10 +2757,11 @@ pre span {
   /*----------HOME----------*/
   .header-container {
     padding-left: 4%;
+    margin-bottom: -3px;
   }
 
   .header-title-1 {
-    margin-left: 4% !important;
+    margin-left: 3% !important;
   }
 
   .header-title-2 {
@@ -2834,7 +2842,7 @@ pre span {
   }
 
   .header-title-1 {
-    margin-left: 10% !important;
+    margin-left: 9% !important;
   }
 
   .header-title-2 {
@@ -2842,7 +2850,7 @@ pre span {
   }
 
   .header-title-3 {
-    margin-left: 47% !important;
+    margin-left: 48% !important;
   }
 
   .complexity-container {
@@ -3026,9 +3034,17 @@ pre span {
   .equalizer-bar{
     width: 1.5rem;
   }
+
+  .footer{
+    margin-top: -3px;
+  }
 }
 /******( 340px and below )******/
 @media (max-width: 340px) {
+  .header-container {
+    margin-bottom: -5px;
+  }
+
   .mtf {
     top: 12% !important;
   }
@@ -3154,6 +3170,7 @@ pre span {
   .footer {
     justify-content: center;
     padding-top: 3%;
+    margin-top: -5px;
   }
 
   .ava {

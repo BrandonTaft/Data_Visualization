@@ -59,7 +59,7 @@ export default function Navbar({ path }) {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                            <Image src={ logo } alt="logo" layout="intrinsic" width={40} height={40} />
+                            <Image src={logo} alt="logo" layout="intrinsic" width={40} height={40} />
                         </Box>
                         <Typography
                             variant="h6"
