@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function getArray() {
+function useArray() {
     const [array, setArray] = useState([]);
     const [refresh, setRefresh] = useState("false");
     useEffect(() => {
@@ -20,4 +20,4 @@ function getArray() {
     return { array, setArray, refresh, setRefresh }
 }
 
-export default getArray
+export default useArray

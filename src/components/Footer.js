@@ -21,8 +21,8 @@ function Footer() {
                 <div className='my-description'>
                     <div className="hi">Hi! I&apos;m Brandon,</div>
                     <div>
-                        <span className='rwd-line'>I am a Web Developer focused on further developing my knowledge of&nbsp;CS&nbsp;concepts. My&nbsp;aim is to grow
-                            as&nbsp;an&nbsp;engineer by trying to help others understand basic programming.</span></div>
+                        <span className='rwd-line'>I am focused on growing
+                            as&nbsp;an&nbsp;engineer by trying to help others understand computer science fundamentals.</span></div>
                 </div>
                 <div className="footer-link-container" id="footer-link-container">
                     <span className="navigate-footer">Navigate</span>

@@ -1,25 +1,28 @@
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Box from '@mui/material/Box';
+import { memo } from 'react';
 
 function Method({ method }) {
     let display;
-    if (method === "bubble") {
+    switch (method) {
+        case "bubble":
         display = `function bubbleSort(arr) {
-    let checked;
+    let swapped;
     do {
-        checked = false
-        for (let i = 0; i < arr.length; i++) {
+        swapped = false
+        for (let i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
                 let temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
-                checked = true
+                swapped = true
             }
         }
-    } while (checked)
+    } while (swapped)
 }`;
-    } else if (method === "insertion") {
+break;
+     case "insertion" :
         display = `function insertionSort(arr) {
     let n = arr.length;
     for (let i = 1; i < n; i++) {
@@ -33,7 +36,9 @@ function Method({ method }) {
     }
     return arr;
 }`;
-    } else if (method === "selection") {
+break;
+    
+    case "selection": 
         display = `function selection(arr) {              
     for(let i = 0; i < arr.length; i++) {
         let min = i;
@@ -50,7 +55,9 @@ function Method({ method }) {
     }
     return arr;
 }`;
-    } else if (method === "quick") {
+break;
+    
+ case "quick":
         display =
             `function swap(arr, a, b){
     let temp = arr[a];
@@ -79,6 +86,10 @@ function quickSort(arr,start,end){
     quickSort(arr,start,index - 1);
     quickSort(arr,index + 1, end)
 }`
+break;
+
+default:
+    break;
     }
 
     return (
@@ -95,4 +106,4 @@ function quickSort(arr,start,end){
     )
 }
 
-export default Method
+export default memo(Method)

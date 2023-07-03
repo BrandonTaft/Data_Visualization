@@ -1,5 +1,5 @@
 import Slider from '@mui/material/Slider';
-// eslint-disable-next-line no-unused-vars
+
 function MySlider({ speed, setSpeed }) {
     const marks = [
         {
@@ -53,7 +53,7 @@ function MySlider({ speed, setSpeed }) {
             size="large"
             step={1000}
             marks={marks}
-            defaultValue={3000}
+            defaultValue={2000}
             max={10000}
             valueLabelDisplay="off"
             orientation='vertical'

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import Method from "../src/components/Method";
-import getArray from "../src/components/Array";
+import getArray from "../src/components/useArray";
 import ButtonBox from "../src/components/ButtonBox.js";
 import Box from "@mui/material/Box";
 import { turnOff, turnOn, timeOut } from "../src/components/Utils";
-import { InsertionExplanation } from "../src/components/Explanations";
+import Explanation from "../src/components/Explanations";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Insertion() {
@@ -119,7 +119,7 @@ function Insertion() {
         <div className="page-container">
             <Box className="top-container">
                 <Box className="explanation">
-                    <InsertionExplanation />
+                    <Explanation type={"insertion"}/>
                 </Box>
                 <Method method={"insertion"} />
             </Box>

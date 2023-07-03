@@ -5,7 +5,7 @@
 
 [data-theme="dark"],
 [data-theme="dark"] body {
-  background: #121212;
+  background: #1f1f1f;
 }
 
 [data-theme="dark"] .header-container{
@@ -116,6 +116,11 @@
   color: ghostwhite;
 }
 
+[data-theme="dark"] .finished-bubble {
+  background-color: #303134;
+  color: ghostwhite;
+}
+
 [data-theme="dark"] .bubble-bottom-left:after {
   border-left: 24px solid #303134;
   border-top: 12px solid #303134;
@@ -180,7 +185,7 @@
 }
 
 body {
-  font-family: "Barlow", sans-serif;
+  font-family: serif;
   margin: 0;
   height: 100%;
 }
@@ -202,7 +207,7 @@ ul {
 }
 
 p {
-  font-family: "Playfair Display", sans-serif;
+  font-family: sans-serif;
   margin: 0;
 }
 
@@ -440,7 +445,7 @@ p {
 }
 
 .content-header {
-  font-family: "Barlow", serif;
+  font-family: serif;
   font-size: 1.8em;
   font-weight: 600;
   color: inherit;
@@ -459,7 +464,7 @@ p {
 }
 
 .content-description {
-  font-family: "Barlow", serif;
+  font-family: serif;
   font-size: 1.5em;
   margin-bottom: 15px;
   text-align: left;
@@ -469,7 +474,7 @@ p {
 
 .complexity-container {
   margin-top: auto;
-  font-family: "Barlow", serif;
+  font-family: serif;
   font-size: 1.6em;
   line-height: 1.5em;
   color: inherit;
@@ -500,6 +505,7 @@ p {
 
 .top-container {
   display: flex;
+  flex-direction: column-reverse;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -513,7 +519,7 @@ p {
 
 .explanation-heading {
   font-weight: 500;
-  font-family: "Barlow", serif;
+  font-family: serif;
   margin: 2% auto;
   pointer-events: none;
   letter-spacing: 0.5px;
@@ -532,8 +538,9 @@ p {
 }
 
 .explanation {
-  font-size: 1.25em;
-  width: 65%;
+  font-size: 1.2em;
+  width: 85%;
+  margin: auto;
 }
 
 .explanation-list {
@@ -547,20 +554,16 @@ p {
 }
 
 .explanation-list li {
-  margin: 0.35rem auto;
+  margin: 0.5rem auto;
   font-size: 1.1em;
 }
 
 .explanation-list li::before {
   position: relative;
   bottom: 2px;
-  content: "";
-  background: radial-gradient(80% 75% at 67% 43%, #f5bb67, #ff6f00 90%);
-  width: 0.75rem;
-  height: 0.75rem;
+  content: "-";
   border-radius: 50%;
   display: inline-block;
-  color: white;
   margin-right: 0.4rem;
 }
 
@@ -650,6 +653,7 @@ pre span {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
+  font-family: sans-serif;
 }
 
 .var-container {
@@ -746,7 +750,7 @@ pre span {
   letter-spacing: 1px;
   transition: background-color 500ms;
   font-size: 15px;
-  font-family: "Barlow", sans-serif;
+  font-family: sans-serif;
 }
 
 .button:hover {
@@ -1030,13 +1034,13 @@ pre span {
   animation: fill-after 0.66s linear forwards;
 }
 
-.current-element-text::before {
+.current-element > .cap::before {
   content: "arr[i]";
   position: relative;
   top: 4px;
 }
 
-.next-element-text::before {
+.next-element > .cap::before {
   content: "arr[i + 1]";
   position: relative;
   top: 2px;
@@ -1071,7 +1075,7 @@ pre span {
   font-weight: 600;
   pointer-events: none;
   text-transform: uppercase;
-  font-family: "Barlow", serif;
+  font-family: serif;
 }
 
 .thought-bubble div {
@@ -1079,7 +1083,7 @@ pre span {
   font-weight: 700;
   pointer-events: none;
   text-transform: uppercase;
-  font-family: "Playfair Display", serif;
+  font-family: serif;
 }
 
 .less {
@@ -1115,26 +1119,50 @@ pre span {
   z-index: -1;
 }
 
-.swap {
-  display: none;
-}
-
-.stay {
-  display: none;
-}
-
 .no-swap {
   margin-bottom: 5px !important;
 }
 
-.finished {
-  display: none;
+.finished-bubble {
+  position: absolute;
+  z-index: 5;
+  background: rgb(255, 239, 224);
+  border-radius: 30px;
+  padding: 10px 30px 10px;
+  font-size: 3em;
+  font-weight: 600;
+  text-align: center;
+  width: auto;
+  border: 3px solid black;
+  margin: 2em;
 }
 
-#finished2 {
+@media (max-width: 840px) {
+  .finished-bubble {
+    margin: 1.5em;
+  }
+}
+
+@media (max-width: 500px) {
+  .finished-bubble {
+    margin: 2em;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 400px) {
+  .finished-bubble {
+    margin: 2em;
+    font-size: 1.5em;
+  }
+}
+
+.finished {
   font-size: 2.5em;
-  left: 1%;
-  font-family: "Playfair Display", serif;
+  left: 50% !important;
+  top: 101%;
+  margin: auto;
+  font-family: serif;
 }
 
 .greater {
@@ -1201,7 +1229,7 @@ pre span {
 }
 
 .selection-div {
-  font-family: "Barlow", serif !important;
+  font-family: serif !important;
   font-weight: 500 !important;
 }
 
@@ -1363,7 +1391,7 @@ pre span {
 .helpful {
   margin-right: 0.5em;
   font-weight: 600;
-  font-family: "Barlow", serif;
+  font-family: serif;
   font-size: 19px;
 }
 
@@ -1388,8 +1416,7 @@ pre span {
   color: ghostwhite;
   background-color: #0f0f0f;
   align-items: center;
-  padding: 1em 0.5% 1em 2%;
-  margin-top: -1px;
+  padding: 0 0.5% 2em 2%;
 }
 
 .footer-svg-container{
@@ -1426,7 +1453,7 @@ pre span {
 }
 
 .copyright {
-  font-family: "Barlow", serif;
+  font-family: serif;
 }
 
 .footer-link-container {
@@ -1611,7 +1638,7 @@ pre span {
 @media (max-width: 1399px) {
   /*---------TOP CONTAINER--------*/
   .explanation {
-    font-size: 1.05em;
+    font-size: 1.15em;
   }
 
   pre {
@@ -1718,10 +1745,6 @@ pre span {
     font-size: 0.8em !important;
   }
 
-  .explanation {
-    font-size: 1em;
-  }
-
   .insertion-explanation-list li::before {
     width: 0.7rem;
     height: 0.7rem;
@@ -1819,7 +1842,6 @@ pre span {
 @media (max-width: 1079px) {
   /*----------TOP CONTAINER----------*/
   .top-container {
-    flex-direction: column;
     padding-left: 20px;
     padding-right: 20px;
   }
