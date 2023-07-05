@@ -69,10 +69,9 @@ function Bubble() {
     return (
         <div className="page-container">
             <div className="top-container">
-                <div className="explanation">
-                    <Explanation type={"bubble"} />
-                </div>
+                <p className="explanation-heading">Bubble sort is a simple comparison-based algorithm, in which each pair of adjacent elements is compared and the elements are swapped if they are not in order.</p>
                 <Method method={"bubble"} />
+                <Explanation type={"bubble"} />
             </div>
             <div className="bottom-container">
                 <div className="side-display">
@@ -113,25 +112,24 @@ function Bubble() {
                                 key={tube}
                                 ref={e => tubeRef.current[index] = e}
                                 className="tube" style={cssProperties}
-                                id={`${index}`}
                             >
-                                <i className="cap" id={`cap${index}`}></i>
+                                <i className="cap"></i>
                                 <i className="fill" key={index}></i>
                                 <div className="base">
                                     <div className="text">{tube}</div>
                                 </div>
                                 {swap === index &&
                                     <div className="thought-bubble bubble-bottom-left">
-                                        <p className="greater">{array[index]} &gt; {array[index + 1]}</p>
+                                        <p className="greater">{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
                                         <div>Swap</div>
-                                        <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
+                                        <SwapIcon className="swap-icon" sx={{ fontSize: 30 }} />
                                     </div>
                                 }
                                 {stay === index &&
-                                    <div className="thought-bubble bubble-bottom-left">
-                                        <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
-                                        <div className="no-swap">No Swap</div>
-                                    </div>
+                                    <div className="thought-bubble bubble-bottom-left stay-bubble">
+                                    <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
+                                    <div className="no-swap">No Swap</div>
+                                </div>
                                 }
 
                             </div>

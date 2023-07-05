@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from 'next/router';
 import Method from "../src/components/Method";
 import getArray from "../src/components/useArray";
 import ButtonBox from "../src/components/ButtonBox.js";
-import Box from "@mui/material/Box";
-import { turnOff, turnOn, timeOut } from "../src/components/Utils";
+import { timeOut } from "../src/components/Utils";
 import Explanation from "../src/components/Explanations";
 import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Insertion() {
+    const tubeRef = useRef([]);
+    const [isRunning, setIsRunning] = useState(false);
+    const [stay, setStay] = useState(false);
+    const [swap, setSwap] = useState(false);
+    const [finished, setFinished] = useState(false);
     const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
@@ -21,142 +25,141 @@ function Insertion() {
     }, [refresh]);
 
     async function insertionSort() {
-        turnOff();
+        setIsRunning(true)
+        setFinished(false)
         try {
             while (path == "/insertion") {
-                document.getElementById("sort-button").disabled = true;
-                document.getElementById("refresh-button").disabled = true;
                 const arr = array;
                 const n = arr.length;
                 await timeOut(speed / 2);
-                document.getElementById(0).classList.toggle("sorted");
-                document.getElementById(`cap${0}`).classList.toggle("sorted-text");
+                tubeRef.current[0].classList.toggle("sorted");
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 for (let i = 1; i < n; i++) {
-                    if (path == "/insertion") {
-                        // Choosing the first element in our unsorted subarray
-                        let current = arr[i];
-                        setSorted(arr.slice(0, i))
-                        setUnSorted(arr.slice(i))
-                        await timeOut(speed / 2);
-                        document.getElementById(i).classList.toggle("current");
-                        document.getElementById(`cap${i}`).classList.toggle("current-text");
+                    // Choosing the first element in our unsorted subarray
+                    let current = arr[i];
+                    setSorted(arr.slice(0, i))
+                    setUnSorted(arr.slice(i))
+                    await timeOut(speed / 2);
+                    tubeRef.current[i].classList.toggle("current");
+                    await timeOut(speed);
+                    // The last element of our sorted subarray
+                    let j = i - 1;
+                    while ((j > -1) && (current < arr[j])) {
+                        setSwap(j)
                         await timeOut(speed);
-                        // The last element of our sorted subarray
-                        let j = i - 1;
-                        while ((j > -1) && (current < arr[j])) {
-                            if (path == "/insertion") {
-                                document.getElementById(`swap${j}`).classList.toggle("swap");
-                                await timeOut(speed);
-                                document.getElementById(`swap${j}`).classList.toggle("swap");
-                                // arr[j + 1] = arr[j];
-                                let tmp = arr[j];
-                                arr[j] = arr[j + 1];
-                                arr[j + 1] = tmp;
-                                setArray([...arr]);
-                                await timeOut(speed);
-                                j--;
-                            }
-                        }
-                        if (j > -1) {
-                            document.getElementById(`stay${j}`).classList.toggle("stay");
-                            await timeOut(speed);
-                            document.getElementById(`stay${j}`).classList.toggle("stay");
-                        }
-                        arr[j + 1] = current;
-                        document.getElementById(j + 1).classList.toggle("current");
-                        document.getElementById(`cap${j + 1}`).classList.toggle("current-text");
-                        document.getElementById(j + 1).classList.toggle("sorted");
-                        document.getElementById(`cap${j + 1}`).classList.toggle("sorted-text");
-                        setArray(arr);
+                        setSwap(-1)
+                        let tmp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = tmp;
+                        setArray([...arr]);
                         await timeOut(speed);
-                    } else {
-                        return;
+                        j--;
                     }
+                    if (j > -1) {
+                        setStay(j)
+                        await timeOut(speed);
+                        setStay(-1)
+                    }
+                    arr[j + 1] = current;
+                    tubeRef.current[j + 1].classList.toggle("current");
+                    tubeRef.current[j + 1].classList.toggle("sorted");
+                    setArray(arr);
+                    await timeOut(speed);
                 }
                 setUnSorted([])
                 setSorted(arr)
                 await timeOut(speed);
-                turnOn();
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
+                setFinished(true)
+                setIsRunning(false)
                 return arr;
             }
         } catch (error) {
             return;
         }
-        document.getElementById("sort-button").disabled = false;
-        document.getElementById("refresh-button").disabled = false;
     }
-
-    const display = array.map((tube, index) => {
-        let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
-        return (
-            <div className="tube" style={cssProperties} key={tube} id={`${index}`} >
-                <i className="cap" id={`cap${index}`}></i>
-                <i className="fill" key={index}></i>
-                <div className="base">
-                    <div className="text">{tube}</div>
-                </div>
-                <div className="swap thought-bubble bubble-bottom-left" id={`swap${index}`}>
-                    <p className="greater">{tube} &gt; {array[index + 1]}</p>
-                    <div>Swap</div>
-                    <SwapIcon className="swap-icon" sx={{ fontSize: 40 }} />
-                </div>
-                <div className="stay thought-bubble bubble-bottom-left" id={`stay${index}`}>
-                    <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
-                    <div className="no-swap">No Swap</div>
-                </div>
-                <div className="finished thought-bubble bubble-bottom-left" id={`finished${index}`}>
-                    <div className="no-swap">Sorted&nbsp;!!!</div>
-                </div>
-            </div>
-        )
-    });
 
     return (
         <div className="page-container">
-            <Box className="top-container">
-                <Box className="explanation">
-                    <Explanation type={"insertion"}/>
-                </Box>
+            <div className="top-container">
+                <p className="explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
+                    The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another
+                    card from the deck.
+                </p>
                 <Method method={"insertion"} />
-            </Box>
-            <Box className="bottom-container">
-                <Box className="side-display insertion">
+                <Explanation type={"insertion"} />
+            </div>
+            <div className="bottom-container">
+                <div className="side-display insertion">
                     <ButtonBox
+                        isRunning={isRunning}
                         sortMethod={insertionSort}
                         refresh={refresh}
                         setRefresh={setRefresh}
                         speed={speed}
                         setSpeed={setSpeed}
                     />
-                    <Box className="var-container">
-                        <Box className="array-container insertion">
+                    <div className="insertion var-container">
+                        <div className="insertion array-container">
                             <span className="insertion-span">Array</span>
-                            <span className="array-span">
+                            <span className="insertion array-span">
                                 [{array.toString()}]
                             </span>
-                        </Box>
-                        <Box className="checked-container insertion">
+                        </div>
+                        <div className="checked-container insertion">
                             <span className="insertion-span">Unsorted</span>
-                            <span className="array-span">
+                            <span className="insertion array-span">
                                 [{unSorted.toString()}]
                             </span>
-                        </Box>
-                        <Box className="checked-container insertion">
+                        </div>
+                        <div className="checked-container insertion">
                             <span className="insertion-span">Sorted Array</span>
-                            <span className="array-span">
+                            <span className="insertion array-span">
                                 [{sorted.toString()}]
                             </span>
-                        </Box>
-                    </Box>
-                </Box>
-                <div className="row move-row">
-                    {display}
+                        </div>
+                    </div>
                 </div>
-            </Box>
+                <div className="row">
+                    {finished &&
+                        <div className="finished-bubble bubble-bottom-left" >
+                            <div className="no-swap">Sorted&nbsp;!!!</div>
+                        </div>
+                    }
+                    {array.map((tube, index) => {
+                        let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
+                        return (
+                            <div
+                                key={tube}
+                                ref={e => tubeRef.current[index] = e}
+                                className="tube" style={cssProperties}
+                            >
+                                <i className="cap"></i>
+                                <i className="fill" key={index}></i>
+                                <div className="base">
+                                    <div className="text">{tube}</div>
+                                </div>
+                                {swap === index &&
+                                    <div className="thought-bubble bubble-bottom-left">
+                                        <p className="greater">{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
+                                        <div>Swap</div>
+                                        <SwapIcon className="swap-icon" sx={{ fontSize: 30 }} />
+                                    </div>
+                                }
+                                {stay === index &&
+                                    <div className="thought-bubble bubble-bottom-left stay-bubble">
+                                        <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
+                                        <div className="no-swap">No Swap</div>
+                                    </div>
+                                }
+
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
         </div>
     )
 }

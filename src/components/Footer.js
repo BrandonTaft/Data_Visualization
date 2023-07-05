@@ -17,55 +17,51 @@ function Footer() {
                 </svg>
             </div>
             <div className="footer" >
-                <Image className='ava' alt="Brandon Taft" src={avatar} height={80} width={53} />
+                <div className='avatar'>
+                <Image className="ava" alt="Brandon Taft" src={avatar} height={80} width={53} />
+                </div>
                 <div className='my-description'>
-                    <div className="hi">Hi! I&apos;m Brandon,</div>
+                    <h3 className="hi">Hi, I&apos;m Brandon,</h3>
                     <div>
                         <span className='rwd-line'>I am focused on growing
                             as&nbsp;an&nbsp;engineer by trying to help others understand computer science fundamentals.</span></div>
                 </div>
-                <div className="footer-link-container" id="footer-link-container">
-                    <span className="navigate-footer">Navigate</span>
-                    <div className="footer-link-inner">
-                        <div className="footer-links">
-                            <Link href="/">
-                                <span>Home</span>
-                            </Link>
-                            <Link href="/bubble">
-                                <span>Bubble Sort</span>
-                            </Link>
-                            <Link href="quick">
-                                <span>Quick Sort</span>
-                            </Link>
-                        </div>
-                        <div className="footer-links">
-                            <Link href="/insertion">
-                                <span>Insertion Sort</span>
-                            </Link>
-                            <Link href="/selection">
-                                <span>Selection Sort</span>
-                            </Link>
-                        </div>
-                    </div>
+                <div className='divider'></div>
+                <div className="footer-links">
+                    <Link href="/">
+                        <span>Home</span>
+                    </Link>
+                    <Link href="/bubble">
+                        <span>Bubble Sort</span>
+                    </Link>
+                    <Link href="quick">
+                        <span>Quick Sort</span>
+                    </Link>
+                    <Link href="/insertion">
+                        <span>Insertion Sort</span>
+                    </Link>
+                    <Link href="/selection">
+                        <span>Selection Sort</span>
+                    </Link>
                 </div>
+                <div className='divider'></div>
                 <div className='middle-container'>
                     <div className='socials'>
                         <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-                            <Image src={github} alt="github" width={30} height={30} />
+                            <Image src={github} alt="github" width={40} height={40} />
                         </a>
                         <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                            <Image src={huge} alt="logo" width={30} height={30} />
+                            <Image src={huge} alt="logo" width={40} height={40} />
                         </a>
                         <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
-                            <Image src={linked} alt="linkedIn-logo" width={30} height={30} />
+                            <Image src={linked} alt="linkedIn-logo" width={40} height={40} />
                         </a>
                         <a href="mailto:btaftcan@gmail.com" >
-                            <Image src={gmail} alt="gmail-logo" width={40} height={30} />
+                            <Image src={gmail} alt="gmail-logo" width={50} height={40} />
                         </a>
                     </div>
                     <div className='copyright-container'>
-                        <p className="copyright"> &copy;{new Date().getFullYear()} </p>
-                        <p> Brandon Taft </p>
+                        <p className="copyright"> &copy;{new Date().getFullYear()}&nbsp;Brandon Taft</p>
 
                         <a className="sitemap-link" href="/sitemap.xml">
                             <span > Sitemap </span>
