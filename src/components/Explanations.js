@@ -40,8 +40,6 @@ function Explanation({ type }) {
         case "selection":
             return (
                 <>
-                    <p className="explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
-                        On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat until you have gone through the whole array.  </p>
                     <ul className="explanation-list">
                         <li>The first pass will select the smallest value and move it to the left side of the array.</li>
                         <li>This is now the first element in the <span className="sorted-array">sorted array</span>.</li>

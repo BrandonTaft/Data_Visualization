@@ -83,7 +83,7 @@ function Insertion() {
 
     return (
         <div className="page-container">
-            <div className="top-container">
+            <div className="insertion top-container">
                 <p className="explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
                     The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another
                     card from the deck.
@@ -100,6 +100,7 @@ function Insertion() {
                         setRefresh={setRefresh}
                         speed={speed}
                         setSpeed={setSpeed}
+                        setFinished={setFinished}
                     />
                     <div className="insertion var-container">
                         <div className="insertion array-container">
@@ -134,7 +135,8 @@ function Insertion() {
                             <div
                                 key={tube}
                                 ref={e => tubeRef.current[index] = e}
-                                className="tube" style={cssProperties}
+                                className="tube"
+                                style={cssProperties}
                             >
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>

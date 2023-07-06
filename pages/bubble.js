@@ -111,7 +111,8 @@ function Bubble() {
                             <div
                                 key={tube}
                                 ref={e => tubeRef.current[index] = e}
-                                className="tube" style={cssProperties}
+                                className="tube"
+                                style={cssProperties}
                             >
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
