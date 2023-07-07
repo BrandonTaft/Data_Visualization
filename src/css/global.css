@@ -62,10 +62,6 @@
   --fill-color: blue;
 }
 
-[data-theme="dark"] .tube::before {
-  background: red !important;
-}
-
 [data-theme="dark"] .sorted {
   --fill-color: #f06c07;
 }
@@ -77,21 +73,10 @@
 
 [data-theme="dark"] .current-element {
   --fill-color: orangered;
-  bottom: 15px;
 }
 
 [data-theme="dark"] .next-element {
   --fill-color: orangered;
-  bottom: 15px;
-}
-
-[data-theme="dark"] .complexity-container {
-  font-weight: 400;
-}
-
-[data-theme="dark"] .explanation-heading {
-  font-weight: 500;
-  margin-bottom: 2%;
 }
 
 [data-theme="dark"] .min-tube {
@@ -111,7 +96,6 @@
 }
 
 [data-theme="dark"] .index-element {
-  bottom: 5%;
   --fill-color: #f06c07;
 }
 
@@ -130,54 +114,6 @@
   border-top: 12px solid #303134;
 }
 
-[data-theme="dark"] .selection.thought-bubble p {
-  text-transform: none;
-  margin: 10px 0 10px;
-  font-size: 1.1em;
-  font-weight: 400;
-}
-
-[data-theme="dark"] .selection.thought-bubble div {
-  font-weight: 400;
-}
-
-[data-theme="dark"] .thought-bubble.quick-bubble p {
-  text-transform: none;
-  margin: 10px 0 5px;
-  font-size: 0.9em;
-  font-weight: 600;
-}
-
-[data-theme="dark"] .thought-bubble.quick-bubble div {
-  text-transform: none;
-  margin: 5px 0 3px;
-  font-weight: 600;
-  font-size: 0.8em;
-}
-
-[data-theme="dark"] .thought-bubble.quick-bubble p {
-  text-transform: none;
-  margin: 10px 0 10px;
-  font-size: 1.1em;
-  font-weight: 400;
-}
-
-[data-theme="dark"] .thought-bubble.quick-bubble div {
-  font-weight: 400;
-  font-size: 16px;
-}
-
-[data-theme="dark"] .thought-bubble.quick-bubble {
-  background-color: #303134;
-  color: ghostwhite;
-}
-
-[data-theme="dark"] .like-it {
-  font-size: 15px;
-  color: white;
-  align-items: center;
-  justify-content: center;
-}
 
 [data-theme="dark"] .footer {
   background-color: #0c0c0c;
@@ -219,10 +155,6 @@ p {
 .background {
   z-index: 0;
   opacity: 40%;
-}
-
-.selected {
-  display: none;
 }
 
 .page-container {
@@ -574,13 +506,14 @@ p {
 
 @media (min-width: 400px) {
   .top-container {
-    font-size: 21px;
+    font-size: 18px;
     line-height: 28px;
   }
 }
 
 @media (min-width: 800px) {
   .top-container {
+    font-size: 21px;
     width: 75%;
   }
   .insertion.top-container {
@@ -615,7 +548,6 @@ p {
 
 @media (min-width: 1400px) {
   .top-container {
-    font-size: 22px;
     width: 70%;
   }
 }
@@ -1319,14 +1251,69 @@ pre span {
 
 /****************Selection Tubes******************/
 
+.min-tube {
+  --fill-color: green;
+}
+
 .min-tube>.cap::before {
   content: "min";
   position: relative;
   top: 4px;
 }
 
-.min-tube {
-  --fill-color: green;
+.compare-tube {
+  --fill-color: rgb(131, 3, 151);
+  top: 8%;
+}
+
+.compare-tube>.cap::before {
+  content: "arr[j]";
+  position: relative;
+  top: 4px;
+}
+
+.selection-stay {
+ position: absolute;
+ top: unset;
+ left: unset;
+ margin: 3em;
+ padding: 10px 22px;
+}
+
+@media (min-width: 600px) {
+  .selection-stay {
+   margin: 4em;
+   }
+}
+
+@media (min-width: 800px) {
+  .selection-stay {
+    padding: 14px 26px;
+   }
+}
+
+@media (min-width: 1000px) {
+  .selection-stay {
+   margin: 5em;
+   }
+}
+
+@media (min-width: 1200px) {
+  .selection-stay {
+   margin: 4em;
+   }
+}
+
+@media (min-width: 1400px) {
+  .selection-stay {
+   margin: 4.5em;
+   }
+}
+
+@media (min-width: 1800px) {
+  .selection-stay {
+   margin: 6.5em;
+   }
 }
 
 

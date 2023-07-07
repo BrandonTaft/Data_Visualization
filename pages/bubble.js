@@ -121,14 +121,14 @@ function Bubble() {
                                 </div>
                                 {swap === index &&
                                     <div className="thought-bubble bubble-bottom-left">
-                                        <p className="greater">{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
+                                        <p>{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
                                         <div>Swap</div>
                                         <SwapIcon className="swap-icon" sx={{ fontSize: 30 }} />
                                     </div>
                                 }
                                 {stay === index &&
                                     <div className="thought-bubble bubble-bottom-left stay-bubble">
-                                    <p className="greater" >{array[index]} &lt; {array[index + 1]}</p>
+                                    <p>{array[index]} &lt; {array[index + 1]}</p>
                                     <div className="no-swap">No Swap</div>
                                 </div>
                                 }

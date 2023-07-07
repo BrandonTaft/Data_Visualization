@@ -43,27 +43,32 @@ function Selection() {
                     let min = i;
                     for (let j = i + 1; j < n; j++) {
                         if (arr[j] > arr[min]) {
+                            tubeRef.current[j].classList.toggle("compare-tube");
                             setStay(j)
                             await timeOut(speed);
-                            setStay(-1)
+                            tubeRef.current[j].classList.toggle("compare-tube");
+                            setStay(false)
+                            await timeOut(speed / 2);
                         } else if (arr[j] < arr[min]) {
+                            tubeRef.current[j].classList.toggle("compare-tube");
                             setSwap(j)
                             await timeOut(speed);
+                            tubeRef.current[j].classList.toggle("compare-tube");
                             tubeRef.current[min].classList.toggle("min-tube");
                             tubeRef.current[j].classList.toggle("min-tube");
-                            setSwap(-1)
+                            setSwap(false)
                             await timeOut(speed);
                             min = j;
                         }
                     } if (min == i) {
                         setMinBubble(min)
                         await timeOut(speed);
-                        setMinBubble(-1)
+                        setMinBubble(false)
                     } else if (min != i) {
                         // Swapping the elements
                         setMove(min)
                         await timeOut(speed);
-                        setMove(-1)
+                        setMove(false)
                         let tmp = arr[i];
                         arr[i] = arr[min];
                         arr[min] = tmp;
@@ -133,54 +138,59 @@ function Selection() {
                     </div>
                 </div>
                 <div className="row">
-                {finished &&
+                    {finished &&
                         <div className="finished-bubble bubble-bottom-left" >
                             <div className="no-swap">Sorted&nbsp;!!!</div>
                         </div>
                     }
-                    {array.map((tube, index) => {
-        let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
-        return (
-            <div
-                key={tube}
-                ref={e => tubeRef.current[index] = e}
-                className="tube"
-                style={cssProperties}
-            >
-                <i className="cap"></i>
-                <i className="fill" key={index}></i>
-                <div className="base">
-                    <div className="text">{tube}</div>
-                </div>
-                {stay === index &&
-                    <div className="selection selection-stay thought-bubble bubble-bottom-left ">
-                        <p className="selection greater">{tube} &gt; min</p>
-                        <p className="selection no-tm mb">min stays the same</p>
-                    </div>
-                }
-                {swap === index &&
-                    <div className="selection selection-swap thought-bubble bubble-bottom-left ">
-                        <p className="selection greater" >{array[index]} &lt; min</p>
-                        <p className="selection no-tm">This is the new min</p>
-                        <SwapIcon className="selection swap-icon" sx={{ fontSize: 40 }} />
-                    </div>
-                }
-                { move === index &&
-                <div className="selection move-to-front thought-bubble mtf bubble-bottom-left ">
-                    <p className="mtf-p">Swaps places with <span className="j-element">arr[i]</span> making it the last element in the sorted array</p>
-                </div>
+                    {(stay || swap || move || minBubble ) &&
+                        < div className="selection-stay thought-bubble bubble-bottom-left ">
+                            {stay > 0 &&
+                                <p>{array[stay]} &gt; min
+                                    min stays
+                                    the same</p>
+                            }
+                            {swap > 0 &&
+                                <p>{array[swap]} &lt; min
+                                    arr[{swap}]
+                                    is the new min</p>
+                                /* <SwapIcon className="selection swap-icon" sx={{ fontSize: 40 }} /> */
+                            }
+                            {move > 0 &&
+                            <>
+                                        <p className="mtf-p">min swaps places with <span className="j-element">arr[{move}]</span></p>
+                                        <p> making it the last element in the sorted array</p>
+                                </>
+                                }
+                                {minBubble > 0 &&
+                                <>
+                                        <p className="mtf-p tm">&nbsp;<span className="j-element">arr[i]</span>&nbsp; was the lowest element</p>
+                                        <p> so it stays where it is. </p>
+                                </>
+                                }
+                        </div>
                     }
-                {minBubble === index &&
-                    <div className="selection i-is-min thought-bubble iim mtf bubble-bottom-left ">
-                        <p className="mtf-p tm">&nbsp;<span className="j-element">arr[i]</span>&nbsp; was the lowest element so it stays where it is. </p>
-                    </div>
-                }
-            </div>
-        )
-    })}
+
+                    {array.map((tube, index) => {
+                        let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
+                        return (
+                            <div
+                                key={tube}
+                                ref={e => tubeRef.current[index] = e}
+                                className="tube"
+                                style={cssProperties}
+                            >
+                                <i className="cap"></i>
+                                <i className="fill" key={index}></i>
+                                <div className="base">
+                                    <div className="text">{tube}</div>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
