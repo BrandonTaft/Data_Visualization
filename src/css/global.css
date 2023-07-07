@@ -852,7 +852,7 @@ pre span {
   height: calc(var(--skew) * 8);
   background: #00000068;
   border-radius: 0% 100%;
-  filter: blur(6px);
+  filter: blur(10px);
 }
 
 .cap-text {
