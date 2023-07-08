@@ -209,16 +209,16 @@ export default function Navbar({ path }) {
                                     <span>Home</span>
                                 </Link>
                                 <Link href="/bubble">
-                                    <span>Bubble Sort</span>
+                                    <span>Bubble</span>
                                 </Link>
                                 <Link href="/insertion">
-                                    <span>Insertion Sort</span>
+                                    <span>Insertion</span>
                                 </Link>
                                 <Link href="/selection">
-                                    <span>Selection Sort</span>
+                                    <span>Selection</span>
                                 </Link>
                                 <Link href="/quick">
-                                    <span>Quick Sort</span>
+                                    <span>Quick</span>
                                 </Link>
                             </Box>
                         </Box>

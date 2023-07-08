@@ -10,8 +10,10 @@ import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 function Selection() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
-    const [stay, setStay] = useState(false);
-    const [swap, setSwap] = useState(false);
+    const [arrI, setArrI] = useState(-1);
+    const [arrJ, setArrJ] = useState(-1);
+    const [stay, setStay] = useState(-1);
+    const [swap, setSwap] = useState(-1);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
     const [finished, setFinished] = useState(false);
@@ -30,43 +32,42 @@ function Selection() {
         setIsRunning(true)
         setFinished(false)
         try {
-            console.log(path)
             while (path == "/selection") {
                 const arr = array;
                 const n = arr.length;
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 await timeOut(speed / 2);
-                for (let i = 0; i < n; i++) {
+                for (let i = 0; i < n - 1; i++) {
+                    setArrI(i)
                     // Finding the smallest number in the subarray
                     tubeRef.current[i].classList.toggle("min-tube");
                     await timeOut(speed);
                     let min = i;
                     for (let j = i + 1; j < n; j++) {
+                        setArrJ(j)
+                        tubeRef.current[j].classList.toggle("compare-tube");
                         if (arr[j] > arr[min]) {
-                            tubeRef.current[j].classList.toggle("compare-tube");
                             setStay(j)
                             await timeOut(speed);
                             tubeRef.current[j].classList.toggle("compare-tube");
-                            setStay(false)
-                            await timeOut(speed / 2);
+                            setStay(-1)
                         } else if (arr[j] < arr[min]) {
-                            tubeRef.current[j].classList.toggle("compare-tube");
                             setSwap(j)
                             await timeOut(speed);
                             tubeRef.current[j].classList.toggle("compare-tube");
                             tubeRef.current[min].classList.toggle("min-tube");
                             tubeRef.current[j].classList.toggle("min-tube");
-                            setSwap(false)
-                            await timeOut(speed);
+                            setSwap(-1)
                             min = j;
                         }
-                    } if (min == i) {
-                        setMinBubble(min)
+                        await timeOut(speed / 2);
+                    } if (min === i) {
+                        setMinBubble(true)
                         await timeOut(speed);
                         setMinBubble(false)
-                    } else if (min != i) {
+                    } else if (min !== i) {
                         // Swapping the elements
-                        setMove(min)
+                        setMove(true)
                         await timeOut(speed);
                         setMove(false)
                         let tmp = arr[i];
@@ -80,7 +81,7 @@ function Selection() {
                     setSorted(arr.slice(0, i + 1))
                     setUnSorted(arr.slice(i + 1))
                     setArray(arr);
-                    await timeOut(speed);
+                    //await timeOut(speed);
                 }
                 setUnSorted([])
                 setSorted(arr)
@@ -143,31 +144,34 @@ function Selection() {
                             <div className="no-swap">Sorted&nbsp;!!!</div>
                         </div>
                     }
-                    {(stay || swap || move || minBubble ) &&
+                    {(stay > 0 || swap > 0 || move || minBubble) &&
                         < div className="selection-stay thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
-                                <p>{array[stay]} &gt; min
-                                    min stays
-                                    the same</p>
+                            <div>
+                                <p><span className="red">{array[stay]}</span> &gt; <span className="green">min</span></p>
+                                <p><span className="green">min</span> stays the same</p>
+                            </div>
                             }
                             {swap > 0 &&
-                                <p>{array[swap]} &lt; min
-                                    arr[{swap}]
-                                    is the new min</p>
-                                /* <SwapIcon className="selection swap-icon" sx={{ fontSize: 40 }} /> */
+                                <div>
+                                    <p><span className="red">{array[swap]}</span> &lt; <span className="green">min</span></p>
+                                    <SwapIcon className="selection swap-icon" />
+                                    <p><span className="blue">{array[swap]}</span> is the new min</p>
+                                </div>
                             }
-                            {move > 0 &&
-                            <>
-                                        <p className="mtf-p">min swaps places with <span className="j-element">arr[{move}]</span></p>
-                                        <p> making it the last element in the sorted array</p>
-                                </>
-                                }
-                                {minBubble > 0 &&
-                                <>
-                                        <p className="mtf-p tm">&nbsp;<span className="j-element">arr[i]</span>&nbsp; was the lowest element</p>
-                                        <p> so it stays where it is. </p>
-                                </>
-                                }
+                            {move &&
+                                <div>
+                                    <p><span className="green">min</span> swaps places with <span className="blue">arr[i]</span></p>
+                                    <p> making it the</p>
+                                    <p>last element in the <span className="orange">sorted array</span></p>
+                                </div>
+                            }
+                            {minBubble &&
+                                <div>
+                                    <p>&nbsp;<span className="blue">arr[i]</span>&nbsp; was the smallest value</p>
+                                    <p> so it stays where it is. </p>
+                                </div>
+                            }
                         </div>
                     }
 
@@ -180,6 +184,12 @@ function Selection() {
                                 className="tube"
                                 style={cssProperties}
                             >
+                                {arrI === index && arrI < 5 &&
+                                    <div className="arri">arr[i]</div >
+                                }
+                                {arrJ === index &&
+                                    <div className="arrj">arr[j]</div >
+                                }
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
                                 <div className="base">

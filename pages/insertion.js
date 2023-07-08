@@ -147,7 +147,7 @@ function Insertion() {
                                     <div className="thought-bubble bubble-bottom-left">
                                         <p>{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
                                         <div>Swap</div>
-                                        <SwapIcon className="swap-icon" sx={{ fontSize: 30 }} />
+                                        <SwapIcon className="blue" sx={{ fontSize: 30 }} />
                                     </div>
                                 }
                                 {stay === index &&

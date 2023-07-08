@@ -50,10 +50,6 @@
   color: #9b9bf9;
 }
 
-[data-theme="dark"] .j-element {
-  color: #f55;
-}
-
 [data-theme="dark"] .checked-variable {
   color: dodgerblue;
 }
@@ -171,6 +167,22 @@ p {
   pointer-events: none;
 }
 
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
 /*******************Layout******************/
 
 .content {
@@ -496,10 +508,6 @@ p {
   color: blue;
 }
 
-.j-element {
-  color: #b30202;
-}
-
 .value-element {
   color: #f06c07;
 }
@@ -815,7 +823,6 @@ pre span {
 }
 
 /*********************Tubes********************/
-
 .row {
   display: flex;
   flex-grow: 1;
@@ -1016,10 +1023,12 @@ pre span {
   background: rgb(255, 239, 224);
   padding: 4px 22px;
   font-size: 12px;
+  font-family: bryant-web, sans-serif;
+  font-style: normal;
   text-align: center;
   top: 22%;
   left: 25%;
-  border: 3px solid black;
+  border: 5px solid black;
   border-radius: 20px;
 }
 
@@ -1263,7 +1272,6 @@ pre span {
 
 .compare-tube {
   --fill-color: rgb(131, 3, 151);
-  top: 8%;
 }
 
 .compare-tube>.cap::before {
@@ -1277,25 +1285,116 @@ pre span {
  top: unset;
  left: unset;
  margin: 3em;
- padding: 10px 22px;
+ padding: 10px 22px 12px;
+ height: 5em;
 }
+
+.selection-stay div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.selection.swap-icon {
+  font-size: 30px;
+  color: blue;
+}
+
+.arri {
+  display: flex;
+  content: "arr[j]";
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  font-size: 20px;
+  color: blue;
+  top: -20%;
+  z-index: 4;
+}
+
+.arri::before {
+  content: "";
+  position: absolute;
+  border: solid blue 6px;
+  width: 120%;
+  height: 10em;
+  top: -10px;
+}
+
+.arrj {
+  display: flex;
+  content: "arr[j]";
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  font-size: 20px;
+  color: blue;
+  top: -20%;
+  z-index: 4;
+}
+
+.arrj::before {
+  content: "";
+  position: absolute;
+  border: solid blue 6px;
+  width: 120%;
+  height: 10em;
+  top: -10px;
+}
+
+@media (min-width: 400px) {
+  .selection-stay {
+    padding: 10px 22px 14px;
+    height: 4em;
+   }
+  }
+
+  @media (min-width: 600px) {
+    .selection-stay {
+      height: 5.5em;
+     }
+  }
 
 @media (min-width: 600px) {
   .selection-stay {
-   margin: 4em;
+    height: 5em;
+    margin: 3.75em;
    }
+   .arri {
+    font-size: 30px;
+  }
+  .arrj {
+    font-size: 30px;
+  }
 }
 
 @media (min-width: 800px) {
   .selection-stay {
     padding: 14px 26px;
    }
+   .arri::before {
+    height: 10.5em;
+  }
+  .arrj::before {
+    height: 10.5em;
+  }
 }
 
 @media (min-width: 1000px) {
   .selection-stay {
-   margin: 5em;
+   margin: 4.75em;
    }
+   .selection.swap-icon {
+    font-size: 40px;
+  }
+   .arri::before {
+    height: 11.5em;
+  }
+  .arrj::before {
+    height: 11.5em;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1306,63 +1405,65 @@ pre span {
 
 @media (min-width: 1400px) {
   .selection-stay {
-   margin: 4.5em;
+    margin: 4.5em;
+    }
+   .arri::before {
+    height: calc(16vw + 4.5em);
+  }
+  .arrj::before {
+    height: calc(16vw + 4.5em);
+  }
+}
+
+@media (min-width: 1600px) {
+  .selection-stay {
+   margin: 5em;
    }
 }
 
 @media (min-width: 1800px) {
   .selection-stay {
+   margin: 5.5em;
+   }
+   .arri::before {
+    height: calc(16vw + 6em);
+  }
+  .arrj::before {
+    height: calc(16vw + 6em);
+  }
+}
+
+@media (min-width: 2200px) {
+  .selection-stay {
    margin: 6.5em;
    }
 }
 
-
 /****************Quick Sort Tubes******************/
-
-/* .quick.row.move-row {
-  margin-top: 2.5%;
+.pivot-value {
+  --fill-color: red;
 }
 
-.pivot-value::before {
+.pivot-value>.cap::before {
   content: "pivot-value";
   position: relative;
   top: 4px;
   font-size: 0.75em;
 }
 
-.pivot-index::before {
+.pivot-index {
+  --fill-color: blue;
+}
+
+.pivot-index>.cap::before {
   content: "pivot-index";
   position: relative;
   top: 4px;
   font-size: 0.75em;
 }
 
-.pivot-value-tube {
-  --fill-color: red;
-}
-
-.pivot-index-tube {
-  --fill-color: blue;
-}
-
 .quick-current {
   --fill-color: green;
-}
-
-.quick-stay {
-  display: none;
-}
-
-.quick-swap {
-  display: none;
-}
-
-.quick-swap-pivot {
-  display: none;
-}
-
-.start-greater-end {
-  display: none;
 }
 
 .index-element {
@@ -1370,48 +1471,12 @@ pre span {
   --fill-color: #f06c07;
 }
 
-.index-element-text::before {
+.index-element>.cap::before {
   content: "index";
   position: relative;
   top: 4px;
   font-weight: 600;
 }
-
-.quick.thought-bubble {
-  position: absolute;
-  z-index: 5;
-  border-radius: 35px;
-  padding: 10px 10px 17px;
-  text-align: center;
-  width: 100%;
-  top: 23%;
-  left: -12%;
-  border: 3px solid black;
-  font-size: 1em;
-}
-
-.quick.thought-bubble p {
-  text-transform: none;
-}
-
-.qs {
-  font-size: 0.95em !important;
-  top: 20% !important;
-}
-
-.qsp p {
-  font-weight: 500;
-  margin-top: 2px;
-}
-
-.quick-greater {
-  color: #f06c07;
-}
-
-.quick-p {
-  font-weight: 400 !important;
-}
- */
 
 /****************************Footer****************************/
 
