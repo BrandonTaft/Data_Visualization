@@ -116,7 +116,7 @@ export default function Navbar({ path }) {
                             >
                                 <div className='hamburger about-me-div' id="about-me-div">
                                     <List>
-                                        <ListItem disablePadding>
+                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
                                             <Link href="/">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -128,7 +128,7 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem disablePadding>
+                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
                                             <Link href="/bubble">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -140,8 +140,8 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem disablePadding>
-                                            <Link href="/insertion">
+                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
+                                            <Link href="/insertion" >
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <CalculateIcon />
@@ -152,7 +152,7 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem disablePadding>
+                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
                                             <Link href="/selection">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -164,7 +164,7 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem disablePadding>
+                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
                                             <Link href="/quick">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -250,25 +250,25 @@ export default function Navbar({ path }) {
                                 onClose={handleCloseUserMenu}
                             >
                                 <div className="about-me-div">
-                                    <MenuItem className="top-contact">
+                                    <MenuItem onClick={handleCloseUserMenu} className="top-contact">
                                         <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
                                             <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
                                             <div className="contacts"> Github</div>
                                         </a>
                                     </MenuItem>
-                                    <MenuItem >
+                                    <MenuItem onClick={handleCloseUserMenu} >
                                         <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
                                             <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={20} height={20} />
                                             <div className="contacts">Portfolio</div>
                                         </a>
                                     </MenuItem>
-                                    <MenuItem >
+                                    <MenuItem onClick={handleCloseUserMenu} >
                                         <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
                                             <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
                                             <div className="contacts">Linked In</div>
                                         </a>
                                     </MenuItem>
-                                    <MenuItem className="email-contact">
+                                    <MenuItem onClick={handleCloseUserMenu} className="email-contact">
                                         <a href="mailto:btaftcan@gmail.com" >
                                             <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={22} height={13} />
                                             <div className="email contacts">Email Me</div>

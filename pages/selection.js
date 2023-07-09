@@ -14,6 +14,7 @@ function Selection() {
     const [arrJ, setArrJ] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
+    const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
     const [finished, setFinished] = useState(false);
@@ -60,6 +61,7 @@ function Selection() {
                             setSwap(-1)
                             min = j;
                         }
+                        setArrJ(-1)
                         await timeOut(speed / 2);
                     } if (min === i) {
                         setMinBubble(true)
@@ -83,6 +85,12 @@ function Selection() {
                     setArray(arr);
                     //await timeOut(speed);
                 }
+                setArrI(5)
+                setLastIndex(true)
+                tubeRef.current[5].classList.toggle("sorted");
+                await timeOut(speed);
+                setArrI(-1)
+                setLastIndex(false)
                 setUnSorted([])
                 setSorted(arr)
                 await timeOut(speed);
@@ -144,7 +152,7 @@ function Selection() {
                             <div className="no-swap">Sorted&nbsp;!!!</div>
                         </div>
                     }
-                    {(stay > 0 || swap > 0 || move || minBubble) &&
+                    {(stay > 0 || swap > 0 || move || minBubble || lastIndex) &&
                         < div className="selection-stay thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                             <div>
@@ -168,8 +176,14 @@ function Selection() {
                             }
                             {minBubble &&
                                 <div>
-                                    <p>&nbsp;<span className="blue">arr[i]</span>&nbsp; was the smallest value</p>
+                                    <p><span className="blue">arr[i]</span>&nbsp; was the smallest value</p>
                                     <p> so it stays where it is. </p>
+                                </div>
+                            }
+                            {lastIndex &&
+                                <div>
+                                    <p>The<span className="blue">last index</span></p>
+                                    <p>Is already sorted. </p>
                                 </div>
                             }
                         </div>
