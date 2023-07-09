@@ -30,9 +30,9 @@ const Header = () => {
       </h1>
     </div>
     <div className='burger' onClick={openMenu}>
-      <span></span>
-      <span></span>
-      <span></span>
+      <span className='patty'></span>
+      <span className='patty'></span>
+      <span className='patty'></span>
     
     {open &&
     <div className="header-menu about-me-div" ref={wrapperRef}>
