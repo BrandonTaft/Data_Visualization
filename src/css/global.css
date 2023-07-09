@@ -407,13 +407,13 @@ p {
   }
 
   .burger {
-    right: 20px;
-    top: 14px;
-    height: 30px;
+    right: 22px;
+    top: 18px;
+    height: 20px;
   }
   
   .burger span{
-    width: 30px;
+    width: 20px;
     height: 2px;
   }
 }
@@ -433,12 +433,12 @@ p {
 
   .burger {
     right: 30px;
-    top: 14px;
-    height: 40px;
+    top: 18px;
+    height: 30px;
   }
   
   .burger span{
-    width: 36px;
+    width: 30px;
     height: 3px;
   }
 }
@@ -457,8 +457,9 @@ p {
 
   .burger {
     right: 40px;
-    top: 24px;
+    top: 28px;
   }
+
 }
 
 @media (min-width: 1000px) {
@@ -474,7 +475,13 @@ p {
 
   .burger {
     right: 60px;
-    top: 30px;
+    top: 32px;
+    height: 30px;
+  }
+  
+  .burger span{
+    width: 30px;
+    height: 3px;
   }
 }
 /*******************Home**********************/
