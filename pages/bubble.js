@@ -22,12 +22,11 @@ function Bubble() {
     async function bubbleSort() {
         setIsRunning(true)
         setFinished(false)
-        const arr = array;
         let swapped;
         do {
             swapped = false
             setSwapped("False")
-            for (let i = 0; i < arr.length - 1; i++) {
+            for (let i = 0; i < array.length - 1; i++) {
                 await timeOut(speed / 2);
                 if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("current-element");
@@ -37,13 +36,13 @@ function Bubble() {
                 } else {
                     await timeOut(speed)
                 }
-                if (arr[i] > arr[i + 1]) {
+                if (array[i] > array[i + 1]) {
                     setSwap(i)
                     await timeOut(speed)
                     setSwap(-1)
-                    let tmp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = tmp;
+                    let tmp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = tmp;
                     swapped = true
                     setSwapped("True")
                 } else {
@@ -59,7 +58,7 @@ function Bubble() {
                 if (tubeRef.current[i + 1]) {
                     tubeRef.current[i + 1].classList.toggle("next-element");
                 }
-                setArray([...arr]);
+                setArray([...array]);
             }
         } while (swapped && path == "/bubble")
         setFinished(true)

@@ -335,7 +335,7 @@ p {
 .header {
   display: flex;
   flex-direction: column;
-  
+
 }
 
 .title-container {
@@ -379,7 +379,7 @@ p {
   justify-content: space-around;
 }
 
-.patty{
+.patty {
   width: 20px;
   height: 2px;
   background-color: white;
@@ -410,8 +410,8 @@ p {
     top: 18px;
     height: 20px;
   }
-  
-  .patty{
+
+  .patty {
     width: 20px;
     height: 2px;
   }
@@ -435,8 +435,8 @@ p {
     top: 18px;
     height: 30px;
   }
-  
-  .patty{
+
+  .patty {
     width: 30px;
     height: 3px;
   }
@@ -447,6 +447,7 @@ p {
     font-size: 38px;
     margin: 8px 8px 0px;
   }
+
   .logo {
     left: 40px;
     top: 14px;
@@ -477,12 +478,13 @@ p {
     top: 32px;
     height: 30px;
   }
-  
-  .patty{
+
+  .patty {
     width: 30px;
     height: 3px;
   }
 }
+
 /*******************Home**********************/
 .home-switch {
   display: flex;
@@ -519,9 +521,9 @@ p {
 
 
 .content-header {
- 
+
   font-weight: 600;
- 
+
   margin: 0 auto 8px;
   text-decoration: underline;
 }
@@ -531,7 +533,7 @@ p {
   flex-direction: column;
   flex-grow: 1;
   background-color: rgb(245, 242, 239);
-  
+
   padding: 5px 10px 15px 10px;
 }
 
@@ -541,9 +543,9 @@ p {
 
 .complexity-container {
   margin-top: 16px;
-  
+
   line-height: 24px;
-  
+
   font-weight: 600;
 }
 
@@ -636,6 +638,7 @@ p {
     font-size: 21px;
     width: 75%;
   }
+
   .insertion.top-container {
     width: 85%;
   }
@@ -646,12 +649,15 @@ p {
     line-height: 32px;
     width: 85%;
   }
+
   .insertion.top-container {
     width: 95%;
   }
+
   .explanation-heading {
     width: 80%;
   }
+
   .explanation-list {
     width: fit-content;
   }
@@ -661,6 +667,7 @@ p {
   .top-container {
     width: 75%;
   }
+
   .insertion.top-container {
     width: 95%;
   }
@@ -739,9 +746,9 @@ pre span {
   display: flex;
   width: fit-content;
   margin: 3em auto 0;
-  background: radial-gradient(68% 75% at 51% 43%, #343232, #000 90%);
-  border-radius: 20%;
-  padding: 16px;
+  background: radial-gradient(68% 75% at 51% 43%, #343232, #121212 99%);
+  border-radius: 40px;
+  padding: 8px;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -816,48 +823,40 @@ pre span {
   color: white;
   border-right-style: groove;
   border-right-color: #919ca10d;
-  padding: 10px 0px;
+  padding: 10px 6px;
 }
 
 .action-buttons {
   display: flex;
-  padding: 0.1em 0.35em 0.5em 0.5em;
   justify-content: space-evenly;
   gap: 6px;
 }
 
 .button {
+  padding: 5px;
   box-sizing: border-box;
-  appearance: none;
-  background-color: #6e5b5b3d;
+  background: radial-gradient(68% 75% at 51% 43%, #595757, #191919 70%);
   border: none;
-  border-radius: 30%;
+  border-radius: 10px;
   color: white;
   cursor: pointer;
-  display: flex;
-  align-self: center;
   text-decoration: none;
-  text-align: center;
   font-weight: bold;
-  letter-spacing: 1px;
+  font-family: "source-serif-pro", serif;
   transition: background-color 500ms;
-  font-size: 15px;
-}
-
-.button:hover {
-  background-color: #f06c07;
-}
-
-.button:active {
-  background-color: #6e5b5b3d;
 }
 
 .refresh-button {
-  padding: 0.7em 0.8em;
+  padding: 5px 10px;
 }
 
-.sort-button {
-  padding: 0.9em 0.4em;
+.button:hover {
+  background: #f06c07;
+}
+
+.button:active {
+  background: #6e5b5b3d;
+  transform: scale(0.98);
 }
 
 .button:disabled {
@@ -866,18 +865,17 @@ pre span {
 }
 
 /*******************SLIDER******************/
-
 .slider-container {
   display: flex;
   padding-top: 1em;
+  width: 100%;
 }
 
-.slider {
-  color: white;
+.slide-box {
+  display: flex;
 }
 
 .slider-label {
-  font-size: 18px;
   display: flex;
   color: white;
   text-align: center;
@@ -888,52 +886,66 @@ pre span {
   margin-left: auto;
   margin-right: auto;
   pointer-events: none;
+  width: 50%;
+  justify-content: center;
 }
 
-.css-fk6q5t-MuiSlider-root {
+.mark-label {
+  display: flex;
   color: white;
+  text-align: center;
+  flex-direction: column;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  letter-spacing: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
 }
 
-.MuiSlider-thumb {
-  border: #fff solid !important;
-  color: #f06c07 !important;
+.horizontal-slider {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.MuiSlider-track {
-  width: 10px !important;
-  color: white !important;
+.track {
+  background-color: #f06c07;
+  height: auto;
+  width: 20px;
+  border: 1px solid white;
+  border-radius: 11px;
+  z-index: 5;
 }
 
-.MuiSlider-rail {
-  color: transparent !important;
-  width: 10px !important;
+.track.track-1 {
+  background-color: transparent;
+  z-index: 0;
 }
 
-.MuiSlider-markLabel {
-  color: white !important;
-  left: 50px !important;
-  font-size: 1rem !important;
+.thumb {
+  height: 30px;
+  width: 30px;
+  background-color: #f06c07;
+  border: 2px solid white;
+  color: #fff;
+  border-radius: 50%;
+  cursor: grab;
+  z-index: 10 !important;
+  text-align: center;
+  line-height: 30px;
 }
 
-.MuiSlider-markLabelActive {
-  color: #f06c07 !important;
-  left: 50px !important;
-  font-size: 1rem !important;
-}
 
-.MuiSlider-mark {
-  color: transparent !important;
-  width: 6px !important;
-  height: 6px !important;
-  border: #f06c07 solid 1px !important;
-  border-radius: 50% !important;
+.mark {
+  background-color: white;
+  width: 8px;
+  height: 8px;
+  border: #f06c07 solid 1px;
+  border-radius: 50%;
+  margin: 4px;
 }
-
-.MuiSlider-markActive {
-  color: transparent !important;
-  border: white solid 1px !important;
-}
-
 /*********************Tubes********************/
 .row {
   display: flex;
@@ -1231,6 +1243,7 @@ pre span {
   .cap {
     font-size: 12px;
   }
+
   .thought-bubble {
     padding: 6px 22px;
     font-size: 14px;
@@ -1248,9 +1261,11 @@ pre span {
     height: 14em;
     gap: 2em;
   }
+
   .cap {
     font-size: 18px;
   }
+
   .thought-bubble {
     padding: 8px 26px;
     border-radius: 24px;
@@ -1258,11 +1273,13 @@ pre span {
     left: 55%;
     font-size: 16px;
   }
+
   .stay-bubble {
     top: 30% !important;
     left: 50% !important;
     padding: 16px !important;
   }
+
   .finished-bubble {
     margin: 2em;
   }
@@ -1272,9 +1289,11 @@ pre span {
   .row {
     height: 16em;
   }
+
   .cap {
     font-size: 22px;
   }
+
   .thought-bubble {
     left: calc(50% + .75em);
     font-size: 18px;
@@ -1283,6 +1302,7 @@ pre span {
     padding: 10px 30px;
     border-radius: 28px;
   }
+
   .finished-bubble {
     margin: 1.5em;
     font-size: 3em;
@@ -1293,15 +1313,18 @@ pre span {
   .row {
     height: 18em;
   }
+
   .thought-bubble {
     padding: 10px 32px;
     border-radius: 28px;
     left: 60%;
   }
+
   .stay-bubble {
     left: 60% !important;
     padding: 18px !important;
   }
+
   .finished-bubble {
     margin: 2em;
   }
@@ -1311,9 +1334,11 @@ pre span {
   .tube {
     --width: calc(8vw + 0.2rem);
   }
+
   .cap {
     font-size: 24px;
   }
+
   .thought-bubble {
     font-size: 20px;
     left: calc(50% + .25em);
@@ -1325,17 +1350,21 @@ pre span {
     height: calc(16vw + 4em);
     gap: 2em;
   }
+
   .cap {
     font-size: 28px;
   }
+
   .thought-bubble {
     padding: 12px 40px;
     left: calc(50% + .5em);
   }
+
   .stay-bubble {
     left: 65% !important;
     padding: 20px !important;
   }
+
   .finished-bubble {
     margin: 2.5em;
   }
@@ -1393,20 +1422,20 @@ pre span {
 }
 
 .selection-stay {
- position: absolute;
- top: unset;
- left: unset;
- margin: 3em;
- padding: 10px 22px 12px;
- height: 5em;
+  position: absolute;
+  top: unset;
+  left: unset;
+  margin: 3em;
+  padding: 10px 22px 12px;
+  height: 5em;
 }
 
 .selection-stay div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
 }
 
 .selection.swap-icon {
@@ -1460,23 +1489,25 @@ pre span {
   .selection-stay {
     padding: 10px 22px 14px;
     height: 4em;
-   }
   }
+}
 
-  @media (min-width: 600px) {
-    .selection-stay {
-      height: 5.5em;
-     }
+@media (min-width: 600px) {
+  .selection-stay {
+    height: 5.5em;
   }
+}
 
 @media (min-width: 600px) {
   .selection-stay {
     height: 5em;
     margin: 3.75em;
-   }
-   .arri {
+  }
+
+  .arri {
     font-size: 30px;
   }
+
   .arrj {
     font-size: 30px;
   }
@@ -1485,10 +1516,12 @@ pre span {
 @media (min-width: 800px) {
   .selection-stay {
     padding: 14px 26px;
-   }
-   .arri::before {
+  }
+
+  .arri::before {
     height: 10.5em;
   }
+
   .arrj::before {
     height: 10.5em;
   }
@@ -1496,14 +1529,17 @@ pre span {
 
 @media (min-width: 1000px) {
   .selection-stay {
-   margin: 4.75em;
-   }
-   .selection.swap-icon {
+    margin: 4.75em;
+  }
+
+  .selection.swap-icon {
     font-size: 40px;
   }
-   .arri::before {
+
+  .arri::before {
     height: 11.75em;
   }
+
   .arrj::before {
     height: 11.75em;
   }
@@ -1511,17 +1547,19 @@ pre span {
 
 @media (min-width: 1200px) {
   .selection-stay {
-   margin: 4em;
-   }
+    margin: 4em;
+  }
 }
 
 @media (min-width: 1400px) {
   .selection-stay {
     margin: 4.5em;
-    }
-   .arri::before {
+  }
+
+  .arri::before {
     height: calc(16vw + 4.5em);
   }
+
   .arrj::before {
     height: calc(16vw + 4.5em);
   }
@@ -1529,17 +1567,19 @@ pre span {
 
 @media (min-width: 1600px) {
   .selection-stay {
-   margin: 5em;
-   }
+    margin: 5em;
+  }
 }
 
 @media (min-width: 1800px) {
   .selection-stay {
-   margin: 5.5em;
-   }
-   .arri::before {
+    margin: 5.5em;
+  }
+
+  .arri::before {
     height: calc(16vw + 6em);
   }
+
   .arrj::before {
     height: calc(16vw + 6em);
   }
@@ -1547,8 +1587,8 @@ pre span {
 
 @media (min-width: 2200px) {
   .selection-stay {
-   margin: 6.5em;
-   }
+    margin: 6.5em;
+  }
 }
 
 /****************Quick Sort Tubes******************/
@@ -1689,47 +1729,59 @@ pre span {
   .footer {
     flex-direction: row;
   }
+
   .my-description {
     margin: 0 12px;
   }
+
   .divider {
     height: 5em;
     width: 2px;
     margin: 0 40px;
   }
+
   .footer-links {
     width: 25%;
   }
+
   .avatar {
     margin: 0 20px 0 30px;
   }
-  .avatar img{
+
+  .avatar img {
     height: 80px !important;
     width: 100px !important;
   }
+
   .middle-container {
     margin-right: 20px;
   }
 }
+
 @media (min-width: 1400px) {
   .footer {
     padding: 0 0 2em;
   }
+
   .divider {
     height: 5em;
     width: 2px;
     margin: 0 40px;
   }
+
   .footer-links {
     width: 35%;
   }
+
   .avatar {
     margin: 0 20px 0 50px;
   }
-  .avatar img{
+
+  .avatar img {
     height: 100px !important;
     width: 120px !important;
   }
+
   .middle-container {
     margin-right: 20px;
   }

@@ -1,65 +1,23 @@
-import Slider from '@mui/material/Slider';
+import ReactSlider from 'react-slider';
 
-function MySlider({ speed, setSpeed }) {
-    const marks = [
-        {
-            value: 0,
-            label: '0s',
-        },
-        {
-            value: 1000
-        },
-        {
-            value: 2000,
-            label: '2s',
-        },
-        {
-            value: 3000
-        },
-        {
-            value: 4000,
-            label: '4s',
-        },
-        {
-            value: 5000
-        },
-        {
-            value: 6000,
-            label: '6s',
-        },
-        {
-            value: 7000
-        },
-        {
-            value: 8000,
-            label: '8s',
-        },
-        {
-            value: 9000,
-        },
-        {
-            value: 10000,
-            label: '10',
-        },
-    ];
-
-    const handleChange = (event, newValue) => {
-        setSpeed(newValue);
+export default function MySlider({ speed, setSpeed }) {
+    const handleChange = (newValue) => {
+        setSpeed(newValue * 100);
     };
-
     return (
-        <Slider
-            aria-label="Speed Slider"
-            size="large"
-            step={1000}
-            marks={marks}
-            defaultValue={2000}
-            max={10000}
-            valueLabelDisplay="off"
-            orientation='vertical'
-            onChange={handleChange}
-        />
+            <ReactSlider
+                min={0}
+                max={100}
+                marks={20}
+                value={speed / 100}
+                orientation='vertical'
+                invert
+                className="horizontal-slider"
+                thumbClassName="thumb"
+                trackClassName="track"
+                markClassName="mark"
+                onChange={handleChange}
+                renderThumb={(props, state) => <div {...props}>{Math.round(state.valueNow / 10) + "s"}</div>}
+            />
     )
 }
-
-export default MySlider

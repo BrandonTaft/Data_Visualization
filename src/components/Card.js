@@ -1,55 +1,44 @@
 import Link from './Link';
-import { BubbleCardContent, InsertionCardContent, SelectionCardContent, QuickCardContent } from './CardContent';
+import CardContent from './CardContent';
 import { BarsOne, BarsThree } from "./Bars";
 
-export function BubbleCard() {
-    return (
-        
-            <Link href="/bubble">
-                <div className="card">
-                    <BarsOne />
-                    <BubbleCardContent />
+export default function Card({ type }) {
+    switch (type) {
+        case "bubble":
+            return (
+                <Link href="/bubble">
+                    <div className="card">
+                        <BarsOne />
+                        <CardContent type={"bubble"} />
                     </div>
-            </Link>
-        
-    )
-}
-
-export function InsertionCard() {
-    return (
-            <Link href="/insertion">
-                <div className="card">
-                    <BarsThree />
-                    <InsertionCardContent />
+                </Link>
+            )
+        case "insertion":
+            return (
+                <Link href="/insertion">
+                    <div className="card">
+                        <BarsThree />
+                        <CardContent type={"insertion"} />
                     </div>
-            </Link>
-        
-    )
-}
-
-export function SelectionCard() {
-    return (
-        
-        
-            <Link href="/selection">
-                <div className="card">
-                    <BarsThree />
-                    <SelectionCardContent />
+                </Link>
+            )
+        case "selection":
+            return (
+                <Link href="/selection">
+                    <div className="card">
+                        <BarsThree />
+                        <CardContent type={"selection"} />
                     </div>
-            </Link>
-        
-    )
-}
-
-export function QuickCard() {
-    return (
-        
-            <Link href="/quick">
-                <div className="card">
-                    <BarsOne />
-                    <QuickCardContent />
+                </Link>
+            )
+        case "quick":
+            return (
+                <Link href="/quick">
+                    <div className="card">
+                        <BarsOne />
+                        <CardContent type={"quick"} />
                     </div>
-            </Link>
-        
-    )
+                </Link>
+            )
+    }
 }
