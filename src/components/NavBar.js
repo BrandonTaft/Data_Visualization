@@ -13,7 +13,6 @@ import ScienceIcon from '@mui/icons-material/Science';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Image from 'next/image'
 import Container from '@mui/material/Container';
@@ -22,6 +21,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LightSwitch from './LightSwitch';
 import logo from "../../public/icons/huge.png";
+
 
 export default function Navbar({ path }) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -61,23 +61,18 @@ export default function Navbar({ path }) {
                         <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
                             <Image src={logo} alt="logo" layout="intrinsic" width={40} height={40} />
                         </Box>
-                        <Typography
+                        <Box
                             variant="h6"
                             noWrap
                             sx={{
                                 mr: { sm: 0, lg: 3 },
                                 ml: 4,
                                 display: { xs: 'none', md: 'flex' },
-                                fontSize: { xs: "24px", lg: "30px" },
-                                fontFamily: 'Playfair Display',
-                                letterSpacing: ".15em",
-                                color: 'inherit',
-                                textDecoration: 'none',
                                 cursor: "default",
                             }}
                         >
                             {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
-                        </Typography>
+                        </Box>
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 sx={{ padding: 0 }}
@@ -183,24 +178,18 @@ export default function Navbar({ path }) {
                                 <LightSwitch />
                             </Box>
                         </Box>
-                        <Typography
+                        <Box
                             variant="h5"
+                            className="nav-title"
                             noWrap
                             sx={{
-                                mr: 1,
                                 display: { xs: 'flex', rs: 'flex', cs: 'flex', md: 'none' },
                                 flexGrow: 1,
-                                fontFamily: 'Playfair Display',
-                                fontSize: { xs: '1.1em', rs: '1.2em', cs: '1.5em' },
-                                fontWeight: 700,
-                                letterSpacing: '.1rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
                             }}
                         >
                             {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
-                        </Typography>
-                        <Box sx={{ fontFamily: 'Fira Sans', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        </Box>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             <Box className='nav-switch'>
                                 <LightSwitch />
                             </Box>

@@ -10,7 +10,7 @@ function Layout({ children }) {
             {/* // Hide navbar in homepage */}
             {path === '/' ? "" : <NavBar path={path} />}
             {children}
-            <Footer />
+            <Footer path={path}/>
         </div>
     )
 }

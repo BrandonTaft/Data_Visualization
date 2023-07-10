@@ -23,10 +23,7 @@ const Header = () => {
     </div>
     <div className="title-container">
       <h1>
-        Sorting
-      </h1>
-      <h1>
-        Visualizer
+        Sorting Visualizer
       </h1>
     </div>
     <div className='burger' onClick={openMenu}>
@@ -35,30 +32,31 @@ const Header = () => {
       <span className='patty'></span>
     
     {open &&
-    <div className="header-menu about-me-div" ref={wrapperRef}>
-      <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-        <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
-        <div className="contacts"> Github</div>
+    <div className="about-me-div" ref={wrapperRef}>
+      <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer" className='about-me-btn github'>
+        <Image src="/icons/github.png" alt="github" layout="intrinsic" width={30} height={30} />
+        <div className="about-me-text"> github</div>
       </a>
-      <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-        <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={20} height={20} />
-        <div className="contacts">Portfolio</div>
+      
+      <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer" className='about-me-btn linked'>
+        <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={30} height={30} />
+        <div className="about-me-text">Linked In</div>
       </a>
-      <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
-        <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
-        <div className="contacts">Linked In</div>
+      <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer" className='about-me-btn folio'>
+        <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={30} height={30} />
+        <div className="about-me-text">Portfolio</div>
       </a>
-      <a href="mailto:btaftcan@gmail.com" >
-        <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={22} height={13} />
-        <div className="email contacts">Email Me</div>
+      <a href="mailto:btaftcan@gmail.com" className='about-me-btn gmail' >
+        <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={32} height={23} />
+        <div className="about-me-text">Email</div>
       </a>
-      <div className='nav-copyright-container'>
-        <div className='inner-copyright-container'>
+      <div>
+        <div className='about-me-copyright-container'>
           <p className="copyright"> &copy;{new Date().getFullYear()} </p>
           <p className="copyright"> Brandon Taft </p>
         </div>
-        <a className="sitemap-link" href="/sitemap.xml">
-          <div className='map-box' > Sitemap </div>
+        <a href="/sitemap.xml" className="about-me-sitemap">
+          <div className="about-me-sitemap"> sitemap </div>
         </a>
       </div>
     </div>
