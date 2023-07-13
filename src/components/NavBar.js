@@ -13,6 +13,7 @@ import ScienceIcon from '@mui/icons-material/Science';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
+import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Image from 'next/image'
 import Container from '@mui/material/Container';
@@ -21,7 +22,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LightSwitch from './LightSwitch';
 import logo from "../../public/icons/huge.png";
-
 
 export default function Navbar({ path }) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -52,27 +52,51 @@ export default function Navbar({ path }) {
             },
         },
     });
-
+    // {open &&
+    //     <div className="about-me-div" ref={wrapperRef}>
+    //       <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer" className='about-me-btn github'>
+    //         <Image src="/icons/github.png" alt="github" layout="intrinsic" width={30} height={30} />
+    //         <div className="about-me-text"> github</div>
+    //       </a>
+          
+    //       <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer" className='about-me-btn linked'>
+    //         <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={30} height={30} />
+    //         <div className="about-me-text">Linked In</div>
+    //       </a>
+    //       <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer" className='about-me-btn folio'>
+    //         <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={30} height={30} />
+    //         <div className="about-me-text">Portfolio</div>
+    //       </a>
+    //       <a href="mailto:btaftcan@gmail.com" className='about-me-btn gmail' >
+    //         <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={32} height={23} />
+    //         <div className="about-me-text">Email</div>
+    //       </a>
+    //       <div>
+    //         <div className='about-me-copyright-container'>
+    //           <p className="copyright"> Brandon Taft </p>
+    //           <p className="copyright"> &copy;{new Date().getFullYear()} </p>
+    //         </div>
+    //         <a href="/sitemap.xml" className="about-me-sitemap">
+    //           <div className="about-me-sitemap"> sitemap </div>
+    //         </a>
+    //       </div>
+    //     </div>
+    //     }
     return (
         <ThemeProvider theme={theme}>
             <AppBar position="static" className="nav-bar">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                            <Image src={logo} alt="logo" layout="intrinsic" width={40} height={40} />
-                        </Box>
-                        <Box
-                            variant="h6"
-                            noWrap
-                            sx={{
-                                mr: { sm: 0, lg: 3 },
-                                ml: 4,
-                                display: { xs: 'none', md: 'flex' },
-                                cursor: "default",
-                            }}
-                        >
+                        
+                            <Image src={logo} alt="logo" layout="intrinsic"  width={40} height={40} />
+                            <h1 style={{margin:"auto"}}>
                             {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
-                        </Box>
+                        </h1>
+                            <Box className='nav-switch' sx={{margin:"auto"}}>
+                                <LightSwitch />
+                            </Box>
+                        
+                        
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 sx={{ padding: 0 }}
@@ -111,7 +135,7 @@ export default function Navbar({ path }) {
                             >
                                 <div className='hamburger about-me-div' id="about-me-div">
                                     <List>
-                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
+                                        <ListItem disablePadding>
                                             <Link href="/">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -123,7 +147,7 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
+                                        <ListItem disablePadding>
                                             <Link href="/bubble">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -135,8 +159,8 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
-                                            <Link href="/insertion" >
+                                        <ListItem disablePadding>
+                                            <Link href="/insertion">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
                                                         <CalculateIcon />
@@ -147,7 +171,7 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
+                                        <ListItem disablePadding>
                                             <Link href="/selection">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -159,7 +183,7 @@ export default function Navbar({ path }) {
                                                 </Grid>
                                             </Link>
                                         </ListItem>
-                                        <ListItem onClick={handleCloseNavMenu} disablePadding>
+                                        <ListItem disablePadding>
                                             <Link href="/quick">
                                                 <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
                                                     <Grid item>
@@ -174,25 +198,11 @@ export default function Navbar({ path }) {
                                     </List>
                                 </div>
                             </Menu>
-                            <Box className='nav-switch'>
-                                <LightSwitch />
-                            </Box>
+                           
                         </Box>
-                        <Box
-                            variant="h5"
-                            className="nav-title"
-                            noWrap
-                            sx={{
-                                display: { xs: 'flex', rs: 'flex', cs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                            }}
-                        >
-                            {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
-                        </Box>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            <Box className='nav-switch'>
-                                <LightSwitch />
-                            </Box>
+                        
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            
                             <Box className="in-nav-container" id="in-nav-container">
                                 <Link href="/">
                                     <span>Home</span>
@@ -211,71 +221,7 @@ export default function Navbar({ path }) {
                                 </Link>
                             </Box>
                         </Box>
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="More of my work">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, color: "white" }}>
-                                    <p className="about-me-p">Contact Me</p>
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                sx={{
-                                    mt: { rs: '25px', cs: '30px', sm: '35px' },
-                                    display: { xs: 'none', ps: 'block' },
-                                    '& .MuiMenu-list': {
-                                        backgroundColor: '#f06c07'
-                                    }
-                                }}
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
-                            >
-                                <div className="about-me-div">
-                                    <MenuItem onClick={handleCloseUserMenu} className="top-contact">
-                                        <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-                                            <Image src="/icons/github.png" alt="github" layout="intrinsic" width={20} height={20} />
-                                            <div className="contacts"> Github</div>
-                                        </a>
-                                    </MenuItem>
-                                    <MenuItem onClick={handleCloseUserMenu} >
-                                        <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                                            <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={20} height={20} />
-                                            <div className="contacts">Portfolio</div>
-                                        </a>
-                                    </MenuItem>
-                                    <MenuItem onClick={handleCloseUserMenu} >
-                                        <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
-                                            <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={20} height={20} />
-                                            <div className="contacts">Linked In</div>
-                                        </a>
-                                    </MenuItem>
-                                    <MenuItem onClick={handleCloseUserMenu} className="email-contact">
-                                        <a href="mailto:btaftcan@gmail.com" >
-                                            <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={22} height={13} />
-                                            <div className="email contacts">Email Me</div>
-                                        </a>
-                                    </MenuItem>
-                                    <div className='nav-copyright-container'>
-                                        <div className='inner-copyright-container'>
-                                            <p className="copyright"> &copy;{new Date().getFullYear()} </p>
-                                            <p className="copyright"> Brandon Taft </p>
-                                        </div>
-                                        <a className="sitemap-link" href="/sitemap.xml">
-                                            <span className='map-box' > Sitemap </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </Menu>
-                        </Box>
-                    </Toolbar>
+                        </Toolbar>
                 </Container>
             </AppBar>
         </ThemeProvider>

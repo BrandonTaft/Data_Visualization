@@ -46,7 +46,7 @@ export default function CardContent({ type }) {
             return (
                 <div className='card-content'>
                     <span className="content-header">QUICK SORT</span>
-                    <p className="content-description"> quick sort is a recursive algorithm noted for its speed and efficiency.
+                    <p className="content-description"> Quick sort is a recursive algorithm noted for its speed and efficiency.
                         It divides the array into subarrays and then recursively sorts the subarrays of these subarrays until the array is sorted.</p>
                     <div className='complexity-container'>
                         <span>Memory:  <span className="times">O(n)</span></span> 

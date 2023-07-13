@@ -17,49 +17,49 @@ function Footer({ path }) {
                 </svg>
             </div>
             <div className="footer" >
-                <div className='avatar'>
-                    <Image className="ava" alt="Brandon Taft" src={avatar} height={80} width={53} />
+            <div className="footer-links">
+                    <Link href="/">
+                        <span className={path === "/" ? "active-footer-link" : "link"}>Home</span>
+                    </Link>
+                    <Link href="/bubble">
+                        <span className={path === "/bubble" ? "active-footer-link" : "link"}>Bubble</span>
+                    </Link>
+                    <Link href="quick">
+                        <span className={path === "/quick" ? "active-footer-link" : "link"}>Quick</span>
+                    </Link>
+                    <Link href="/insertion">
+                        <span className={path === "/insertion" ? "active-footer-link" : "link"}>Insertion</span>
+                    </Link>
+                    <Link href="/selection">
+                        <span className={path === "/selection" ? "active-footer-link" : "link"}>Selection</span>
+                    </Link>
                 </div>
+                {/* <div className='avatar'>
+                    <Image className="ava" alt="Brandon Taft" src={avatar} height={80} width={53} />
+                </div> */}
+                <div className='divider'></div>
+                <div className='btm-footer'>
+                
                 <div className='my-description'>
-                    <h4 className="hi">Brandon Taft</h4>
+                    {/* <h4 className="hi">Brandon Taft</h4> */}
                     <div className='socials'>
-                        <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer">
-                            <Image src={github} alt="github" width={40} height={40} />
+                        <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer" className='social-image'>
+                            <Image src={github} alt="github" width={30} height={30} />
                         </a>
-                        <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer">
-                            <Image src={huge} alt="logo" width={40} height={40} />
+                        <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer" className='social-image'>
+                            <Image src={huge} alt="logo" width={30} height={30} />
                         </a>
-                        <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer">
-                            <Image src={linked} alt="linkedIn-logo" width={40} height={40} />
+                        <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer" className='social-image'>
+                            <Image src={linked} alt="linkedIn-logo" width={30} height={30} />
                         </a>
-                        <a href="mailto:btaftcan@gmail.com" >
-                            <Image src={gmail} alt="gmail-logo" width={50} height={40} />
+                        <a href="mailto:btaftcan@gmail.com" className='email'>
+                            <Image src={gmail} alt="gmail-logo" width={40} height={30} />
                         </a>
                     </div>
                 </div>
-                <div className='btm-footer'>
-                <div className='divider'></div>
-                <div className="footer-links">
-                    <Link href="/">
-                        <span className={path === "/" ? "active-footer-link" : ""}>Home</span>
-                    </Link>
-                    <Link href="/bubble">
-                        <span className={path === "/bubble" ? "active-footer-link" : ""}>Bubble</span>
-                    </Link>
-                    <Link href="quick">
-                        <span className={path === "/quick" ? "active-footer-link" : ""}>Quick</span>
-                    </Link>
-                    <Link href="/insertion">
-                        <span className={path === "/insertion" ? "active-footer-link" : ""}>Insertion</span>
-                    </Link>
-                    <Link href="/selection">
-                        <span className={path === "/selection" ? "active-footer-link" : ""}>Selection</span>
-                    </Link>
-                </div>
-                <div className='divider'></div>
                 <div className='copyright-container'>
                     <p className="copyright"> &copy;{new Date().getFullYear()}&nbsp;Brandon Taft</p>
-                    <a className="sitemap-link" href="/sitemap.xml">
+                    <a href="/sitemap.xml">
                         <span > Sitemap </span>
                     </a>
                 </div>
