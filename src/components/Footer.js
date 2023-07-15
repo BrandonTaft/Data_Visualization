@@ -8,40 +8,28 @@ import avatar from "../../public/images/ava.png";
 
 function Footer({ path }) {
     return (
-        <>
-            <div className="footer-svg-container">
-                <svg className="footer-wave wave" preserveAspectRatio="xMinYMin meet" x="0px" y="0px" viewBox="0 0 1920 81.717" enableackground="new 0 0 1920 81.717">
-                    <path
-                        d="M1920,0c0,0-109.246,46.107-316.333,67.334C1343.5,94,1137.095,77.238,999.167,67.5C854,57.25,637.662,24.697,541.709,18.834C375.334,8.666,147,11,0,37.875V0H1920L1920,0z">
-                    </path>
-                </svg>
-            </div>
             <div className="footer" >
             <div className="footer-links">
                     <Link href="/">
-                        <span className={path === "/" ? "active-footer-link" : "link"}>Home</span>
+                        <span className={path === "/" ? "active-link" : "link"}>Home</span>
                     </Link>
                     <Link href="/bubble">
-                        <span className={path === "/bubble" ? "active-footer-link" : "link"}>Bubble</span>
+                        <span className={path === "/bubble" ? "active-link" : "link"}>Bubble</span>
                     </Link>
                     <Link href="quick">
-                        <span className={path === "/quick" ? "active-footer-link" : "link"}>Quick</span>
+                        <span className={path === "/quick" ? "active-link" : "link"}>Quick</span>
                     </Link>
                     <Link href="/insertion">
-                        <span className={path === "/insertion" ? "active-footer-link" : "link"}>Insertion</span>
+                        <span className={path === "/insertion" ? "active-link" : "link"}>Insertion</span>
                     </Link>
                     <Link href="/selection">
-                        <span className={path === "/selection" ? "active-footer-link" : "link"}>Selection</span>
+                        <span className={path === "/selection" ? "active-link" : "link"}>Selection</span>
                     </Link>
                 </div>
-                {/* <div className='avatar'>
-                    <Image className="ava" alt="Brandon Taft" src={avatar} height={80} width={53} />
-                </div> */}
                 <div className='divider'></div>
                 <div className='btm-footer'>
                 
                 <div className='my-description'>
-                    {/* <h4 className="hi">Brandon Taft</h4> */}
                     <div className='socials'>
                         <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer" className='social-image'>
                             <Image src={github} alt="github" width={30} height={30} />
@@ -65,7 +53,6 @@ function Footer({ path }) {
                 </div>
                 </div>
             </div>
-        </>
     )
 }
 

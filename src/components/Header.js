@@ -45,7 +45,7 @@ const Header = () => {
             </Link>
             <Link href="/insertion">
               <div className='menu-btn'>
-                <EqualizerIcon sx={{ color: 'blue' }} />
+                <CalculateIcon sx={{ color: 'blue' }} />
                 <span className='menu-text'>Insertion Sort</span>
               </div>
             </Link>

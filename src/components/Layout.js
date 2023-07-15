@@ -7,10 +7,9 @@ function Layout({ children }) {
     let path = router.pathname;
     return (
         <div className="layout" >
-            {/* // Hide navbar in homepage */}
-            {path === '/' ? "" : <NavBar path={path} />}
+            {path !== '/' && <NavBar path={path} />}
             {children}
-            <Footer path={path}/>
+            <Footer path={path} />
         </div>
     )
 }

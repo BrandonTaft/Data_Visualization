@@ -1,229 +1,101 @@
-import * as React from 'react';
+import { useState, useRef } from 'react';
+import useOnOutsideClick from './useOnOutsideClick';
 import Link from './Link';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import ListItem from '@mui/material/ListItem';
-import AppBar from '@mui/material/AppBar';
-import Grid from '@mui/material/Grid';
+import LightSwitch from './LightSwitch';
 import ScienceIcon from '@mui/icons-material/Science';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import BubbleChartIcon from '@mui/icons-material/BubbleChart';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Image from 'next/image'
-import Container from '@mui/material/Container';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LightSwitch from './LightSwitch';
-import logo from "../../public/icons/huge.png";
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function Navbar({ path }) {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
+    const [open, setOpen] = useState(false);
+    const wrapperRef = useRef();
+    const onOutsideClick = () => {
+        setOpen(false)
+      };
+    const openMenu = () => {
+        setOpen(!open)
     };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-    const theme = createTheme({
-        breakpoints: {
-            values: {
-                xs: 0,
-                rs: 355,
-                ps: 400,
-                cs: 460,
-                sm: 600,
-                md: 900,
-                lg: 1200,
-                xl: 1536,
-            },
-        },
-    });
-    // {open &&
-    //     <div className="about-me-div" ref={wrapperRef}>
-    //       <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer" className='about-me-btn github'>
-    //         <Image src="/icons/github.png" alt="github" layout="intrinsic" width={30} height={30} />
-    //         <div className="about-me-text"> github</div>
-    //       </a>
-          
-    //       <a href="https://www.linkedin.com/in/brandonmtaft/" target="_blank" rel="noreferrer" className='about-me-btn linked'>
-    //         <Image src="/icons/linked.png" alt="linkedIn-logo" layout="intrinsic" width={30} height={30} />
-    //         <div className="about-me-text">Linked In</div>
-    //       </a>
-    //       <a href="https://www.brandontaft.net/" target="_blank" rel="noreferrer" className='about-me-btn folio'>
-    //         <Image src="/icons/huge.png" alt="logo" layout="intrinsic" width={30} height={30} />
-    //         <div className="about-me-text">Portfolio</div>
-    //       </a>
-    //       <a href="mailto:btaftcan@gmail.com" className='about-me-btn gmail' >
-    //         <Image src="/icons/gmail-logo.png" alt="gmail-logo" layout="intrinsic" width={32} height={23} />
-    //         <div className="about-me-text">Email</div>
-    //       </a>
-    //       <div>
-    //         <div className='about-me-copyright-container'>
-    //           <p className="copyright"> Brandon Taft </p>
-    //           <p className="copyright"> &copy;{new Date().getFullYear()} </p>
-    //         </div>
-    //         <a href="/sitemap.xml" className="about-me-sitemap">
-    //           <div className="about-me-sitemap"> sitemap </div>
-    //         </a>
-    //       </div>
-    //     </div>
-    //     }
+    useOnOutsideClick(wrapperRef, onOutsideClick, false);
+
     return (
-        <ThemeProvider theme={theme}>
-            <AppBar position="static" className="nav-bar">
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-                        
-                            <Image src={logo} alt="logo" layout="intrinsic"  width={40} height={40} />
-                            <h1 style={{margin:"auto"}}>
-                            {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
-                        </h1>
-                            <Box className='nav-switch' sx={{margin:"auto"}}>
-                                <LightSwitch />
-                            </Box>
-                        
-                        
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
-                                sx={{ padding: 0 }}
-                                size="large"
-                                aria-label="hamburger-menu"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="inherit"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', md: 'none' },
-                                    '& .MuiPopover-paper': {
-                                        marginTop: { xs: '5px' }
-                                    },
-                                    '& .MuiMenu-list': {
-                                        backgroundColor: '#f06c07'
-                                    }
-                                }}
-                            >
-                                <div className='hamburger about-me-div' id="about-me-div">
-                                    <List>
-                                        <ListItem disablePadding>
-                                            <Link href="/">
-                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
-                                                    <Grid item>
-                                                        <HomeIcon />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <span className='responsive-link'>Home</span>
-                                                    </Grid>
-                                                </Grid>
-                                            </Link>
-                                        </ListItem>
-                                        <ListItem disablePadding>
-                                            <Link href="/bubble">
-                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
-                                                    <Grid item>
-                                                        <BubbleChartIcon />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <span className='responsive-link'>Bubble Sort</span>
-                                                    </Grid>
-                                                </Grid>
-                                            </Link>
-                                        </ListItem>
-                                        <ListItem disablePadding>
-                                            <Link href="/insertion">
-                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
-                                                    <Grid item>
-                                                        <CalculateIcon />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <span className='responsive-link'>Insertion</span>
-                                                    </Grid>
-                                                </Grid>
-                                            </Link>
-                                        </ListItem>
-                                        <ListItem disablePadding>
-                                            <Link href="/selection">
-                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
-                                                    <Grid item>
-                                                        <EqualizerIcon />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <span className='responsive-link'>Selection</span>
-                                                    </Grid>
-                                                </Grid>
-                                            </Link>
-                                        </ListItem>
-                                        <ListItem disablePadding>
-                                            <Link href="/quick">
-                                                <Grid container className='responsive-container' sx={{ cursor: "pointer", margin: '10px' }}>
-                                                    <Grid item>
-                                                        <ScienceIcon />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <span className='responsive-link'>Quick Sort</span>
-                                                    </Grid>
-                                                </Grid>
-                                            </Link>
-                                        </ListItem>
-                                    </List>
-                                </div>
-                            </Menu>
-                           
-                        </Box>
-                        
-                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                            
-                            <Box className="in-nav-container" id="in-nav-container">
-                                <Link href="/">
-                                    <span>Home</span>
-                                </Link>
-                                <Link href="/bubble">
-                                    <span>Bubble</span>
-                                </Link>
-                                <Link href="/insertion">
-                                    <span>Insertion</span>
-                                </Link>
-                                <Link href="/selection">
-                                    <span>Selection</span>
-                                </Link>
-                                <Link href="/quick">
-                                    <span>Quick</span>
-                                </Link>
-                            </Box>
-                        </Box>
-                        </Toolbar>
-                </Container>
-            </AppBar>
-        </ThemeProvider>
+        <div className='nav'>
+            <div className='nav-switch'>
+            <LightSwitch />
+            </div>
+            <h1 className='nav-title'>
+                {path === '/' ? "Sorting Method Visualizer" : path.slice(1).toUpperCase() + " SORT"}
+            </h1>
+            <div className='nav-burger'>
+            <div className='nav-bun ignore' onClick={openMenu}>
+                <span className='nav-patty ignore'></span>
+                <span className='nav-patty ignore'></span>
+                <span className='nav-patty ignore'></span>
+                {open &&
+                    <div className="menu" ref={wrapperRef}>
+                        <Link href="/">
+                            <div className={path === "/" ? "active-link" : "menu-btn"}>
+                                <HomeIcon sx={{ color: 'blue' }} />
+                                <span className='menu-text'>Home</span>
+                            </div>
+                        </Link>
+                        <Link href="/bubble">
+                            <div className={path === "/bubble" ? "active-link" : "menu-btn"}>
+                                <BubbleChartIcon sx={{ color: 'blue' }} />
+                                <span className='menu-text'>Bubble Sort</span>
+                            </div>
+                        </Link>
+                        <Link href="/insertion">
+                            <div className={path === "/insertion" ? "active-link" : "menu-btn"}>
+                                <CalculateIcon sx={{ color: 'blue' }} />
+                                <span className='menu-text'>Insertion Sort</span>
+                            </div>
+                        </Link>
+                        <Link href="/selection">
+                            <div className={path === "/selection" ? "active-link" : "menu-btn"}>
+                                <EqualizerIcon sx={{ color: 'blue' }} />
+                                <span className='menu-text'>Selection Sort</span>
+                            </div>
+                        </Link>
+                        <Link href="/quick">
+                            <div className={path === "/quick" ? "active-link" : "menu-btn"}>
+                                <ScienceIcon sx={{ color: 'blue' }} />
+                                <span className='menu-text'>Quick Sort</span>
+                            </div>
+                        </Link>
+                        <div className='nav menu-copyright'>
+                            <p className="copyright"> &copy;{new Date().getFullYear()}&nbsp;Brandon Taft</p>
+                            <a className="" href="/sitemap.xml">
+                                <span > Sitemap </span>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            </div>
+            <div className="full-nav">
+                <div className="nav-link-container">
+                    <Link href="/">
+                        <span className={path === "/" ? "active-link" : ""}>Home</span>
+                    </Link>
+                    <Link href="/bubble" >
+                        <span className={path === "/bubble" ? "active-link" : ""}>Bubble</span>
+                    </Link>
+                    <Link href="/insertion">
+                        <span className={path === "/insertion" ? "active-link" : ""}>Insertion</span>
+                    </Link>
+                    <Link href="/selection">
+                        <span className={path === "/selection" ? "active-link" : ""}>Selection</span>
+                    </Link>
+                    <Link href="/quick">
+                        <span className={path === "/quick" ? "active-link" : ""}>Quick</span>
+                    </Link>
+                </div>
+            </div>
+
+
+        </div>
+
     );
 }
