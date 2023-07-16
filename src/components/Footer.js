@@ -4,7 +4,6 @@ import github from "../../public/icons/github.png";
 import gmail from "../../public/icons/gmail-logo.png";
 import huge from "../../public/icons/huge.png";
 import linked from "../../public/icons/linked.png";
-import avatar from "../../public/images/ava.png";
 
 function Footer({ path }) {
     return (

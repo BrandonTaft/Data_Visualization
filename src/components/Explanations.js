@@ -63,20 +63,20 @@ function Explanation({ type }) {
                     <ul className="explanation-list">
                         <li>The first step is to set a condition that will break out of the loop once the array is sorted.</li>
                         <li>Next it calls the partition function and passes in the array with the first and last indexes.</li>
-                        <li>Inside the Partition function, the element in that first index will always start as the <span className="sorted-array">Pivot index</span>.</li>
+                        <li>Inside the Partition function, the element in that first index will always start as the <span className="bg-orange">Pivot index</span>.</li>
                         <li>While the element in the end index will always be the <span className="bg-blue">Pivot value</span>.</li>
                         <li>Then it loops through the array checking if each element is less than the <span className="bg-blue">Pivot value</span>.</li>
                         <li>If the element is greater than the <span className="bg-blue">Pivot value</span>, nothing changes and it moves to the next element.</li>
-                        <li>If it's less than the <span className="bg-blue">Pivot value</span>, it's value and the value of the <span className="sorted-array">pivot index</span> will swap places.</li>
-                        <li>If the element is already in the <span className="sorted-array">pivot index</span> it will stay where it is.</li>
-                        <li>Then it moves the <span className="sorted-array">pivot index</span> one index to the right by adding 1 to it.</li>
-                        <li>To clarify, if an element is less than the <span className="bg-blue">Pivot value</span> it will swap places with the value of the <span className="sorted-array">pivot index</span>,
-                            if the element was already in the pivot index it will just stay where it is. Then the <span className="sorted-array">pivot index</span> will move one spot to the right, meaning
-                            the element that was on the right of the <span className="sorted-array">pivot index</span> will now be the new <span className="sorted-array">pivot index</span>.</li>
-                        <li>When the loop reaches the <span className="bg-blue">Pivot value</span>, it's value is swapped with the value of the <span className="sorted-array">pivot index</span>.</li>
+                        <li>If it's less than the <span className="bg-blue">Pivot value</span>, it's value and the value of the <span className="bg-orange">pivot index</span> will swap places.</li>
+                        <li>If the element is already in the <span className="bg-orange">pivot index</span> it will stay where it is.</li>
+                        <li>Then it moves the <span className="bg-orange">pivot index</span> one index to the right by adding 1 to it.</li>
+                        <li>To clarify, if an element is less than the <span className="bg-blue">Pivot value</span> it will swap places with the value of the <span className="bg-orange">pivot index</span>,
+                            if the element was already in the pivot index it will just stay where it is. Then the <span className="bg-orange">pivot index</span> will move one spot to the right, meaning
+                            the element that was on the right of the <span className="bg-orange">pivot index</span> will now be the new <span className="bg-orange">pivot index</span>.</li>
+                        <li>When the loop reaches the <span className="bg-blue">Pivot value</span>, it's value is swapped with the value of the <span className="bg-orange">pivot index</span>.</li>
                         <li>Then quicksort calls itself two times:</li>
-                        <li>Once to sort the elements on the left side of new <span className="sorted-array">pivot index</span>.</li>
-                        <li>And once again to sort the elements on the right side of the new <span className="sorted-array">pivot index</span>.</li>
+                        <li>Once to sort the elements on the left side of new <span className="bg-orange">pivot index</span>.</li>
+                        <li>And once again to sort the elements on the right side of the new <span className="bg-orange">pivot index</span>.</li>
                         <li>This process repeats until the subarrays are broken down to one element.</li>
                         <li>Now the original condition can't be met which allows the function to stup running.</li>
                         <li>Since the subarrays have been sorted in place, the array is now completely sorted.</li>

@@ -1,14 +1,15 @@
 import Link from './Link';
 import CardContent from './CardContent';
-import { BarsOne, BarsThree } from "./Bars";
+import Bars from "./Bars";
 
 export default function Card({ type }) {
+    
     switch (type) {
         case "bubble":
             return (
                 <Link href="/bubble">
-                    <div className="card">
-                        <BarsOne />
+                    <div className="card" >
+                        <Bars />
                         <CardContent type={"bubble"} />
                     </div>
                 </Link>
@@ -17,7 +18,7 @@ export default function Card({ type }) {
             return (
                 <Link href="/insertion">
                     <div className="card">
-                        <BarsThree />
+                        <Bars />
                         <CardContent type={"insertion"} />
                     </div>
                 </Link>
@@ -26,7 +27,7 @@ export default function Card({ type }) {
             return (
                 <Link href="/selection">
                     <div className="card">
-                        <BarsThree />
+                        <Bars />
                         <CardContent type={"selection"} />
                     </div>
                 </Link>
@@ -35,7 +36,7 @@ export default function Card({ type }) {
             return (
                 <Link href="/quick">
                     <div className="card">
-                        <BarsOne />
+                        <Bars />
                         <CardContent type={"quick"} />
                     </div>
                 </Link>
