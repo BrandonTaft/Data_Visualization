@@ -16,7 +16,7 @@ function RefreshButton({ refresh, setRefresh, setFinished, isRunning }) {
     <button
       onClick={() => {
         setFinished(false)
-        refresh == "false" ? setRefresh("true") : setRefresh("false");
+        setRefresh(!refresh)
       }}
       className="button refresh-button"
       aria-label="Refresh Button"

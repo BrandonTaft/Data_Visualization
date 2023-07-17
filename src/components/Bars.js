@@ -1,69 +1,120 @@
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import getArray from "./useArray";
 import { timeOut } from "./Utils";
 
-function Bars() {
-    const [arr,setArr] = useState([]);
-    const [sort, setSort] = useState(false);
-    const [checkSort, setCheckSort] = useState(false);
+function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
+    const { array, setArray, refresh, setRefresh } = getArray();
 
-useEffect(() => {
-    if(sort === true) {
-        console.log(arr)
-        bubbleSort()
-    }
+    useEffect(() => {
+        async function bubbleSortFn() {
+            let swapped;
+            do {
+                swapped = false
+                for (let i = 0; i < array.length - 1; i++) {
+                    if (array[i] > array[i + 1]) {
+                        let temp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = temp;
+                        swapped = true
+                    }
+                    setArray([...array]);
+                    await timeOut(100);
+                }
+            } while (swapped)
+        }
 
-    if(sort === false) {
-        setArr([1,4,2,7,6,5,3])
-    }
-    
-},[sort])
+        async function insertionSortFn() {
+            let n = array.length;
+            for (let i = 1; i < n; i++) {
+                let current = array[i];
+                let j = i - 1;
+                while ((j > -1) && (current < array[j])) {
+                    array[j + 1] = array[j];
+                    setArray([...array]);
+                    await timeOut(100);
+                    j--;
+                }
+                array[j + 1] = current;
+                setArray([...array]);
+                await timeOut(100);
+            }
+            return array;
+        }
 
-useEffect(() => {
-    if(sort === false) {
-        setArr([1,4,2,7,6,5,3])
-    }
-},[checkSort])
+        async function selectionSortFn() {
+            console.log("SELES")
+            for (let i = 0; i < array.length - 1; i++) {
+                let min = i;
+                for (let j = i + 1; j < array.length; j++) {
+                    if (array[j] < array[min]) {
+                        min = j;
+                    }
+                }
+                if (min != i) {
+                    let tmp = array[i];
+                    array[i] = array[min];
+                    array[min] = tmp;
+                    setArray([...array]);
+                    await timeOut(1000);
+                }
+                setArray([...array]);
+                await timeOut(1000);
+            }
+            return array;
+        }
 
+        async function swap(array, a, b) {
+            let temp = array[a];
+            array[a] = array[b];
+            array[b] = temp
+            setArray([...array]);
+            await timeOut(1000);
+        }
 
-            // for (let i = 0; i < 7;) {
-            //     let num = Math.floor(Math.random() * 7) + 1
-            //     while (arr.includes(num) === false) {
-            //         arr.push(num)
-            //         i++
-            //     }
-            // }
+        function partition(array, start, end) {
+            let pivotIndex = start;
+            let pivotValue = array[end];
+            for (let i = start; i < end; i++) {
+                if (array[i] < pivotValue) {
+                    swap(array, i, pivotIndex);
+                    pivotIndex++;
+                }
+            }
+            swap(array, pivotIndex, end);
+            return pivotIndex;
+        }
 
-    const display = arr.map((bar, index) => {
-        return(
-        <div className="equalizer-bar" key={index} onMouseEnter={() => setSort(true)} onMouseLeave={() => setSort(false)}>
+        async function quickSortFn(array, start, end) {
+            if (start >= end) {
+                setArray([...array]);
+                await timeOut(1000);
+                return;
+            }
+            let index = partition(array, start, end);
+            quickSortFn(array, start, index - 1);
+            setArray([...array]);
+            await timeOut(1000);
+            quickSortFn(array, index + 1, end);
+            setArray([...array]);
+            await timeOut(500);
+        }
+
+        if (bubbleSort) bubbleSortFn();
+        if (insertionSort) insertionSortFn();
+        if (selectionSort) selectionSortFn();
+        if (quickSort) quickSortFn(array, 0, 5);
+
+    }, [bubbleSort, insertionSort, selectionSort, quickSort])
+
+    const display = array.map((bar, index) => {
+        return (
+            <div className="equalizer-bar" key={index} >
                 <span style={{ height: (bar * 15) }}></span>
             </div>
         )
     })
 
-    async function bubbleSort() {
-        let swapped;
-        do {
-            swapped = false
-            for (let i = 0; i < arr.length - 1; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    let temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
-                    swapped = true
-                }
-                setArr([...arr]);
-                if(sort === true) {
-                await timeOut(100);
-                }
-            }
-        } while (swapped)
-        // if(sort === false) {
-        //     setArr([1,4,2,7,6,5,3])
-        // }
-        setCheckSort(!checkSort)
-    }
 
     return (
         <div className="equalizer">
@@ -72,7 +123,7 @@ useEffect(() => {
     )
 }
 
-export default dynamic(()=> Promise.resolve(Bars), {ssr: false});
+export default dynamic(() => Promise.resolve(Bars), { ssr: false });
 
 
 // export function BarsOne() {
@@ -126,7 +177,7 @@ export default dynamic(()=> Promise.resolve(Bars), {ssr: false});
 //             </div>
 //             <div className="equalizer-bar">
 //                 <span style={{ height: 15 }}></span>
-//             </div>      
+//             </div>
 //         </div>
 //     )
 // }
