@@ -11,7 +11,7 @@ function Bubble() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
     const [stay, setStay] = useState(false);
-    const [swap, setSwap] = useState(false);
+    const [swap, setSwap] = useState(2);
     const [finished, setFinished] = useState(false);
     const [speed, setSpeed] = useState(2000);
     const [swapped, setSwapped] = useState("");
@@ -38,7 +38,11 @@ function Bubble() {
                 }
                 if (array[i] > array[i + 1]) {
                     setSwap(i)
+                    tubeRef.current[i].classList.toggle("swap-right");
+                    tubeRef.current[i + 1].classList.toggle("swap-left");
                     await timeOut(speed)
+                    tubeRef.current[i].classList.toggle("swap-right");
+                    tubeRef.current[i + 1].classList.toggle("swap-left");
                     setSwap(-1)
                     let tmp = array[i];
                     array[i] = array[i + 1];
@@ -118,8 +122,8 @@ function Bubble() {
                                 <div className="base">
                                     <div className="text">{tube}</div>
                                 </div>
-                                {swap === index &&
-                                    <div className="thought-bubble bubble-bottom-left">
+                                {index === swap + 1 &&
+                                    <div className="swap-bubble bubble-bottom-left">
                                         <p>{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
                                         <div>Swap</div>
                                         <SwapIcon className="blue" sx={{ fontSize: 30 }} />

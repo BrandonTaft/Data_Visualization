@@ -362,7 +362,6 @@
     cursor: pointer;
     margin: auto 0.5em;
     font-size: 20px;
-    font-weight: 700;
   }
  
   .nav-link-container span:active {
@@ -872,8 +871,7 @@
 
  @media (min-width: 800px) {
    .top-container {
-     font-size: 22px;
-     width: 85%;
+     width: 80%;
    }
 
    .insertion.top-container {
@@ -887,7 +885,7 @@
 
  @media (min-width: 1000px) {
    .top-container {
-
+    font-size: 21px;
      line-height: 32px;
      width: 85%;
    }
@@ -908,6 +906,7 @@
  @media (min-width: 1200px) {
    .top-container {
      width: 75%;
+     font-size: 22px;
    }
 
    .insertion.top-container {
@@ -1054,9 +1053,15 @@
 
  @media (min-width: 1400px) {
    .side-display {
-     margin: auto 0 auto 5em;
+     margin: auto 0 auto 7em;
    }
  }
+
+ @media (min-width: 1600px) {
+  .side-display {
+    margin: auto 0 auto 10em;
+  }
+}
 
  /*******************Button Box**********************/
 
@@ -1193,12 +1198,13 @@
  }
 
  /*********************Tubes********************/
- .row {
+ .row { 
+  --gap: .75em;
    display: flex;
    flex-grow: 1;
    justify-content: center;
    height: 10em;
-   gap: .75em;
+   gap: var(--gap);
    margin-top: 1.5%;
  }
 
@@ -1378,12 +1384,20 @@
 
  .current-element {
    --fill-color: orangered;
-   bottom: 15px;
+   animation: moveUp .5s ease-out forwards;
  }
 
  .next-element {
-   --fill-color: orangered;
-   bottom: 15px;
+  --fill-color: orangered;
+  animation: moveUp .5s ease-out forwards;
+}
+
+ .swap-right {
+  animation: swapRight .5s ease-out forwards;
+ }
+
+ .swap-left {
+  animation: swapLeft .5s ease-out forwards;
  }
 
  .thought-bubble {
@@ -1401,6 +1415,22 @@
    border: 5px solid black;
    border-radius: 20px;
  }
+
+ .swap-bubble {
+  position: absolute;
+  width: max-content;
+  z-index: 5;
+  background: rgb(255, 239, 224);
+  padding: 4px 22px;
+  font-size: 12px;
+  font-family: bryant-web, sans-serif;
+  font-style: normal;
+  text-align: center;
+  top: 22%;
+  
+  border: 5px solid black;
+  border-radius: 20px;
+}
 
  .stay-bubble {
    top: 25% !important;
@@ -1473,6 +1503,34 @@
    margin: 1.5em;
  }
 
+ @keyframes moveUp {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 15px;
+  }
+}
+
+@keyframes swapRight {
+  from {
+    left: 0px;
+  }
+  to {
+    left: calc(var(--width) + var(--gap));
+  }
+}
+
+@keyframes swapLeft {
+  from {
+    right: 0px;
+  }
+  to {
+    right: calc(var(--width) + var(--gap));
+  }
+}
+
+
  @keyframes fill-before {
    to {
      height: var(--fill-end);
@@ -1504,8 +1562,9 @@
 
  @media (min-width: 600px) {
    .row {
+    --gap: 2em;
      height: 14em;
-     gap: 2em;
+     gap: var(--gap);
    }
 
    .cap {
@@ -1544,7 +1603,7 @@
      left: calc(50% + .75em);
      font-size: 18px;
      top: 30%;
-     left: 53%;
+
      padding: 10px 30px;
      border-radius: 28px;
    }
@@ -1563,7 +1622,6 @@
    .thought-bubble {
      padding: 10px 32px;
      border-radius: 28px;
-     left: 60%;
    }
 
    .stay-bubble {
@@ -1593,12 +1651,15 @@
 
  @media (min-width: 1400px) {
    .row {
-     height: calc(16vw + 4em);
-     gap: 2em;
+     height: calc(14vw + 4em);
    }
 
+   .tube {
+    --width: calc(7vw + 0.2rem);
+  }
+
    .cap {
-     font-size: 28px;
+     font-size: 24px;
    }
 
    .thought-bubble {
@@ -1612,8 +1673,14 @@
    }
 
    .finished-bubble {
-     margin: 2.5em;
+     margin: 1.75em;
    }
+ }
+
+ @media (min-width: 1600px) {
+  .finished-bubble {
+    margin: 2em;
+  }
  }
 
  /****************Insertion Tubes******************/
@@ -1916,6 +1983,8 @@
    line-height: 33px;
    cursor: pointer;
    width: 90%;
+   font-size: 18px;
+
  }
 
  .footer-svg-container {
@@ -1966,6 +2035,7 @@
  @media (min-width: 600px) {
    .footer-links {
      width: 60%;
+     font-size: 20px;
    }
 
    .copyright-container {
@@ -1991,6 +2061,7 @@
 
    .footer-links {
      width: 50%;
+     font-size: 22px;
    }
 
    .copyright-container {

@@ -1,10 +1,21 @@
 import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
-import getArray from "./useArray";
+import useArray from "./useArray";
 import { timeOut } from "./Utils";
 
 function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
-    const { array, setArray, refresh, setRefresh } = getArray();
+    const { array, setArray, refresh, setRefresh } = useArray();
+
+    useEffect(() => {
+        const arr = [];
+            for (let i = 0; i < 6;) {
+                let num = Math.floor(Math.random() * 6 + 1)
+                while (arr.includes(num) === false) {
+                    arr.push(num)
+                    i++
+                }
+            }
+    },[])
 
     useEffect(() => {
         async function bubbleSortFn() {
@@ -29,7 +40,7 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
             for (let i = 1; i < n; i++) {
                 let current = array[i];
                 let j = i - 1;
-                while ((j > -1) && (current < array[j])) {
+                while ((j > -1) && (current > array[j])) {
                     array[j + 1] = array[j];
                     setArray([...array]);
                     await timeOut(100);
@@ -43,7 +54,6 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
         }
 
         async function selectionSortFn() {
-            console.log("SELES")
             for (let i = 0; i < array.length - 1; i++) {
                 let min = i;
                 for (let j = i + 1; j < array.length; j++) {
@@ -56,10 +66,10 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
                     array[i] = array[min];
                     array[min] = tmp;
                     setArray([...array]);
-                    await timeOut(1000);
+                    await timeOut(200);
                 }
                 setArray([...array]);
-                await timeOut(1000);
+                await timeOut(200);
             }
             return array;
         }
@@ -69,14 +79,14 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
             array[a] = array[b];
             array[b] = temp
             setArray([...array]);
-            await timeOut(1000);
+            await timeOut(500);
         }
 
-        function partition(array, start, end) {
+       function partition(array, start, end) {
             let pivotIndex = start;
             let pivotValue = array[end];
             for (let i = start; i < end; i++) {
-                if (array[i] < pivotValue) {
+                if (array[i] > pivotValue) {
                     swap(array, i, pivotIndex);
                     pivotIndex++;
                 }
@@ -87,14 +97,14 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
 
         async function quickSortFn(array, start, end) {
             if (start >= end) {
-                setArray([...array]);
-                await timeOut(1000);
                 return;
             }
             let index = partition(array, start, end);
+            setArray([...array]);
+            await timeOut(500);
             quickSortFn(array, start, index - 1);
             setArray([...array]);
-            await timeOut(1000);
+            await timeOut(500);
             quickSortFn(array, index + 1, end);
             setArray([...array]);
             await timeOut(500);
