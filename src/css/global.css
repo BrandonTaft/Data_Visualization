@@ -113,7 +113,7 @@
 
  [data-theme="dark"] .thought-bubble {
    background-color: #303134;
-   color: ghostwhite;
+   color: white;
  }
 
  [data-theme="dark"] .finished-bubble {
@@ -185,6 +185,10 @@
 
  .blue {
    color: blue;
+ }
+
+ .black {
+  color: black
  }
 
  .bg-blue {
@@ -1351,13 +1355,14 @@
        rgb(0 0 0 / 0.25),
        transparent 50% 70%,
        rgb(0 0 0 / 0.25));
-   animation: fill-before 0.66s linear forwards;
+   /* animation: fill-before 0.66s linear forwards; */
+   height: var(--fill-end);
  }
 
  .fill::after {
    content: "";
    position: absolute;
-   z-index: -1;
+   z-index: 0;
    width: 100%;
    height: calc(var(--skew) * 2);
    background-color: var(--fill-color);
@@ -1366,8 +1371,9 @@
    --fill-end: calc(var(--percent) * 1% - var(--skew));
    bottom: var(--fill-start);
    background-image: var(--glas-gradient),
-     linear-gradient(to left, rgb(0 0 0 / 0.25), transparent 50%);
-   animation: fill-after 0.66s linear forwards;
+     linear-gradient(to right, rgb(69 68 68 / 25%), transparent 100%);
+   /* animation: fill-after 0.66s linear forwards; */
+   bottom: var(--fill-end);
  }
 
  .current-element>.cap::before {
@@ -1412,7 +1418,7 @@
    text-align: center;
    top: 22%;
    left: 25%;
-   border: 5px solid black;
+   border: 3px solid black;
    border-radius: 20px;
  }
 
@@ -1427,9 +1433,13 @@
   font-style: normal;
   text-align: center;
   top: 22%;
-  
+  left: .75em;
   border: 5px solid black;
   border-radius: 20px;
+}
+
+.swap-bubble.right {
+  display: none;
 }
 
  .stay-bubble {
@@ -1530,7 +1540,6 @@
   }
 }
 
-
  @keyframes fill-before {
    to {
      height: var(--fill-end);
@@ -1552,12 +1561,21 @@
      padding: 6px 22px;
      font-size: 14px;
    }
+
+   .swap-bubble {
+    padding: 6px 22px;
+    font-size: 14px;
+   }
  }
 
  @media (min-width: 500px) {
    .thought-bubble {
      left: 40%;
    }
+
+   .swap-bubble {
+    left: 40%;
+  }
  }
 
  @media (min-width: 600px) {
@@ -1712,6 +1730,10 @@
    top: 8%;
  }
 
+ .compare {
+  top: 8%;
+}
+
  /****************Selection Tubes******************/
 
  .min-tube {
@@ -1771,7 +1793,6 @@
  .arri::before {
    content: "";
    position: absolute;
-   border: solid blue 6px;
    width: 120%;
    height: 10em;
    top: -10px;
@@ -1792,7 +1813,6 @@
  .arrj::before {
    content: "";
    position: absolute;
-   border: solid blue 6px;
    width: 120%;
    height: 10em;
    top: -10px;

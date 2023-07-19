@@ -41,17 +41,26 @@ function Insertion() {
                     setUnSorted(arr.slice(i))
                     await timeOut(speed / 2);
                     tubeRef.current[i].classList.toggle("current");
+                    
                     await timeOut(speed);
                     // The last element of our sorted subarray
                     let j = i - 1;
                     while ((j > -1) && (current < arr[j])) {
+                        //tubeRef.current[j].classList.toggle("compare");
                         setSwap(j)
                         await timeOut(speed);
                         setSwap(-1)
+                        tubeRef.current[j].classList.toggle("swap-right");
+                        tubeRef.current[j + 1].classList.toggle("swap-left");
+                        await timeOut(speed)
+                        //tubeRef.current[j].classList.toggle("compare");
+                        
                         let tmp = arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = tmp;
                         setArray([...arr]);
+                        tubeRef.current[j].classList.toggle("swap-right");
+                        tubeRef.current[j + 1].classList.toggle("swap-left");
                         await timeOut(speed);
                         j--;
                     }
@@ -147,7 +156,7 @@ function Insertion() {
                                     <div className="thought-bubble bubble-bottom-left">
                                         <p>{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
                                         <div>Swap</div>
-                                        <SwapIcon className="blue" sx={{ fontSize: 30 }} />
+                                        <SwapIcon className="black" sx={{ fontSize: 40 }} />
                                     </div>
                                 }
                                 {stay === index &&
