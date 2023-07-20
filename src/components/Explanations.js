@@ -45,7 +45,7 @@ function Explanation({ type }) {
                         <li> By default the first index on each iteration of the main loop - <span className="bg-blue">array[i]</span> will start off as the <span className="bg-green">min</span>.</li>
                         <li> Then the second loop moves through the rest of the array and any index with a value less than <span className="bg-green">min</span>, will become the new <span className="bg-green">min</span>.</li>
                         <li> When the second loop reaches the end of the array, if <span className="bg-green">min</span> never changed it will stay where it is.</li>
-                        <li> If <span className="bg-green">min</span> did change to a different index then that index will swap places with <span className="bg-blue">array[i]</span></li>
+                        <li> If <span className="bg-green">min</span> did change to a different index then that index will swap places with <span className="bg-blue">array[i]</span>.</li>
                         <li> You can now think of this as the first element in the <span className="bg-orange">sorted array</span>.</li>
                         <li> On the second pass the second index will start off as the <span className="bg-green">min</span>.</li>
                         <li> Again the second loop moves through the rest of the array and if a value is less than <span className="bg-green">min</span>, its index will become the new <span className="bg-green">min</span>.</li>

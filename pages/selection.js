@@ -12,7 +12,7 @@ function Selection() {
     const [isRunning, setIsRunning] = useState(false);
     const [arrI, setArrI] = useState(-1);
     const [arrJ, setArrJ] = useState(-1);
-    const [stay, setStay] = useState(-1);
+    const [stay, setStay] = useState(1);
     const [swap, setSwap] = useState(-1);
     const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
