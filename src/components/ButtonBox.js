@@ -11,7 +11,7 @@ const ButtonBox = ({ sortMethod, refresh, setRefresh, speed, setSpeed, setFinish
       <RefreshButton
         refresh={refresh}
         setRefresh={setRefresh}
-        setFinished={setFinished}
+        // setFinished={setFinished}
         isRunning={isRunning}
       />
     </div>

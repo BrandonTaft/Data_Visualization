@@ -5,14 +5,12 @@ import getArray from "../src/components/useArray";
 import ButtonBox from "../src/components/ButtonBox.js";
 import { timeOut } from "../src/components/Utils";
 import Explanation from "../src/components/Explanations";
-import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Insertion() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
-    const [stay, setStay] = useState(false);
-    const [swap, setSwap] = useState(false);
-    const [finished, setFinished] = useState(false);
+    const [stay, setStay] = useState(-1);
+    const [swap, setSwap] = useState(-1);
     const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
@@ -22,11 +20,12 @@ function Insertion() {
 
     useEffect(() => {
         setSorted([])
+        tubeRef.current.forEach(el => el.classList.remove('finished'));
     }, [refresh]);
 
     async function insertionSort() {
         setIsRunning(true)
-        setFinished(false)
+        tubeRef.current.forEach(el=>el.classList.remove('finished'));
         try {
             while (path == "/insertion") {
                 const arr = array;
@@ -41,23 +40,23 @@ function Insertion() {
                     setUnSorted(arr.slice(i))
                     await timeOut(speed / 2);
                     tubeRef.current[i].classList.toggle("current");
-                    
+
                     await timeOut(speed);
                     // The last element of our sorted subarray
                     let j = i - 1;
                     while ((j > -1) && (current < arr[j])) {
-                        //tubeRef.current[j].classList.toggle("compare");
                         setSwap(j)
                         await timeOut(speed);
                         setSwap(-1)
                         tubeRef.current[j].classList.toggle("swap-right");
                         tubeRef.current[j + 1].classList.toggle("swap-left");
                         await timeOut(speed)
-                        //tubeRef.current[j].classList.toggle("compare");
                         
                         let tmp = arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = tmp;
+                       
+                       
                         setArray([...arr]);
                         tubeRef.current[j].classList.toggle("swap-right");
                         tubeRef.current[j + 1].classList.toggle("swap-left");
@@ -81,7 +80,7 @@ function Insertion() {
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
-                setFinished(true)
+                tubeRef.current.forEach(el=>el.classList.add('finished'));
                 setIsRunning(false)
                 return arr;
             }
@@ -109,7 +108,6 @@ function Insertion() {
                         setRefresh={setRefresh}
                         speed={speed}
                         setSpeed={setSpeed}
-                        setFinished={setFinished}
                     />
                     <div className="insertion var-container">
                         <div className="insertion array-container">
@@ -133,9 +131,20 @@ function Insertion() {
                     </div>
                 </div>
                 <div className="row">
-                    {finished &&
-                        <div className="finished-bubble bubble-bottom-left" >
-                            <div className="no-swap">Sorted&nbsp;!!!</div>
+                    {(swap >= 0 || stay >= 0) &&
+                        <div className="thought-bubble bubble-bottom-left">
+                            {swap >= 0 &&
+                                <>
+                                    <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
+                                    <p>Swap</p>
+                                </>
+                            }
+                            {stay >= 0 &&
+                                <>
+                                    <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
+                                    <p className="no-swap">No Swap</p>
+                                </>
+                            }
                         </div>
                     }
                     {array.map((tube, index) => {
@@ -152,19 +161,6 @@ function Insertion() {
                                 <div className="base">
                                     <div className="text">{tube}</div>
                                 </div>
-                                {swap === index &&
-                                    <div className="thought-bubble bubble-bottom-left">
-                                        <p>{array[index]} &nbsp;  &gt; &nbsp;{array[index + 1]}</p>
-                                        <div>Swap</div>
-                                        <SwapIcon className="black" sx={{ fontSize: 40 }} />
-                                    </div>
-                                }
-                                {stay === index &&
-                                    <div className="thought-bubble bubble-bottom-left stay-bubble">
-                                        <p>{array[index]} &lt; {array[index + 1]}</p>
-                                        <div className="no-swap">No Swap</div>
-                                    </div>
-                                }
 
                             </div>
                         )

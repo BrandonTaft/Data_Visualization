@@ -1,29 +1,29 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from 'next/router';
 import Method from "../src/components/Method";
 import useArray from "../src/components/useArray";
 import Explanation from "../src/components/Explanations";
 import ButtonBox from "../src/components/ButtonBox.js";
 import { timeOut } from "../src/components/Utils";
-import SwapIcon from '@mui/icons-material/SwapHorizSharp';
-import thumb from '../public/icons/thumb.svg'
-import Image from "next/image";
 
 function Bubble() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
-    const [finished, setFinished] = useState(false);
     const [speed, setSpeed] = useState(2000);
     const [swapped, setSwapped] = useState("");
     const { array, setArray, refresh, setRefresh } = useArray();
     const router = useRouter();
     let path = router.pathname;
 
+    useEffect(() => {
+        tubeRef.current.forEach(el => el.classList.remove('finished'));
+    }, [refresh])
+
     async function bubbleSort() {
         setIsRunning(true)
-        setFinished(false)
+        tubeRef.current.forEach(el => el.classList.remove('finished'));
         let swapped;
         do {
             swapped = false
@@ -45,8 +45,6 @@ function Bubble() {
                     tubeRef.current[i].classList.toggle("swap-right");
                     tubeRef.current[i + 1].classList.toggle("swap-left");
                     await timeOut(speed)
-                    
-
                     let tmp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = tmp;
@@ -55,7 +53,6 @@ function Bubble() {
                     tubeRef.current[i].classList.toggle("swap-right");
                     tubeRef.current[i + 1].classList.toggle("swap-left");
                     setArray([...array]);
-                    
                 } else {
                     if (tubeRef.current[i + 1]) {
                         setStay(i)
@@ -69,13 +66,11 @@ function Bubble() {
                 if (tubeRef.current[i + 1]) {
                     tubeRef.current[i + 1].classList.toggle("next-element");
                 }
-               
             }
         } while (swapped && path == "/bubble")
-        setFinished(true)
+        tubeRef.current.forEach(el => el.classList.add('finished'));
         setIsRunning(false)
     }
-
     return (
         <div className="page-container">
             <div className="top-container">
@@ -87,7 +82,6 @@ function Bubble() {
                 <div className="side-display">
                     <ButtonBox
                         isRunning={isRunning}
-                        setFinished={setFinished}
                         sortMethod={bubbleSort}
                         refresh={refresh}
                         setRefresh={setRefresh}
@@ -110,29 +104,23 @@ function Bubble() {
                     </div>
                 </div>
                 <div className="row">
-                    {finished &&
-                        <div className="finished-bubble bubble-bottom-left" >
-                            <div className="no-swap">Sorted!</div>
-                            <Image src={thumb} alt="thumb-icon" className="thumbs-up"/>
+                    {(swap >= 0 || stay >= 0) &&
+                        <div className="thought-bubble bubble-bottom-left">
+                            {swap >= 0 &&
+                                <>
+                                    <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
+                                    <p>Swap</p>
+
+                                </>
+                            }
+                            {stay >= 0 &&
+                                <>
+                                    <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
+                                    <p>No Swap</p>
+                                </>
+                            }
                         </div>
                     }
-                    {(swap >= 0 || stay >= 0) &&
-                    <div className="thought-bubble bubble-bottom-left">
-                    {swap >= 0 &&
-                        <>
-                            <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
-                            <p>Swap</p>
-
-                        </>
-                    }
-                    {stay >= 0 &&
-                        <>
-                            <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
-                            <p>No Swap</p>
-                        </>
-                    }
-                    </div>
-                }
                     {array.map((tube, index) => {
                         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
                         return (
