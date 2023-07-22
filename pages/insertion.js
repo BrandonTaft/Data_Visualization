@@ -31,7 +31,9 @@ function Insertion() {
                 const arr = array;
                 const n = arr.length;
                 await timeOut(speed / 2);
+                if (tubeRef.current[0]) {
                 tubeRef.current[0].classList.toggle("sorted");
+                }
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 for (let i = 1; i < n; i++) {
                     // Choosing the first element in our unsorted subarray
@@ -39,8 +41,9 @@ function Insertion() {
                     setSorted(arr.slice(0, i))
                     setUnSorted(arr.slice(i))
                     await timeOut(speed / 2);
+                    if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("current");
-
+                    }
                     await timeOut(speed);
                     // The last element of our sorted subarray
                     let j = i - 1;
@@ -48,19 +51,20 @@ function Insertion() {
                         setSwap(j)
                         await timeOut(speed);
                         setSwap(-1)
+                        if (tubeRef.current[j]) {
                         tubeRef.current[j].classList.toggle("swap-right");
+                        }
+                        if (tubeRef.current[j + 1]) {
                         tubeRef.current[j + 1].classList.toggle("swap-left");
+                        }
                         await timeOut(speed)
-                        
                         let tmp = arr[j];
                         arr[j] = arr[j + 1];
-                        arr[j + 1] = tmp;
-                       
-                       
-                        setArray([...arr]);
+                        arr[j + 1] = tmp;                   
                         tubeRef.current[j].classList.toggle("swap-right");
                         tubeRef.current[j + 1].classList.toggle("swap-left");
-                        await timeOut(speed);
+                        setArray([...arr]);
+                        await timeOut(100);
                         j--;
                     }
                     if (j > -1) {
@@ -69,8 +73,10 @@ function Insertion() {
                         setStay(-1)
                     }
                     arr[j + 1] = current;
+                    if (tubeRef.current[j + 1]) {
                     tubeRef.current[j + 1].classList.toggle("current");
                     tubeRef.current[j + 1].classList.toggle("sorted");
+                    }
                     setArray(arr);
                     await timeOut(speed);
                 }

@@ -18,12 +18,12 @@ function Bubble() {
     let path = router.pathname;
 
     useEffect(() => {
-        tubeRef.current.forEach(el => el.classList.remove('finished'));
+            tubeRef.current.forEach(el=>el.classList.remove('finished'));
     }, [refresh])
 
     async function bubbleSort() {
         setIsRunning(true)
-        tubeRef.current.forEach(el => el.classList.remove('finished'));
+        tubeRef.current.forEach(el=>el.classList.remove('finished'));
         let swapped;
         do {
             swapped = false
@@ -52,7 +52,7 @@ function Bubble() {
                     setSwapped("True")
                     tubeRef.current[i].classList.toggle("swap-right");
                     tubeRef.current[i + 1].classList.toggle("swap-left");
-                    setArray([...array]);
+                    setArray([...array]);   
                 } else {
                     if (tubeRef.current[i + 1]) {
                         setStay(i)
@@ -68,7 +68,7 @@ function Bubble() {
                 }
             }
         } while (swapped && path == "/bubble")
-        tubeRef.current.forEach(el => el.classList.add('finished'));
+        tubeRef.current.forEach(el=>el.classList.add('finished'));
         setIsRunning(false)
     }
     return (
@@ -105,22 +105,22 @@ function Bubble() {
                 </div>
                 <div className="row">
                     {(swap >= 0 || stay >= 0) &&
-                        <div className="thought-bubble bubble-bottom-left">
-                            {swap >= 0 &&
-                                <>
-                                    <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
-                                    <p>Swap</p>
+                    <div className="thought-bubble bubble-bottom-left">
+                    {swap >= 0 &&
+                        <>
+                            <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
+                            <p>Swap</p>
 
-                                </>
-                            }
-                            {stay >= 0 &&
-                                <>
-                                    <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
-                                    <p>No Swap</p>
-                                </>
-                            }
-                        </div>
+                        </>
                     }
+                    {stay >= 0 &&
+                        <>
+                            <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
+                            <p>No Swap</p>
+                        </>
+                    }
+                    </div>
+                }
                     {array.map((tube, index) => {
                         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
                         return (
