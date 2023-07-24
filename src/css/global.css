@@ -1215,7 +1215,7 @@
  .tube {
    --width: calc(10vw + 0.6rem);
    --skew: calc(0.5vw + 0.05rem);
-   --tube-color: #fff;
+   --tube-color: #ffe2e2;
    --fill-color: black;
    width: var(--width);
    margin-top: var(--skew);
@@ -1234,12 +1234,11 @@
    position: absolute;
    width: calc(70% + var(--width) * 1);
    z-index: -1;
-   right: 55px;
-   bottom: 3px;
+   bottom: 2px;
    height: calc(var(--skew) * 8);
-   background: #00000068;
-   border-radius: 0% 100%;
-   filter: blur(10px);
+   background: #1b1a1a68;
+   border-radius: 100% 0%;
+   filter: blur(14px);
  }
 
  .cap-text {
@@ -1266,7 +1265,7 @@
    border-bottom-left-radius: inherit;
    border-bottom-right-radius: inherit;
    background-color: var(--tube-color);
-   background-image: linear-gradient(to right,
+   background-image: linear-gradient(to left,
        rgb(0 0 0 / 0.25),
        transparent 50%);
    position: relative;
@@ -1286,7 +1285,7 @@
    width: 100%;
    height: calc(var(--skew) * 2);
    background-color: var(--tube-color);
-   background-image: linear-gradient(to left, rgb(0 0 0 / 0.3), transparent);
+   background-image: linear-gradient(to right, rgb(0 0 0 / 0.3), transparent);
    border-radius: 50%;
    top: calc(var(--skew) * -1);
  }
@@ -1295,7 +1294,7 @@
    border-bottom-left-radius: inherit;
    border-bottom-right-radius: inherit;
    background-color: var(--tube-color);
-   background-image: linear-gradient(to right,
+   background-image: linear-gradient(to left,
        rgba(0, 0, 0, 0.353),
        transparent 40%);
    position: relative;
@@ -1355,8 +1354,8 @@
        rgb(0 0 0 / 0.25),
        transparent 50% 70%,
        rgb(0 0 0 / 0.25));
-   animation: fill-before 0.66s linear forwards;
-   /* height: var(--fill-end); */
+   /* animation: fill-before 0.66s linear forwards; */
+   height: var(--fill-end);
  }
 
  .fill::after {
@@ -1372,8 +1371,8 @@
    bottom: var(--fill-start);
    background-image: var(--glas-gradient),
      linear-gradient(to right, rgb(69 68 68 / 25%), transparent 100%);
-   animation: fill-after 0.66s linear forwards;
-   /* bottom: var(--fill-end); */
+   /* animation: fill-after 0.66s linear forwards; */
+   bottom: var(--fill-end);
  }
 
  .current-element>.cap::before {
@@ -1399,23 +1398,14 @@
  }
 
  .swap-right {
-   z-index: 99;
-   animation: swapRight .5s ease-out forwards;
- }
-
- .swap-right::before {
-  content: none;
+   
+   animation: swapRight .66s ease-out forwards;
  }
 
  .swap-left {
-   z-index: 9;
-   animation: swapLeft .5s ease-out forwards;
+  z-index: 99;
+   animation: swapLeft .66s ease-out forwards;
  }
-
- .swap-left::before {
-  content: none;
- }
-
 
  .finished>.cap::before {
    content: "Sorted";
@@ -1436,8 +1426,8 @@
    pointer-events: none;
    text-transform: uppercase;
    margin-top: 2.5em;
+   animation: appear 0.3s linear forwards;
  }
-
 
  .bubble-swap {
    left: 1em;
@@ -1445,12 +1435,6 @@
 
  .swap-bubble.right {
    display: none;
- }
-
-
- .less {
-   color: #f06c07;
-   font-size: 20px;
  }
 
  .finished-bubble {
@@ -1470,6 +1454,53 @@
  .finished-bubble img {
    width: 30px !important;
    height: 30px !important;
+ }
+
+ @keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .1;
+  }
+
+  20% {
+    opacity: .2;
+  }
+
+  30% {
+    opacity: .3;
+  }
+
+  40% {
+    opacity: .4;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  60% {
+    opacity: .6;
+  }
+
+  70% {
+    opacity: .7;
+  }
+
+  80% {
+   opacity: .8;
+ }
+
+  90% {
+   opacity: 9;
+ }
+
+  100% {
+    opacity: 1;
+  }
+
  }
 
  @keyframes moveUp {
@@ -1655,7 +1686,7 @@
 
  .current {
    --fill-color: blue;
-  
+
  }
 
  /****************Selection Tubes******************/

@@ -20,73 +20,66 @@ function Insertion() {
 
     useEffect(() => {
         setSorted([])
-        tubeRef.current.forEach(el => el.classList.remove('finished'));
+        tubeRef.current.forEach(el => el.classList.remove('sorted'));
     }, [refresh]);
 
     async function insertionSort() {
         setIsRunning(true)
-        tubeRef.current.forEach(el=>el.classList.remove('finished'));
+        tubeRef.current.forEach(el => el.classList.remove('sorted'));
         try {
             while (path == "/insertion") {
                 const arr = array;
                 const n = arr.length;
-                await timeOut(speed / 2);
                 if (tubeRef.current[0]) {
-                tubeRef.current[0].classList.toggle("sorted");
+                    tubeRef.current[0].classList.toggle("sorted");
                 }
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 for (let i = 1; i < n; i++) {
-                    // Choosing the first element in our unsorted subarray
                     let current = arr[i];
                     setSorted(arr.slice(0, i))
                     setUnSorted(arr.slice(i))
-                    await timeOut(speed / 2);
+                    await timeOut(500);
                     if (tubeRef.current[i]) {
-                    tubeRef.current[i].classList.toggle("current");
+                        tubeRef.current[i].classList.toggle("current");
                     }
-                    await timeOut(speed);
-                    // The last element of our sorted subarray
                     let j = i - 1;
                     while ((j > -1) && (current < arr[j])) {
                         setSwap(j)
                         await timeOut(speed);
                         setSwap(-1)
                         if (tubeRef.current[j]) {
-                        tubeRef.current[j].classList.toggle("swap-right");
+                            tubeRef.current[j].classList.toggle("swap-right");
                         }
                         if (tubeRef.current[j + 1]) {
-                        tubeRef.current[j + 1].classList.toggle("swap-left");
+                            tubeRef.current[j + 1].classList.toggle("swap-left");
                         }
-                        await timeOut(speed)
+                        await timeOut(660)
                         let tmp = arr[j];
                         arr[j] = arr[j + 1];
-                        arr[j + 1] = tmp;                   
+                        arr[j + 1] = tmp;
                         tubeRef.current[j].classList.toggle("swap-right");
                         tubeRef.current[j + 1].classList.toggle("swap-left");
-                        setArray([...arr]);
-                        await timeOut(100);
                         j--;
                     }
+                    setArray([...array]);
                     if (j > -1) {
                         setStay(j)
                         await timeOut(speed);
                         setStay(-1)
                     }
+                    await timeOut(100);
                     arr[j + 1] = current;
                     if (tubeRef.current[j + 1]) {
-                    tubeRef.current[j + 1].classList.toggle("current");
-                    tubeRef.current[j + 1].classList.toggle("sorted");
+                        tubeRef.current[j + 1].classList.toggle("current");
+                        tubeRef.current[j + 1].classList.toggle("sorted");
                     }
                     setArray(arr);
-                    await timeOut(speed);
+                    await timeOut(500);
                 }
                 setUnSorted([])
                 setSorted(arr)
-                await timeOut(speed);
+                await timeOut(500);
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
-                document.querySelectorAll(".tube").forEach(el => { el.classList.toggle("sorted") });
-                document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
-                tubeRef.current.forEach(el=>el.classList.add('finished'));
                 setIsRunning(false)
                 return arr;
             }
