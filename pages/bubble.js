@@ -29,30 +29,31 @@ function Bubble() {
             swapped = false
             setSwapped("False")
             for (let i = 0; i < array.length - 1; i++) {
-                await timeOut(speed / 2);
+                await timeOut(1000);
                 if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("current-element");
                 }
                 if (tubeRef.current[i + 1]) {
                     tubeRef.current[i + 1].classList.toggle("next-element");
-                } else {
-                    await timeOut(speed)
-                }
+                } 
                 if (array[i] > array[i + 1]) {
                     setSwap(i)
                     await timeOut(speed)
                     setSwap(-1)
+                    if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("swap-right");
                     tubeRef.current[i + 1].classList.toggle("swap-left");
-                    await timeOut(speed)
+                    }
+                    await timeOut(1000)
                     let tmp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = tmp;
                     swapped = true
                     setSwapped("True")
+                    if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("swap-right");
                     tubeRef.current[i + 1].classList.toggle("swap-left");
-                    setArray([...array]);   
+                    }
                 } else {
                     if (tubeRef.current[i + 1]) {
                         setStay(i)
@@ -60,15 +61,19 @@ function Bubble() {
                         setStay(-1)
                     }
                 }
+                setArray([...array]); 
                 if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("current-element");
                 }
                 if (tubeRef.current[i + 1]) {
                     tubeRef.current[i + 1].classList.toggle("next-element");
                 }
+                  
             }
         } while (swapped && path == "/bubble")
+        if (tubeRef.current[1]) {
         tubeRef.current.forEach(el=>el.classList.add('finished'));
+        }
         setIsRunning(false)
     }
     return (

@@ -5,19 +5,17 @@ import useArray from "../src/components/useArray";
 import ButtonBox from "../src/components/ButtonBox.js";
 import { timeOut } from "../src/components/Utils";
 import Explanation from "../src/components/Explanations";
-import SwapIcon from '@mui/icons-material/SwapHorizSharp';
 
 function Selection() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
     const [arrI, setArrI] = useState(-1);
     const [arrJ, setArrJ] = useState(-1);
-    const [stay, setStay] = useState(1);
+    const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
     const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
-    const [finished, setFinished] = useState(false);
     const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
@@ -27,11 +25,12 @@ function Selection() {
 
     useEffect(() => {
         setSorted([])
+        tubeRef.current.forEach(el => el.classList.remove('sorted'));
     }, [refresh]);
 
     async function selectionSort() {
         setIsRunning(true)
-        setFinished(false)
+        tubeRef.current.forEach(el => el.classList.remove('sorted'));
         try {
             while (path == "/selection") {
                 const arr = array;
@@ -40,7 +39,6 @@ function Selection() {
                 await timeOut(speed / 2);
                 for (let i = 0; i < n - 1; i++) {
                     setArrI(i)
-                    // Finding the smallest number in the subarray
                     tubeRef.current[i].classList.toggle("min-tube");
                     await timeOut(speed);
                     let min = i;
@@ -68,7 +66,6 @@ function Selection() {
                         await timeOut(speed);
                         setMinBubble(false)
                     } else if (min !== i) {
-                        // Swapping the elements
                         setMove(true)
                         await timeOut(speed);
                         setMove(false)
@@ -76,14 +73,14 @@ function Selection() {
                         arr[i] = arr[min];
                         arr[min] = tmp;
                         setArray([...arr]);
-                        await timeOut(speed);
+                        await timeOut(5);
                     }
                     tubeRef.current[i].classList.toggle("min-tube");
                     tubeRef.current[i].classList.toggle("sorted");
                     setSorted(arr.slice(0, i + 1))
                     setUnSorted(arr.slice(i + 1))
                     setArray(arr);
-                    //await timeOut(speed);
+                    await timeOut(1000);
                 }
                 setArrI(5)
                 setLastIndex(true)
@@ -95,9 +92,6 @@ function Selection() {
                 setSorted(arr)
                 await timeOut(speed);
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
-                tubeRef.current.forEach(el => { el.classList.toggle("sorted") });
-                document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("sorted-text") });
-                setFinished(true)
                 setIsRunning(false)
                 return arr;
             }
@@ -123,7 +117,6 @@ function Selection() {
                         setRefresh={setRefresh}
                         speed={speed}
                         setSpeed={setSpeed}
-                        setFinished={setFinished}
                     />
                     <div className="insertion var-container">
                         <div className="insertion array-container">
@@ -147,13 +140,8 @@ function Selection() {
                     </div>
                 </div>
                 <div className="row">
-                    {finished &&
-                        <div className="finished-bubble bubble-bottom-left" >
-                            <div className="no-swap">Sorted&nbsp;!!!</div>
-                        </div>
-                    }
                     {(stay > 0 || swap > 0 || move || minBubble || lastIndex) &&
-                        < div className="selection-stay thought-bubble bubble-bottom-left ">
+                        < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                             <div>
                                 <p><span className="red">{array[stay]}</span> &gt; <span className="green">min</span></p>
@@ -163,15 +151,14 @@ function Selection() {
                             {swap > 0 &&
                                 <div>
                                     <p><span className="red">{array[swap]}</span> &lt; <span className="green">min</span></p>
-                                    <SwapIcon className="selection swap-icon" />
                                     <p><span className="blue">{array[swap]}</span> is the new min</p>
                                 </div>
                             }
                             {move &&
                                 <div>
                                     <p><span className="green">min</span> swaps places with <span className="blue">arr[i]</span></p>
-                                    <p> making it the</p>
-                                    <p>last element in the <span className="orange">sorted array</span></p>
+                                    <p> It's now
+                                    last in the <span className="orange">sorted array</span></p>
                                 </div>
                             }
                             {minBubble &&

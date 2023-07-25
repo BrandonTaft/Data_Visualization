@@ -6,9 +6,9 @@ export default function MySlider({ speed, setSpeed }) {
     };
     return (
             <ReactSlider
-                min={0}
+                min={10}
                 max={100}
-                marks={20}
+                marks={[20, 40, 60, 80, 100]}
                 value={speed / 100}
                 orientation='vertical'
                 invert

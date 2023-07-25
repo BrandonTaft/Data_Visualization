@@ -1170,7 +1170,6 @@
    width: 20px;
    border: 1px solid white;
    border-radius: 11px;
-   z-index: 5;
  }
 
  .track.track-1 {
@@ -1186,7 +1185,6 @@
    color: #fff;
    border-radius: 50%;
    cursor: grab;
-   z-index: 10 !important;
    text-align: center;
    line-height: 30px;
  }
@@ -1389,12 +1387,10 @@
 
  .current-element {
    --fill-color: orangered;
-   animation: moveUp .5s ease-out forwards;
  }
 
  .next-element {
    --fill-color: orangered;
-   animation: moveUp .5s ease-out forwards;
  }
 
  .swap-right {
@@ -1435,25 +1431,6 @@
 
  .swap-bubble.right {
    display: none;
- }
-
- .finished-bubble {
-   position: absolute;
-   z-index: 5;
-   background: #e8e8d6;
-   border-radius: 30px;
-   padding: 10px 30px 10px;
-   font-size: 1.5em;
-   font-weight: 600;
-   text-align: center;
-   width: auto;
-   border: 3px solid black;
-   margin: 1.5em;
- }
-
- .finished-bubble img {
-   width: 30px !important;
-   height: 30px !important;
  }
 
  @keyframes appear {
@@ -1567,17 +1544,6 @@
      font-size: 20px;
      margin-top: 3em;
    }
-
-   .finished-bubble {
-     margin: 1.75em;
-     font-size: 2em;
-     padding: .5em 2em;
-   }
-
-   .finished-bubble img {
-     width: 40px !important;
-     height: 40px !important;
-   }
  }
 
  @media (min-width: 700px) {
@@ -1598,10 +1564,6 @@
    .thought-bubble {
      font-size: 22px;
    }
-
-   .finished-bubble {
-     padding: .5em 2em;
-   }
  }
 
  @media (min-width: 1000px) {
@@ -1609,18 +1571,14 @@
      height: 18em;
    }
 
+   .cap {
+    font-size: 24px;
+  }
+
+
    .thought-bubble {
      font-size: 24px;
      margin-top: 3.5em;
-   }
-
-   .finished-bubble {
-     font-size: 2.5em;
-   }
-
-   .finished-bubble img {
-     width: 50px !important;
-     height: 50px !important;
    }
  }
 
@@ -1628,11 +1586,6 @@
    .tube {
      --width: calc(8vw + 0.2rem);
    }
-
-   .cap {
-     font-size: 24px;
-   }
-
  }
 
  @media (min-width: 1400px) {
@@ -1646,17 +1599,6 @@
 
    .cap {
      font-size: 24px;
-   }
-
-
-   .finished-bubble {
-     padding: .25em 1.5em;
-   }
- }
-
- @media (min-width: 1600px) {
-   .finished-bubble {
-     margin: 2em;
    }
  }
 
@@ -1693,7 +1635,6 @@
 
  .min-tube {
    --fill-color: green;
-   top: 8%;
  }
 
  .min-tube>.cap::before {
@@ -1712,123 +1653,34 @@
    top: 4px;
  }
 
- .selection-stay {
-   position: absolute;
-   top: unset;
-   left: unset;
-   margin: 3em;
-   height: calc(10vw + 0.6rem);
- }
-
- .selection-stay div {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: inherit;
- }
-
- .selection.swap-icon {
-   font-size: 30px;
-   color: blue;
- }
-
  .arri {
-   display: flex;
-   content: "arr[j]";
-   position: absolute;
-   width: 100%;
-   justify-content: center;
-   color: white;
-   background-color: blue;
-   border-radius: 8px;
-   top: -22%;
-   z-index: 4;
-   padding-bottom: 3px;
- }
+  display: flex;
+  content: "arr[j]";
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  color: white;
+  background-color: blue;
+  border-radius: 8px;
+  top: -22%;
+  z-index: 4;
+  padding-bottom: 3px;
+}
 
- .arrj {
-   display: flex;
-   content: "arr[j]";
-   position: absolute;
-   width: 100%;
-   justify-content: center;
-   color: white;
-   background-color: rgb(131, 3, 151);
-   border-radius: 8px;
-   top: -22%;
-   z-index: 4;
-   padding-bottom: 3px;
- }
+.arrj {
+  display: flex;
+  content: "arr[j]";
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  color: white;
+  background-color: rgb(131, 3, 151);
+  border-radius: 8px;
+  top: -22%;
+  z-index: 4;
+  padding-bottom: 3px;
+}
 
- @media (min-width: 400px) {
-   .selection-stay {
-     padding: 10px 22px 14px;
-     height: 4em;
-   }
- }
-
- @media (min-width: 600px) {
-   .selection-stay {
-     height: 5.5em;
-   }
- }
-
- @media (min-width: 600px) {
-   .selection-stay {
-     height: 5em;
-     margin: 3.75em;
-   }
-
-   .arri {
-     font-size: 30px;
-   }
-
-   .arrj {
-     font-size: 30px;
-   }
- }
-
- @media (min-width: 1000px) {
-   .selection-stay {
-     margin: 4.75em;
-   }
-
-   .selection.swap-icon {
-     font-size: 40px;
-   }
-
- }
-
- @media (min-width: 1200px) {
-   .selection-stay {
-     margin: 4em;
-   }
- }
-
- @media (min-width: 1400px) {
-   .selection-stay {
-     margin: 4.5em;
-   }
- }
-
- @media (min-width: 1600px) {
-   .selection-stay {
-     margin: 5em;
-   }
- }
-
- @media (min-width: 1800px) {
-   .selection-stay {
-     margin: 5.5em;
-   }
- }
-
- @media (min-width: 2200px) {
-   .selection-stay {
-     margin: 6.5em;
-   }
- }
 
  /****************Quick Sort Tubes******************/
  .pivot-value {

@@ -11,7 +11,7 @@ function Insertion() {
     const [isRunning, setIsRunning] = useState(false);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
-    const [speed, setSpeed] = useState(3000);
+    const [speed, setSpeed] = useState(2000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh } = getArray();
