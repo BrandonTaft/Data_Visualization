@@ -110,22 +110,6 @@
    --fill-color: #f06c07;
  }
 
- [data-theme="dark"] .thought-bubble {
-   background-color: #303134;
-   color: white;
- }
-
- [data-theme="dark"] .finished-bubble {
-   background-color: #303134;
-   color: ghostwhite;
- }
-
- [data-theme="dark"] .bubble-bottom-left:after {
-   border-left: 24px solid #303134;
-   border-top: 12px solid #303134;
- }
-
-
  [data-theme="dark"] .footer {
    background-color: #0c0c0c;
  }
@@ -140,6 +124,7 @@
    font-style: normal;
    margin: 0;
    height: 100%;
+   overflow-x: hidden;
  }
 
  h1,
@@ -1403,6 +1388,10 @@
    animation: swapLeft .66s ease-out forwards;
  }
 
+ .finished {
+  --fill-color: #f06c07;
+ }
+
  .finished>.cap::before {
    content: "Sorted";
    position: relative;
@@ -1413,16 +1402,18 @@
  .thought-bubble {
    position: absolute;
    z-index: 5;
-   background: #e8e8d6;
+   color: #FFF;
+   background: #f06c07;
    padding: .75em 2em 1em;
    font-weight: 700;
    text-align: center;
    border: 3px solid black;
    border-radius: 20px;
    pointer-events: none;
-   text-transform: uppercase;
+   /* text-transform: uppercase; */
    margin-top: 2.5em;
    animation: appear 0.3s linear forwards;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  }
 
  .bubble-swap {
@@ -1541,8 +1532,8 @@
    }
 
    .thought-bubble {
-     font-size: 20px;
-     margin-top: 3em;
+     font-size: 26px;
+     margin-top: 2.25em;
    }
  }
 
@@ -1562,7 +1553,7 @@
    }
 
    .thought-bubble {
-     font-size: 22px;
+     font-size: 28px;
    }
  }
 
@@ -1577,8 +1568,7 @@
 
 
    .thought-bubble {
-     font-size: 24px;
-     margin-top: 3.5em;
+     font-size: 30px;
    }
  }
 
@@ -1586,6 +1576,10 @@
    .tube {
      --width: calc(8vw + 0.2rem);
    }
+
+   .thought-bubble {
+    margin-top: 2.5em;
+  }
  }
 
  @media (min-width: 1400px) {
@@ -1601,6 +1595,14 @@
      font-size: 24px;
    }
  }
+
+ @media (min-width: 1600px) {
+
+  .thought-bubble {
+   margin-top: 2.75em;
+ }
+}
+
 
  /****************Insertion Tubes******************/
  .sorted>.cap::before {
@@ -1679,6 +1681,28 @@
   top: -22%;
   z-index: 4;
   padding-bottom: 3px;
+}
+
+@media (min-width: 600px) {
+  .arri {
+    font-size: 22px;
+  }
+  
+  .arrj {
+   font-size: 22px;
+  }
+  
+}
+
+@media (min-width: 1000px) {
+  .arri {
+    font-size: 26px;
+  }
+  
+  .arrj {
+   font-size: 26px;
+  }
+  
 }
 
 

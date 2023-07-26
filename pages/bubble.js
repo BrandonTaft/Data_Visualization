@@ -113,14 +113,14 @@ function Bubble() {
                     <div className="thought-bubble bubble-bottom-left">
                     {swap >= 0 &&
                         <>
-                            <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
+                            <p>{array[swap]} &gt; {array[swap + 1]}</p>
                             <p>Swap</p>
 
                         </>
                     }
                     {stay >= 0 &&
                         <>
-                            <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
+                            <p>{array[stay]} &lt; {array[stay + 1]}</p>
                             <p>No Swap</p>
                         </>
                     }

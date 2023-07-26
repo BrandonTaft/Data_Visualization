@@ -144,33 +144,32 @@ function Selection() {
                         < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                             <div>
-                                <p><span className="red">{array[stay]}</span> &gt; <span className="green">min</span></p>
-                                <p><span className="green">min</span> stays the same</p>
+                                <p>{array[stay]} &gt; min</p>
+                                <p>min stays</p>
                             </div>
                             }
                             {swap > 0 &&
                                 <div>
-                                    <p><span className="red">{array[swap]}</span> &lt; <span className="green">min</span></p>
-                                    <p><span className="blue">{array[swap]}</span> is the new min</p>
+                                    <p>{array[swap]} &lt; min</p>
+                                    <p>min is now {array[swap]}</p>
                                 </div>
                             }
                             {move &&
                                 <div>
-                                    <p><span className="green">min</span> swaps places with <span className="blue">arr[i]</span></p>
-                                    <p> It's now
-                                    last in the <span className="orange">sorted array</span></p>
+                                    <p>min swaps places</p>
+                                    <p>with <span className="blue">arr[i]</span></p>
                                 </div>
                             }
                             {minBubble &&
                                 <div>
-                                    <p><span className="blue">arr[i]</span>&nbsp; was the smallest value</p>
+                                    <p><span className="blue">arr[i]</span> is the smallest value</p>
                                     <p> so it stays where it is. </p>
                                 </div>
                             }
                             {lastIndex &&
                                 <div>
-                                    <p>The<span className="blue">last index</span></p>
-                                    <p>Is already sorted. </p>
+                                    <p>The last index</p>
+                                    <p>is already sorted. </p>
                                 </div>
                             }
                         </div>
