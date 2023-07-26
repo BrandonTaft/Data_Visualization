@@ -180,7 +180,9 @@
    padding: 0px 5px;
    color: white;
    background-color: blue;
-   min-width: 52px;
+   display: inline-block;
+   min-width: 24px;
+   text-align: center;
  }
 
 
@@ -193,6 +195,9 @@
    padding: 0px 5px;
    color: white;
    background-color: red;
+   display: inline-block;
+   min-width: 24px;
+   text-align: center;
  }
 
 
@@ -205,6 +210,9 @@
    padding: 0px 5px;
    color: white;
    background-color: green;
+   display: inline-block;
+   min-width: 24px;
+   text-align: center;
  }
 
  .orange {
@@ -216,6 +224,9 @@
    padding: 0px 5px;
    color: white;
    background-color: orange;
+   display: inline-block;
+   min-width: 24px;
+   text-align: center;
  }
 
  /*******************Layout******************/
