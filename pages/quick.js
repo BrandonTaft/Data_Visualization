@@ -10,10 +10,12 @@ function QuickSort() {
     const [speed, setSpeed] = useState(3000);
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
+    const [arrI, setArrI] = useState(-1);
+    const [arrJ, setArrJ] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
-    const [pivot, setPivot] = useState(-1);
-    const [end, setEnd] = useState(-1);
+    const [swapPivot, setSwapPivot] = useState(false);
+    const [end, setEnd] = useState(false);
     const { array, setArray, refresh, setRefresh } = useArray();
     const router = useRouter();
     let path = router.pathname;
@@ -30,78 +32,88 @@ function QuickSort() {
     let x = 0;
     async function quickSort(arr, start, end) {
         setIsRunning(true)
-
-        try {
-            while (path === "/quick") {
+        console.log(start, end)
+        // try {
+        //     while (path === "/quick") {
                 if (start >= end) {
-                    if (document.getElementById(start) !== null) {
-                        setEnd(-1)
-                        await timeOut(speed);
-                        setEnd(start)
-                        tubeRef.current[start].classList.toggle("sorted");
-                    }
-                    setArray([...arr]);
-                    await timeOut(speed);
-                    return;
-                }
-                let index = await partition(arr, start, end);
-                tubeRef.current[index].classList.add("index-element");
-                quickSort(arr, start, index - 1);
-                quickSort(arr, index + 1, end);
-                setArray([...arr]);
-                await timeOut(speed);
-                x += 1;
-                if (x === 3) {
+                    // if (tubeRef.current[start]) {
+                    //     setEnd(true)
+                    //     await timeOut(speed);
+                    //     setEnd(false)
+                    //     tubeRef.current[start].classList.toggle("sorted");
+                    // }
+                    //setArray([...arr]);
+                    x += 1;
+                if (x > 3) {
                     
                     setIsRunning(false)
                 }
+                
+                    //await timeOut(speed);
+                    return;
+                }
+                // tubeRef.current[end].classList.add("pivot-value");
+                // tubeRef.current[start].classList.add("pivot-index");
+                let index = await partition(arr, start, end);
+                console.log(index)
+                // tubeRef.current[index].classList.add("index-element");
+                quickSort(arr, start, index - 1);
+                quickSort(arr, index + 1, end);
+                // setArray([...arr]);
+                // await timeOut(speed);
+                
 
-            }
-        } catch (error) {
-            return;
-        }
+            //}
+        // } catch (error) {
+        //     return;
+        // }
     }
 
     async function partition(arr, start, end) {
         let pivotIndex = start;
         let pivotValue = arr[end];
-        tubeRef.current[end].classList.toggle("pivot-value");
-        await timeOut(speed);
+
+        //await timeOut(speed);
         for (let i = start; i < end; i++) {
-            tubeRef.current[i].classList.add("quick-current");
-            tubeRef.current[pivotIndex].classList.add("pivot-index");
-            await timeOut(speed);
+           // setArrI(i)
+            // tubeRef.current[i].classList.add("quick-current");
+            // tubeRef.current[end].classList.add("pivot-value");
+            // tubeRef.current[pivotIndex].classList.add("pivot-index");
+            // await timeOut(speed);
             if (arr[i] < pivotValue) {
-                setSwap(i)
-                await timeOut(speed);
-                tubeRef.current[i].classList.remove("quick-current");
-                setSwap(-1)
+                // setSwap(i)
+                // await timeOut(speed);
+                // // tubeRef.current[i].classList.remove("quick-current");
+                // setArrI(-1)
+                // setSwap(-1)
                 let temp = arr[i];
                 arr[i] = arr[pivotIndex];
                 arr[pivotIndex] = temp;
-                tubeRef.current[pivotIndex].classList.remove("pivot-index");
+                // tubeRef.current[pivotIndex].classList.remove("pivot-index");
                 setArray([...arr]);
                 await timeOut(speed);
                 pivotIndex++;
-                if (pivotIndex < arr.length - 1) {
-                    tubeRef.current[pivotIndex].classList.add("pivot-index");
-                }
-                await timeOut(speed);
-            } else {
-                setStay(i)
-                await timeOut(speed);
-                setStay(-1)
-                tubeRef.current[i].classList.remove("quick-current");
-                await timeOut(speed);
-            }
+                // // if (pivotIndex < arr.length - 1) {
+                // //     tubeRef.current[pivotIndex].classList.add("pivot-index");
+                // // }
+                // await timeOut(speed);
+             } 
+            //else {
+            //     setStay(i)
+            //     await timeOut(speed);
+            //     setStay(-1)
+            //     setArrI(-1)
+            //     // tubeRef.current[i].classList.remove("quick-current");
+            //     await timeOut(100);
+            // }
         }
         //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
-        setPivot(pivotIndex)
-        await timeOut(speed);
-        tubeRef.current[end].classList.remove("pivot-value");
-        tubeRef.current[pivotIndex].classList.remove("pivot-index");
-        setPivot(-1)
-        await timeOut(speed);
+        // setSwapPivot(true)
+        // await timeOut(speed);
+        // tubeRef.current[end].classList.remove("pivot-value");
+        // tubeRef.current[pivotIndex].classList.remove("pivot-index");
+        // setSwapPivot(false)
+        // await timeOut(speed);
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
@@ -145,33 +157,33 @@ function QuickSort() {
                     </div>
                 </div>
                 <div className="row">
-                {(swap >= 0 || stay >= 0 || pivot >= 0 || end >= 0) &&
-                     <div className="thought-bubble bubble-bottom-left">
-                    {stay >= 0 &&
-                        <>
-                            <p className="quick-greater">{tube} &gt; Pivot Value</p>
-                            <p className="quick-p">Nothing changes and the loop moves to next index</p>
-                        </>
+                    {(swap >= 0 || stay >= 0 || swapPivot || end) &&
+                        <div className="thought-bubble bubble-bottom-left">
+                            {stay >= 0 &&
+                                <>
+                                    <p>{array[stay]} &gt; Pivot Value</p>
+                                    <p>Nothing changes</p>
+                                </>
+                            }
+                            {swap >= 0 &&
+                                <>
+                                    <p>{array[swap]} &lt; Pivot Value</p>
+                                    <p>Swap values with pivot index then pivot index moves one spot to the right</p>
+                                </>
+                            }
+                            {swapPivot &&
+
+                                <p><span>Pivot Index</span> and <span>Pivot Value</span> swap places.</p>
+
+                            }
+                            {end &&
+                                <>
+                                    <p>start &gt;= end </p>
+                                    <p> This element is sorted. </p>
+                                </>
+                            }
+                        </div>
                     }
-                    {swap >= 0 &&
-                        <>
-                            <p className="quick-greater" >{array[index]} &lt; Pivot Value</p>
-                            <p className="quick-p">Swap values with pivot index then pivot index moves one spot to the right</p>
-                        </>
-                    }
-                    {pivot >= 0 &&
-                        
-                            <p><span className="sorted-array">Pivot Index</span> and <span className="value-element">Pivot Value</span> swap places.</p>
-                    
-                    }
-                    {end >= 0 &&
-                        <>
-                            <p className="quick-greater">start &gt;= end </p>
-                            <p> This element is sorted. </p>
-                        </>
-                    }
-                    </div>
-                }
                     {array.map((tube, index) => {
                         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
                         return (
@@ -181,6 +193,9 @@ function QuickSort() {
                                 className="tube"
                                 style={cssProperties}
                             >
+                                {arrI === index &&
+                                    <div className="arri">arr[i]</div >
+                                }
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
                                 <div className="base">
