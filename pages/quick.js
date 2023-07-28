@@ -31,39 +31,40 @@ function QuickSort() {
 
     let x = 0;
     async function quickSort(arr, start, end) {
-        setIsRunning(true)
-        console.log(start, end)
+        setIsRunning(false)
         // try {
         //     while (path === "/quick") {
-                if (start >= end) {
-                    // if (tubeRef.current[start]) {
-                    //     setEnd(true)
-                    //     await timeOut(speed);
-                    //     setEnd(false)
-                    //     tubeRef.current[start].classList.toggle("sorted");
-                    // }
-                    //setArray([...arr]);
-                    x += 1;
-                if (x > 3) {
-                    
-                    setIsRunning(false)
-                }
-                
-                    //await timeOut(speed);
-                    return;
-                }
-                // tubeRef.current[end].classList.add("pivot-value");
-                // tubeRef.current[start].classList.add("pivot-index");
-                let index = await partition(arr, start, end);
-                console.log(index)
-                // tubeRef.current[index].classList.add("index-element");
-                quickSort(arr, start, index - 1);
-                quickSort(arr, index + 1, end);
-                // setArray([...arr]);
-                // await timeOut(speed);
-                
+        if (start >= end) {
+            console.log(start, end)
+            if (tubeRef.current[start] ) {
+                tubeRef.current[start].classList.toggle("sorted");
+            }
+            if (tubeRef.current[end] ) {
+                tubeRef.current[end].classList.toggle("sorted");
+            }
+            setEnd(true)
+            await timeOut(speed);
+            setEnd(false)
+            setArray([...arr]);
+            console.log("X")
+            await timeOut(speed);
+            return;
+            //     x += 1;
+            // if (x > 3) {
 
-            //}
+            //     setIsRunning(false)
+            // }
+
+
+        }
+
+        let index = await partition(arr, start, end);
+        console.log(index)
+        // tubeRef.current[index].classList.add("index-element");
+       await quickSort(arr, start, index - 1);
+       await quickSort(arr, index + 1, end);
+
+        //}
         // } catch (error) {
         //     return;
         // }
@@ -72,48 +73,47 @@ function QuickSort() {
     async function partition(arr, start, end) {
         let pivotIndex = start;
         let pivotValue = arr[end];
-
-        //await timeOut(speed);
+       
         for (let i = start; i < end; i++) {
-           // setArrI(i)
+            tubeRef.current[end].classList.add("pivot-value");
+            tubeRef.current[pivotIndex].classList.add("pivot-index");
+            setArrI(i)
+            await timeOut(speed);
             // tubeRef.current[i].classList.add("quick-current");
-            // tubeRef.current[end].classList.add("pivot-value");
-            // tubeRef.current[pivotIndex].classList.add("pivot-index");
-            // await timeOut(speed);
             if (arr[i] < pivotValue) {
-                // setSwap(i)
-                // await timeOut(speed);
+                setSwap(i)
+                await timeOut(speed);
                 // // tubeRef.current[i].classList.remove("quick-current");
-                // setArrI(-1)
-                // setSwap(-1)
+                setArrI(-1)
+                setSwap(-1)
                 let temp = arr[i];
                 arr[i] = arr[pivotIndex];
                 arr[pivotIndex] = temp;
-                // tubeRef.current[pivotIndex].classList.remove("pivot-index");
+                tubeRef.current[pivotIndex].classList.remove("pivot-index");
                 setArray([...arr]);
                 await timeOut(speed);
                 pivotIndex++;
                 // // if (pivotIndex < arr.length - 1) {
-                // //     tubeRef.current[pivotIndex].classList.add("pivot-index");
+                //tubeRef.current[pivotIndex].classList.add("pivot-index");
                 // // }
-                // await timeOut(speed);
-             } 
-            //else {
-            //     setStay(i)
-            //     await timeOut(speed);
-            //     setStay(-1)
-            //     setArrI(-1)
+                await timeOut(speed);
+            }
+            else {
+                setStay(i)
+                await timeOut(speed);
+                setStay(-1)
+                setArrI(-1)
             //     // tubeRef.current[i].classList.remove("quick-current");
-            //     await timeOut(100);
-            // }
+                await timeOut(100);
+            }
         }
         //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
-        // setSwapPivot(true)
-        // await timeOut(speed);
-        // tubeRef.current[end].classList.remove("pivot-value");
-        // tubeRef.current[pivotIndex].classList.remove("pivot-index");
-        // setSwapPivot(false)
-        // await timeOut(speed);
+        setSwapPivot(true)
+        await timeOut(speed);
+        tubeRef.current[end].classList.remove("pivot-value");
+        tubeRef.current[pivotIndex].classList.remove("pivot-index");
+        setSwapPivot(false)
+        await timeOut(speed);
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
