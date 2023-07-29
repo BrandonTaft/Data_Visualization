@@ -13,7 +13,7 @@ function Bubble() {
     const [swap, setSwap] = useState(-1);
     const [speed, setSpeed] = useState(2000);
     const [swapped, setSwapped] = useState("True");
-    const { array, setArray, refresh, setRefresh } = useArray();
+    const { array, setArray, refresh, setRefresh } = useArray(6);
     const router = useRouter();
     let path = router.pathname;
 

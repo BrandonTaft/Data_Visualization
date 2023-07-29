@@ -1258,6 +1258,7 @@ font-family
    font-weight: 700;
    font-style: normal;
    padding-bottom: 10px;
+   text-align: center;
  }
 
  .cap::after {

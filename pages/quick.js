@@ -18,7 +18,7 @@ function QuickSort() {
     const [sorted, setSorted] = useState(-1);
     const [args, setArgs] = useState("");
     const [pivotIndex, setPivotIndex] = useState("");
-    const { array, setArray, refresh, setRefresh } = useArray();
+    const { array, setArray, refresh, setRefresh } = useArray(8);
     const router = useRouter();
     let path = router.pathname;
 
@@ -142,7 +142,7 @@ function QuickSort() {
 
     function runSort() {
         clearAll();
-        quickSort(array, 0, 5)
+        quickSort(array, 0, 7)
     }
 
     return (

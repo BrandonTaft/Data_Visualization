@@ -19,7 +19,7 @@ function Selection() {
     const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
-    const { array, setArray, refresh, setRefresh } = useArray();
+    const { array, setArray, refresh, setRefresh } = useArray(6);
     const router = useRouter();
     let path = router.pathname;
 
