@@ -82,6 +82,10 @@
    --fill-color: green;
  }
 
+ [data-theme="dark"] .pivot-value {
+  --fill-color: red;
+}
+
  [data-theme="dark"] .current-element {
    --fill-color: orangered;
  }
@@ -92,22 +96,6 @@
 
  [data-theme="dark"] .min-tube {
    --fill-color: green;
- }
-
- [data-theme="dark"] .pivot-value-tube {
-   --fill-color: red;
- }
-
- [data-theme="dark"] .pivot-index-tube {
-   --fill-color: purple;
- }
-
- [data-theme="dark"] .quick-current {
-   --fill-color: green;
- }
-
- [data-theme="dark"] .index-element {
-   --fill-color: #f06c07;
  }
 
  [data-theme="dark"] .footer {
@@ -991,21 +979,18 @@
    box-shadow: 0px 0px 20px 0px rgb(0 0 0) inset, 0 0 0 0 black !important;
    border-radius: 40px;
    padding: 8px;
-   text-transform: uppercase;
    font-weight: 500;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  }
 
  .var-container {
    display: flex;
    flex-direction: column;
    color: white;
-   justify-content: space-between;
+   justify-content: space-around;
    pointer-events: none;
    margin: 8px;
- }
-
- .insertion.var-container {
-   justify-content: space-evenly;
+   font-size: 18px;
  }
 
  .array-container {
@@ -1015,30 +1000,33 @@
    align-items: center;
  }
 
- .insertion.array-container {
-   height: fit-content;
- }
-
  .array-span {
-   margin-top: auto;
-   margin-bottom: auto;
-   margin-left: 0.33em;
-   letter-spacing: 0.25em;
-   color: #f06c07;
- }
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.33em;
+  letter-spacing: 0.25em;
+  color: #f06c07;
+}
 
- .insertion.array-span {
-   margin-top: 1em;
- }
+.checked-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 5px;
+}
 
- .checked-container {
-   display: flex;
-   flex-grow: 1;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-   padding-top: 5px;
+
+ .insertion.array-container {
+   height: 33%;
  }
+font-family
+ /* .insertion.var-container {
+   justify-content: space-evenly;
+ } */
+
+
 
  .insertion.checked-container {
    flex-grow: unset;
@@ -1090,7 +1078,6 @@
    cursor: pointer;
    text-decoration: none;
    font-weight: 600;
-   font-family: "source-serif-pro", serif;
    transition: background-color 500ms;
  }
 
@@ -1390,17 +1377,17 @@
  }
 
  .swap-right {
-   
+
    animation: swapRight .66s ease-out forwards;
  }
 
  .swap-left {
-  z-index: 99;
+   z-index: 99;
    animation: swapLeft .66s ease-out forwards;
  }
 
  .finished {
-  --fill-color: #f06c07;
+   --fill-color: #f06c07;
  }
 
  .finished>.cap::before {
@@ -1421,7 +1408,6 @@
    border: 3px solid black;
    border-radius: 20px;
    pointer-events: none;
-   /* text-transform: uppercase; */
    margin-top: 2.5em;
    animation: appear 0.3s linear forwards;
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -1436,49 +1422,49 @@
  }
 
  @keyframes appear {
-  0% {
-    opacity: 0;
-  }
+   0% {
+     opacity: 0;
+   }
 
-  10% {
-    opacity: .1;
-  }
+   10% {
+     opacity: .1;
+   }
 
-  20% {
-    opacity: .2;
-  }
+   20% {
+     opacity: .2;
+   }
 
-  30% {
-    opacity: .3;
-  }
+   30% {
+     opacity: .3;
+   }
 
-  40% {
-    opacity: .4;
-  }
+   40% {
+     opacity: .4;
+   }
 
-  50% {
-    opacity: .5;
-  }
+   50% {
+     opacity: .5;
+   }
 
-  60% {
-    opacity: .6;
-  }
+   60% {
+     opacity: .6;
+   }
 
-  70% {
-    opacity: .7;
-  }
+   70% {
+     opacity: .7;
+   }
 
-  80% {
-   opacity: .8;
- }
+   80% {
+     opacity: .8;
+   }
 
-  90% {
-   opacity: 9;
- }
+   90% {
+     opacity: 9;
+   }
 
-  100% {
-    opacity: 1;
-  }
+   100% {
+     opacity: 1;
+   }
 
  }
 
@@ -1574,8 +1560,8 @@
    }
 
    .cap {
-    font-size: 24px;
-  }
+     font-size: 24px;
+   }
 
 
    .thought-bubble {
@@ -1589,8 +1575,8 @@
    }
 
    .thought-bubble {
-    margin-top: 2.5em;
-  }
+     margin-top: 2.5em;
+   }
  }
 
  @media (min-width: 1400px) {
@@ -1609,10 +1595,10 @@
 
  @media (min-width: 1600px) {
 
-  .thought-bubble {
-   margin-top: 2.75em;
+   .thought-bubble {
+     margin-top: 2.75em;
+   }
  }
-}
 
 
  /****************Insertion Tubes******************/
@@ -1667,54 +1653,52 @@
  }
 
  .arri {
-  display: flex;
-  content: "arr[j]";
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  color: white;
-  background-color: blue;
-  border-radius: 8px;
-  top: -22%;
-  z-index: 4;
-  padding-bottom: 3px;
-}
+   display: flex;
+   position: absolute;
+   width: 100%;
+   justify-content: center;
+   color: white;
+   background-color: blue;
+   border-radius: 8px;
+   top: -22%;
+   z-index: 4;
+   padding-bottom: 3px;
+ }
 
-.arrj {
-  display: flex;
-  content: "arr[j]";
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  color: white;
-  background-color: rgb(131, 3, 151);
-  border-radius: 8px;
-  top: -22%;
-  z-index: 4;
-  padding-bottom: 3px;
-}
+ .arrj {
+   display: flex;
+   position: absolute;
+   width: 100%;
+   justify-content: center;
+   color: white;
+   background-color: rgb(131, 3, 151);
+   border-radius: 8px;
+   top: -22%;
+   z-index: 4;
+   padding-bottom: 3px;
+ }
 
-@media (min-width: 600px) {
-  .arri {
-    font-size: 22px;
-  }
-  
-  .arrj {
-   font-size: 22px;
-  }
-  
-}
+ @media (min-width: 600px) {
+   .arri {
+     font-size: 22px;
+   }
 
-@media (min-width: 1000px) {
-  .arri {
-    font-size: 26px;
-  }
-  
-  .arrj {
-   font-size: 26px;
-  }
-  
-}
+   .arrj {
+     font-size: 22px;
+   }
+
+ }
+
+ @media (min-width: 1000px) {
+   .arri {
+     font-size: 26px;
+   }
+
+   .arrj {
+     font-size: 26px;
+   }
+
+ }
 
 
  /****************Quick Sort Tubes******************/
@@ -1740,21 +1724,34 @@
    font-size: 0.75em;
  }
 
- .quick-current {
-   --fill-color: green;
+ .tube>.index-element {
+  display: none;
  }
 
- .index-element {
-   bottom: 5%;
-   --fill-color: #f06c07;
+ .tube.index>.index-element {
+   display: flex;
+   position: absolute;
+   width: 100%;
+   justify-content: center;
+   color: white;
+   background-color: #f06c07;
+   border-radius: 8px;
+   top: -22%;
+   z-index: 4;
+   padding-bottom: 3px;
  }
 
- .index-element>.cap::before {
-   content: "index";
-   position: relative;
-   top: 4px;
-   font-weight: 600;
- }
+ @media (min-width: 600px) {
+  .index-element {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .index-element {
+    font-size: 26px;
+  }
+}
 
  /****************************Footer****************************/
 

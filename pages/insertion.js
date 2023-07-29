@@ -110,20 +110,20 @@ function Insertion() {
                     />
                     <div className="insertion var-container">
                         <div className="insertion array-container">
-                            <span className="insertion-span">Array</span>
-                            <span className="insertion array-span">
+                            <h3>Array</h3>
+                            <span className="array-span">
                                 [{array.toString()}]
                             </span>
                         </div>
-                        <div className="checked-container insertion">
-                            <span className="insertion-span">Unsorted</span>
-                            <span className="insertion array-span">
+                        <div className="insertion array-container">
+                            <h3>Unsorted</h3>
+                            <span className="array-span">
                                 [{unSorted.toString()}]
                             </span>
                         </div>
-                        <div className="checked-container insertion">
-                            <span className="insertion-span">Sorted Array</span>
-                            <span className="insertion array-span">
+                        <div className="insertion array-container">
+                            <h3>Sorted</h3>
+                            <span className="array-span">
                                 [{sorted.toString()}]
                             </span>
                         </div>
