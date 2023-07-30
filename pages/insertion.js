@@ -9,6 +9,7 @@ import Explanation from "../src/components/Explanations";
 function Insertion() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
+    const [arrI, setArrI] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
     const [speed, setSpeed] = useState(2000);
@@ -39,9 +40,11 @@ function Insertion() {
                     setSorted(arr.slice(0, i))
                     setUnSorted(arr.slice(i))
                     await timeOut(500);
+                    setArrI(i)
                     if (tubeRef.current[i]) {
                         tubeRef.current[i].classList.toggle("current");
                     }
+                    await timeOut(500);
                     let j = i - 1;
                     while ((j > -1) && (current < arr[j])) {
                         setSwap(j)
@@ -57,6 +60,7 @@ function Insertion() {
                         let tmp = arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = tmp;
+                        setArrI(j)
                         tubeRef.current[j].classList.toggle("swap-right");
                         tubeRef.current[j + 1].classList.toggle("swap-left");
                         j--;
@@ -67,10 +71,12 @@ function Insertion() {
                         await timeOut(speed);
                         setStay(-1)
                     }
+                    
                     await timeOut(100);
                     arr[j + 1] = current;
                     if (tubeRef.current[j + 1]) {
                         tubeRef.current[j + 1].classList.toggle("current");
+                        setArrI(-1)
                         tubeRef.current[j + 1].classList.toggle("sorted");
                     }
                     setArray(arr);
@@ -155,6 +161,9 @@ function Insertion() {
                                 className="tube"
                                 style={cssProperties}
                             >
+                                 {arrI === index &&
+                                    <div className="arri">arr[i]</div >
+                                }
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
                                 <div className="base">

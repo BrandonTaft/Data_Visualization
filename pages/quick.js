@@ -27,70 +27,57 @@ function QuickSort() {
     }, [refresh]);
 
     function clearAll() {
-        document.querySelectorAll(".tube").forEach(el => el.classList.remove("sorted") );
-        document.querySelectorAll(".tube").forEach(el => el.classList.remove("index") );
+        document.querySelectorAll(".tube").forEach(el => el.classList.remove("sorted"));
+        document.querySelectorAll(".tube").forEach(el => el.classList.remove("index"));
         setArgs("");
         countRef.current = 0;
     }
 
-    let x = 0;
     async function quickSort(arr, start, end) {
-        console.log(countRef.current)
         setArgs(`${start} , ${end}`)
         setIsRunning(true)
-            if(path === "/quick") {
-        if (start > end) {
-            console.log(start, end)
-            if (tubeRef.current[start] ) {
-                tubeRef.current[start].classList.add("sorted");
+        if (path === "/quick") {
+            if (start > end) {
+                if (tubeRef.current[start]) {
+                    tubeRef.current[start].classList.add("sorted");
+                    setSorted(start)
+                    countRef.current = countRef.current + 1
+                    await timeOut(speed);
+                    setSorted(-1)
+                }
+                setArray([...arr]);
+                await timeOut(speed);
+                if (countRef.current === 8) setIsRunning(false)
+                return;
             }
-            
-            if(start < 6) {
-            setSorted(start)
-            countRef.current = countRef.current + 1
-            await timeOut(speed);
-            setSorted(-1)
+            if (start === end) {
+                if (tubeRef.current[start]) {
+                    tubeRef.current[start].classList.add("sorted");
+                    setSorted(start)
+                    countRef.current = countRef.current + 1
+                    await timeOut(speed);
+                    setSorted(-1)
+                    await timeOut(250);
+                }
+                await timeOut(250);
+                if (tubeRef.current[end + 1]) {
+                    tubeRef.current[end + 1].classList.add("sorted");
+                    setSorted(end + 1)
+                    countRef.current = countRef.current + 1
+                    await timeOut(speed);
+                    setSorted(-1)
+                }
+                setArray([...arr]);
+                await timeOut(speed);
+                if (countRef.current === 8) setIsRunning(false)
+                return;
             }
-            setArray([...arr]);
-            await timeOut(speed);
-            if(countRef.current === 6) setIsRunning(false)
-            return;
-        }
-        if (start === end) {
-            console.log(start, end)
-            if (tubeRef.current[start] ) {
-                tubeRef.current[start].classList.add("sorted");
-            }
-            if (tubeRef.current[end + 1] ) {
-                tubeRef.current[end + 1].classList.add("sorted");
-            }
-            if(start < 6) {
-            setSorted(start)
-            countRef.current = countRef.current + 1
-            await timeOut(speed);
-            setSorted(-1)
-            await timeOut(250);
-            if(end < 5){
-            setSorted(end + 1)
-            countRef.current = countRef.current + 1
-            await timeOut(speed);
-            setSorted(-1)
-            }
-            }
-            setArray([...arr]);
-            await timeOut(speed);
-            if(countRef.current === 6) setIsRunning(false)
-            return;
-        }
-       
-           
-        
-        let index = await partition(arr, start, end);
-        setPivotIndex(index)
-        tubeRef.current[index].classList.add("index");
-        await timeOut(500);
-        await quickSort(arr, start, index - 1);
-        await quickSort(arr, index + 1, end);
+            let index = await partition(arr, start, end);
+            setPivotIndex(index)
+            tubeRef.current[index].classList.add("index");
+            await timeOut(500);
+            await quickSort(arr, start, index - 1);
+            await quickSort(arr, index + 1, end);
         } else return;
     }
 
@@ -112,16 +99,15 @@ function QuickSort() {
                 arr[pivotIndex] = temp;
                 tubeRef.current[pivotIndex].classList.remove("pivot-index");
                 setArray([...arr]);
-               await timeOut(500);
+                await timeOut(500);
                 pivotIndex++;
-               await timeOut(500);
+                await timeOut(500);
             }
             else {
                 setStay(i)
                 await timeOut(speed);
                 setStay(-1)
                 setArrI(-1)
-                //     // tubeRef.current[i].classList.remove("quick-current");
                 await timeOut(100);
             }
         }
@@ -131,7 +117,6 @@ function QuickSort() {
         setSwapPivot(false)
         tubeRef.current[end].classList.remove("pivot-value");
         tubeRef.current[pivotIndex].classList.remove("pivot-index");
-        // await timeOut(500);
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
@@ -155,8 +140,8 @@ function QuickSort() {
                 <Method method={"quick"} />
                 <Explanation type={"quick"} />
             </div>
-            <div className="bottom-container">
-                <div className="side-display insertion">
+            <div className="quick bottom-container">
+                <div className="quick side-display insertion">
                     <ButtonBox
                         isRunning={isRunning}
                         sortMethod={runSort}
@@ -165,39 +150,40 @@ function QuickSort() {
                         speed={speed}
                         setSpeed={setSpeed}
                     />
-                     <div className="insertion var-container">
+                    <div className="insertion var-container">
                         <div className="array-container insertion">
                             <h3>Array</h3>
-                            <span className="array-span">
+                            <span className="quick array-span">
                                 [{array.toString()}]
                             </span>
                         </div>
                         <div className="array-container insertion">
                             <h3>( Start , End )</h3>
-                            <span className="array-span">
+                            <span className="quick array-span">
                                 ({args})
                             </span>
                         </div>
                         <div className="array-container insertion">
                             <h3>Pivot Index</h3>
-                            <span className="array-span">
+                            <span className="quick array-span">
                                 arr[{pivotIndex}]
                             </span>
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="quick-row row">
                     {(stay >= 0 || sorted >= 0) &&
-                        <div className="thought-bubble bubble-bottom-left">
+                        <div className="quick thought-bubble bubble-bottom-left">
                             {stay >= 0 &&
                                 <>
                                     <p>{array[stay]} &gt; Pivot Value</p>
                                     <p>Nothing changes</p>
                                 </>
                             }
-                           
+
                             {sorted >= 0 &&
                                 <>
+                                    <p>quickSort(arr, {args})</p>
                                     <p>start &gt;= end </p>
                                     <p> arr[{sorted}] is sorted. </p>
                                 </>
@@ -205,19 +191,19 @@ function QuickSort() {
                         </div>
                     }
                     {(swap >= 0 || swapPivot) &&
-                        <div className="thought-bubble bubble-bottom-left">
+                        <div className="quick-swap thought-bubble bubble-bottom-left">
                             {swap >= 0 &&
                                 <>
                                     <p>{array[swap]} &lt; Pivot Value</p>
-                                    <p>Swap values with pivot index</p> 
+                                    <p>Swap values with pivot index</p>
                                     <p>then pivot index moves up one spot</p>
                                 </>
                             }
-                             {swapPivot &&
-                            <>
-                                <p><span>Pivot Index</span> and <span>Pivot Value</span></p>
-                                <p> swap places.</p>
-                            </>
+                            {swapPivot &&
+                                <>
+                                    <p><span>Pivot Index</span> and <span>Pivot Value</span></p>
+                                    <p> swap places.</p>
+                                </>
                             }
                         </div>
                     }
@@ -233,13 +219,13 @@ function QuickSort() {
                                 {arrI === index &&
                                     <div className="arri">arr[i]</div >
                                 }
-                               
+
                                 <div className="index-element">INDEX</div >
-                                
+
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
                                 <div className="base">
-                                    <div className="text">{tube}</div>
+                                    <div className="quick text">{tube}</div>
                                 </div>
 
                             </div >
