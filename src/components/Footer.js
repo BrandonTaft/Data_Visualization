@@ -47,7 +47,7 @@ function Footer({ path }) {
                 <div className='copyright-container'>
                     <p className="copyright"> &copy;{new Date().getFullYear()}&nbsp;Brandon Taft</p>
                     <a href="/sitemap.xml">
-                        <span > Sitemap </span>
+                        <span className='sitemap' > Sitemap </span>
                     </a>
                 </div>
                 </div>

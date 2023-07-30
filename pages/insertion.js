@@ -98,8 +98,7 @@ function Insertion() {
         <div className="page-container">
             <div className="insertion top-container">
                 <p className="explanation-heading">Insertion can be compared to sorting a hand of cards as you draw from the top of a deck. The unsorted array is the deck and the sorted array is your hand.
-                    The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand. You then sort your hand before drawing another
-                    card from the deck.
+                    The first element will be the first card in your hand and each subsequent element is a new card that you draw and add to your hand in its correct order.
                 </p>
                 <Method method={"insertion"} />
                 <Explanation type={"insertion"} />
@@ -140,13 +139,13 @@ function Insertion() {
                         <div className="thought-bubble bubble-bottom-left">
                             {swap >= 0 &&
                                 <>
-                                    <p>{array[swap]} &nbsp;  &gt; &nbsp; {array[swap + 1]}</p>
+                                    <p>{array[swap]}   &gt;  {array[swap + 1]}</p>
                                     <p>Swap</p>
                                 </>
                             }
                             {stay >= 0 &&
                                 <>
-                                    <p>{array[stay]} &nbsp; &lt; &nbsp; {array[stay + 1]}</p>
+                                    <p>{array[stay]}  &lt;  {array[stay + 1]}</p>
                                     <p className="no-swap">No Swap</p>
                                 </>
                             }
