@@ -135,7 +135,7 @@ function QuickSort() {
             <div className="top-container">
                 <p className="explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to
                     perform sorting opereations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
-                    There are multiple ways to write this algorithm. I've decided to use this one because it makes the most sense to me.
+                    There are multiple ways to write this algorithm. I have decided to use this one because it makes the most sense to me.
                 </p>
                 <Method method={"quick"} />
                 <Explanation type={"quick"} />

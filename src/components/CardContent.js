@@ -55,5 +55,5 @@ export default function CardContent({ type }) {
                 </div>
             )
         default: break;
-    };
-};
+    }
+}

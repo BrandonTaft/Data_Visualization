@@ -4,7 +4,7 @@ import useArray from "./useArray";
 import { timeOut } from "./Utils";
 
 function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
-    const { array, setArray, refresh, setRefresh } = useArray(8);
+    const { array, setArray } = useArray(8);
 
     useEffect(() => {
         const arr = [];

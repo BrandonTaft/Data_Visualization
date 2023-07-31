@@ -15,7 +15,7 @@ function RefreshButton({ refresh, setRefresh, setFinished, isRunning }) {
   return (
     <button
       onClick={() => {
-        // setFinished(false)
+        setFinished(false)
         setRefresh(!refresh)
       }}
       className="button refresh-button"
