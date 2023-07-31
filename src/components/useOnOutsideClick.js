@@ -8,7 +8,7 @@ export default function useOnOutsideClick(ref, onOutsideClick, disabled) {
                 if (!e.target.classList.contains('ignore')) {
                     onOutsideClick()
                 }
-            };
+            }
         }
         if (!disabled) {
             document.addEventListener("mousedown", triggered);
@@ -17,6 +17,6 @@ export default function useOnOutsideClick(ref, onOutsideClick, disabled) {
         return () => {
             document.removeEventListener("mousedown", triggered);
             document.removeEventListener("touchstart", triggered);
-        };
-    }, [ref, onOutsideClick, disabled]);
+        }
+    }, [ref, onOutsideClick, disabled])
 }
