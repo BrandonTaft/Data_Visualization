@@ -16,7 +16,7 @@ function Selection() {
     const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
-    const [speed, setSpeed] = useState(3000);
+    const [speed, setSpeed] = useState(2000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh } = useArray(6);
@@ -101,7 +101,7 @@ function Selection() {
     }
     return (
         <div className="page-container">
-            <div className="insertion top-container">
+            <div className="selection top-container">
                 <p className="explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
                     On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat until you have gone through the whole array.
                 </p>
@@ -144,19 +144,19 @@ function Selection() {
                         < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                             <div>
-                                <p>{array[stay]} &gt; min</p>
-                                <p>min stays</p>
+                                <p>{array[stay]} &gt; <span className="green">min</span></p>
+                                <p><span className="green">min</span> stays</p>
                             </div>
                             }
                             {swap > 0 &&
                                 <div>
-                                    <p>{array[swap]} &lt; min</p>
-                                    <p>min is now {array[swap]}</p>
+                                    <p>{array[swap]} &lt; <span className="green">min</span></p>
+                                    <p><span className="green">min</span> is now {array[swap]}</p>
                                 </div>
                             }
                             {move &&
                                 <div>
-                                    <p>min swaps places</p>
+                                    <p><span className="green">min</span> swaps places</p>
                                     <p>with <span className="blue">arr[i]</span></p>
                                 </div>
                             }

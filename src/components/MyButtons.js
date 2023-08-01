@@ -11,11 +11,10 @@ const SortButton = ({ sortMethod, isRunning }) => (
   </button>
 )
 
-function RefreshButton({ refresh, setRefresh, setFinished, isRunning }) {
+function RefreshButton({ refresh, setRefresh, isRunning }) {
   return (
     <button
       onClick={() => {
-        setFinished(false)
         setRefresh(!refresh)
       }}
       className="button refresh-button"

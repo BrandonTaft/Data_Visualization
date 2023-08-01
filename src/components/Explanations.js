@@ -12,7 +12,7 @@ function Explanation({ type }) {
                         <li>The for loop checks if each number <span className="bg-blue">arr[i]</span>, is less than the number to its right <span className="bg-green">arr[i+1]</span>.</li>
                         <li>If <span className="bg-blue">arr[i]</span> is less than <span className="bg-green">arr[i+1]</span> it moves to the next number.</li>
                         <li>If <span className="bg-blue">arr[i]</span> is greater than <span className="bg-green">arr[i+1]</span>  they swap places.</li>
-                        <li>Each time a swap is made, the variable <span className="bg-red">swapped</span> is set to true. </li>
+                        <li>Each time a swap is made, <span className="bg-red">swapped</span> is set to true. </li>
                         <li>Once the for loop is completed, the while statement checks the value of <span className="bg-red">swapped</span>.</li>
                         <li>If it is true, the while loop will start again from the top.</li>
                         <li>If it's false, then it went through the array without a swap and the array is <span className="bg-orange">sorted</span>.</li>
@@ -57,7 +57,7 @@ function Explanation({ type }) {
                         <li> On the second pass the second index will start off as the <span className="bg-green">min</span>.</li>
                         <li> Again the second loop moves through the rest of the array and if a value is less than <span className="bg-green">min</span>, its index will become the new <span className="bg-green">min</span>.</li>
                         <li> This time when the end of the array is reached, <span className="bg-green">min</span> will swap places with the second index <span className="bg-blue">array[i]</span></li>
-                        <li> Now your first two indexes are sorted and can be though of as the first two values in the <span className="bg-orange">sorted array</span>.</li>
+                        <li> Now your first two indexes are sorted and can be thought of as the first two values in the <span className="bg-orange">sorted array</span>.</li>
                         <li> This continues through each index, putting the lowest value left into that index. </li>
                         <li> The main loop returns the <span className="bg-orange">sorted array</span> after the next to last index because the last index will already be sorted.</li>
                     </ul>
@@ -85,7 +85,7 @@ function Explanation({ type }) {
                         <li>This keeps the values less than the <span className="bg-blue">Pivot value</span> on the left side of the <span className="bg-orange">pivot index</span>.</li>
                         <li>When the loop reaches the <span className="bg-blue">Pivot value</span>, it's value is swapped with the value of the <span className="bg-orange">pivot index</span>.</li>
                         <li>Now the <span className="bg-blue">Pivot value</span> is in its correct index and the process is repeated with the remaing elements.</li>
-                        <li>Then quicksort calls itself two times:</li>
+                        <li>Then quicksort calls itself two times-</li>
                         <li>Once to sort the elements on the left side of the <span className="bg-orange">pivot index</span>.</li>
                         <li>And once again to sort the elements on the right side of the <span className="bg-orange">pivot index</span>.</li>
                         <li>This process repeats until the subarrays are broken down to one element.</li>

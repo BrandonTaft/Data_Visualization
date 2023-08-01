@@ -1,7 +1,7 @@
 import MySlider from "./MySlider";
 import { SortButton, RefreshButton } from "./MyButtons";
 
-const ButtonBox = ({ sortMethod, refresh, setRefresh, speed, setSpeed, setFinished, isRunning }) => (
+const ButtonBox = ({ sortMethod, refresh, setRefresh, speed, setSpeed, isRunning }) => (
   <div className="button-box" >
     <div className="action-buttons">
       <SortButton
@@ -11,7 +11,6 @@ const ButtonBox = ({ sortMethod, refresh, setRefresh, speed, setSpeed, setFinish
       <RefreshButton
         refresh={refresh}
         setRefresh={setRefresh}
-        setFinished={setFinished}
         isRunning={isRunning}
       />
     </div>

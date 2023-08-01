@@ -173,35 +173,35 @@ function QuickSort() {
                 </div>
                 <div className="quick-row row">
                     {(stay >= 0 || sorted >= 0) &&
-                        <div className="quick thought-bubble bubble-bottom-left">
+                        <div className="quick-swap quick thought-bubble bubble-bottom-left">
                             {stay >= 0 &&
                                 <>
-                                    <p>{array[stay]} &gt; Pivot Value</p>
+                                    <p>{array[stay]} &gt; <span className="red">Pivot Value</span></p>
                                     <p>Nothing changes</p>
                                 </>
                             }
 
                             {sorted >= 0 &&
                                 <>
-                                    <p>quickSort(arr, {args})</p>
+                                    <p className="blue">quickSort(arr, {args})</p>
                                     <p>start &gt;= end </p>
-                                    <p> arr[{sorted}] is sorted. </p>
+                                    <p className="green"> arr[{sorted}] is sorted. </p>
                                 </>
                             }
                         </div>
                     }
                     {(swap >= 0 || swapPivot) &&
-                        <div className="quick-swap thought-bubble bubble-bottom-left">
+                        <div className="quick-swap quick thought-bubble bubble-bottom-left">
                             {swap >= 0 &&
                                 <>
-                                    <p>{array[swap]} &lt; Pivot Value</p>
-                                    <p>Swap values with pivot index</p>
-                                    <p>then pivot index moves up one spot</p>
+                                    <p>{array[swap]} &lt; <span className="red">Pivot Value</span></p>
+                                    <p>Swap values with <span className="blue">pivot index</span></p>
+                                    <p>then <span className="blue">pivot index</span> moves up one spot</p>
                                 </>
                             }
                             {swapPivot &&
                                 <>
-                                    <p><span>Pivot Index</span> and <span>Pivot Value</span></p>
+                                    <p><span className="blue">pivot index</span> and <span className="red">Pivot Value</span></p>
                                     <p> swap places.</p>
                                 </>
                             }

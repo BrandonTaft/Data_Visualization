@@ -909,6 +909,10 @@ font-style: normal;
      font-size: 22px;
    }
 
+   .selection.top-container {
+    width: 85%;
+   }
+
  }
 
  @media (min-width: 1400px) {
@@ -1835,7 +1839,6 @@ font-style: normal;
  @media (min-width: 1000px) {
    .quick-row {
      --gap: 1.25em;
-     height: 22em;
      gap: var(--gap);
      margin-top: 1.5%;
    }
@@ -1858,7 +1861,7 @@ font-style: normal;
    }
 
    .quick-swap.thought-bubble {
-     margin-top: 3em;
+     margin-top: 2.25em;
    }
  }
 
@@ -1868,12 +1871,12 @@ font-style: normal;
    }
 
    .quick.side-display {
-     margin: 4em auto;
+     margin: 2em auto;
    }
 
    .quick-row {
      --gap: 1.5em;
-     height: 24em;
+     
      gap: var(--gap);
      margin-top: 1.5%;
    }
@@ -1886,6 +1889,10 @@ font-style: normal;
    .quick.thought-bubble {
      margin-top: 3.5em;
    }
+
+   .quick-swap.quick.thought-bubble {
+    margin-top: 2.5em;
+  }
 
    .quick.text {
      font-size: calc(var(--width) * 0.35);
@@ -1907,6 +1914,10 @@ font-style: normal;
    .quick.array-span {
      font-size: 24px;
    }
+
+   .quick-swap.quick.thought-bubble {
+    margin-top: 3.5em;
+  }
  }
 
  @media (min-width: 1600px) {
@@ -1917,12 +1928,12 @@ font-style: normal;
      margin-top: 1.5%;
    }
 
-   .quick-swap.thought-bubble {
-     margin-top: 4em;
+   .quick-swap.quick.thought-bubble {
+     margin-top: 5em;
    }
 
    .quick.thought-bubble {
-     margin-top: 4em;
+     margin-top: 5em;
    }
  }
 
