@@ -449,7 +449,7 @@ font-style: normal;
  .menu {
    position: absolute;
    right: 0;
-   top: 24px;
+   top: 20px;
    z-index: 11;
    background-color: white;
    padding: 8px;
@@ -549,7 +549,7 @@ font-style: normal;
    }
 
    .menu {
-     top: 34px;
+     top: 30px;
    }
  }
 
@@ -573,7 +573,7 @@ font-style: normal;
 
    .menu {
      width: 225px;
-     top: 38px;
+     top: 34px;
    }
  }
 
@@ -591,10 +591,6 @@ font-style: normal;
    .burger {
      right: 60px;
      top: 26px;
-   }
-
-   .menu {
-     top: 46px;
    }
  }
 
@@ -1743,10 +1739,7 @@ font-style: normal;
    top: -15%;
  }
 
- .quick-row>.tube>.index-element {
-   font-size: 10px;
- }
-
+ 
  .pivot-value {
    --fill-color: red;
  }
@@ -1781,9 +1774,11 @@ font-style: normal;
    color: white;
    background-color: #f06c07;
    border-radius: 8px;
-   top: -15%;
+   top: -23%;
    z-index: 4;
    padding: 2px 1px;
+   text-align: center;
+   font-size: 11px;
  }
 
  .quick-swap.thought-bubble {
@@ -1808,7 +1803,7 @@ font-style: normal;
    }
 
    .quick-row>.tube>.index-element {
-     font-size: 18px;
+     font-size: 17px;
    }
 
  }
@@ -1816,7 +1811,7 @@ font-style: normal;
  @media (min-width: 800px) {
    .quick-row {
      --gap: .75em;
-     height: 19em;
+     
      gap: var(--gap);
      margin-top: 1.5%;
    }
@@ -1826,10 +1821,10 @@ font-style: normal;
      width: var(--width);
    }
 
-   .quick.thought-bubble {
-     margin-top: 3em;
-   }
-
+   .quick-row>.tube>.index-element {
+    font-size: 18px;
+  }
+   
    .quick.array-span {
      font-size: 20px;
    }
@@ -1839,6 +1834,7 @@ font-style: normal;
  @media (min-width: 1000px) {
    .quick-row {
      --gap: 1.25em;
+     height: 19em;
      gap: var(--gap);
      margin-top: 1.5%;
    }
@@ -1848,9 +1844,9 @@ font-style: normal;
      width: var(--width);
    }
 
-   .quick-row>.tube>.index-element {
+   /* .quick-row>.tube>.index-element {
      font-size: 22px;
-   }
+   } */
 
    .quick-row>.tube>.arri {
      font-size: 22px;

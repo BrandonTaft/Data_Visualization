@@ -61,11 +61,11 @@ function QuickSort() {
                 }
                 await timeOut(250);
                 if (tubeRef.current[end + 1]) {
-                    tubeRef.current[end + 1].classList.add("sorted");
-                    setSorted(end + 1)
+                    // tubeRef.current[end + 1].classList.add("sorted");
+                    // setSorted(end + 1)
                     countRef.current = countRef.current + 1
-                    await timeOut(speed);
-                    setSorted(-1)
+                    // await timeOut(speed);
+                    // setSorted(-1)
                 }
                 setArray([...arr]);
                 await timeOut(speed);
@@ -74,7 +74,7 @@ function QuickSort() {
             }
             let index = await partition(arr, start, end);
             setPivotIndex(index)
-            tubeRef.current[index].classList.add("index");
+            tubeRef.current[index].classList.add("index","sorted");
             await timeOut(500);
             await quickSort(arr, start, index - 1);
             await quickSort(arr, index + 1, end);
@@ -220,7 +220,7 @@ function QuickSort() {
                                     <div className="arri">arr[i]</div >
                                 }
 
-                                <div className="index-element">INDEX</div >
+                                <div className="index-element">Pivot Index</div >
 
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
