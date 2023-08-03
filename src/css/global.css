@@ -87,7 +87,7 @@
  }
 
  [data-theme="dark"] .pivot-value {
-   --fill-color: red;
+   --fill-color: black;
  }
 
  [data-theme="dark"] .arri {
@@ -1739,9 +1739,12 @@ font-style: normal;
    top: -15%;
  }
 
- 
+ .quick-row>.tube>.index-element {
+   font-size: 10px;
+ }
+
  .pivot-value {
-   --fill-color: red;
+   --fill-color: black;
  }
 
  .pivot-value>.cap::before {
@@ -1774,11 +1777,9 @@ font-style: normal;
    color: white;
    background-color: #f06c07;
    border-radius: 8px;
-   top: -23%;
+   top: -15%;
    z-index: 4;
    padding: 2px 1px;
-   text-align: center;
-   font-size: 11px;
  }
 
  .quick-swap.thought-bubble {
@@ -1803,7 +1804,7 @@ font-style: normal;
    }
 
    .quick-row>.tube>.index-element {
-     font-size: 17px;
+     font-size: 18px;
    }
 
  }
@@ -1821,9 +1822,6 @@ font-style: normal;
      width: var(--width);
    }
 
-   .quick-row>.tube>.index-element {
-    font-size: 18px;
-  }
    
    .quick.array-span {
      font-size: 20px;
@@ -1844,9 +1842,9 @@ font-style: normal;
      width: var(--width);
    }
 
-   /* .quick-row>.tube>.index-element {
+   .quick-row>.tube>.index-element {
      font-size: 22px;
-   } */
+   }
 
    .quick-row>.tube>.arri {
      font-size: 22px;
