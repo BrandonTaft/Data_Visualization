@@ -87,13 +87,24 @@
  }
 
  [data-theme="dark"] .pivot-value {
-   --fill-color: black;
+  --fill-color: rgb(131, 3, 151) !important;
  }
 
  [data-theme="dark"] .arri {
    background-color: green;
  }
 
+ [data-theme="dark"] .selection.arri {
+  background-color: blue;
+}
+
+[data-theme="dark"] .quick.arri {
+  background-color: blue;
+}
+
+[data-theme="dark"] .compare-tube {
+  --fill-color: rgb(131, 3, 151) !important;
+}
 
  [data-theme="dark"] .current-element {
    --fill-color: orangered;
@@ -181,6 +192,9 @@
    text-align: center;
  }
 
+ .purple {
+  color: rgb(131, 3, 151);
+ }
 
  .red {
    color: red;
@@ -1744,7 +1758,7 @@ font-style: normal;
  }
 
  .pivot-value {
-   --fill-color: black;
+   --fill-color: rgb(131, 3, 151);
  }
 
  .pivot-value>.cap::before {

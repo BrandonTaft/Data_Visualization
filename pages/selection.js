@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from 'next/router';
 import Method from "../src/components/Method";
 import useArray from "../src/components/useArray";
@@ -90,7 +90,7 @@ function Selection() {
                 setLastIndex(false)
                 setUnSorted([])
                 setSorted(arr)
-                await timeOut(speed);
+                await timeOut(100);
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
                 setIsRunning(false)
                 return arr;
@@ -185,7 +185,7 @@ function Selection() {
                                 style={cssProperties}
                             >
                                 {arrI === index && arrI < 5 &&
-                                    <div className="arri">arr[i]</div >
+                                    <div className="selection arri">arr[i]</div >
                                 }
                                 {arrJ === index &&
                                     <div className="arrj">arr[j]</div >

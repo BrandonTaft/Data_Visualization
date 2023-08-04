@@ -49,7 +49,7 @@ function QuickSort() {
                     setSorted(-1)
                 }
                 setArray([...arr]);
-                await timeOut(speed);
+                await timeOut(500);
                 if (countRef.current === 8) setIsRunning(false)
                 return;
             }
@@ -94,15 +94,22 @@ function QuickSort() {
             }
         }
         //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
+        if(pivotIndex !== end) {
         setSwapPivot(true)
         await timeOut(speed);
         setSwapPivot(false)
-        tubeRef.current[end].classList.remove("pivot-value");
-        tubeRef.current[pivotIndex].classList.remove("pivot-index");
+        // tubeRef.current[end].classList.remove("pivot-value");
+        // tubeRef.current[pivotIndex].classList.remove("pivot-index");
         let temp = arr[pivotIndex];
         arr[pivotIndex] = arr[end];
         arr[end] = temp;
+        } else {
+            console.log("TEST")
+        }
+        tubeRef.current[end].classList.remove("pivot-value");
+        tubeRef.current[pivotIndex].classList.remove("pivot-index");
         setArray([...arr]);
+
         await timeOut(1000);
         return pivotIndex;
     }
@@ -158,7 +165,7 @@ function QuickSort() {
                         <div className="quick-swap quick thought-bubble bubble-bottom-left">
                             {stay >= 0 &&
                                 <>
-                                    <p>{array[stay]} &gt; <span className="black">pivot Value</span></p>
+                                    <p>{array[stay]} &gt; <span className="purple">pivot Value</span></p>
                                     <p>Nothing changes</p>
                                 </>
                             }
@@ -176,14 +183,14 @@ function QuickSort() {
                         <div className="quick-swap quick thought-bubble bubble-bottom-left">
                             {swap >= 0 &&
                                 <>
-                                    <p>{array[swap]} &lt; <span className="black">pivot Value</span></p>
+                                    <p>{array[swap]} &lt; <span className="purple">pivot Value</span></p>
                                     <p>Swap values with <span className="blue">pivot index</span></p>
                                     <p>then <span className="blue">pivot index</span> moves up one spot</p>
                                 </>
                             }
                             {swapPivot &&
                                 <>
-                                    <p><span className="blue">pivot index</span> and <span className="black">pivot value</span></p>
+                                    <p><span className="blue">pivot index</span> and <span className="purple">pivot value</span></p>
                                     <p> swap places.</p>
                                 </>
                             }
@@ -199,7 +206,7 @@ function QuickSort() {
                                 style={cssProperties}
                             >
                                 {arrI === index &&
-                                    <div className="arri">arr[i]</div >
+                                    <div className="quick arri">arr[i]</div >
                                 }
 
                                 <div className="index-element">Pivot</div >
