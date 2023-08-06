@@ -9,12 +9,14 @@ import Explanation from "../src/components/Explanations";
 function QuickSort() {
     const tubeRef = useRef([]);
     const countRef = useRef(0);
+    const prevPivotRef = useRef(0)
     const [speed, setSpeed] = useState(3000);
     const [isRunning, setIsRunning] = useState(false);
     const [arrI, setArrI] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
     const [swapPivot, setSwapPivot] = useState(false);
+    //const [prevPivot, setPrevPivot] = useState(0);
     const [sorted, setSorted] = useState(-1);
     const [args, setArgs] = useState("");
     const [pivotIndex, setPivotIndex] = useState("");
@@ -33,90 +35,216 @@ function QuickSort() {
         countRef.current = 0;
     }
 
-    async function quickSort(arr, start, end) {
-        setArgs(`${start} , ${end}`)
-        setIsRunning(true)
-        if (path === "/quick") {
-            if (start >= end) {
-                if (tubeRef.current[start]) {
-                    tubeRef.current[start].classList.add("sorted");
-                    setSorted(start)
-                    countRef.current = countRef.current + 1
-                    if (tubeRef.current[end + 1] && start === end) {
-                        countRef.current = countRef.current + 1
-                }
-                    await timeOut(speed);
-                    setSorted(-1)
-                }
-                setArray([...arr]);
-                await timeOut(500);
-                if (countRef.current === 8) setIsRunning(false)
-                return;
+    async function quickSort (arr) {
+       // await timeOut(500);
+        if (arr.length <= 1) {
+            if (tubeRef.current[0]) {
+                tubeRef.current[0].classList.add("sorted");
             }
-            
-            let index = await partition(arr, start, end);
-            setPivotIndex(index)
-            tubeRef.current[index].classList.add("index","sorted");
+            return;
+        }
+        let newArray = []
+        let pivot = arr[0];
+        tubeRef.current[array.indexOf(pivot)].classList.add("index");
+        let leftArr = [];
+        let rightArr = [];
+
+        for (let i = 1; i < arr.length; i++) {
+            setArrI(array.indexOf(arr[i]))
             await timeOut(500);
-            await quickSort(arr, start, index - 1);
-            await quickSort(arr, index + 1, end);
-        } else return;
-    }
-
-    async function partition(arr, start, end) {
-        let pivotIndex = start;
-        let pivotValue = arr[end];
+            if (arr[i] < pivot) {
+                tubeRef.current[i].classList.add("leftArr")
+                leftArr.push(arr[i]);
+            } else {
+                tubeRef.current[i].classList.add("rightArr")
+                rightArr.push(arr[i]);
+            }
+           
+        }
+        if(pivot < prevPivotRef.current) {
+            setArray([...leftArr, pivot, ...rightArr, ...array.slice(arr.length, array.length - 1 )])
+        }
+        if(pivot > prevPivotRef.current) {
+            setArray([...array.slice(0, array.length - arr.length ),...leftArr, pivot, ...rightArr])
+        }
+        if(pivot === prevPivotRef.current) {
+        setArray([...leftArr, pivot, ...rightArr]);
+        }
+        prevPivotRef.current = pivot
         await timeOut(500);
-        for (let i = start; i < end; i++) {
-            tubeRef.current[end].classList.add("pivot-value");
-            tubeRef.current[pivotIndex].classList.add("pivot-index");
-            setArrI(i)
-            if (arr[i] < pivotValue) {
-                setSwap(i)
-                await timeOut(speed);
-                setArrI(-1)
-                setSwap(-1)
-                let temp = arr[i];
-                arr[i] = arr[pivotIndex];
-                arr[pivotIndex] = temp;
-                tubeRef.current[pivotIndex].classList.remove("pivot-index");
-                setArray([...arr]);
-                await timeOut(100);
-                pivotIndex++;
-                await timeOut(100);
-            }
-            else {
-                setStay(i)
-                await timeOut(speed);
-                setStay(-1)
-                setArrI(-1)
-                await timeOut(100);
-            }
-        }
-        //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
-        if(pivotIndex !== end) {
-        setSwapPivot(true)
-        await timeOut(speed);
-        setSwapPivot(false)
-        // tubeRef.current[end].classList.remove("pivot-value");
-        // tubeRef.current[pivotIndex].classList.remove("pivot-index");
-        let temp = arr[pivotIndex];
-        arr[pivotIndex] = arr[end];
-        arr[end] = temp;
-        } else {
-            console.log("TEST")
-        }
-        tubeRef.current[end].classList.remove("pivot-value");
-        tubeRef.current[pivotIndex].classList.remove("pivot-index");
-        setArray([...arr]);
+        //  return array
+        // let sortArr = await Promise.all([quickSort(leftArr),quickSort(rightArr)])
+        // console.log(`pivot: ${pivot}, sortArr: ${sortArr}`)
+        // resolve([...sortArr[0], pivot, ...sortArr[1]])
+        return newArray.concat(await quickSort(leftArr), pivot, await quickSort(rightArr));
+    };
 
-        await timeOut(1000);
-        return pivotIndex;
-    }
+    // async function quickSort(arr, start, end) {
+    //     setArgs(`${start} , ${end}`)
+    //     setIsRunning(true)
+    //     if (path === "/quick") {
+    //         if (start >= end) {
+    //             if (tubeRef.current[start]) {
+    //                 tubeRef.current[start].classList.add("sorted");
+    //                 setSorted(start)
+    //                 countRef.current = countRef.current + 1
+    //                 if (tubeRef.current[end + 1] && start === end) {
+    //                     countRef.current = countRef.current + 1
+    //                 }
+    //                 await timeOut(speed);
+    //                 setSorted(-1)
+    //             }
+    //             setArray([...arr]);
+    //             await timeOut(500);
+    //             if (countRef.current === 8) setIsRunning(false)
+    //             return;
+    //         }
+
+    //         let index = await partition(arr, start, end);
+    //         setPivotIndex(index)
+    //         tubeRef.current[index].classList.add("index", "sorted");
+    //         await timeOut(500);
+    //         await quickSort(arr, start, index - 1);
+    //         await quickSort(arr, index + 1, end);
+    //     } else return;
+    // }
+
+    // async function partition(arr, start, end) {
+    //     let pivotIndex = start;
+    //     let pivotValue = arr[end];
+    //     await timeOut(500);
+    //     for (let i = start; i < end; i++) {
+    //         tubeRef.current[end].classList.add("pivot-value");
+    //         tubeRef.current[pivotIndex].classList.add("pivot-index");
+    //         setArrI(i)
+    //         if (arr[i] < pivotValue) {
+    //             setSwap(i)
+    //             await timeOut(speed);
+    //             setArrI(-1)
+    //             setSwap(-1)
+    //             let temp = arr[i];
+    //             arr[i] = arr[pivotIndex];
+    //             arr[pivotIndex] = temp;
+    //             tubeRef.current[pivotIndex].classList.remove("pivot-index");
+    //             setArray([...arr]);
+    //             await timeOut(100);
+    //             pivotIndex++;
+    //             await timeOut(100);
+    //         }
+    //         else {
+    //             setStay(i)
+    //             await timeOut(speed);
+    //             setStay(-1)
+    //             setArrI(-1)
+    //             await timeOut(100);
+    //         }
+    //     }
+    //     //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
+    //     if (pivotIndex !== end) {
+    //         setSwapPivot(true)
+    //         await timeOut(speed);
+    //         setSwapPivot(false)
+    //         // tubeRef.current[end].classList.remove("pivot-value");
+    //         // tubeRef.current[pivotIndex].classList.remove("pivot-index");
+    //         let temp = arr[pivotIndex];
+    //         arr[pivotIndex] = arr[end];
+    //         arr[end] = temp;
+    //     } else {
+    //         console.log("TEST")
+    //     }
+    //     tubeRef.current[end].classList.remove("pivot-value");
+    //     tubeRef.current[pivotIndex].classList.remove("pivot-index");
+    //     setArray([...arr]);
+
+    //     await timeOut(1000);
+    //     return pivotIndex;
+    // }
+
+
+    // async function quickSort(arr, start, end) {
+    //     setArgs(`${start} , ${end}`)
+    //     setIsRunning(true)
+    //     if (path === "/quick") {
+    //         if (start >= end) {
+    //             if (tubeRef.current[start]) {
+    //                 tubeRef.current[start].classList.add("sorted");
+    //                 setSorted(start)
+    //                 countRef.current = countRef.current + 1
+    //                 if (tubeRef.current[end + 1] && start === end) {
+    //                     countRef.current = countRef.current + 1
+    //                 }
+    //                 await timeOut(speed);
+    //                 setSorted(-1)
+    //             }
+    //             setArray([...arr]);
+    //             await timeOut(500);
+    //             if (countRef.current === 8) setIsRunning(false)
+    //             return;
+    //         }
+
+    //         let index = await partition(arr, start, end);
+    //         setPivotIndex(index)
+    //         tubeRef.current[index].classList.add("index", "sorted");
+    //         await timeOut(500);
+    //         await quickSort(arr, start, index - 1);
+    //         await quickSort(arr, index + 1, end);
+    //     } else return;
+    // }
+
+    // async function partition(arr, start, end) {
+    //     let pivotIndex = start;
+    //     let pivotValue = arr[end];
+    //     await timeOut(500);
+    //     for (let i = start; i < end; i++) {
+    //         tubeRef.current[end].classList.add("pivot-value");
+    //         tubeRef.current[pivotIndex].classList.add("pivot-index");
+    //         setArrI(i)
+    //         if (arr[i] < pivotValue) {
+    //             setSwap(i)
+    //             await timeOut(speed);
+    //             setArrI(-1)
+    //             setSwap(-1)
+    //             let temp = arr[i];
+    //             arr[i] = arr[pivotIndex];
+    //             arr[pivotIndex] = temp;
+    //             tubeRef.current[pivotIndex].classList.remove("pivot-index");
+    //             setArray([...arr]);
+    //             await timeOut(100);
+    //             pivotIndex++;
+    //             await timeOut(100);
+    //         }
+    //         else {
+    //             setStay(i)
+    //             await timeOut(speed);
+    //             setStay(-1)
+    //             setArrI(-1)
+    //             await timeOut(100);
+    //         }
+    //     }
+    //     //SWAP PIVOT VALUE AND PIVOT INDEX TO FINISH THE PARTITION FUNCTION
+    //     if (pivotIndex !== end) {
+    //         setSwapPivot(true)
+    //         await timeOut(speed);
+    //         setSwapPivot(false)
+    //         // tubeRef.current[end].classList.remove("pivot-value");
+    //         // tubeRef.current[pivotIndex].classList.remove("pivot-index");
+    //         let temp = arr[pivotIndex];
+    //         arr[pivotIndex] = arr[end];
+    //         arr[end] = temp;
+    //     } else {
+    //         console.log("TEST")
+    //     }
+    //     tubeRef.current[end].classList.remove("pivot-value");
+    //     tubeRef.current[pivotIndex].classList.remove("pivot-index");
+    //     setArray([...arr]);
+
+    //     await timeOut(1000);
+    //     return pivotIndex;
+    // }
 
     function runSort() {
         clearAll();
-        quickSort(array, 0, 7)
+        quickSort(array)
     }
 
     return (
@@ -197,7 +325,7 @@ function QuickSort() {
                         </div>
                     }
                     {array.map((tube, index) => {
-                        let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
+                        let cssProperties = { "--percent": `${ tube * (100 / array.length) } ` }
                         return (
                             <div
                                 key={tube}

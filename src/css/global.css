@@ -1768,6 +1768,30 @@ font-style: normal;
    font-size: 0.75em;
  }
 
+ .leftArr {
+  --fill-color: rgb(131, 3, 151);
+}
+
+.leftArr>.cap::before {
+  content: "leftArr";
+  position: relative;
+  top: 4px;
+  font-size: 0.75em;
+}
+
+.rightArr {
+  --fill-color: blue;
+}
+
+.rightArr>.cap::before {
+  content: "rightArr";
+  position: relative;
+  top: 4px;
+  font-size: 0.75em;
+}
+
+
+
  .pivot-index {
    --fill-color: blue;
  }

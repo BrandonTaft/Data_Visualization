@@ -20,6 +20,7 @@ function Method({ method }) {
             }
         }
     } while (swapped)
+    return arr
 }`;
 break;
      case "insertion" :
@@ -29,10 +30,10 @@ break;
         let current = arr[i];
         let j = i-1; 
         while ((j > -1) && (current < arr[j])) {
-            arr[j+1] = arr[j];
+            arr[ j + 1 ] = arr[j];
             j--;
         }
-        arr[j+1] = current;
+        arr[ j + 1 ] = current;
     }
     return arr;
 }`;
@@ -40,10 +41,10 @@ break;
     
     case "selection": 
         display = `function selection(arr) {              
-    for(let i = 0; i < arr.length - 1; i++) {
+    for (let i = 0; i < arr.length - 1; i++) {
         let min = i;
-        for(let j = i+1; j < arr.length; j++){
-            if(arr[j] < arr[min]) {
+        for (let j = i+1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
                 min=j; 
             }
         }
@@ -68,18 +69,18 @@ break;
 function partition(arr, start, end){
     let pivotIndex = start;
     let pivotValue = arr[end];
-    for(let i = start; i < end; i++){
-        if(arr[i] < pivotValue){
+    for (let i = start; i < end; i++) {
+        if (arr[i] < pivotValue) {
             swap(arr, i, pivotIndex);
             pivotIndex++;
         }
     }
     swap(arr, pivotIndex, end);
     return pivotIndex;
-    }
+}
         
-function quickSort(arr,start,end){
-    if(start >= end){
+function quickSort(arr,start,end) {
+    if (start >= end) {
         return;
     }
     let index = partition(arr,start,end);
