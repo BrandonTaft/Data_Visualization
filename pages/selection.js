@@ -102,8 +102,8 @@ function Selection() {
     return (
         <div className="page-container">
             <div className="selection top-container">
-                <p className="explanation-heading">In selection sort you will divide an array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
-                    On each pass throught the unsorted array you take the smallest element and add it to end of the sorted side. Then repeat until you have gone through the whole array.
+                <p className="explanation-heading">Selection sort is like insertion sort in the way that you can think of it as dividing the array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
+                    On each pass throught the array you take the smallest element and add it to end of the sorted side. Then repeat until you have gone through the whole array.
                 </p>
                 <Method method={"selection"} />
                 <Explanation type={"selection"} />
