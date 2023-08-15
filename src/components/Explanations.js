@@ -69,22 +69,18 @@ function Explanation({ type }) {
                         <li>If the array has fewer than 2 elements it is returned immediately.</li>
                         <li>Next it calls the partition function which moves all values less than the pivot value to its left
                         and all values greater than the pivot value move to its right.</li>
-                        <li>Inside the Partition function, the element in the start index will start as the <span className="bg-orange">Pivot index</span>.</li>
-                        <li>While the element in the end index will always be the <span className="bg-blue">Pivot value</span>.</li>
-                        <li>Then it loops through the array checking if each element is less than the <span className="bg-blue">Pivot value</span>.</li>
-                        <li>If the element is greater than the <span className="bg-blue">Pivot value</span>, nothing changes and it moves to the next element.</li>
-                        <li>If the element is less than the <span className="bg-blue">Pivot value</span> it swaps places with the current <span className="bg-orange">pivot index</span>.</li>
-                        <li>If the element is already in the <span className="bg-orange">pivot index</span> it will stay where it is.</li>
-                        <li>Then it moves the <span className="bg-orange">pivot index</span> one index to the right by adding 1 to it.</li>
-                        {/* <li>To clarify, if an element is less than the <span className="bg-blue">Pivot value</span> it will swap places with the value of the <span className="bg-orange">pivot index</span>,
-                            if the element was already in the pivot index it will just stay where it is. Then the <span className="bg-orange">pivot index</span> will move one spot to the right, meaning
-                            the element that was on the right of the <span className="bg-orange">pivot index</span> will now be the new <span className="bg-orange">pivot index</span>.</li> */}
-                        <li>This keeps the values less than the <span className="bg-blue">Pivot value</span> on the left side of the <span className="bg-orange">pivot index</span>.</li>
-                        <li>When the loop reaches the <span className="bg-blue">Pivot value</span>, it's value is swapped with the value of the <span className="bg-orange">pivot index</span>.</li>
-                        {/* <li>Now the <span className="bg-blue">Pivot value</span> is in its correct index and the process is repeated with the remaing elements.</li> */}
-                        <li>Then quicksort calls itself two times</li>
-                        <li>Once to sort the elements on the left side of the <span className="bg-orange">pivot index</span>.</li>
-                        <li>And once again to sort the elements on the right side of the <span className="bg-orange">pivot index</span>.</li>
+                        <li>Inside the Partition function, the first index will start as the <span className="bg-orange">PivotIndex</span> and the last index will always be the <span className="bg-blue">PivotValue.</span></li>
+                        <li>The for loop checks if each element is less than the <span className="bg-blue">PivotValue</span>.</li>
+                        <li>If the element is less than the <span className="bg-blue">PivotValue</span> it swaps places with the <span className="bg-orange">pivotIndex</span>, then the <span className="bg-orange">pivotIndex</span> moves up one index to the right
+                        to keep the lesser values to its left.</li>
+                        <li>If the element is greater than the <span className="bg-blue">PivotValue</span>, nothing changes.</li>
+                        {/* <li>To clarify, if an element is less than the <span className="bg-blue">PivotValue</span> it will swap places with the value of the <span className="bg-orange">pivotIndex</span>,
+                            if the element was already in the pivotIndex it will just stay where it is. Then the <span className="bg-orange">pivotIndex</span> will move one spot to the right, meaning
+                            the element that was on the right of the <span className="bg-orange">pivotIndex</span> will now be the new <span className="bg-orange">pivotIndex</span>.</li> */}
+                        <li>When the loop reaches the <span className="bg-blue">PivotValue</span>, it's value is swapped with the value of the <span className="bg-orange">pivotIndex</span>.</li>
+                        <li>Now all values less than the <span className="bg-blue">PivotValue</span> are on its left and all larger values are on its right.</li>
+                        <li>The Partition function returns the <span className="bg-orange">pivotIndex</span> and quicksort calls itself two times.</li>
+                        <li>Once with the elements on the left side of the <span className="bg-orange">pivotIndex</span> and once with the elements on the right side.</li>
                         <li>This process repeats until the subarrays are broken down to one element.</li>
                         <li>Now the original condition can't be met which allows the function to stop running.</li>
                         <li>Since the subarrays have been sorted in place, the array is now completely sorted.</li>
