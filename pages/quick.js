@@ -59,14 +59,14 @@ function QuickSort() {
                     setSorted(-1)
                     await timeOut(250);
                 }
-                await timeOut(250);
-                if (tubeRef.current[end + 1]) {
-                    tubeRef.current[end + 1].classList.add("sorted");
-                    setSorted(end + 1)
-                    countRef.current = countRef.current + 1
-                    await timeOut(speed);
-                    setSorted(-1)
-                }
+                // await timeOut(250);
+                // if (tubeRef.current[end + 1]) {
+                //     tubeRef.current[end + 1].classList.add("sorted");
+                //     setSorted(end + 1)
+                //     countRef.current = countRef.current + 1
+                //     await timeOut(speed);
+                //     setSorted(-1)
+                // }
                 setArray([...arr]);
                 await timeOut(speed);
                 if (countRef.current === 8) setIsRunning(false)
