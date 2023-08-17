@@ -34,6 +34,7 @@ function QuickSort() {
     }
 
     async function quickSort(arr, start, end) {
+        console.log(arr, start, end)
         setArgs(`${start} , ${end}`)
         setIsRunning(true)
         if (path === "/quick") {
@@ -59,6 +60,9 @@ function QuickSort() {
                     setSorted(-1)
                     await timeOut(250);
                 }
+                if(start < 7) {
+                    countRef.current = countRef.current + 1
+                }
                 // await timeOut(250);
                 // if (tubeRef.current[end + 1]) {
                 //     tubeRef.current[end + 1].classList.add("sorted");
@@ -68,13 +72,15 @@ function QuickSort() {
                 //     setSorted(-1)
                 // }
                 setArray([...arr]);
-                await timeOut(speed);
+                await timeOut(100);
                 if (countRef.current === 8) setIsRunning(false)
                 return;
             }
             let index = await partition(arr, start, end);
             setPivotIndex(index)
             tubeRef.current[index].classList.add("index");
+            tubeRef.current[index].classList.add("sorted");
+            
             await timeOut(500);
             await quickSort(arr, start, index - 1);
             await quickSort(arr, index + 1, end);
