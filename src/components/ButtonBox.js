@@ -14,6 +14,7 @@ const ButtonBox = ({ sortMethod, refresh, setRefresh, speed, setSpeed, isRunning
         isRunning={isRunning}
       />
     </div>
+    <button>MUTE</button>
     <div className="slider-container">
       
       <div className="slider-label" >

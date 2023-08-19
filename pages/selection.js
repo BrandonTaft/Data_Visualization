@@ -9,6 +9,7 @@ import Explanation from "../src/components/Explanations";
 function Selection() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
+    const [mute, setMute] = useState(false);
     const [arrI, setArrI] = useState(-1);
     const [arrJ, setArrJ] = useState(-1);
     const [stay, setStay] = useState(-1);
@@ -16,7 +17,7 @@ function Selection() {
     const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
-    const [speed, setSpeed] = useState(2000);
+    const [speed, setSpeed] = useState(3000);
     const [sorted, setSorted] = useState([]);
     const [unSorted, setUnSorted] = useState([]);
     const { array, setArray, refresh, setRefresh } = useArray(6);
@@ -36,11 +37,11 @@ function Selection() {
                 const arr = array;
                 const n = arr.length;
                 document.querySelectorAll(".cap").forEach(el => { el.classList.toggle("unSorted-text") });
-                await timeOut(speed / 2);
+                await timeOut(1000);
                 for (let i = 0; i < n - 1; i++) {
                     setArrI(i)
                     tubeRef.current[i].classList.toggle("min-tube");
-                    await timeOut(speed);
+                    await timeOut(2000);
                     let min = i;
                     for (let j = i + 1; j < n; j++) {
                         setArrJ(j)
@@ -60,7 +61,7 @@ function Selection() {
                             min = j;
                         }
                         setArrJ(-1)
-                        await timeOut(speed / 2);
+                        await timeOut(1000);
                     } if (min === i) {
                         setMinBubble(true)
                         await timeOut(speed);
@@ -73,14 +74,14 @@ function Selection() {
                         arr[i] = arr[min];
                         arr[min] = tmp;
                         setArray([...arr]);
-                        await timeOut(5);
+                        await timeOut(2000);
                     }
                     tubeRef.current[i].classList.toggle("min-tube");
                     tubeRef.current[i].classList.toggle("sorted");
                     setSorted(arr.slice(0, i + 1))
                     setUnSorted(arr.slice(i + 1))
                     setArray(arr);
-                    await timeOut(1000);
+                    await timeOut(2000);
                 }
                 setArrI(5)
                 setLastIndex(true)
@@ -140,7 +141,7 @@ function Selection() {
                     </div>
                 </div>
                 <div className="row">
-                    {(stay > 0 || swap > 0 || move || minBubble || lastIndex) &&
+                    {(mute && (stay > 0 || swap > 0 || move || minBubble || lastIndex)) &&
                         < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                             <div>
@@ -191,7 +192,7 @@ function Selection() {
                                     <div className="arrj">arr[j]</div >
                                 }
                                 <i className="cap"></i>
-                                <i className="fill" key={index}></i>
+                                <i className="animated fill" key={index}></i>
                                 <div className="base">
                                     <div className="text">{tube}</div>
                                 </div>

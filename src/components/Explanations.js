@@ -46,18 +46,17 @@ function Explanation({ type }) {
             return (
                 <>
                     <ul className="explanation-list">
-                    <li> On each pass of the main for loop, <span className="bg-blue">arr[i]</span> is the last index of the <span className="bg-orange">sorted array.</span></li>
-                        {/* <li> The second for loop looks for the smallest value left and puts it in the <span className="bg-blue">arr[i]</span> index.</li>
-                        <li> On each pass through the array, the index with the lowest value will be set to the variable <span className="bg-green">min.</span></li> */}
-                        <li> By default, the element that is already in <span className="bg-blue">arr[i]</span> will start as <span className="bg-green">min.</span></li>
-                        <li> The second loop compares each element to <span className="bg-green">min</span> and if its value is lower it will be set to <span className="bg-green">min.</span></li>
-                        <li> When each pass is finished <span className="bg-green">min</span> will swap places with <span className="bg-blue">arr[i].</span></li>
+                    <li> On each pass of the outer for loop, <span className="bg-blue">arr[i]</span> is the last index of the <span className="bg-orange">sorted array.</span></li>
+                      
+                        <li> By default, the element that is already in <span className="bg-blue">arr[i]</span> will start as <span className="bg-green">min</span> and all elements to the right of <span className="bg-blue">arr[i]</span> make up the <span className="bg-purple">unsorted array.</span></li>
+                        <li> The nested for loop compares each element in the <span className="bg-purple">unsorted array</span> to the value of <span className="bg-green">min</span> and if its value is lower it will be set to <span className="bg-green">min.</span></li>
+                        <li> When each pass of the nested for loop is finished, <span className="bg-green">min</span> will swap places with <span className="bg-blue">arr[i].</span></li>
                         
                      
                         
                         <li> If <span className="bg-blue">arr[i]</span> already had the lowest value it will stay where it is.</li>
                         
-                        <li> The <span className="bg-orange">sorted array</span> is returned after the next to last index because the last index will already be sorted.</li>
+                        <li> The outer loop returns the <span className="bg-orange">sorted array</span> after the next to last index because the last index will already be sorted.</li>
                     </ul>
                 </>
             )
@@ -69,13 +68,14 @@ function Explanation({ type }) {
                         <li>If the array has fewer than 2 elements it is returned immediately.</li>
                         <li>Next it calls the partition function which moves all values less than the pivot value to its left
                         and all values greater than the pivot value move to its right.</li>
-                        <li>Inside the Partition function, the first index will start as the <span className="bg-orange">PivotIndex</span> and the last index will always be the <span className="bg-blue">PivotValue.</span></li>
-                        <li>The for loop checks if each element is less than the <span className="bg-blue">PivotValue</span>.</li>
-                        <li>If the element is less than the <span className="bg-blue">PivotValue</span> it swaps places with the element in the <span className="bg-orange">pivotIndex</span>, then the <span className="bg-orange">pivotIndex</span> moves up one index to the right
+                        <li>Inside the Partition function, the <span className="bg-orange">pivotIndex</span> will start as the first index and move right one spot for every element that is less than the <span className="bg-blue">pivotValue.</span></li>
+                        <li> The value in the last index will always be the <span className="bg-blue">pivotValue.</span></li>
+                        <li>The for loop checks if each element is less than the <span className="bg-blue">pivotValue.</span></li>
+                        <li>If the element is less than the <span className="bg-blue">pivotValue</span> it swaps places with the element in the <span className="bg-orange">pivotIndex</span>, then the <span className="bg-orange">pivotIndex</span> moves up one index to the right
                         to keep the lesser values to its left.</li>
-                        <li>If the element is greater than the <span className="bg-blue">PivotValue</span>, nothing changes.</li>
-                        <li>When the loop reaches the <span className="bg-blue">PivotValue</span>, it's value is swapped with the value of the <span className="bg-orange">pivotIndex</span>.</li>
-                        <li>Now the <span className="bg-blue">PivotValue</span> is in the <span className="bg-orange">pivotIndex</span> and all values less than the <span className="bg-blue">PivotValue</span> are on its left and all larger values are on its right.</li>
+                        <li>If the element is greater than the <span className="bg-blue">pivotValue,</span> nothing changes.</li>
+                        <li>When the loop reaches the <span className="bg-blue">pivotValue,</span> it's value is swapped with the value of the <span className="bg-orange">pivotIndex</span>.</li>
+                        <li>Now the <span className="bg-blue">pivotValue</span> is in the <span className="bg-orange">pivotIndex</span> and all values less than the <span className="bg-blue">pivotValue</span> are on its left and all larger values are on its right.</li>
                         <li>The Partition function returns the <span className="bg-orange">pivotIndex</span> and quicksort calls itself two times.</li>
                         <li>Once with the elements on the left side of the <span className="bg-orange">pivotIndex</span> and once with the elements on the right side.</li>
                         <li>This process repeats until the subarrays are broken down to one element.</li>
