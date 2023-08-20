@@ -9,7 +9,7 @@ class MyDocument extends Document {
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
                     <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
-                    <link  href="https://use.typekit.net/emu7cwz.css" rel="stylesheet" crossOrigin="anonymous"></link>
+                    <link  href="https://use.typekit.net/emu7cwz.css" rel="stylesheet preload" as="style" crossOrigin="anonymous"></link>
                 </Head>
                 <body>
                     <Main />
