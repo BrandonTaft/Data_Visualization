@@ -40,18 +40,18 @@ break;
 break;
     
     case "selection": 
-        display = `function selection(arr) {              
+        display = `function selectionSort(arr) {              
     for (let i = 0; i < arr.length - 1; i++) {
-        let min = i;
+        let minIndex = i;
         for (let j = i+1; j < arr.length; j++) {
-            if (arr[j] < arr[min]) {
-                min=j; 
+            if (arr[j] < arr[minIndex]) {
+                minIndex=j; 
             }
         }
-        if (min != i) {
+        if (minIndex != i) {
             let tmp = arr[i]; 
-            arr[i] = arr[min];
-            arr[min] = tmp;      
+            arr[i] = arr[minIndex];
+            arr[minIndex] = tmp;      
         }
     }
     return arr;

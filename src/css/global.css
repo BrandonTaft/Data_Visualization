@@ -1055,6 +1055,10 @@
    font-size: 18px;
  }
 
+ .var-container h4 {
+  margin-bottom: 0px;
+ }
+
  .array-container {
    height: 50%;
    display: flex;
@@ -1144,6 +1148,11 @@
    transition: background-color 500ms;
  }
 
+ .mute-button {
+  margin: .5em 0;
+  border-radius: 8px;
+ }
+
  .refresh-button {
    padding: 5px 10px;
  }
@@ -1167,7 +1176,7 @@
 
  .slider-container {
    display: flex;
-   padding-top: 1em;
+   /* padding-top: 1em; */
    width: 100%;
  }
 
@@ -1258,7 +1267,7 @@
  }
 
  .tube {
-   --width: calc(10vw + 0.6rem);
+   --width: calc(10vw + 0.7rem);
    --skew: calc(0.5vw + 0.05rem);
    --tube-color: #ffe2e2;
    --fill-color: black;
@@ -1287,7 +1296,7 @@
    left: 3px;
  }
 
- .cap-text {
+ /* .cap-text {
    width: 100%;
    color: var(--fill-color);
    background-color: rgb(0 0 0 / 0.1);
@@ -1303,7 +1312,7 @@
        black calc(50% + 1px));
    -webkit-mask-image: var(--mask-image);
    mask-image: var(--mask-image);
- }
+ } */
 
  .cap {
    --cap-height: calc(var(--width) * 0.4);
@@ -1474,7 +1483,7 @@
  }
 
  .next-element {
-   --fill-color: orangered;
+  --fill-color: rgb(131, 3, 151);
  }
 
  .swap-right {
@@ -1743,7 +1752,7 @@
  }
 
  .min-tube>.cap::before {
-   content: "min";
+   content: "minIndex";
    position: relative;
    top: 4px;
  }
@@ -1751,12 +1760,6 @@
  .compare-tube {
    --fill-color: rgb(131, 3, 151);
  }
-
- /* .compare-tube>.cap::before {
-   content: "arr[j]";
-   position: relative;
-   top: 4px;
- } */
 
  .arri {
    display: flex;

@@ -11,6 +11,7 @@ function QuickSort() {
     const countRef = useRef(0);
     const [speed, setSpeed] = useState(3000);
     const [isRunning, setIsRunning] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
     const [arrI, setArrI] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
@@ -145,8 +146,8 @@ function QuickSort() {
         <div className="page-container">
             <div className="top-container">
                 <p className="explanation-heading">Quick sort utilizes a divide and conquer method. It divides a list at a pivot point, breaking it into smaller parts to
-                    perform sorting operations on them. This is where the recursion comes in, quicksort is a function that calls itself to sort the smaller lists after they are split at the pivot point.
-                    Also, keep in mind there are multiple ways to write this algorithm.
+                    perform sorting operations on them. This is where the recursion comes in, quicksort calls itself to sort the smaller lists after they are split at the pivot point.
+                    This will repeat until the sub-arrays are broken down to one element.  Also, keep in mind there are multiple ways to write this algorithm.
                 </p>
                 <Method method={"quick"} />
                 <Explanation type={"quick"} />
@@ -155,6 +156,8 @@ function QuickSort() {
                 <div className="quick side-display insertion">
                     <ButtonBox
                         isRunning={isRunning}
+                        isMuted={isMuted}
+                        setIsMuted={setIsMuted}
                         sortMethod={runSort}
                         refresh={refresh}
                         setRefresh={setRefresh}
@@ -183,7 +186,7 @@ function QuickSort() {
                     </div>
                 </div>
                 <div className="quick-row row">
-                    {(stay >= 0 || sorted >= 0) &&
+                    {(!isMuted && (stay >= 0 || sorted >= 0)) &&
                         <div className="quick-swap quick thought-bubble bubble-bottom-left">
                             {stay >= 0 &&
                                 <>
@@ -201,7 +204,7 @@ function QuickSort() {
                             }
                         </div>
                     }
-                    {(swap >= 0 || swapPivot) &&
+                    {(!isMuted && (swap >= 0 || swapPivot)) &&
                         <div className="quick-swap quick thought-bubble bubble-bottom-left">
                             {swap >= 0 &&
                                 <>

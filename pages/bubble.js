@@ -9,6 +9,7 @@ import { timeOut } from "../src/components/Utils";
 function Bubble() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
     const [speed, setSpeed] = useState(2000);
@@ -87,6 +88,8 @@ function Bubble() {
                 <div className="side-display">
                     <ButtonBox
                         isRunning={isRunning}
+                        isMuted={isMuted}
+                        setIsMuted={setIsMuted}
                         sortMethod={bubbleSort}
                         refresh={refresh}
                         setRefresh={setRefresh}
@@ -109,7 +112,7 @@ function Bubble() {
                     </div>
                 </div>
                 <div className="row">
-                    {(swap >= 0 || stay >= 0) &&
+                    {!isMuted && ((swap >= 0 || stay >= 0)) &&
                     <div className="thought-bubble bubble-bottom-left">
                     {swap >= 0 &&
                         <>

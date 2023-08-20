@@ -9,11 +9,12 @@ import Explanation from "../src/components/Explanations";
 function Selection() {
     const tubeRef = useRef([]);
     const [isRunning, setIsRunning] = useState(false);
-    const [mute, setMute] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
     const [arrI, setArrI] = useState(-1);
     const [arrJ, setArrJ] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
+    const [minIndex, setMinIndex] = useState(0);
     const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
@@ -40,23 +41,30 @@ function Selection() {
                 await timeOut(1000);
                 for (let i = 0; i < n - 1; i++) {
                     setArrI(i)
+                    if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("min-tube");
+                    }
                     await timeOut(2000);
                     let min = i;
                     for (let j = i + 1; j < n; j++) {
                         setArrJ(j)
+                        if (tubeRef.current[j]) {
                         tubeRef.current[j].classList.toggle("compare-tube");
+                        }
                         if (arr[j] > arr[min]) {
                             setStay(j)
                             await timeOut(speed);
+                            if (tubeRef.current[j]) {
                             tubeRef.current[j].classList.toggle("compare-tube");
+                            }
                             setStay(-1)
                         } else if (arr[j] < arr[min]) {
                             setSwap(j)
+                            setMinIndex(j)
                             await timeOut(speed);
-                            tubeRef.current[j].classList.toggle("compare-tube");
-                            tubeRef.current[min].classList.toggle("min-tube");
-                            tubeRef.current[j].classList.toggle("min-tube");
+                            if (tubeRef.current[j]) tubeRef.current[j].classList.toggle("compare-tube");
+                            if (tubeRef.current[min]) tubeRef.current[min].classList.toggle("min-tube");
+                            if (tubeRef.current[j]) tubeRef.current[j].classList.toggle("min-tube");
                             setSwap(-1)
                             min = j;
                         }
@@ -76,8 +84,8 @@ function Selection() {
                         setArray([...arr]);
                         await timeOut(2000);
                     }
-                    tubeRef.current[i].classList.toggle("min-tube");
-                    tubeRef.current[i].classList.toggle("sorted");
+                    if (tubeRef.current[i]) tubeRef.current[i].classList.toggle("min-tube");
+                    if (tubeRef.current[i]) tubeRef.current[i].classList.toggle("sorted");
                     setSorted(arr.slice(0, i + 1))
                     setUnSorted(arr.slice(i + 1))
                     setArray(arr);
@@ -85,7 +93,7 @@ function Selection() {
                 }
                 setArrI(5)
                 setLastIndex(true)
-                tubeRef.current[5].classList.toggle("sorted");
+                if (tubeRef.current[5]) tubeRef.current[5].classList.toggle("sorted");
                 await timeOut(speed);
                 setArrI(-1)
                 setLastIndex(false)
@@ -104,7 +112,7 @@ function Selection() {
         <div className="page-container">
             <div className="selection top-container">
                 <p className="explanation-heading">Selection sort is like insertion sort in the way that you can think of it as dividing the array into two parts, sorted and unsorted. The sorted part will be on the left side and it will start off empty.
-                    On each pass throught the array you take the smallest element and add it to end of the sorted side. Then repeat until you have gone through the whole array.
+                    Each pass through the array will take the smallest element that is left and add it to end of the sorted side.
                 </p>
                 <Method method={"selection"} />
                 <Explanation type={"selection"} />
@@ -113,6 +121,8 @@ function Selection() {
                 <div className="side-display insertion">
                     <ButtonBox
                         isRunning={isRunning}
+                        isMuted={isMuted}
+                        setIsMuted={setIsMuted}
                         sortMethod={selectionSort}
                         refresh={refresh}
                         setRefresh={setRefresh}
@@ -124,6 +134,12 @@ function Selection() {
                             <h3>Array</h3>
                             <span className="array-span">
                                 [{array.toString()}]
+                            </span>
+                        </div>
+                        <div className="insertion array-container">
+                            <h3>minIndex</h3>
+                            <span className="array-span">
+                                {minIndex}
                             </span>
                         </div>
                         <div className="insertion array-container">
@@ -141,23 +157,23 @@ function Selection() {
                     </div>
                 </div>
                 <div className="row">
-                    {(mute && (stay > 0 || swap > 0 || move || minBubble || lastIndex)) &&
+                    {(!isMuted && (stay > 0 || swap > 0 || move || minBubble || lastIndex)) &&
                         < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                             <div>
-                                <p>{array[stay]} &gt; <span className="green">min</span></p>
-                                <p><span className="green">min</span> stays</p>
+                                <p>{array[stay]} &gt; <span className="green">arr[minIndex]</span></p>
+                                <p><span className="green">minIndex</span> stays</p>
                             </div>
                             }
                             {swap > 0 &&
                                 <div>
-                                    <p>{array[swap]} &lt; <span className="green">min</span></p>
-                                    <p><span className="green">min</span> is now {array[swap]}</p>
+                                    <p>{array[swap]} &lt; <span className="green">arr[minIndex]</span></p>
+                                    <p><span className="green">minIndex</span> is now <span className="blue">{swap}</span></p>
                                 </div>
                             }
                             {move &&
                                 <div>
-                                    <p><span className="green">min</span> swaps places</p>
+                                    <p><span className="green">arr[minIndex]</span> swaps places</p>
                                     <p>with <span className="blue">arr[i]</span></p>
                                 </div>
                             }

@@ -26,4 +26,15 @@ function RefreshButton({ refresh, setRefresh, isRunning }) {
   )
 }
 
-export { RefreshButton, SortButton }
+const MuteButton = ({ isMuted, setIsMuted }) => (
+  <button
+    onClick={() => setIsMuted(!isMuted)}
+    className="button mute-button"
+    aria-label="Mute Button"
+  >
+   { isMuted ? "MUTED" : "MUTE" }
+  </button>
+)
+
+
+export { RefreshButton, SortButton, MuteButton }
