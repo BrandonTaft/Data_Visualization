@@ -230,11 +230,11 @@
  }
 
  .orange {
-   color: orange;
+   color: #f06c07;
  }
 
  .bg-orange {
-   color: orange;
+   color: #f06c07;
    font-weight: 700;
  }
 
@@ -1029,6 +1029,11 @@
    font-size: 18px;
  }
 
+ .cont-label {
+  font-size: 21px;
+  margin-top: 5px;
+ }
+
  .var-container h4 {
    margin-bottom: 0px;
  }
@@ -1115,7 +1120,7 @@
    background: #f06c07;
    border: none;
    border-radius: 10px;
-   color: white;
+   color: #000;
    cursor: pointer;
    text-decoration: none;
    font-weight: 600;
@@ -1211,7 +1216,7 @@
    width: 30px;
    background-color: #f06c07;
    border: 2px solid white;
-   color: #fff;
+   color: #000;
    border-radius: 50%;
    cursor: grab;
    text-align: center;

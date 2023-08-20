@@ -97,13 +97,13 @@ function Bubble() {
                     />
                     <div className="var-container">
                         <div className="array-container">
-                            <h3>Array</h3>
+                            <div className="cont-label">Array</div>
                             <span className="array-span">
                                 [{array.toString()}]
                             </span>
                         </div>
                         <div className="checked-container">
-                            <h3>Swapped</h3>
+                        <div className="cont-label">Swapped</div>
                             <span className="array-span">
                                 {swapped}
                             </span>

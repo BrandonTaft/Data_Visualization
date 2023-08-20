@@ -165,19 +165,19 @@ function QuickSort() {
                     />
                     <div className="insertion var-container">
                         <div className="array-container insertion">
-                            <h3>Array</h3>
+                            <div className="cont-label">Array</div>
                             <span className="quick array-span">
                                 [{array.toString()}]
                             </span>
                         </div>
                         <div className="array-container insertion">
-                            <h3>( Start , End )</h3>
+                            <div className="cont-label">( Start , End )</div>
                             <span className="quick array-span">
                                 ({args})
                             </span>
                         </div>
                         <div className="array-container insertion">
-                            <h3>Pivot Index</h3>
+                            <div className="cont-label">Pivot Index</div>
                             <span className="quick array-span">
                                 arr[{pivotIndex}]
                             </span>

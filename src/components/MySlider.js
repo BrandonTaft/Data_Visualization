@@ -17,6 +17,8 @@ export default function MySlider({ speed, setSpeed }) {
             trackClassName="track"
             markClassName="mark"
             onChange={handleChange}
+            ariaLabel="slider-thumb"
+            ariaValuetext={state => `Thumb value ${Math.round(state.valueNow / 10) + "s"}`}
             renderThumb={(props, state) => <div {...props}>{Math.round(state.valueNow / 10) + "s"}</div>}
         />
     )

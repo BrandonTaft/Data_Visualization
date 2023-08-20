@@ -119,19 +119,19 @@ function Insertion() {
                     />
                     <div className="insertion var-container">
                         <div className="insertion array-container">
-                            <h3>Array</h3>
+                           <div className="cont-label">Array</div>
                             <span className="array-span">
                                 [{array.toString()}]
                             </span>
                         </div>
                         <div className="insertion array-container">
-                            <h3>Unsorted</h3>
+                           <div className="cont-label">Unsorted</div>
                             <span className="array-span">
                                 [{unSorted.toString()}]
                             </span>
                         </div>
                         <div className="insertion array-container">
-                            <h3>Sorted</h3>
+                           <div className="cont-label">Sorted</div>
                             <span className="array-span">
                                 [{sorted.toString()}]
                             </span>
