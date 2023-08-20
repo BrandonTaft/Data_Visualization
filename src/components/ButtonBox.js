@@ -20,17 +20,17 @@ const ButtonBox = ({ sortMethod, refresh, setRefresh, speed, setSpeed, isRunning
       isRunning={isRunning}
     />
     <div className="slider-container">
-      
+
       <div className="slider-label" >
         SPEED
       </div>
-        <MySlider
-          speed={speed}
-          setSpeed={setSpeed}
-          isRunning={isRunning}
-        />
-        </div>
-   
+      <MySlider
+        speed={speed}
+        setSpeed={setSpeed}
+        isRunning={isRunning}
+      />
+    </div>
+
   </div>
 )
 

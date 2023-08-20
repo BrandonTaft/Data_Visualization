@@ -56,7 +56,6 @@ function QuickSort() {
                     tubeRef.current[start].classList.add("sorted");
                     setSorted(start)
                     countRef.current = countRef.current + 1
-
                     if (start < 7) {
                         if (tubeRef.current[end + 1]) {
                             tubeRef.current[end + 1].classList.add("sorted");
@@ -194,7 +193,6 @@ function QuickSort() {
                                     <p>Nothing changes</p>
                                 </>
                             }
-
                             {sorted >= 0 &&
                                 <>
                                     <p className="blue">quickSort(arr, {args})</p>
@@ -233,15 +231,12 @@ function QuickSort() {
                                 {arrI === index &&
                                     <div className="arri">arr[i]</div >
                                 }
-
                                 <div className="index-element">INDEX</div >
-
                                 <i className="cap"></i>
                                 <i className="fill" key={index}></i>
                                 <div className="base">
                                     <div className="quick text">{tube}</div>
                                 </div>
-
                             </div >
                         )
                     })

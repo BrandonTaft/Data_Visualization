@@ -10,10 +10,10 @@ function Home() {
         <LightSwitch />
       </div>
       <div className="home-content">
-        <Card type={"bubble"}/>
-        <Card type={"insertion"}/>
-        <Card type={"selection"}/>
-        <Card type={"quick"}/>
+        <Card type={"bubble"} />
+        <Card type={"insertion"} />
+        <Card type={"selection"} />
+        <Card type={"quick"} />
       </div>
     </>
   )

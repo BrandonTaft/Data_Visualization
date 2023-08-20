@@ -7,27 +7,26 @@ import linked from "../../public/icons/linked.png";
 
 function Footer({ path }) {
     return (
-            <div className="footer" >
+        <div className="footer" >
             <div className="footer-links">
-                    <Link href="/">
-                        <span className={path === "/" ? "active-link" : "link"}>Home</span>
-                    </Link>
-                    <Link href="/bubble">
-                        <span className={path === "/bubble" ? "active-link" : "link"}>Bubble</span>
-                    </Link>
-                    <Link href="quick">
-                        <span className={path === "/quick" ? "active-link" : "link"}>Quick</span>
-                    </Link>
-                    <Link href="/insertion">
-                        <span className={path === "/insertion" ? "active-link" : "link"}>Insertion</span>
-                    </Link>
-                    <Link href="/selection">
-                        <span className={path === "/selection" ? "active-link" : "link"}>Selection</span>
-                    </Link>
-                </div>
-                <div className='divider'></div>
-                <div className='btm-footer'>
-                
+                <Link href="/">
+                    <span className={path === "/" ? "active-link" : "link"}>Home</span>
+                </Link>
+                <Link href="/bubble">
+                    <span className={path === "/bubble" ? "active-link" : "link"}>Bubble</span>
+                </Link>
+                <Link href="quick">
+                    <span className={path === "/quick" ? "active-link" : "link"}>Quick</span>
+                </Link>
+                <Link href="/insertion">
+                    <span className={path === "/insertion" ? "active-link" : "link"}>Insertion</span>
+                </Link>
+                <Link href="/selection">
+                    <span className={path === "/selection" ? "active-link" : "link"}>Selection</span>
+                </Link>
+            </div>
+            <div className='divider'></div>
+            <div className='btm-footer'>
                 <div className='my-description'>
                     <div className='socials'>
                         <a href="https://github.com/BrandonTaft" target="_blank" rel="noreferrer" className='social-image'>
@@ -50,8 +49,8 @@ function Footer({ path }) {
                         <span className='sitemap' > Sitemap </span>
                     </a>
                 </div>
-                </div>
             </div>
+        </div>
     )
 }
 

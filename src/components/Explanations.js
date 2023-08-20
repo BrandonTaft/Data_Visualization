@@ -2,7 +2,6 @@ import React, { memo } from "react";
 
 /* eslint-disable react/no-unescaped-entities */
 function Explanation({ type }) {
-
     switch (type) {
         case "bubble":
             return (
@@ -84,7 +83,6 @@ function Explanation({ type }) {
 
         default: break;
     }
-
 }
 
 export default memo(Explanation)

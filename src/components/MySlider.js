@@ -5,19 +5,19 @@ export default function MySlider({ speed, setSpeed }) {
         setSpeed(newValue * 100);
     };
     return (
-            <ReactSlider
-                min={10}
-                max={100}
-                marks={[20, 40, 60, 80, 100]}
-                value={speed / 100}
-                orientation='vertical'
-                invert
-                className="horizontal-slider"
-                thumbClassName="thumb"
-                trackClassName="track"
-                markClassName="mark"
-                onChange={handleChange}
-                renderThumb={(props, state) => <div {...props}>{Math.round(state.valueNow / 10) + "s"}</div>}
-            />
+        <ReactSlider
+            min={10}
+            max={100}
+            marks={[20, 40, 60, 80, 100]}
+            value={speed / 100}
+            orientation='vertical'
+            invert
+            className="horizontal-slider"
+            thumbClassName="thumb"
+            trackClassName="track"
+            markClassName="mark"
+            onChange={handleChange}
+            renderThumb={(props, state) => <div {...props}>{Math.round(state.valueNow / 10) + "s"}</div>}
+        />
     )
 }

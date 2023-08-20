@@ -8,14 +8,14 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
 
     useEffect(() => {
         const arr = [];
-            for (let i = 0; i < 6;) {
-                let num = Math.floor(Math.random() * 6 + 1)
-                while (arr.includes(num) === false) {
-                    arr.push(num)
-                    i++
-                }
+        for (let i = 0; i < 6;) {
+            let num = Math.floor(Math.random() * 6 + 1)
+            while (arr.includes(num) === false) {
+                arr.push(num)
+                i++
             }
-    },[])
+        }
+    }, [])
 
     useEffect(() => {
         async function bubbleSortFn() {
@@ -82,7 +82,7 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
             await timeOut(500);
         }
 
-       function partition(array, start, end) {
+        function partition(array, start, end) {
             let pivotIndex = start;
             let pivotValue = array[end];
             for (let i = start; i < end; i++) {
@@ -124,7 +124,6 @@ function Bars({ bubbleSort, insertionSort, selectionSort, quickSort }) {
             </div>
         )
     })
-
 
     return (
         <div className="equalizer">

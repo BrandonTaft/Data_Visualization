@@ -11,7 +11,7 @@ function Bubble() {
     const [isRunning, setIsRunning] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [stay, setStay] = useState(-1);
-    const [swap, setSwap] = useState(-1);
+    const [swap, setSwap] = useState(1);
     const [speed, setSpeed] = useState(2000);
     const [swapped, setSwapped] = useState("True");
     const { array, setArray, refresh, setRefresh } = useArray(6);
@@ -19,12 +19,12 @@ function Bubble() {
     let path = router.pathname;
 
     useEffect(() => {
-            tubeRef.current.forEach(el=>el.classList.remove('finished'));
+        tubeRef.current.forEach(el => el.classList.remove('finished'));
     }, [refresh])
 
     async function bubbleSort() {
         setIsRunning(true)
-        tubeRef.current.forEach(el=>el.classList.remove('finished'));
+        tubeRef.current.forEach(el => el.classList.remove('finished'));
         let swapped;
         do {
             swapped = false
@@ -36,14 +36,14 @@ function Bubble() {
                 }
                 if (tubeRef.current[i + 1]) {
                     tubeRef.current[i + 1].classList.toggle("next-element");
-                } 
+                }
                 if (array[i] > array[i + 1]) {
                     setSwap(i)
                     await timeOut(speed)
                     setSwap(-1)
                     if (tubeRef.current[i]) {
-                    tubeRef.current[i].classList.toggle("swap-right");
-                    tubeRef.current[i + 1].classList.toggle("swap-left");
+                        tubeRef.current[i].classList.toggle("swap-right");
+                        tubeRef.current[i + 1].classList.toggle("swap-left");
                     }
                     await timeOut(1000)
                     let tmp = array[i];
@@ -52,8 +52,8 @@ function Bubble() {
                     swapped = true
                     setSwapped("True")
                     if (tubeRef.current[i]) {
-                    tubeRef.current[i].classList.toggle("swap-right");
-                    tubeRef.current[i + 1].classList.toggle("swap-left");
+                        tubeRef.current[i].classList.toggle("swap-right");
+                        tubeRef.current[i + 1].classList.toggle("swap-left");
                     }
                 } else {
                     if (tubeRef.current[i + 1]) {
@@ -62,18 +62,17 @@ function Bubble() {
                         setStay(-1)
                     }
                 }
-                setArray([...array]); 
+                setArray([...array]);
                 if (tubeRef.current[i]) {
                     tubeRef.current[i].classList.toggle("current-element");
                 }
                 if (tubeRef.current[i + 1]) {
                     tubeRef.current[i + 1].classList.toggle("next-element");
                 }
-                  
             }
         } while (swapped && path == "/bubble")
         if (tubeRef.current[1]) {
-        tubeRef.current.forEach(el=>el.classList.add('finished'));
+            tubeRef.current.forEach(el => el.classList.add('finished'));
         }
         setIsRunning(false)
     }
@@ -113,22 +112,21 @@ function Bubble() {
                 </div>
                 <div className="row">
                     {!isMuted && ((swap >= 0 || stay >= 0)) &&
-                    <div className="thought-bubble bubble-bottom-left">
-                    {swap >= 0 &&
-                        <>
-                            <p>{array[swap]} &gt; {array[swap + 1]}</p>
-                            <p>Swap</p>
-
-                        </>
+                        <div className="thought-bubble bubble-bottom-left">
+                            {swap >= 0 &&
+                                <>
+                                    <p>{array[swap]} &gt; {array[swap + 1]}</p>
+                                    <p>Swap</p>
+                                </>
+                            }
+                            {stay >= 0 &&
+                                <>
+                                    <p>{array[stay]} &lt; {array[stay + 1]}</p>
+                                    <p>No Swap</p>
+                                </>
+                            }
+                        </div>
                     }
-                    {stay >= 0 &&
-                        <>
-                            <p>{array[stay]} &lt; {array[stay + 1]}</p>
-                            <p>No Swap</p>
-                        </>
-                    }
-                    </div>
-                }
                     {array.map((tube, index) => {
                         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
                         return (

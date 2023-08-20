@@ -1,6 +1,5 @@
 
 export default function CardContent({ type }) {
-
     switch (type) {
         case "bubble":
             return (

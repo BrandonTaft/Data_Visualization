@@ -1,31 +1,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" 
 xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/0.8" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" >
     <url>
-        <loc>https://sage-nougat-85746e.netlify.app/bubble</loc>
+        <loc>https://datasort.vercel.app/bubble</loc>
         <lastmod>2022-07-25T20:31:52.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://sage-nougat-85746e.netlify.app/index</loc>
+        <loc>https://datasort.vercel.app/index</loc>
         <lastmod>2022-07-25T20:31:52.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://sage-nougat-85746e.netlify.app/insertion</loc>
+        <loc>https://datasort.vercel.app/insertion</loc>
         <lastmod>2022-07-25T20:31:52.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://sage-nougat-85746e.netlify.app/quick</loc>
+        <loc>https://datasort.vercel.app/quick</loc>
         <lastmod>2022-07-25T20:31:52.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://sage-nougat-85746e.netlify.app/selection</loc>
+        <loc>https://datasort.vercel.app/selection</loc>
         <lastmod>2022-07-25T20:31:52.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

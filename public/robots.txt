@@ -1,4 +1,4 @@
-Sitemap: https://sage-nougat-85746e.netlify.app/sitemap.xml
+Sitemap: https://datasort.vercel.app/sitemap.xml
 
 User-agent: *
 Allow: /

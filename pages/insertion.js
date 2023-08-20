@@ -63,8 +63,8 @@ function Insertion() {
                         arr[j + 1] = tmp;
                         setArrI(j)
                         if (tubeRef.current[j] && tubeRef.current[j + 1]) {
-                        tubeRef.current[j].classList.toggle("swap-right");
-                        tubeRef.current[j + 1].classList.toggle("swap-left");
+                            tubeRef.current[j].classList.toggle("swap-right");
+                            tubeRef.current[j + 1].classList.toggle("swap-left");
                         }
                         j--;
                     }
@@ -74,7 +74,6 @@ function Insertion() {
                         await timeOut(speed);
                         setStay(-1)
                     }
-                    
                     await timeOut(100);
                     arr[j + 1] = current;
                     if (tubeRef.current[j + 1]) {
@@ -165,7 +164,7 @@ function Insertion() {
                                 className="tube"
                                 style={cssProperties}
                             >
-                                 {arrI === index &&
+                                {arrI === index &&
                                     <div className="arri">arr[i]</div >
                                 }
                                 <i className="cap"></i>

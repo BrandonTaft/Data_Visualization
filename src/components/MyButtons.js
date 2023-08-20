@@ -32,9 +32,8 @@ const MuteButton = ({ isMuted, setIsMuted }) => (
     className="button mute-button"
     aria-label="Mute Button"
   >
-   { isMuted ? "MUTED" : "MUTE" }
+    {isMuted ? "MUTED" : "MUTE"}
   </button>
 )
-
 
 export { RefreshButton, SortButton, MuteButton }

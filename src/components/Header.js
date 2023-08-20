@@ -62,11 +62,11 @@ const Header = () => {
               </div>
             </Link>
             <div className='menu-copyright'>
-                    <p className="copyright"> &copy;{new Date().getFullYear()}&nbsp;Brandon Taft</p>
-                    <a className="" href="/sitemap.xml">
-                        <span > Sitemap </span>
-                    </a>
-                </div>
+              <p className="copyright"> &copy;{new Date().getFullYear()}&nbsp;Brandon Taft</p>
+              <a className="" href="/sitemap.xml">
+                <span > Sitemap </span>
+              </a>
+            </div>
           </div>
         }
       </div>

@@ -42,20 +42,20 @@ function Selection() {
                 for (let i = 0; i < n - 1; i++) {
                     setArrI(i)
                     if (tubeRef.current[i]) {
-                    tubeRef.current[i].classList.toggle("min-tube");
+                        tubeRef.current[i].classList.toggle("min-tube");
                     }
                     await timeOut(2000);
                     let min = i;
                     for (let j = i + 1; j < n; j++) {
                         setArrJ(j)
                         if (tubeRef.current[j]) {
-                        tubeRef.current[j].classList.toggle("compare-tube");
+                            tubeRef.current[j].classList.toggle("compare-tube");
                         }
                         if (arr[j] > arr[min]) {
                             setStay(j)
                             await timeOut(speed);
                             if (tubeRef.current[j]) {
-                            tubeRef.current[j].classList.toggle("compare-tube");
+                                tubeRef.current[j].classList.toggle("compare-tube");
                             }
                             setStay(-1)
                         } else if (arr[j] < arr[min]) {
@@ -160,10 +160,10 @@ function Selection() {
                     {(!isMuted && (stay > 0 || swap > 0 || move || minBubble || lastIndex)) &&
                         < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
-                            <div>
-                                <p>{array[stay]} &gt; <span className="green">arr[minIndex]</span></p>
-                                <p><span className="green">minIndex</span> stays</p>
-                            </div>
+                                <div>
+                                    <p>{array[stay]} &gt; <span className="green">arr[minIndex]</span></p>
+                                    <p><span className="green">minIndex</span> stays</p>
+                                </div>
                             }
                             {swap > 0 &&
                                 <div>
@@ -191,7 +191,6 @@ function Selection() {
                             }
                         </div>
                     }
-
                     {array.map((tube, index) => {
                         let cssProperties = { "--percent": `${tube * (100 / array.length)}` }
                         return (

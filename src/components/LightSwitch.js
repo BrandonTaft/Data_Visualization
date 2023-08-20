@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
 const LightSwitch = () => {
-  // eslint-disable-next-line no-unused-vars
   const { theme, setTheme } = useTheme()
   const [checked, setChecked] = useState(false);
   const handleToggle = (event) => {
@@ -15,25 +14,24 @@ const LightSwitch = () => {
     theme == "light" ? setChecked(false) : setChecked(true)
   }, [])
 
-  
-    return (
-      <>
-        <input
-          checked={checked}
-          onChange={handleToggle}
-          className="switch ignore"
-          id={`switch-id`}
-          aria-label='controlled-switch'
-          type="checkbox"
-        />
-        <label
-          className="switch-label ignore"
-          htmlFor='switch-id'
-        >
-          <span className="switch-button ignore" />
-        </label>
-      </>
-    );
-  }
+  return (
+    <>
+      <input
+        checked={checked}
+        onChange={handleToggle}
+        className="switch ignore"
+        id={`switch-id`}
+        aria-label='controlled-switch'
+        type="checkbox"
+      />
+      <label
+        className="switch-label ignore"
+        htmlFor='switch-id'
+      >
+        <span className="switch-button ignore" />
+      </label>
+    </>
+  );
+}
 
-  export default LightSwitch
+export default LightSwitch

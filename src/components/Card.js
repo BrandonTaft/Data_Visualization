@@ -10,8 +10,6 @@ export default function Card({ type }) {
     const [selectionSort, setSelectionSort] = useState(false);
     const [quickSort, setQuickSort] = useState(false);
 
-
-
     switch (type) {
         case "bubble":
             return (
