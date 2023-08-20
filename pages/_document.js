@@ -8,7 +8,7 @@ class MyDocument extends Document {
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
-                    <link  href="https://use.typekit.net/emu7cwz.css" rel="stylesheet"></link>
+                    <link rel="preload" href="https://use.typekit.net/emu7cwz.css" as="font" crossorigin></link>
                 </Head>
                 <body>
                     <Main />
