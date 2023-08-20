@@ -53,7 +53,7 @@
    color: white;
  }
 
- [data-theme="dark"] ul {
+ [data-theme="dark"] .explanation-heading {
    font-weight: 400;
  }
 
@@ -138,7 +138,7 @@
  }
 
  body {
-   font-family: "source-serif-pro", serif;
+   font-family: "Source Serif 4", serif;
    font-weight: 400;
    font-style: normal;
    margin: 0;
@@ -155,10 +155,6 @@
  h4 {
    margin: 0;
    margin-bottom: 10px;
- }
-
- ul {
-   font-weight: 500;
  }
 
  p {
@@ -922,6 +918,7 @@
 
    .explanation-heading {
      width: 90%;
+     font-weight: 500;
    }
 
    .explanation-list {
