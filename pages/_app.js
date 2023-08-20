@@ -21,7 +21,7 @@ export default function MyApp({ Component, pageProps }) {
         bubble sort, selection sort, insertion sort with more to be added." key="ogdesc" />
         <meta property="og:url" content="https://datasort.vercel.app" key="ogurl" />
         <meta property="og:image" content="/images/og-preview.png" key="ogimage" />
-        <link href="/images/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+        <link href="/icons/favicon.ico" type="image/x-icon" rel="shortcut icon" />
       </Head>
       <ThemeProvider
         defaultTheme='light'
