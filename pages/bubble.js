@@ -11,7 +11,7 @@ function Bubble() {
     const [isRunning, setIsRunning] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [stay, setStay] = useState(-1);
-    const [swap, setSwap] = useState(1);
+    const [swap, setSwap] = useState(-1);
     const [speed, setSpeed] = useState(2000);
     const [swapped, setSwapped] = useState("True");
     const { array, setArray, refresh, setRefresh } = useArray(6);

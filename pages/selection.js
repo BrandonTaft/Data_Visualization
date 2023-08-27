@@ -14,7 +14,7 @@ function Selection() {
     const [arrJ, setArrJ] = useState(-1);
     const [stay, setStay] = useState(-1);
     const [swap, setSwap] = useState(-1);
-    const [minIndex, setMinIndex] = useState(0);
+    const [min, setMin] = useState(0);
     const [lastIndex, setLastIndex] = useState(false);
     const [minBubble, setMinBubble] = useState(false);
     const [move, setMove] = useState(false);
@@ -60,7 +60,7 @@ function Selection() {
                             setStay(-1)
                         } else if (arr[j] < arr[min]) {
                             setSwap(j)
-                            setMinIndex(j)
+                            setMin(j)
                             await timeOut(speed);
                             if (tubeRef.current[j]) tubeRef.current[j].classList.toggle("compare-tube");
                             if (tubeRef.current[min]) tubeRef.current[min].classList.toggle("min-tube");
@@ -137,9 +137,9 @@ function Selection() {
                             </span>
                         </div>
                         <div className="insertion array-container">
-                            <div className="cont-label">minIndex</div>
+                            <div className="cont-label">min</div>
                             <span className="array-span">
-                                {minIndex}
+                                {min}
                             </span>
                         </div>
                         <div className="insertion array-container">
@@ -161,19 +161,19 @@ function Selection() {
                         < div className="thought-bubble bubble-bottom-left ">
                             {stay > 0 &&
                                 <div>
-                                    <p>{array[stay]} &gt; <span className="green">arr[minIndex]</span></p>
-                                    <p><span className="green">minIndex</span> stays</p>
+                                    <p>{array[stay]} &gt; <span className="green">arr[min]</span></p>
+                                    <p><span className="green">min</span> stays</p>
                                 </div>
                             }
                             {swap > 0 &&
                                 <div>
-                                    <p>{array[swap]} &lt; <span className="green">arr[minIndex]</span></p>
-                                    <p><span className="green">minIndex</span> is now <span className="blue">{swap}</span></p>
+                                    <p>{array[swap]} &lt; <span className="green">arr[min]</span></p>
+                                    <p><span className="green">min</span> is now <span className="blue">{swap}</span></p>
                                 </div>
                             }
                             {move &&
                                 <div>
-                                    <p><span className="green">arr[minIndex]</span> swaps places</p>
+                                    <p><span className="green">arr[min]</span> swaps places</p>
                                     <p>with <span className="blue">arr[i]</span></p>
                                 </div>
                             }

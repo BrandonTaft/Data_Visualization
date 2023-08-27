@@ -42,16 +42,16 @@ break;
     case "selection": 
         display = `function selectionSort(arr) {              
     for (let i = 0; i < arr.length - 1; i++) {
-        let minIndex = i;
+        let min = i;
         for (let j = i+1; j < arr.length; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex=j; 
+            if (arr[j] < arr[min]) {
+                min=j; 
             }
         }
-        if (minIndex != i) {
+        if (min != i) {
             let tmp = arr[i]; 
-            arr[i] = arr[minIndex];
-            arr[minIndex] = tmp;      
+            arr[i] = arr[min];
+            arr[min] = tmp;      
         }
     }
     return arr;

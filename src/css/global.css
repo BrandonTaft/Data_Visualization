@@ -739,6 +739,7 @@
    line-height: 24px;
    color: blue;
    font-size: 1.15em;
+   font-weight: 600;
  }
 
  .times {
@@ -1712,7 +1713,7 @@
  }
 
  .min-tube>.cap::before {
-   content: "minIndex";
+   content: "min";
    position: relative;
    top: 4px;
  }
