@@ -32,7 +32,7 @@ export default function CardContent({ type }) {
             return (
                 <div className='card-content'>
                     <span className="content-header">SELECTION SORT</span>
-                    <p className="content-description"> Despite Selection Sort&apos;s inefficiency with large data sets, it works well in situations with small lists
+                    <p className="content-description"> Despite selection sort&apos;s inefficiency with large data sets, it works well in situations with small lists
                         and limited memory.
                         It sorts in-place, using no storage beyond what is needed for the original list.
                     </p>
